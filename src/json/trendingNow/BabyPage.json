@@ -1,0 +1,244 @@
+{
+  "data": [
+    {
+      "id": "recomendedBaby1",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/oversizedFitCottonRugbyShirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/oversizedFitCottonRugbyShirt.webp"
+      },
+      "title": "Oversized Fit Cotton rubgy shirt",
+      "price": "899.00",
+      "discount": "360.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby2",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/zippedCardigan.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/zippedCardigan.webp"
+      },
+      "title": "Zipped cardigan",
+      "price": "749.00",
+      "discount": "449.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby3",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/waterRepllentCroppedJacket.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/waterRepllentCroppedJacket.webp"
+      },
+      "title": "Water-repellent cropped jacket",
+      "price": "1499.00",
+      "discount": "899.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby4",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/oversizedFitCottonhoodie.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/oversizedFitCottonhoodie.webp"
+      },
+      "title": "Oversized Fit Cotton hoodie",
+      "price": "1199.00",
+      "discount": "800.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby5",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/relaxedFitPoloShirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/relaxedFitPoloShirt.webp"
+      },
+      "title": "Relaxed Fit Polo shirt",
+      "price": "749.00",
+      "discount": "450.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby6",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/softFauxShearlingSlippers.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor"
+      },
+      "title": "Soft faux shearling slippers",
+      "price": "499.00",
+      "discount": "250.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby7",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/cottonTshirtregularFit.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/cottonTshirtregularFit.webp"
+      },
+      "title": "Cotton T-shirt Regular Fit",
+      "price": "199.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby8",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/lightWeightPufferJacket.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/lightWeightPufferJacket.webp"
+      },
+      "title": "Lightweight puffer jacket",
+      "price": "1699.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby9",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/relaxedFithoodie.jpg",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/relaxedFithoodie.jpg"
+      },
+      "title": "Relaxed Fit Hoodie",
+      "price": "599.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby10",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/relaxedFithoodie2.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/relaxedFithoodie2.webp"
+      },
+      "title": "Relaxed Fit Hoodie",
+      "price": "599.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby11",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/3packRegularFitPoloShirts.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/3packRegularFitPoloShirts.webp"
+      },
+      "title": "3-pack Regular Fit Polo shirts",
+      "price": "1999.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby12",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/zipthriughHoodieRegularFit.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/zipthriughHoodieRegularFit.webp"
+      },
+      "title": "Zip-through hoodie Regular Fit",
+      "price": "599.00",
+      "discount": "419.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby13",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/relaxedFitTshirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/relaxedFitTshirt.webp"
+      },
+      "title": "Relaxed Fit T-shirt",
+      "price": "399.00",
+      "discount": "209.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby14",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/cargoJoggers.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/cargoJoggers.webp"
+      },
+      "title": "Cargo joggers",
+      "price": "1699.00",
+      "discount": "1049.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby15",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/regularFitRipsropCargoTrouser.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/regularFitRipsropCargoTrouser.webp"
+      },
+      "title": "Regular Fit Ripstop cargo trousers",
+      "price": "1099.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby16",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/zipthroughHoodieRegularFit.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/zipthroughHoodieRegularFit.webp"
+      },
+      "title": "Zip-through hoodie Regular Fit",
+      "price": "599.00",
+      "discount": "419.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby17",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/RelaxedFitSweatshirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/RelaxedFitSweatshirt.webp"
+      },
+      "title": "Relaxed Fit Sweatshirt",
+      "price": "449.00",
+      "discount": "309.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby18",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/relaxedFitHoodie3.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/relaxedFitHoodie3.webp"
+      },
+      "title": "Relaxed Fit Hoodie",
+      "price": "749.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby19",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/oversizedFitCottonTshirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/oversizedFitCottonTshirt.webp"
+      },
+      "title": "Oversized Fit Cotton T-shirt",
+      "price": "649.00",
+      "discount": "449.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedBaby20",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/baby/ribbedCutOutDreess.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/baby/ImageCompressor/ribbedCutOutDreess.webp"
+      },
+      "title": "",
+      "price": "699.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    }
+  ]
+}

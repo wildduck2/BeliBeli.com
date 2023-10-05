@@ -1,0 +1,244 @@
+{
+  "data": [
+    {
+      "id": "recomendedMen1",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/oversizedFitCottonRugbyShirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/oversizedFitCottonRugbyShirt.webp"
+      },
+      "title": "Oversized Fit Cotton rubgy shirt",
+      "price": "899.00",
+      "discount": "360.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen2",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/zippedCardigan.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/zippedCardigan.webp"
+      },
+      "title": "Zipped cardigan",
+      "price": "749.00",
+      "discount": "449.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen3",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/waterRepllentCroppedJacket.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/waterRepllentCroppedJacket.webp"
+      },
+      "title": "Water-repellent cropped jacket",
+      "price": "1499.00",
+      "discount": "899.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen4",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/oversizedFitCottonhoodie.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/oversizedFitCottonhoodie.webp"
+      },
+      "title": "Oversized Fit Cotton hoodie",
+      "price": "1199.00",
+      "discount": "800.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen5",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/relaxedFitPoloShirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/relaxedFitPoloShirt.webp"
+      },
+      "title": "Relaxed Fit Polo shirt",
+      "price": "749.00",
+      "discount": "450.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen6",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/softFauxShearlingSlippers.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor"
+      },
+      "title": "Soft faux shearling slippers",
+      "price": "499.00",
+      "discount": "250.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen7",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/cottonTshirtregularFit.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/cottonTshirtregularFit.webp"
+      },
+      "title": "Cotton T-shirt Regular Fit",
+      "price": "199.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen8",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/lightWeightPufferJacket.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/lightWeightPufferJacket.webp"
+      },
+      "title": "Lightweight puffer jacket",
+      "price": "1699.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen9",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/relaxedFithoodie.jpg",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/relaxedFithoodie.jpg"
+      },
+      "title": "Relaxed Fit Hoodie",
+      "price": "599.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen10",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/relaxedFithoodie2.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/relaxedFithoodie2.webp"
+      },
+      "title": "Relaxed Fit Hoodie",
+      "price": "599.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen11",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/3packRegularFitPoloShirts.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/3packRegularFitPoloShirts.webp"
+      },
+      "title": "3-pack Regular Fit Polo shirts",
+      "price": "1999.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen12",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/zipthriughHoodieRegularFit.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/zipthriughHoodieRegularFit.webp"
+      },
+      "title": "Zip-through hoodie Regular Fit",
+      "price": "599.00",
+      "discount": "419.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen13",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/relaxedFitTshirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/relaxedFitTshirt.webp"
+      },
+      "title": "Relaxed Fit T-shirt",
+      "price": "399.00",
+      "discount": "209.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen14",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/cargoJoggers.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/cargoJoggers.webp"
+      },
+      "title": "Cargo joggers",
+      "price": "1699.00",
+      "discount": "1049.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen15",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/regularFitRipsropCargoTrouser.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/regularFitRipsropCargoTrouser.webp"
+      },
+      "title": "Regular Fit Ripstop cargo trousers",
+      "price": "1099.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen16",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/zipthroughHoodieRegularFit.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/zipthroughHoodieRegularFit.webp"
+      },
+      "title": "Zip-through hoodie Regular Fit",
+      "price": "599.00",
+      "discount": "419.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen17",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/RelaxedFitSweatshirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/RelaxedFitSweatshirt.webp"
+      },
+      "title": "Relaxed Fit Sweatshirt",
+      "price": "449.00",
+      "discount": "309.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen18",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/relaxedFitHoodie3.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/relaxedFitHoodie3.webp"
+      },
+      "title": "Relaxed Fit Hoodie",
+      "price": "749.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen19",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/oversizedFitCottonTshirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/oversizedFitCottonTshirt.webp"
+      },
+      "title": "Oversized Fit Cotton T-shirt",
+      "price": "649.00",
+      "discount": "449.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedMen20",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/Men/ribbedCutOutDreess.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/Men/ImageCompressor/ribbedCutOutDreess.webp"
+      },
+      "title": "",
+      "price": "699.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    }
+  ]
+}

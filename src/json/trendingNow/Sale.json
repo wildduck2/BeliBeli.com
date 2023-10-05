@@ -1,0 +1,100 @@
+{
+    "data": [
+        {
+            "id": "sale1",
+            "img1": {
+                "original": "/src/assets/imgs/trendingNow/tieBeltShirtDress.webp",
+                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/tieBeltShirtDress.webp"
+            },
+            "title": "Tie-belt shirt dress",
+            "price": "1199.00",
+            "discount": null,
+            "choosen": null,
+            "liked": null
+        },
+        {
+            "id": "sale2",
+            "img1": {
+                "original": "/src/assets/imgs/trendingNow/2pieceCottonSet.webp",
+                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/2pieceCottonSet.webp"
+            },
+            "title": "2-piece cotton set",
+            "price": "349.00",
+            "discount": "169.00",
+            "choosen": null,
+            "liked": null
+        },
+        {
+            "id": "sale3",
+            "img1": {
+                "original": "/src/assets/imgs/trendingNow/quitedPyjamas.webp",
+                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/quitedPyjamas.webp"
+            },
+            "title": "Quilted pyjamas",
+            "price": "449.00",
+            "discount": null,
+            "choosen": null,
+            "liked": null
+        },
+        {
+            "id": "sale4",
+            "img1": {
+                "original": "/src/assets/imgs/trendingNow/swquinedWrapDress.webp",
+                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/swquinedWrapDress.webp"
+            },
+            "title": "Sequined wrap dress",
+            "price": "1999.00",
+            "discount": "1200.00",
+            "choosen": null,
+            "liked": null
+        },
+        {
+            "id": "sale5",
+            "img1": {
+                "original": "/src/assets/imgs/trendingNow/3pieceCottonSet.webp",
+                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/3pieceCottonSet.webp"
+            },
+            "title": "3-piece cotton set",
+            "price": "499.00",
+            "discount": "219.00",
+            "choosen": null,
+            "liked": null
+        },
+        {
+            "id": "sale6",
+            "img1": {
+                "original": "/src/assets/imgs/trendingNow/viscoseSkirt.webp",
+                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/viscoseSkirt.webp"
+            },
+            "title": "Viscose skirt",
+            "price": "599.00",
+            "discount": "210.00",
+            "choosen": null,
+            "liked": null
+        },
+        {
+            "id": "sale7",
+            "img1": {
+                "original": "/src/assets/imgs/trendingNow/tShirt.webp",
+                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/tShirt.webp"
+            },
+            "title": "T-shirt",
+            "price": "249.00",
+            "discount": "119.00",
+            "choosen": null,
+            "liked": null
+        },
+        {
+            "id": "sale8",
+            "img1": {
+                "original": "/src/assets/imgs/trendingNow/footballShorts.webp",
+                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/footballShorts.webp"
+            },
+            "title": "Football shorts",
+            "price": "249.00",
+            "discount": "179.00",
+            "choosen": null,
+            "liked": null
+        }
+    ]
+}

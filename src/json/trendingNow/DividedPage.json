@@ -1,0 +1,245 @@
+{
+  "data": [
+    {
+      "id": "recomendedDivided1",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/2packCroppedTshirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/2packCroppedTshirt.webp"
+      },
+      "title": "2-pack cropped T-shirts",
+      "price": "649.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided2",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/Cottonvesttop.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/Cottonvesttop.webp"
+      },
+      "title": "Cotton vest top",
+      "price": "249.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided3",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/OversizedT-shirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/OversizedT-shirt.webp"
+      },
+      "title": "Oversized T-shirt",
+      "price": "399.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided4",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/OversizedT-shirtdress.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/OversizedT-shirtdress.webp"
+      },
+      "title": "Oversized T-shirt dress",
+      "price": "499.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided5",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/Pull-onjerseytrousers.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/Pull-onjerseytrousers.webp"
+      },
+      "title": "Pull-on jersey trousers",
+      "price": "1199.00",
+      "discount": "360.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided6",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/Cottonjerseytop.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/Cottonjerseytop.webp"
+      },
+      "title": "Cotton jersey top",
+      "price": "299.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided7",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/Croppedvesttop.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/Croppedvesttop.webp"
+      },
+      "title": "Cropped vest top",
+      "price": "199.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided8",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/SkinnyHighJeans.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/SkinnyHighJeans.webp"
+      },
+      "title": "Skinny High Jeans",
+      "price": "799.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided9",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/SkinnyRegularJeans.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/SkinnyRegularJeans.webp"
+      },
+      "title": "Skinny Regular Jeans",
+      "price": "649.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided10",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/Twilldungarees.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/Twilldungarees.webp"
+      },
+      "title": "Twill dungarees",
+      "price": "899.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided11",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/2-packcroppedT-shirts.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/2-packcroppedT-shirts.webp"
+      },
+      "title": "2-pack cropped T-shirts",
+      "price": "1099.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided12",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/OversizedT-shirt2.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/OversizedT-shirt2.webp"
+      },
+      "title": "Oversized T-shirt",
+      "price": "399.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+
+    {
+      "id": "recomendedDivided13",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/Straightjoggers.jpg",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/Straightjoggers.jpg"
+      },
+      "title": "Straight joggers",
+      "price": "749.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided14",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/Cottonvesttop2.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/Cottonvesttop2.webp"
+      },
+      "title": "Cotton vest top",
+      "price": "399.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided15",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/Corduroytrousers.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/Corduroytrousers.webp"
+      },
+      "title": "Corduroy trousers",
+      "price": "999.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided16",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/Oversizedflannelshirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/Oversizedflannelshirt.webp"
+      },
+      "title": "Oversized flannel shirt",
+      "price": "899.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided17",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/Oversizedhoodie.jpg",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/Oversizedhoodie.jpg"
+      },
+      "title": "Oversized hoodie",
+      "price": "999.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided18",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/StraightHighJeans.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/StraightHighJeans.webp"
+      },
+      "title": "Straight High Jeans",
+      "price": "1999.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided19",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/WideHighJeans.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/WideHighJeans.webp"
+      },
+      "title": "Wide High Jeans",
+      "price": "1499.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedDivided20",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/divided/Tailoredlinen-blendtrousers.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/divided/ImageCompressor/Tailoredlinen-blendtrousers.webp"
+      },
+      "title": "Tailored linen-blend trousers",
+      "price": "1299.00",
+      "discount": "1000.00",
+      "choosen": null,
+      "liked": null
+    }
+  ]
+}

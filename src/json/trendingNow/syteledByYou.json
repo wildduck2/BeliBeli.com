@@ -1,0 +1,68 @@
+{
+    "data": [
+        {
+            "id": "styled1",
+            "img1": {
+                "original": "/src/assets/imgs/styledByYou/8.jpg",
+                "lowReseloution": null
+            },
+            "title": "@siss_tam_s"
+        },
+        {
+            "id": "styled2",
+            "img1": {
+                "original": "/src/assets/imgs/styledByYou/3.jpg",
+                "lowReseloution": null
+            },
+            "title": "@siss_tam_s"
+        },
+        {
+            "id": "styled3",
+            "img1": {
+                "original": "/src/assets/imgs/styledByYou/1.jpg",
+                "lowReseloution": null
+            },
+            "title": "@naty_vau"
+        },
+        {
+            "id": "styled4",
+            "img1": {
+                "original": "/src/assets/imgs/styledByYou/2.jpg",
+                "lowReseloution": null
+            },
+            "title": "@donttellourhusbands"
+        },
+        {
+            "id": "styled5",
+            "img1": {
+                "original": "/src/assets/imgs/styledByYou/4.jpg",
+                "lowReseloution": null
+            },
+            "title": "@brixinka"
+        },
+        {
+            "id": "styled6",
+            "img1": {
+                "original": "/src/assets/imgs/styledByYou/5.jpg",
+                "lowReseloution": null
+            },
+            "title": "@kaji.pm"
+        },
+        {
+            "id": "styled7",
+            "img1": {
+                "original": "/src/assets/imgs/styledByYou/6.jpg",
+                "lowReseloution": null
+            },
+            "title": "@juliebyrnes_"
+        },
+        {
+            "id": "styled8",
+            "img1": {
+                "original": "/src/assets/imgs/styledByYou/7.jpg",
+                "lowReseloution": null
+            },
+            "title": "@heidinguema"
+        }
+    ]
+}

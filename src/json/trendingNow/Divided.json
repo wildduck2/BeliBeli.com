@@ -1,0 +1,100 @@
+{
+  "data": [
+    {
+      "id": "divided1",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/overSizeShirt.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/overSizeShirt.webp"
+      },
+      "title": "Oversized poplin shirt",
+      "price": "799.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "divided2",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/taiolredTrousers.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/taiolredTrousers.webp"
+      },
+      "title": "Tailored trousers",
+      "price": "799.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "divided3",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/overSizeShirt2.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/overSizeShirt2.webp"
+      },
+      "title": "Oversized poplin shirt",
+      "price": "999.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "divided4",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/printedSweatshirt.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/printedSweatshirt.webp"
+      },
+      "title": "Printed sweatshirt",
+      "price": "999.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "divided5",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/oversizeShirt3.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/oversizeShirt3.webp"
+      },
+      "title": "Oversized poplin shirt",
+      "price": "799.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "divided6",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/jacquardKnitJumper.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/jacquardKnitJumper.webp"
+      },
+      "title": "Jacquard-knit jumper",
+      "price": "749.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "divided7",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/overSizePrintedTshirt.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/overSizePrintedTshirt.webp"
+      },
+      "title": "Oversized printed T-shirt",
+      "price": "649.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "divided8",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/90sBaggyHighjeans.jpg",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/90sBaggyHighjeans.jpg"
+      },
+      "title": "90s Baggy High Jeans",
+      "price": "1199.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    }
+  ]
+}

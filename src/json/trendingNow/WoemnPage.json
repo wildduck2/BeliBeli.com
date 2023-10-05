@@ -1,0 +1,244 @@
+{
+  "data": [
+    {
+      "id": "recomendedWomen1",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/laredHighAnkleJeans.jpg",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/laredHighAnkleJeans.webp"
+      },
+      "title": "Flared High Ankle Jeans",
+      "price": "749.00",
+      "discount": "260.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen2",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/wideTrousers.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/wideTrousers.webp"
+      },
+      "title": "wide trousers",
+      "price": "749.00",
+      "discount": "300.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen3",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/flaredTrousers.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/flaredTrousers.webp"
+      },
+      "title": "Flared trousers",
+      "price": "749.00",
+      "discount": "300.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen4",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/straightTrousers.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/straightTrousers.webp"
+      },
+      "title": "Straight trousers",
+      "price": "900.00",
+      "discount": "400.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen5",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/pyjamaShirtAndShorts.jpg",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/pyjamaShirtAndShorts.jpg"
+      },
+      "title": "Pyjama shirt and shorts",
+      "price": "899.00",
+      "discount": "270.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen6",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/flasredTrousers.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/flasredTrousers.webp"
+      },
+      "title": "Flared trousers",
+      "price": "899.00",
+      "discount": "360.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen7",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/linenBlendShirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/linenBlendShirt.webp"
+      },
+      "title": "Linen-blend shirt",
+      "price": "1099.00",
+      "discount": "330.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen8",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/linenBlendPyjamas.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/linenBlendPyjamas.webp"
+      },
+      "title": "LInen-blend pyjamas",
+      "price": "749.00",
+      "discount": "240.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen9",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/viscoseSkirt.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/viscoseSkirt.webp"
+      },
+      "title": "Visvose skirt",
+      "price": "599.00",
+      "discount": "210.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen10",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/linenBlendShirt2.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/linenBlendShirt2.webp"
+      },
+      "title": "Linen-blend shirt",
+      "price": "1099.00",
+      "discount": "330.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen11",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/tailoredTrousers.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/tailoredTrousers.webp"
+      },
+      "title": "Tailored trousers",
+      "price": "1299.00",
+      "discount": "390.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen12",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/shimmeringBandeauDress.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/shimmeringBandeauDress.webp"
+      },
+      "title": "Slim Fit Easy-iron shirt",
+      "price": "1699.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen13",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/paddedVupSeimSuit.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/paddedVupSeimSuit.webp"
+      },
+      "title": "Padded-cup swimsuit",
+      "price": "899.00",
+      "discount": "270",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen14",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/tailoredTrousers2.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/tailoredTrousers2.webp"
+      },
+      "title": "Tailored trousers",
+      "price": "749.00",
+      "discount": "300.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen15",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/tieDetailCottonDress.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/tieDetailCottonDress.webp"
+      },
+      "title": "Tie-detail cotton dress",
+      "price": "999.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen16",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/ribbedVestTop.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/ribbedVestTop.webp"
+      },
+      "title": "Ribbed vest top",
+      "price": "649.00",
+      "discount": "210.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen17",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/linenBlendShirt3.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/linenBlendShirt3.webp"
+      },
+      "title": "Linen-blend shirt",
+      "price": "1699.00",
+      "discount": "510.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen18",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/pleatedWrapDress.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/pleatedWrapDress.webp"
+      },
+      "title": "Pleated wrap dress",
+      "price": "1699.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen19",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/ribbedCutOutDreess.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/ribbedCutOutDreess.webp"
+      },
+      "title": "Ribbed cut-out dress",
+      "price": "699.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "recomendedWomen20",
+      "img1": {
+        "original": "/src/assets/imgs/Recommended/women/ribbedModalBestTop.webp",
+        "lowReseloution": "/src/assets/imgs/Recommended/women/ImageCompressor/ribbedModalBestTop.webp"
+      },
+      "title": "Ribbed modal vest top",
+      "price": "249.00",
+      "discount": "70.00",
+      "choosen": null,
+      "liked": null
+    }
+  ]
+}
