@@ -1,21 +1,23 @@
 import React from "react";
 
-import { HomeCaregory } from "../../../constants";
-import { twMerge } from "tailwind-merge";
-import { LinkButton } from "../../UI";
+import { LinkButton, Skeleton } from "../../UI";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useSelector } from "react-redux";
+import { RootState } from "@/context/store";
+import cn from "../../../utils/cn";
+import { otherImgsTypes } from "@/context/Data";
 
 interface CategoryBannerTypes {
-  className?: string;
-  categoryData: typeof HomeCaregory | null;
+  categoryData: otherImgsTypes[] | null;
 }
 
-const CategoryBanner: React.FC<CategoryBannerTypes> = ({
-  className,
-  categoryData,
-}) => {
+const CategoryBanner: React.FC<CategoryBannerTypes> = ({ className }) => {
+  const selector = useSelector((state: RootState) => state.data);
+  const skeletonLength = " ".repeat(7).split("");
+
   return (
     <div
-      className={twMerge(
+      className={cn(
         `
           jsutify-center
           grid
@@ -38,7 +40,6 @@ const CategoryBanner: React.FC<CategoryBannerTypes> = ({
       </h1>
 
       {/* cagegories mapping */}
-
       <div
         className="
           jsutify-center
@@ -47,66 +48,100 @@ const CategoryBanner: React.FC<CategoryBannerTypes> = ({
           gap-x-8
         "
       >
-        {categoryData?.map((item, index) => {
-          return (
-            <LinkButton
-              key={index}
-              className="
-                pointer
-                asdasds
-                grid
-                h-[147.45px]
-                gap-y-[.25rem]
-                text-center
-                text-[.75rem]
-                font-medium 
-                capitalize
-                lg:text-[.813rem]
-              "
-            >
-              <div
-                className="
-                  img__container
-                  grid
-                  h-[100px]
-                  w-[100px]
-                  place-content-center
-                  overflow-hidden
-                  rounded-[50%]
-                "
-              >
-                <img
-                  className="object-cover"
-                  src={item.img}
-                  alt="category img"
-                />
-              </div>
-              <span
-                className="
-                  grid
-                  text-[.75rem]
-                  font-bold
-                  text-[#555555]
-                "
-              >
-                {item.tag}
-              </span>
-              <h2
-                className="
-                  w-[93.41px]
-                  flex-wrap
-                  place-self-center
-                  text-[.78rem]
-                  font-semibold
-                  leading-[.85rem]
-                  text-[#222222]
-                "
-              >
-                {item.name}
-              </h2>
-            </LinkButton>
-          );
-        })}
+        {selector.satatus == "succeeded" ? (
+          selector.categoriesData
+            ?.filter((dat) => dat.category_type === "home_category")
+            .sort((a, b) => a.index - b.index)
+            .map((item, index) => {
+              return (
+                <LinkButton
+                  key={index}
+                  className="
+                    pointer
+                    asdasds
+                    grid
+                    h-[147.45px]
+                    gap-y-[.25rem]
+                    text-center
+                    text-[.75rem]
+                    font-medium 
+                    capitalize
+                    lg:text-[.813rem]
+                  "
+                >
+                  <picture
+                    className="
+                      img__container
+                      grid
+                      h-[100px]
+                      w-[100px]
+                      place-content-center
+                      overflow-hidden
+                      rounded-[50%]
+                    "
+                  >
+                    <LazyLoadImage
+                      className="h-[100px] w-[100px]"
+                      src={item.top_img}
+                      draggable={false}
+                      placeholderSrc={item.low_img}
+                      loading="lazy"
+                      effect="opacity"
+                      alt="banner img"
+                    />
+                  </picture>
+                  <span
+                    className="
+                      grid
+                      text-[.75rem]
+                      font-bold
+                      text-[#555555]
+                    "
+                  >
+                    {item.tag}
+                  </span>
+                  <h2
+                    className="
+                      w-[93.41px]
+                      flex-wrap
+                      place-self-center
+                      text-[.78rem]
+                      font-semibold
+                      leading-[.85rem]
+                      text-[#222222]
+                    "
+                  >
+                    {item.name}
+                  </h2>
+                </LinkButton>
+              );
+            })
+        ) : (
+          <div
+            className=" 
+              jsutify-center
+              grid
+              grid-flow-col
+              gap-x-8
+            "
+          >
+            {skeletonLength.map((_, index) => {
+              return (
+                <div
+                  key={index}
+                  className="
+                    grid
+                    gap-y-[.25rem]
+                  "
+                >
+                  <Skeleton className="h-[100px] w-[100px] rounded-full bg-[#1e242e6e]" />
+                  <Skeleton className="h-[10px] w-[100px] rounded-full bg-[#1e242e6e]" />
+                  <Skeleton className="h-[10px] w-[100px] rounded-full bg-[#1e242e6e]" />
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

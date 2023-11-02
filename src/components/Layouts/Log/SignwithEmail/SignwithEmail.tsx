@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 import GetDataLog from "../../../../utils/GetDataLog";
 import { toast } from "react-hot-toast";
+import {
+  loginWithEmailHandler,
+  signupWithEmailHandler,
+} from "../../../../utils/Login/Login";
 
 interface SigninWithEmailTypes {
   mainTittle: string;
@@ -48,7 +52,7 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
     //() TODO: show a red warning if the input was not valid or empty when supmit or when you focus on an input and blur it empty
     //(ok!) TODO: pretending to send data to server now after signup show email checking layout
     if (signUp) {
-      GetDataLog({
+      signupWithEmailHandler({
         email: emailValue,
         fullName: fullNameValue,
         password: passowrdValue,
@@ -56,10 +60,7 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
     }
 
     if (!signUp) {
-      GetDataLog({
-        email: emailValue,
-        password: passowrdValue,
-      });
+      loginWithEmailHandler({ email: emailValue, password: passowrdValue });
     }
   };
 

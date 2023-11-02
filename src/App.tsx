@@ -17,8 +17,12 @@ import { supabase } from "./supabase/supabase";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import cn from "./utils/cn";
 import BeliBeliHome from "./components/Pages/Category/BeliBeliHome";
+import { store } from "./context/store";
+import { thunkFetchingBannerFromSupabase } from "./context/Data";
 
 function App() {
+  store.dispatch(thunkFetchingBannerFromSupabase());
+
   return (
     <>
       <HeaderBanner />

@@ -3,7 +3,6 @@ import React from "react";
 import Link from "../../UI/Link";
 
 import { logo, notfication, shoppinsCard } from "../../../assets";
-import { navigationLinks } from "../../../constants";
 import Search from "../../UI/Search";
 
 const Header = () => {

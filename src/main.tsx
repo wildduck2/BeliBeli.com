@@ -8,6 +8,7 @@ import { store } from "./context/store.ts";
 import { ToastProvider } from "./components/UI/index.tsx";
 
 import "./scss/index.scss";
+import "react-lazy-load-image-component/src/effects/opacity.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

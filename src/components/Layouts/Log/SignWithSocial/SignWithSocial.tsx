@@ -1,10 +1,17 @@
 import React from "react";
 
 import { Button } from "../../../UI";
+import { useNavigate } from "react-router-dom";
+import {
+  RouteHandlerTypes,
+  loginWithDiscordHandler,
+  loginWithGoogleHandler,
+  routeHandler,
+} from "../../../../utils/Login/Login";
+
 import { AiOutlineUser } from "react-icons/ai";
 import { discord, google } from "../../../../assets";
-import { useNavigate } from "react-router-dom";
-import { supabase } from "../../../../supabase/supabase";
+import { useUser } from "@supabase/auth-helpers-react";
 
 export interface SignInWithSocialTyps {
   mainTittle: string;
@@ -17,11 +24,7 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
 }) => {
   const router = useNavigate();
 
-  const loginHandler = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: "google",
-    });
-  };
+  const data = useUser();
 
   return (
     <div
@@ -41,11 +44,19 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
         {mainTittle} with social media
       </h2>
 
-      <Button className="social_button" onClick={loginHandler}>
+      <Button
+        className="social_button"
+        onClick={() => {
+          loginWithGoogleHandler({
+            user_id: `${data?.identities![0].user_id}`,
+            file: data?.identities![0].identity_data!.avatar_url,
+          });
+        }}
+      >
         <img width={35} src={google} alt="google img" />
         <span>{mainTittle} with Google</span>
       </Button>
-      <Button className="social_button">
+      <Button className="social_button" onClick={loginWithDiscordHandler}>
         <img width={25} src={discord} alt="discord img" />
         <span>{mainTittle} with Discord</span>
       </Button>
@@ -58,7 +69,7 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
 
       <Button
         className="social_button"
-        onClick={() => router(`${signUp ? "/login" : "/signup"}`)}
+        onClick={() => routeHandler({ signUp, router } as RouteHandlerTypes)}
       >
         <AiOutlineUser size={25} />
         <span>{signUp ? "Sign In" : "Sign Up"} here </span>
@@ -70,3 +81,5 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
 SignWithSocial.displayName = "SignWithSocial";
 
 export default SignWithSocial;
+
+// ipan cib

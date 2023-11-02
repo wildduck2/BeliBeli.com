@@ -166,7 +166,10 @@ const CategoryPage: React.FC<CategoryPageTypes> = ({
             {banners.map((data, index) => {
               return (
                 index !== 0 && (
-                  <section className="section px-[24px] pb-6 pt-0 lg:max-w-[950px]">
+                  <section
+                    key={index}
+                    className="section px-[24px] pb-6 pt-0 lg:max-w-[950px]"
+                  >
                     <ImgBanner
                       img={data.img}
                       title={data.title}

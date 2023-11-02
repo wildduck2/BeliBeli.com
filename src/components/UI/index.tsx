@@ -6,6 +6,7 @@ import ImgBanner from "./ImgBanner";
 import MagazineCard from "./MagazineCard";
 import ToastProvider from "./ToastProvider";
 import HeaderNavigationLinks from "./HeaderNavigationLinks";
+import Skeleton from "./Skeleton";
 
 export {
   Button,
@@ -16,4 +17,5 @@ export {
   MagazineCard,
   ToastProvider,
   HeaderNavigationLinks,
+  Skeleton,
 };
