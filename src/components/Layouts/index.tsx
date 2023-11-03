@@ -5,6 +5,7 @@ import CategoryBanner from "./CategoryBanner";
 import Swiper from "./Swiper";
 import Footer from "./Footer";
 import CategoryPage from "./CategoryPage";
+import BannerDeals from "./BannerDeals/BannerDeals";
 
 export {
   HeaderBanner,
@@ -14,4 +15,5 @@ export {
   Swiper,
   Footer,
   CategoryPage,
+  BannerDeals,
 };

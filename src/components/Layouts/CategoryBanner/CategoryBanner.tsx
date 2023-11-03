@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/context/store";
 import cn from "../../../utils/cn";
 import { otherImgsTypes } from "@/context/Data";
+import { AsyncImage } from "loadable-image";
 
 interface CategoryBannerTypes {
   categoryData: otherImgsTypes[] | null;
@@ -80,14 +81,24 @@ const CategoryBanner: React.FC<CategoryBannerTypes> = ({ className }) => {
                       rounded-[50%]
                     "
                   >
-                    <LazyLoadImage
-                      className="h-[100px] w-[100px]"
+                    {/* <LazyLoadImage
                       src={item.top_img}
                       draggable={false}
                       placeholderSrc={item.low_img}
                       loading="lazy"
                       effect="opacity"
                       alt="banner img"
+                      /> */}
+                    <AsyncImage
+                      src={item.top_img}
+                      style={{ width: 100, height: 100 }}
+                      sources={[{ type: "image/png", srcSet: item.low_img }]}
+                      loader={
+                        <Skeleton className="h-[100px] w-[100px] rounded-full bg-[#1e242e6e]" />
+                      }
+                      error={
+                        <Skeleton className="h-[100px] w-[100px] rounded-full bg-[#1e242e6e]" />
+                      }
                     />
                   </picture>
                   <span

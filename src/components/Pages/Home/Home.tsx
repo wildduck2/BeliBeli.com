@@ -23,204 +23,204 @@ const Home = () => {
     <>
       <main
         className="
-        container
         mx-auto
         grid
         pt-[1rem]
       "
       >
         {/* Hero Section */}
-        <section className="section  pt-0">
+        <section className="section pt-0">
           <ImgBanner dataIndex={0} />
 
           <CategoryBanner categoryData={selector.categoriesData} />
+        </section>
 
-          {/* Trending Now Section */}
-          <section className="section">
-            <div>
-              <h2
-                className="
+        {/* Trending Now Section */}
+        <section className="section">
+          <div>
+            <h2
+              className="
                   text-start
                   text-[1.2rem]
                   font-semibold
                 "
-              >
-                Trending Now
-              </h2>
+            >
+              Trending Now
+            </h2>
 
-              <div
-                className="
+            <div
+              className="
                   flex
                   items-center
                   justify-between
                   gap-[3.5rem]
                 "
-              >
-                {/* filter */}
-                <Filter />
-                {/* navigation */}
-                <Navigation
-                  navigationFunction={PaginationIndex}
-                  DOT_REF={pagenaationRef1}
-                  SWIPER_REF={swiperContainerRef1}
-                />
-              </div>
+            >
+              {/* filter */}
+              <Filter />
+              {/* navigation */}
+              <Navigation
+                navigationFunction={PaginationIndex}
+                DOT_REF={pagenaationRef1}
+                SWIPER_REF={swiperContainerRef1}
+              />
             </div>
+          </div>
 
-            {/* swiper */}
-            <Swiper
-              filterSwiper={true}
-              ref={swiperContainerRef1}
-              DOT_REF={pagenaationRef1}
-              SWIPER__REF={swiperContainerRef1}
-            />
+          {/* swiper */}
+          <Swiper
+            FILTER__QUERY={selector.currentFilter}
+            DATA__NAME={selector.products}
+            ref={swiperContainerRef1}
+            DOT_REF={pagenaationRef1}
+            SWIPER__REF={swiperContainerRef1}
+          />
 
-            {/* Pagination Dot */}
-            <div
-              className="
+          {/* Pagination Dot */}
+          <div
+            className="
                 pagination_container 
                 flex
                 items-center
                 justify-center
                 gap-2
               "
-              ref={pagenaationRef1}
-            >
-              <PaginationDot />
-              <PaginationDot />
-            </div>
-          </section>
+            ref={pagenaationRef1}
+          >
+            <PaginationDot />
+            <PaginationDot />
+          </div>
+        </section>
 
-          {/* Recomended for you Section*/}
-          <section
-            className="
+        {/* Recomended for you Section*/}
+        <section
+          className="
               section
               relative
               pb-8
             "
-          >
-            <h2
-              className="
+        >
+          <h2
+            className="
                 text-center
                 text-[1.2rem]
                 font-semibold
               "
-            >
-              Recommended for you
-            </h2>
-            {/* navigation */}
-            <Navigation
-              navigationFunction={PaginationStep}
-              flex_mode={true}
-              btnClassName="navigation_flex"
-              SWIPER_REF={swiperContainerRef2}
-            />
+          >
+            Recommended for you
+          </h2>
+          {/* navigation */}
+          <Navigation
+            navigationFunction={PaginationStep}
+            flex_mode={true}
+            btnClassName="navigation_flex"
+            SWIPER_REF={swiperContainerRef2}
+          />
 
-            {/* swiper */}
-            {/* <Swiper
-              fetchFileName="recommendedForYou"
-              ref={swiperContainerRef2}
-              SWIPER__REF={swiperContainerRef2}
-            /> */}
-          </section>
+          {/* swiper */}
+          <Swiper
+            FILTER__QUERY={selector.currentFilter}
+            DATA__NAME={selector.products}
+            ref={swiperContainerRef2}
+            SWIPER__REF={swiperContainerRef2}
+          />
+        </section>
 
-          {/* Banner2 Section */}
-          <section className="section pb-6 pt-0">
-            <ImgBanner dataIndex={1} />
-          </section>
+        {/* Banner2 Section */}
+        <section className="section pb-6 pt-0">
+          <ImgBanner dataIndex={1} />
+        </section>
 
-          {/* Banner3 Section */}
-          <section className="section pb-6 pt-0">
-            <ImgBanner dataIndex={2} />
-          </section>
+        {/* Banner3 Section */}
+        <section className="section pb-6 pt-0">
+          <ImgBanner dataIndex={2} />
+        </section>
 
-          {/* Customers Also Viewed Section*/}
-          <section
-            className="
+        {/* Customers Also Viewed Section*/}
+        <section
+          className="
               section
               relative
               pb-8
               pt-0
             "
-          >
-            <h2
-              className="
+        >
+          <h2
+            className="
                 text-center
                 text-[1.2rem]
                 font-semibold
               "
-            >
-              Customers Also Viewed
-            </h2>
+          >
+            Customers Also Viewed
+          </h2>
+          {/* navigation */}
+          <Navigation
+            navigationFunction={PaginationStep}
+            flex_mode={true}
+            btnClassName="navigation_flex"
+            SWIPER_REF={swiperContainerRef3}
+          />
+
+          {/* swiper */}
+          <Swiper
+            FILTER__QUERY={selector.currentFilter}
+            DATA__NAME={selector.products}
+            ref={swiperContainerRef3}
+            SWIPER__REF={swiperContainerRef3}
+          />
+        </section>
+
+        {/* Styled By You Section */}
+        <section className="styledByYou__section section">
+          <div>
+            <h3>Styled by you</h3>
+            <p>
+              We love to see how you style your favourites from BeliBeli: Keep
+              sharing your personal style with @BeliBeli and #BeliBelixME for a
+              chance to be featured at hm.com, in our marketing materials and in
+              our stores.
+            </p>
+
+            <LinkButton href={`/BeliBeli`}>Visit BeliBeli</LinkButton>
+          </div>
+
+          <div>
             {/* navigation */}
             <Navigation
               navigationFunction={PaginationStep}
               flex_mode={true}
               btnClassName="navigation_flex"
-              SWIPER_REF={swiperContainerRef3}
+              SWIPER_REF={swiperContainerRef4}
+              className="styled"
             />
 
             {/* swiper */}
-            {/* <Swiper
-              fetchFileName="CustomersAlsoViewed"
-              ref={swiperContainerRef3}
-              SWIPER__REF={swiperContainerRef3}
-            /> */}
-          </section>
+            <Swiper
+              FILTER__QUERY="styledbyyou"
+              DATA__NAME={selector.products}
+              ref={swiperContainerRef4}
+              SWIPER__REF={swiperContainerRef4}
+              MAGAZINE__TYPE={true}
+            />
+          </div>
+        </section>
 
-          {/* Magazine Section */}
-          <section className="styledByYou__section section">
-            <div>
-              <h3>Styled by you</h3>
-              <p>
-                We love to see how you style your favourites from BeliBeli: Keep
-                sharing your personal style with @BeliBeli and #BeliBelixME for
-                a chance to be featured at hm.com, in our marketing materials
-                and in our stores.
-              </p>
+        {/* Magazine Section */}
+        <section className="magazine__section">
+          <div className="section magazine__container mb-[2rem]">
+            <h2>MAGAZINE</h2>
 
-              <LinkButton href={`/BeliBeli`}>Visit BeliBeli</LinkButton>
-            </div>
+            <LinkButton href={"/Magazine"}>READ BeliBeli MAGAZINE</LinkButton>
 
             <div>
-              {/* navigation */}
-              <Navigation
-                navigationFunction={PaginationStep}
-                flex_mode={true}
-                btnClassName="navigation_flex"
-                SWIPER_REF={swiperContainerRef4}
-                className="styled"
-              />
-
-              {/* swiper */}
-              {/* <Swiper
-                fetchFileName="syteledByYou"
-                ref={swiperContainerRef4}
-                SWIPER__REF={swiperContainerRef4}
-              /> */}
+              {magazine.map((data, index) => {
+                return (
+                  <MagazineCard key={index} img={data.img} title={data.title} />
+                );
+              })}
             </div>
-          </section>
-
-          {/* Magazine Section */}
-          <section className="magazine__section">
-            <div className="section magazine__container">
-              <h2>MAGAZINE</h2>
-
-              <LinkButton href={"/Magazine"}>READ BeliBeli MAGAZINE</LinkButton>
-
-              <div>
-                {magazine.map((data, index) => {
-                  return (
-                    <MagazineCard
-                      key={index}
-                      img={data.img}
-                      title={data.title}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </section>
+          </div>
         </section>
       </main>
     </>

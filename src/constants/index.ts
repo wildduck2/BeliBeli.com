@@ -1278,3 +1278,9 @@ export const footerData = [
     "eGift Cards",
   ],
 ];
+
+export const Daels = [
+  "Free delivery on all orders above EGP 699",
+  "Free returns available online and in store",
+  "Click & Collect available on all items",
+];

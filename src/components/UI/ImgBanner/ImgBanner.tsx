@@ -1,8 +1,9 @@
 import React from "react";
-import { LinkButton, Skeleton } from "..";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useSelector } from "react-redux";
 import { RootState } from "@/context/store";
+import { AsyncImage } from "loadable-image";
+
+import { LinkButton, Skeleton } from "..";
 
 interface ImgBannerProps {
   dataIndex: number;
@@ -21,19 +22,16 @@ const ImgBanner: React.FC<ImgBannerProps> = ({ dataIndex }) => {
     >
       {selector.satatus === "succeeded" ? (
         <>
-          <LazyLoadImage
-            className="h-[684px] w-[1024px]"
+          <AsyncImage
             src={selector.bannersData![dataIndex].top_img}
-            draggable={false}
-            width={1024}
-            height={684}
-            placeholderSrc={selector.bannersData![dataIndex].low_img}
-            loading="lazy"
-            effect="opacity"
-            alt="banner img"
+            aria-description="this is an img for some events click on some links on this banner to get there"
+            style={{ width: 1026, height: 684 }}
+            loader={<div style={{ background: "#1e242e6e" }} />}
+            error={<div style={{ background: "#222" }} />}
+            alt="this is a banner img for some events"
           />
 
-          <div className="layout"></div>
+          <div className="layout" aria-hidden="true"></div>
 
           <div
             className="
@@ -102,7 +100,10 @@ const ImgBanner: React.FC<ImgBannerProps> = ({ dataIndex }) => {
         </>
       ) : (
         <>
-          <Skeleton className="h-[684px] w-[1024px] bg-[#1e242e6e]" />
+          <Skeleton
+            className="h-[684px] w-[1026px] bg-[#1e242e6e]"
+            aria-hidden="true"
+          />
         </>
       )}
     </div>

@@ -43,7 +43,7 @@ export interface otherImgsTypes {
   low_img: string;
 }
 
-interface initialStateTypes {
+export interface initialStateTypes {
   currentFilter: string;
   satatus: "loading" | "succeeded" | "failed";
   error: string | null;

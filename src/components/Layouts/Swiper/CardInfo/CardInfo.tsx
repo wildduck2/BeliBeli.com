@@ -1,10 +1,8 @@
-import React from "react";
-
 interface CardInfoTypes {
-  choosen: boolean;
+  choosen?: boolean;
   title: string;
-  discount: string | null;
-  price: string;
+  discount?: string | null;
+  price?: string;
 }
 
 const CardInfo = ({ choosen, discount, price, title }: CardInfoTypes) => {
@@ -34,7 +32,7 @@ const CardInfo = ({ choosen, discount, price, title }: CardInfoTypes) => {
       {/* checking if there is a discount so show save  */}
       {discount && (
         <span className="save">{`(save ${Math.round(
-          100 - (parseInt(discount) / parseInt(price)) * 100,
+          100 - (parseInt(discount) / parseInt(price!)) * 100,
         )}%)`}</span>
       )}
     </div>

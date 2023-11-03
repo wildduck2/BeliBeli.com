@@ -1,36 +1,35 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { twMerge } from 'tailwind-merge'
+import React from "react";
+import { Link } from "react-router-dom";
+import { twMerge } from "tailwind-merge";
 
 interface LinkButtonProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
 
 const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
-  ({ href = '/', className, children, ...props }, ref) => {
+  ({ href = "/", className, children, ...props }, ref) => {
     return (
       <Link
         to={href}
         className={twMerge(
           `
-          text-blackForth
+          text-[.75rem]
           font-semibold
-          text-[.75rem] 
-          lg:text-[.813rem]
-          capitalize
-          hover:opacity-95
+          capitalize 
+          text-blackForth
           transition
+          lg:text-[.813rem]
           `,
-          className
+          className,
         )}
         {...props}
         ref={ref}
       >
         {children}
       </Link>
-    )
-  }
-)
+    );
+  },
+);
 
-LinkButton.displayName = 'LinkButton'
+LinkButton.displayName = "LinkButton";
 
-export default LinkButton
+export default LinkButton;
