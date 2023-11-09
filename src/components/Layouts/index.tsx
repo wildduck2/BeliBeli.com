@@ -6,10 +6,11 @@ import Swiper from "./Swiper";
 import Footer from "./Footer";
 import CategoryPage from "./CategoryPage";
 import BannerDeals from "./BannerDeals/BannerDeals";
-
+import HeaderMenu from "./HeaderMenu";
 export {
   HeaderBanner,
   Header,
+  HeaderMenu,
   Filter,
   CategoryBanner,
   Swiper,

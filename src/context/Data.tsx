@@ -44,7 +44,6 @@ export interface otherImgsTypes {
 }
 
 export interface initialStateTypes {
-  currentFilter: string;
   satatus: "loading" | "succeeded" | "failed";
   error: string | null;
 
@@ -54,7 +53,6 @@ export interface initialStateTypes {
 }
 
 const initialState: initialStateTypes = {
-  currentFilter: "women",
   satatus: "loading",
   error: null,
 
@@ -109,9 +107,7 @@ export const dataSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    gettingFilterName: (state, actions) => {
-      state.currentFilter = actions.payload;
-    },
+
   },
   extraReducers(builder) {
     builder
@@ -138,7 +134,6 @@ export const dataSlice = createSlice({
   },
 });
 
-export const { gettingFilterName } = dataSlice.actions;
 
 export default dataSlice.reducer;
 

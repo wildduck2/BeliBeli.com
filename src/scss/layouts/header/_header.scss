@@ -1,0 +1,136 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../utils" as u;
+@use "../../base" as *;
+
+/*
+
+    Header
+
+*/
+
+.header {
+  width: 100%;
+
+  &__nav {
+    @include u.container;
+    @include u.flex(grid, center, unset);
+    gap: 1rem;
+    padding-block: 1rem;
+
+    &>div:last-child {
+      @include u.flex(flex, center, space-between);
+    }
+
+    @include u.breakpoint("medium") {
+      @include u.flex(flex, center, space-between);
+      height: 3rem;
+
+      &>div:last-child {
+        flex: 0.82;
+        @include u.flex(flex, center, space-between);
+      }
+    }
+
+    @include u.breakpoint("large") {
+      &>div:last-child {
+        flex: 0.71;
+      }
+    }
+
+    @include u.breakpoint("xlarge") {
+      &>div:last-child {
+        flex: 0.69;
+      }
+    }
+  }
+
+  &__menu {
+    @include u.flex(grid, center);
+    height: 21px;
+    margin-left: 1rem;
+    z-index: 20;
+
+    & span {
+      display: inline-block;
+      background-color: var(--c-black-700);
+      border-radius: 1rem;
+      width: 28px;
+      height: 2px;
+      justify-self: end;
+      transform-origin: center;
+      transition: 0.3s ease-out;
+
+      &:nth-child(1) {
+        width: 70%;
+        justify-self: end;
+      }
+
+      &:nth-child(3) {
+        width: 70%;
+        justify-self: start;
+      }
+    }
+
+    &--show {
+      & span {
+        &:nth-child(1) {
+          width: 50%;
+          transform: rotate(-48deg) translate(-2px, -1px);
+        }
+
+        &:nth-child(2) {
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(3) {
+          width: 50%;
+          transform: rotate(133deg) translate(-2px, 0px);
+        }
+      }
+    }
+
+    // breakpoint on 700px
+    @include u.breakpoint("medium") {
+      display: none;
+    }
+  }
+
+  &__logo {
+    & img {
+      padding-top: 0.5rem;
+    }
+
+    @include u.breakpoint("medium") {
+      & img {
+        height: 32px;
+      }
+    }
+
+    @include u.breakpoint("xlarge") {
+      & img {
+        width: 150px;
+        height: 35px;
+      }
+    }
+  }
+
+  &__functionality {
+    display: none;
+    gap: 1rem;
+
+    video {
+      width: 25px;
+      height: 25px;
+    }
+
+    // breakpoint on 700px
+    @include u.breakpoint("medium") {
+      @include u.flex(flex, center, center);
+    }
+  }
+}

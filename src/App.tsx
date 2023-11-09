@@ -9,7 +9,7 @@ import {
   SignUp,
   Women,
 } from "./components/Pages";
-import { Footer, Header, HeaderBanner } from "./components/Layouts";
+import { Footer, Header, HeaderBanner, HeaderMenu } from "./components/Layouts";
 import { HeaderNavigationLinks } from "./components/UI";
 import { Baby, Kids } from "./components/Pages/Category";
 import { Auth } from "@supabase/auth-ui-react";
@@ -28,7 +28,8 @@ function App() {
       <HeaderBanner />
       <Header />
       <HeaderNavigationLinks />
-      <Routes>
+      <HeaderMenu />
+      {/* <Routes>
         <Route
           path="/test"
           element={
@@ -60,8 +61,8 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
 
         <Route path="/*" element={<Error />} />
-      </Routes>
-      <Footer />
+      </Routes> */}
+      {/* <Footer /> */}
     </>
   );
 }

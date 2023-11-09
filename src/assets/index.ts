@@ -1,5 +1,7 @@
 // Logo
 import logo from "./svgs/logo.svg";
+import logo2 from "./Group 2.png";
+import logo3 from "./Vector.png";
 
 // Banners
 import banner1 from "./imgs/banner/banner1.jpg";
@@ -39,6 +41,8 @@ import google from "./svgs/googleIcon.svg";
 import discord from "./svgs/discord.svg";
 export {
   logo,
+  logo2,
+  logo3,
   banner1,
   banner2,
   banner3,

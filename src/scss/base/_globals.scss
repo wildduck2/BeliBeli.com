@@ -1,0 +1,47 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../utils" as *;
+@use "./typography" as *;
+
+/*
+
+    Globals
+
+*/
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: nonw;
+  font-family: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--c-black-900);
+  font-size: var(--f-body);
+  font-weight: 500;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+textarea {
+  border: none;
+  outline: none;
+  background-color: none;
+}

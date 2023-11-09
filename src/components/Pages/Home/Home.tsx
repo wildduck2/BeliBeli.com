@@ -1,4 +1,4 @@
-import { MutableRefObject, Suspense, useRef } from "react";
+import React, { MutableRefObject, Suspense, useRef } from "react";
 import { RootState } from "@/context/store";
 import { useSelector } from "react-redux";
 
@@ -18,6 +18,7 @@ const Home = () => {
   const swiperContainerRef4 = useRef() as MutableRefObject<HTMLUListElement>;
 
   const selector = useSelector((state: RootState) => state.data);
+  const selector2 = useSeltor((state: RootState) => state.util);
 
   return (
     <>
@@ -69,7 +70,7 @@ const Home = () => {
 
           {/* swiper */}
           <Swiper
-            FILTER__QUERY={selector.currentFilter}
+            FILTER__QUERY={selector2.currentFilter}
             DATA__NAME={selector.products}
             ref={swiperContainerRef1}
             DOT_REF={pagenaationRef1}
@@ -119,7 +120,7 @@ const Home = () => {
 
           {/* swiper */}
           <Swiper
-            FILTER__QUERY={selector.currentFilter}
+            // FILTER__QUERY={selector.currentFilter} 
             DATA__NAME={selector.products}
             ref={swiperContainerRef2}
             SWIPER__REF={swiperContainerRef2}

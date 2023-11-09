@@ -8,22 +8,7 @@ interface LinkButtonProps
 const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
   ({ href = "/", className, children, ...props }, ref) => {
     return (
-      <Link
-        to={href}
-        className={twMerge(
-          `
-          text-[.75rem]
-          font-semibold
-          capitalize 
-          text-blackForth
-          transition
-          lg:text-[.813rem]
-          `,
-          className,
-        )}
-        {...props}
-        ref={ref}
-      >
+      <Link to={href} className={className} {...props} ref={ref}>
         {children}
       </Link>
     );

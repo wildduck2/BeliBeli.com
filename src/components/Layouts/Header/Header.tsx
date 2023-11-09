@@ -1,67 +1,43 @@
 import React from "react";
-
 import Link from "../../UI/Link";
 
 import { logo, notfication, shoppinsCard } from "../../../assets";
 import Search from "../../UI/Search";
+import { useDispatch, useSelector } from "react-redux";
+import { showMobileMenu } from "@/context/Utils";
+import { RootState } from "@/context/store";
 
 const Header = () => {
-  return (
-    <header>
-      <nav
-        className="
-          container
-          mx-auto
-          px-5
-          py-[.4rem]
-        "
-      >
-        {/* main header */}
-        <div
-          className="
-            flex
-            items-center
-            justify-between
-          "
-        >
-          {/* search bar */}
-          <Search />
+  const selector = useSelector((state: RootState) => state.util)
+  const dispatch = useDispatch()
 
-          {/* logo */}
-          <Link href="/" className="w-[140px]">
-            <img
-              className="
-                pt-.5rem
-                ml-[-5rem]
-              "
-              src={logo}
-              alt="logo img"
-            />
+  const showMenuHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.currentTarget.classList.toggle("header__menu--show");
+
+    dispatch(showMobileMenu(!selector.mobileMenuActive))
+  };
+
+
+
+  return (
+    <header className="header">
+      <nav className="header__nav">
+        <Search />
+
+        <div>
+          <Link href="/" className="header__logo">
+            <img width={125} height={30} src={logo} alt="logo img" />
           </Link>
 
-          {/* extra functions */}
-          <div
-            className="
-              flex
-              items-center
-              justify-center
-              gap-4
-            "
-          >
-            <video
-              src={shoppinsCard}
-              className="
-                h-[30px]
-                w-[30px]
-              "
-            />
-            <video
-              src={notfication}
-              className="
-                h-[30px]
-                w-[30px]
-              "
-            />
+          <div className="header__functionality">
+            <video src={shoppinsCard} />
+            <video src={notfication} />
+          </div>
+
+          <div className="header__menu" onClick={showMenuHandler}>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
       </nav>

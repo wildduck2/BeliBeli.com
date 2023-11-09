@@ -1,0 +1,47 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../utils" as u;
+@use "../../base" as *;
+
+/*
+
+    Banner Deals
+
+*/
+
+.banner-deals {
+  // max-width: 900px; 
+
+  @include u.breakpoint("medium") {
+    width: 600px;
+  }
+
+  @include u.breakpoint("large") {
+    width: 1005px;
+  }
+
+  & .swiper-slide {
+    @include u.flex(flex, center, center);
+    text-align: center;
+
+    @include u.breakpoint("large") {
+      width: fit-content !important;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__link {
+    font-size: var(--f-sm);
+
+    @include u.breakpoint("large") {
+      font-size: initial;
+    }
+  }
+}

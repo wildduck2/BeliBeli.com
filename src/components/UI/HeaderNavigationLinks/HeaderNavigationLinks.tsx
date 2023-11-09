@@ -1,5 +1,4 @@
-import React from "react";
-
+import React from 'react'
 import LinkButton from "../Link";
 
 import { navigationLinks } from "../../../constants";
@@ -8,32 +7,11 @@ import { BannerDeals } from "@/components/Layouts";
 const HeaderNavigationLinks = () => {
   return (
     <>
-      <ul
-        className="
-            flex
-            items-center
-            justify-center
-            gap-6
-            py-[1.8rem]
-          "
-      >
+      <ul className="navigations">
         {navigationLinks.map((link, index) => {
           return (
             <li key={index}>
-              <LinkButton
-                href={link}
-                className="
-                  transtion-border
-                  hover:opacity-1
-                  border-b
-                  border-b-transparent
-                  pb-[.2rem]
-                  font-medium
-                  text-blackOne
-                  hover:border-b-blackOne
-                  lg:text-[1rem]
-                "
-              >
+              <LinkButton href={link} className="navigations__link">
                 {link}
               </LinkButton>
             </li>

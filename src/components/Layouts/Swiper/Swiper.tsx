@@ -22,7 +22,7 @@ interface SwiperTypes {
   className?: string;
   filterSwiper?: boolean;
   DATA__NAME: Product[] | null;
-  FILTER__QUERY: string;
+  FILTER__QUERY?: string;
   MAGAZINE__TYPE?: boolean;
 }
 
@@ -88,7 +88,7 @@ const Swiper = React.forwardRef(
           MAGAZINE__TYPE ? (
             DATA__NAME?.map((item, index) => {
               return (
-                item.type === FILTER__QUERY.toLowerCase() &&
+                item.type === FILTER__QUERY?.toLowerCase() &&
                 item.product_type.map((data) => {
                   return (
                     <li className="swiper_card" key={index}>
@@ -119,7 +119,7 @@ const Swiper = React.forwardRef(
           ) : (
             DATA__NAME?.map((item, index) => {
               return (
-                item.type === FILTER__QUERY.toLowerCase() && (
+                item.type === FILTER__QUERY?.toLowerCase() && (
                   <li className="swiper_card" key={index}>
                     <div className="img__wrapper">
                       <AsyncImage
@@ -167,10 +167,10 @@ const Swiper = React.forwardRef(
     );
   },
 );
+
+Swiper.displayName = 'Swiper'
 export default Swiper;
 
-//
-//
 // type P<T> = Record<string, T>;
 //
 // const switchFn =

@@ -1,38 +1,58 @@
+import React from 'react'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+
 import { LinkButton } from "@/components/UI";
 import { Daels } from "@/constants";
+import "swiper/scss";
 
 const BannerDeals = () => {
   return (
-    <ul
-      className="
-        flex
-        items-center
-        justify-center
-        gap-[5rem]
-        pb-[1rem]
-      "
+    <Swiper
+      className="banner-deals"
+      loop={true}
+      pagination={{
+        clickable: true,
+      }}
+      navigation={true}
+      modules={[Pagination, Navigation]}
+      breakpoints={{
+        280: {
+          slidesPerView: 1,
+          spaceBetween: 50,
+        },
+
+        700: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+
+        800: {
+          slidesPerView: 2,
+          spaceBetween: 90
+        },
+
+
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 50
+        }
+      }}
     >
       {Daels.map((item, key) => {
         return (
-          <li key={key}>
+          <SwiperSlide key={key}>
             <LinkButton
-              className="
-                  transtion-border
-                  hover:opacity-1
-                  border-b
-                  border-b-transparent
+              className="banner-deals__link
                   pb-[.2rem]
-                  font-medium
-                  text-blackOne
-                  lg:text-[.85rem]
                 "
             >
               {item}
             </LinkButton>
-          </li>
+          </SwiperSlide>
         );
       })}
-    </ul>
+    </Swiper>
   );
 };
 

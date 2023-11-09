@@ -17,32 +17,32 @@ const HeaderBanner = () => {
   };
 
   return (
-    <div
-      className="
-          container
-          mx-[auto]
-          flex
-          items-center
-          justify-center
-          gap-6
-          py-2
-      "
-    >
+    <div className="banner">
       {/* here wher i will show the log out button if the user is utharized */}
       {session || userData ? (
         <>
-          <Link href={"/"} onClick={() => logoutHandler()}>
+          <Link
+            className="banner__link"
+            href={"/"}
+            onClick={() => logoutHandler()}
+          >
             Logout
           </Link>
         </>
       ) : (
         <>
-          <Link href={"/signup"}>Craete An Account</Link>
-          <Link href={"/login"}>Login</Link>
+          <Link className="banner__link" href={"/signup"}>
+            Craete An Account
+          </Link>
+          <Link className="banner__link" href={"/login"}>
+            Login
+          </Link>
         </>
       )}
 
-      <Link href={"findstore"}>Find Store</Link>
+      <Link className="banner__link" href={"findstore"}>
+        Find Store
+      </Link>
     </div>
   );
 };

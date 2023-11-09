@@ -1,0 +1,28 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../utils" as u;
+@use "../../base" as *;
+
+/*
+
+    Header Banner
+
+*/
+
+.banner {
+  column-gap: 1.5rem;
+  display: none;
+  padding: 0.5rem;
+
+  &__link {
+  }
+
+  // breakpoint on 700px
+  @include u.breakpoint("medium") {
+    @include u.flex(flex, center, center);
+  }
+}

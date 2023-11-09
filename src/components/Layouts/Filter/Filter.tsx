@@ -3,7 +3,7 @@ import { FilterLinks } from '../../../constants'
 import Button from '../../UI/Button'
 import { twMerge } from 'tailwind-merge'
 import { useDispatch } from 'react-redux'
-import { gettingFilterName } from '../../../context/Data'
+import { gettingFilterName } from '../../../context/Utils'
 
 const Filter = () => {
   const ButtonsContainerRef = useRef<HTMLDivElement>(null)
@@ -24,6 +24,7 @@ const Filter = () => {
     // TODO: passing the filter name to redux to use it in the swiper
     dispatch(gettingFilterName(el.innerHTML.split(' ').join('')))
   }
+
 
   return (
     <div

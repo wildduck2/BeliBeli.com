@@ -1,0 +1,38 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../utils" as u;
+@use "../../base" as *;
+
+/*
+
+    Navigation Links
+
+*/
+
+.navigations {
+  display: none;
+  gap: clamp(1.5rem, -1.1739130434782608rem + 4.63768115942029vw, 2rem);
+  padding-block: 1.8rem;
+
+  &__link {
+    border-bottom: 2px solid transparent;
+    transition: 0.3s ease;
+    padding-bottom: 0.2rem;
+
+    &:hover {
+      border-bottom-color: var(--c-black-900);
+    }
+  }
+
+  @include u.breakpoint("medium") {
+    @include u.flex(flex, center, center);
+
+    &__link {
+      // font-size: 1rem;
+    }
+  }
+}

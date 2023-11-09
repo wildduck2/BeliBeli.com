@@ -236,9 +236,10 @@ export const KidsCaregory = [
 ];
 
 export const WomenHeaderNavigationLink = [
+  "women",
   [
     [
-      ["New Arrivals"],
+      "New Arrivals",
       ["View All", "Clothes", "Shoes & Accessories", "Sportswear"],
     ],
     [
@@ -246,7 +247,7 @@ export const WomenHeaderNavigationLink = [
       ["Bestsellers From EGP 299", "Shirts & Blouses Under EGP 1199"],
     ],
     [
-      ["Trending Now"],
+      "Trending Now",
       [
         "A/W 2023",
         "Romance",
@@ -255,10 +256,8 @@ export const WomenHeaderNavigationLink = [
         "Modern Utility",
       ],
     ],
-  ],
-  [
     [
-      ["Shop By Product"],
+      "Shop By Product",
       [
         "View All",
         "Dresses",
@@ -288,13 +287,7 @@ export const WomenHeaderNavigationLink = [
         "Plus Sizes",
       ],
     ],
-  ],
-  [
-    [
-      [["Shop By Occasion"], ["Going Out", "Office Wear", "Wedding"]],
-      [["Magazine"], ["Magazine"]],
-    ],
-  ],
+    [["Shop By Occasion", ["Going Out", "Office Wear", "Wedding"]], "Magazine"]],
 ];
 
 export const WoemnSideBarNavigation = [
@@ -358,22 +351,21 @@ export const WoemnSideBarNavigation = [
 ];
 
 export const MenHeaderNavigationLink = [
+  "men",
   [
     [
-      ["New Arrivals"],
+      "New Arrivals",
       ["View All", "Clothes", "Shoes & Accessories", "Sportswear"],
     ],
-    [["Autumn Lookbook"], ["Casual Looks", "Smart Looks", "Street Looks"]],
+    ["Autumn Lookbook", ["Casual Looks", "Smart Looks", "Street Looks"]],
 
     [
-      ["Offers And Highlights"],
+      "Offers And Highlights",
       ["Shoes From EGP 649", "Men Sportswear From EGP 399", "Bestsellers"],
     ],
-    [["Trending Now"], ["Music Movies & Logos"]],
-  ],
-  [
+    ["Trending Now", ["Music Movies & Logos"]],
     [
-      ["Shop By Product"],
+      "Shop By Product",
       [
         "View All",
         "T-Shirts & Tanks",
@@ -397,8 +389,8 @@ export const MenHeaderNavigationLink = [
         "Nightwear & Loungewear",
       ],
     ],
-    [["Shop By Occasion"], ["Going Out", "Office Wear", "Wedding"]],
-    [["Magazine"], ["Magazine"]],
+    ["Shop By Occasion", ["Going Out", "Office Wear", "Wedding"]],
+    "Magazine",
   ],
 ];
 
@@ -438,15 +430,16 @@ export const MenSideBarNavigation = [
 ];
 
 export const DividedHeaderNavigationLink = [
+  "divided",
   [
     [
-      ["New Arrivals"],
+      "New Arrivals",
       ["View All", "Clothes", "Shoes & Accessories", "Sportswear"],
     ],
-    [["Autumn Lookbook"], ["Casual Looks", "Smart Looks", "Street Looks"]],
+    ["Autumn Lookbook", ["Casual Looks", "Smart Looks", "Street Looks"]],
     [["Offers And Highlights"], ["New Season Basics From EGP 99"]],
     [
-      ["Trending Now"],
+      "Trending Now",
       [
         "90s Minimalist",
         "Hyper Feminine",
@@ -455,10 +448,8 @@ export const DividedHeaderNavigationLink = [
         "A/W 2023",
       ],
     ],
-  ],
-  [
     [
-      ["Shop By Product"],
+      "Shop By Product",
       [
         "View All",
         "Dresses",
@@ -520,9 +511,10 @@ export const DividedSideBarNavigation = [
 ];
 
 export const BabayHeaderNavigationLink = [
+  "baby",
   [
     [
-      ["Newborn"],
+      "Newborn",
       [
         "View All",
         "New Arrivals",
@@ -532,10 +524,8 @@ export const BabayHeaderNavigationLink = [
         "Outdoor & Fleece",
       ],
     ],
-  ],
-  [
     [
-      ["Baby Girls"],
+      "Baby Girls",
       [
         "View All",
         "New Arrivals",
@@ -546,10 +536,8 @@ export const BabayHeaderNavigationLink = [
         "Fancy Dress Costumes",
       ],
     ],
-  ],
-  [
     [
-      ["Baby Boys"],
+      "Baby Boys",
       [
         "View All",
         "New Arrivals",
@@ -560,10 +548,8 @@ export const BabayHeaderNavigationLink = [
         "Fancy Dress Costumes",
       ],
     ],
-  ],
-  [
     [
-      ["Shop By Product"],
+      "Shop By Product",
       [
         "View All",
         "New Arrivals",
@@ -573,8 +559,7 @@ export const BabayHeaderNavigationLink = [
         "Outerwear",
       ],
     ],
-  ],
-  [[["Popular Now"], ["Character Shop", "Basics And Multipacks"]]],
+    ["Popular Now", ["Character Shop", "Basics And Multipacks"]]],
 ];
 
 export const BabySideBarNavigation = [
@@ -634,13 +619,14 @@ export const BabySideBarNavigation = [
 ];
 
 export const KidsHeaderNavigationLink = [
+  "kids",
   [
     [
-      ["Popular Now"],
+      "Popular Now",
       ["Halloween", "Back To School", "Lakwena X BeliBeli", "Character Shop"],
     ],
     [
-      ["Offers And Highlights"],
+      "Offers And Highlights",
       [
         "25% Off On Kids Essential",
         "3 For 2 On Basics",
@@ -649,10 +635,8 @@ export const KidsHeaderNavigationLink = [
         "Hoodies Under EGP1099",
       ],
     ],
-  ],
-  [
     [
-      ["Girls 2-8Y"],
+      "Girls 2-8Y",
       [
         "View All",
         "New Arrivals",
@@ -665,10 +649,8 @@ export const KidsHeaderNavigationLink = [
         "Sportswear",
       ],
     ],
-  ],
-  [
     [
-      ["Boys 2-8Y"],
+      "Boys 2-8Y",
       [
         "View All",
         "New Arrivals",
@@ -680,10 +662,8 @@ export const KidsHeaderNavigationLink = [
         "Sportswear",
       ],
     ],
-  ],
-  [
     [
-      ["Girls 9-14Y"],
+      "Girls 9-14Y",
       [
         "View All",
         "New Arrivals",
@@ -695,10 +675,8 @@ export const KidsHeaderNavigationLink = [
         "Sportswear",
       ],
     ],
-  ],
-  [
     [
-      ["Boys 9-14Y"],
+      "Boys 9-14Y",
       [
         "View All",
         "New Arrivals",
@@ -709,10 +687,8 @@ export const KidsHeaderNavigationLink = [
         "Sportswear",
       ],
     ],
-  ],
-  [
     [
-      ["Shop By Product"],
+      "Shop By Product",
       [
         "View All",
         "New Arrivals",
@@ -736,7 +712,6 @@ export const kidsSideBarNavigation = [
         "Character Shop",
         "Autumn Styles 2-8y",
         "Autumn Styles 9-14y",
-        ,
       ],
     ],
   ],
@@ -823,17 +798,16 @@ export const kidsSideBarNavigation = [
 ];
 
 export const BeliBeliHomeHeaderNavigationLink = [
+  "belibeli home",
   [
-    [["New Arrivals"], ["View All", "Clothes", "New Home & Interior Products"]],
+    ["New Arrivals", ["View All", "Clothes", "New Home & Interior Products"]],
     [
-      ["Shop By Room"],
+      "Shop By Room",
       ["Living Room", "Bedroom", "Bathroom", "Kitchen", "Kids Room"],
     ],
-  ],
-  [[["Trending Now"], ["Home Essentials", "Current Crush", "Fall 2023"]]],
-  [
+    ["Trending Now", ["Home Essentials", "Current Crush", "Fall 2023"]],
     [
-      ["Shop By Product"],
+      "Shop By Product",
       [
         "View All",
         "Vases & Decorations",
@@ -854,8 +828,7 @@ export const BeliBeliHomeHeaderNavigationLink = [
         "Lighting",
       ],
     ],
-  ],
-  [[["Shop By Concept"], ["Premium Selection"]]],
+    ["Shop By Concept", ["Premium Selection"]]],
 ];
 
 export const BeliBeliHomeSideBarNavigation = [
@@ -904,9 +877,10 @@ export const BeliBeliHomeSideBarNavigation = [
 ];
 
 export const SportsHeaderNavigationLink = [
+  "sports",
   [
     [
-      ["Women"],
+      "Women",
       [
         "View All",
         "New Arrivals",
@@ -918,10 +892,8 @@ export const SportsHeaderNavigationLink = [
         "Maternity",
       ],
     ],
-  ],
-  [
     [
-      ["Men"],
+      "Men",
       [
         "View All",
         "New Arrivals",
@@ -930,10 +902,8 @@ export const SportsHeaderNavigationLink = [
         "Accessories And Equipment",
       ],
     ],
-  ],
-  [
     [
-      ["Kids"],
+      "Kids",
       [
         "View All",
         "New Arrivals",
@@ -942,10 +912,8 @@ export const SportsHeaderNavigationLink = [
         "Sport Accessories",
       ],
     ],
-  ],
-  [
     [
-      ["Inspiration & Guides"],
+      "Inspiration & Guides",
       ["Tights Guide", "Bra Guide", "The Shorts Guide", "The T-Shirt Guide"],
     ],
   ],
@@ -987,9 +955,10 @@ export const SportsSideBarNavigation = [
 ];
 
 export const SaleHeaderNavigationLink = [
+  "sale",
   [
     [
-      ["Women"],
+      "Women",
       [
         "Women",
         "Dresses",
@@ -1018,10 +987,8 @@ export const SaleHeaderNavigationLink = [
         "Socks & Tights",
       ],
     ],
-  ],
-  [
     [
-      ["Divided"],
+      "Divided",
       [
         "Dresses",
         "Shirts & Blouses",
@@ -1039,10 +1006,8 @@ export const SaleHeaderNavigationLink = [
         "Underwear & Nightwear",
       ],
     ],
-  ],
-  [
     [
-      ["Men"],
+      "Men",
       [
         "Last Chance To Buy",
         "Hoodies & Sweatshirts",
@@ -1061,10 +1026,8 @@ export const SaleHeaderNavigationLink = [
         "Premium Selection",
       ],
     ],
-  ],
-  [
     [
-      ["Kids"],
+      "Kids",
       [
         "Last Chance To Buy",
         "Newborn",
@@ -1077,7 +1040,7 @@ export const SaleHeaderNavigationLink = [
       ],
     ],
     [
-      ["H&M Home"],
+      "H&M Home",
       [
         "Living Room",
         "Bathroom",
@@ -1088,7 +1051,7 @@ export const SaleHeaderNavigationLink = [
         "Cushion Covers",
       ],
     ],
-    [["Sport"], ["Women", "Men", "Kids"]],
+    ["Sport", ["Women", "Men", "Kids"]],
   ],
 ];
 
@@ -1198,9 +1161,10 @@ export const SaleSideBarNavigation = [
 ];
 
 export const SustainabilityHeaderNavigationLink = [
+  "sustainability",
   [
     [
-      ["Our Work"],
+      "Our Work",
       [
         "The Latest",
         "Let's Innovate",
@@ -1210,17 +1174,13 @@ export const SustainabilityHeaderNavigationLink = [
         "Let's Close The Loop",
       ],
     ],
-  ],
-  [[["Our Products"], ["Women", "Divided", "Kids", "Baby", "Men", "H&M HOME"]]],
-  [
+    ["Our Products", ["Women", "Divided", "Kids", "Baby", "Men", "H&M HOME"]],
     [
-      ["H&M Take Care"],
+      "H&M Take Care",
       ["Repair Remake And Refresh", "Wash", "Care", "Care Products"],
     ],
-  ],
-  [
     [
-      ["Our Commitment"],
+      "Our Commitment",
       [
         "H&M Group Sustainability Strategy",
         "H&M Group Sustainability Report",
