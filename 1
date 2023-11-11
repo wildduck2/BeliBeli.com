@@ -1,0 +1,34 @@
+import React, { useEffect, useState } from "react";
+
+interface AsyncImageTypes extends React.ImgHTMLAttributes<HTMLImageElement> { }
+const T = 'https://zpgqhogoevbgpxustvmo.supabase.co/storage/v1/object/public/produc_imgs/mobileBanner/banner5%20(1).png'
+
+const AsyncImagee: React.FC<AsyncImageTypes> = ({ className, src = T, ...props }) => {
+
+  return <div className="bg-red-500 w-[150px] h-[150px]">
+  </div>
+};
+
+AsyncImagee.displayName = 'AsyncImage'
+export default AsyncImagee
+
+
+// 1- after skeleton you will see the img with animation
+// 2- img lazy setps
+//    -- making div as as parent for the img
+//    -- giving this div bg and style it like palceHolder to the img
+//    -- adding eventListener to the img on load
+//    -- if the img is loaded and complete add class to show the img
+
+
+//  <picture >
+//
+//          <source srcSet={selector.bannersData![dataIndex].top_img}
+//              media="(min-width: 500px)" />
+//            <img
+//              width={275}
+//              height={384}
+//              src={selector.bannersData![dataIndex].mobile_top_img}
+//            />
+//          </picture>
+

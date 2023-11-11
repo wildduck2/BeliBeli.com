@@ -15,7 +15,8 @@
 
 .img-banner {
   position: relative;
-  height: 384px;
+  height: 383px;
+  overflow: hidden;
 
   .AsyncImage-root {
     margin: 0 auto;
@@ -37,7 +38,7 @@
   &__info {
     @include u.flex(grid);
     position: absolute;
-    bottom: 2.5rem;
+    bottom: clamp(2rem, 1.8333333333333333rem + 0.8333333333333334vw, 2.5rem);
     left: 50%;
     transform: translateX(-50%);
     gap: 0;
@@ -47,21 +48,20 @@
     & h2 {
       margin-bottom: 1;
       white-space: nowrap;
-      font-size: 2.85rem;
+      font-size: clamp(1.85rem, 1.5166666666666668rem + 1.6666666666666667vw, 2.85rem);
       font-weight: 600;
       color: var(--c-white);
     }
 
     & p {
-      margin-bottom: 1.2rem;
-      font-size: 0.9rem;
+      margin-bottom: clamp(0.75rem, 0.6000000000000001rem + 0.7499999999999999vw, 1.2rem);
+      font-size: clamp(0.75rem, 0.7rem + 0.25000000000000006vw, 0.9rem);
       color: var(--c-white);
     }
 
     &>div {
       @include u.flex(flex, center, center);
       gap: 1.8rem;
-      font-size: 0.8rem;
     }
   }
 
@@ -69,21 +69,22 @@
     cursor: pointer;
     white-space: nowrap;
     background: var(--c-white);
-    padding-inline: 1.2rem;
-    padding-block: 0.7rem;
+    padding-inline: clamp(1rem, 0.9333333333333333rem + 0.33333333333333326vw, 1.2rem);
+    padding-block: clamp(0.5rem, 0.43333333333333335rem + 0.33333333333333326vw, 0.7rem);
     font-weight: 500;
     color: var(--black-300);
+    font-size: clamp(0.7rem, 0.6666666666666666rem + 0.1666666666666668vw, 0.8rem);
   }
 }
 
 .img-banner__skeleton {
-  width: 275px;
+  width: clamp(17.1875rem, 1.5416666666666679rem + 78.22916666666666vw, 64.125rem);
   height: 384px;
 
-  @include u.breakpoint("large") {
-    width: 1026px;
-    height: 684px;
-  }
+ // @include u.breakpoint("large") {
+ //   width: 1026px;
+ //   height: 684px;
+ // }
 }
 
 

@@ -35,6 +35,7 @@ import arrownHeadDown from "./svgs/headArrowDown.svg";
 import leftArrow from "./svgs/leftArrow.svg";
 import rightArrow from "./svgs/rightArrow.svg";
 import rightGray from "./svgs/rightgray.svg";
+import arrowSiwper from './svgs/arrowSwiper.svg';
 
 // CustomSocial
 import google from "./svgs/googleIcon.svg";
@@ -43,6 +44,7 @@ export {
   logo,
   logo2,
   logo3,
+  arrowSiwper,
   banner1,
   banner2,
   banner3,

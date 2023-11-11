@@ -1,3 +1,4 @@
-@use "navigationLinks";
-@use "bannerDeals";
-@use "headerMenu";
+@forward "navigationLinks";
+@forward "bannerDeals";
+@forward 'skeleton';
+@forward 'LazyLoadingImg';

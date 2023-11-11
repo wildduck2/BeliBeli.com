@@ -18,26 +18,19 @@ const Home = () => {
   const swiperContainerRef4 = useRef() as MutableRefObject<HTMLUListElement>;
 
   const selector = useSelector((state: RootState) => state.data);
-  const selector2 = useSeltor((state: RootState) => state.util);
+  const selector2 = useSelector((state: RootState) => state.util);
 
   return (
     <>
-      <main
-        className="
-        mx-auto
-        grid
-        pt-[1rem]
-      "
-      >
+      <main>
         {/* Hero Section */}
         <section className="section pt-0">
           <ImgBanner dataIndex={0} />
 
-          <CategoryBanner categoryData={selector.categoriesData} />
+          {/* <CategoryBanner categoryData={selector.categoriesData} /> */}
         </section>
 
-        {/* Trending Now Section */}
-        <section className="section">
+        {/*         <section className="section">
           <div>
             <h2
               className="
@@ -57,9 +50,7 @@ const Home = () => {
                   gap-[3.5rem]
                 "
             >
-              {/* filter */}
               <Filter />
-              {/* navigation */}
               <Navigation
                 navigationFunction={PaginationIndex}
                 DOT_REF={pagenaationRef1}
@@ -68,7 +59,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* swiper */}
           <Swiper
             FILTER__QUERY={selector2.currentFilter}
             DATA__NAME={selector.products}
@@ -77,7 +67,6 @@ const Home = () => {
             SWIPER__REF={swiperContainerRef1}
           />
 
-          {/* Pagination Dot */}
           <div
             className="
                 pagination_container 
@@ -93,7 +82,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Recomended for you Section*/}
         <section
           className="
               section
@@ -110,7 +98,6 @@ const Home = () => {
           >
             Recommended for you
           </h2>
-          {/* navigation */}
           <Navigation
             navigationFunction={PaginationStep}
             flex_mode={true}
@@ -118,7 +105,6 @@ const Home = () => {
             SWIPER_REF={swiperContainerRef2}
           />
 
-          {/* swiper */}
           <Swiper
             // FILTER__QUERY={selector.currentFilter} 
             DATA__NAME={selector.products}
@@ -127,17 +113,14 @@ const Home = () => {
           />
         </section>
 
-        {/* Banner2 Section */}
         <section className="section pb-6 pt-0">
           <ImgBanner dataIndex={1} />
         </section>
 
-        {/* Banner3 Section */}
         <section className="section pb-6 pt-0">
           <ImgBanner dataIndex={2} />
         </section>
 
-        {/* Customers Also Viewed Section*/}
         <section
           className="
               section
@@ -155,7 +138,6 @@ const Home = () => {
           >
             Customers Also Viewed
           </h2>
-          {/* navigation */}
           <Navigation
             navigationFunction={PaginationStep}
             flex_mode={true}
@@ -163,7 +145,7 @@ const Home = () => {
             SWIPER_REF={swiperContainerRef3}
           />
 
-          {/* swiper */}
+          
           <Swiper
             FILTER__QUERY={selector.currentFilter}
             DATA__NAME={selector.products}
@@ -172,7 +154,6 @@ const Home = () => {
           />
         </section>
 
-        {/* Styled By You Section */}
         <section className="styledByYou__section section">
           <div>
             <h3>Styled by you</h3>
@@ -187,7 +168,6 @@ const Home = () => {
           </div>
 
           <div>
-            {/* navigation */}
             <Navigation
               navigationFunction={PaginationStep}
               flex_mode={true}
@@ -196,7 +176,6 @@ const Home = () => {
               className="styled"
             />
 
-            {/* swiper */}
             <Swiper
               FILTER__QUERY="styledbyyou"
               DATA__NAME={selector.products}
@@ -207,7 +186,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Magazine Section */}
         <section className="magazine__section">
           <div className="section magazine__container mb-[2rem]">
             <h2>MAGAZINE</h2>
@@ -222,7 +200,7 @@ const Home = () => {
               })}
             </div>
           </div>
-        </section>
+        </section>*/}
       </main>
     </>
   );

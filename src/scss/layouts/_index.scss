@@ -1,2 +1,6 @@
-@use "headerBanner";
-@use "header";
+@forward "headerBanner";
+@forward "header";
+@forward "headerMenu";
+@forward "imgBanner";
+@forward 'cateforyBanner'
+

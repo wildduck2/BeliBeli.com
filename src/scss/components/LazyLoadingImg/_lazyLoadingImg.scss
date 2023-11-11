@@ -1,0 +1,64 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../utils" as u;
+@use "../../base" as *;
+
+/*
+
+  LazyLoading Img
+
+*/
+.lazyLoaingImg-wrapper {
+  position: relative;
+  display: inline-flex;
+  width: 275px;
+  height: 384px;
+  z-index: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--c-skeleton);
+    z-index: -1;
+  }
+
+
+  .lazyLoadingImg {
+
+    &__img {
+      width: 275px;
+      height: 384px;
+      opacity: 0;
+      transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+    }
+
+
+  }
+
+  &.show--img {
+    img {
+      opacity: 1;
+    }
+  }
+
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

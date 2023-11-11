@@ -14,14 +14,14 @@
 */
 
 .banner-deals {
-  // max-width: 900px; 
+  // width: 278px;
 
   @include u.breakpoint("medium") {
     width: 600px;
   }
 
   @include u.breakpoint("large") {
-    width: 1005px;
+    width: 960px;
   }
 
   & .swiper-slide {

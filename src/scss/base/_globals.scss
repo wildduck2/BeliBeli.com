@@ -45,3 +45,22 @@ textarea {
   outline: none;
   background-color: none;
 }
+
+main {
+  margin: 0 auto;
+  display: grid;
+  padding-top: 1rem;
+}
+
+.section {
+  margin: 0 auto;
+  max-width: 1026px;
+  padding-bottom: 2rem;
+  padding-top: 3rem;
+}
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

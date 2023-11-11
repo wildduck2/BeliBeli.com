@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import React, { Routes, Route } from "react-router-dom";
 
 import {
   Divided,
@@ -29,29 +29,9 @@ function App() {
       <Header />
       <HeaderNavigationLinks />
       <HeaderMenu />
-      {/* <Routes>
-        <Route
-          path="/test"
-          element={
-            <div
-              className={cn(
-                `form
-                grid
-                w-full
-                place-content-center`,
-              )}
-            >
-              <button>Logout</button>
-              <Auth
-                supabaseClient={supabase}
-                providers={["google", "discord"]}
-                appearance={{ theme: ThemeSupa }}
-              />
-            </div>
-          }
-        />
+      <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Women" element={<Women />} />
+        {/*      <Route path="/Women" element={<Women />} />
         <Route path="/Men" element={<Men />} />
         <Route path="/Divided" element={<Divided />} />
         <Route path="/Baby" element={<Baby />} />
@@ -60,8 +40,8 @@ function App() {
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
 
-        <Route path="/*" element={<Error />} />
-      </Routes> */}
+        <Route path="/*" element={<Error />} />*/}
+      </Routes>
       {/* <Footer /> */}
     </>
   );

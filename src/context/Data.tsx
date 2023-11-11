@@ -41,6 +41,9 @@ export interface otherImgsTypes {
   category_type: string | null;
   top_img: string;
   low_img: string;
+
+  mobile_top_img: string;
+  mobile_low_img: string;
 }
 
 export interface initialStateTypes {
