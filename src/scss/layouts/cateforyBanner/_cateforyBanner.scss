@@ -19,7 +19,7 @@
   padding-top: 0.8rem;
   text-align: center;
 
-  & > h1 {
+  &>h1 {
     font-size: 0.9rem;
     font-weight: 600;
     font-size: 1.1rem;
@@ -27,49 +27,73 @@
 
   &__wrapper {
     @include u.flex(grid, center);
-    grid-auto-flow: column;
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: clamp(17.6625rem, 2.0416666667rem + 77.6041666667vw, 64.125rem);
+
+    @include u.breakpoint("small") {
+      @include u.flex(flex, center, center);
+      flex-wrap: wrap;
+      gap: clamp(0.5rem, 0rem + 2.5vw, 2rem);
+    }
+
+    @include u.breakpoint("xlarge") {
+      grid-auto-flow: column;
+      grid-template-columns: auto;
+    }
+  }
+
+  & .AsyncImage-root {
+    width: clamp(4.0625rem, 3.333333333333333rem + 3.6458333333333335vw, 6.25rem) !important;
+    height: clamp(4.0625rem, 3.333333333333333rem + 3.6458333333333335vw, 6.25rem) !important;
   }
 
   &__bit {
     cursor: pointer;
     @include u.flex(grid);
-    height: 147.45px;
+    height: clamp(7.0625rem, 5.627083333333333rem + 7.177083333333331vw, 9.215625rem);
     column-gap: 0.25rem;
     text-align: center;
     text-transform: capitalize;
     font-size: 0.813rem;
 
-    & > picture {
+    //
+    //width: 64.25px;
+
+    &>picture {
       @include u.flex(grid);
       place-content: center;
-      width: 100px;
-      height: 100px;
+
+      width: clamp(4.0625rem, 3.333333333333333rem + 3.6458333333333335vw, 6.25rem);
+      height: clamp(4.0625rem, 3.333333333333333rem + 3.6458333333333335vw, 6.25rem);
       overflow: hidden;
       border-radius: 50%;
 
-      & .skeleton {
-        width: 100px;
-        height: 100px;
+
+      wid & .skeleton {
+        width: clamp(4.0625rem, 3.333333333333333rem + 3.6458333333333335vw, 6.25rem);
+        height: clamp(4.0625rem, 3.333333333333333rem + 3.6458333333333335vw, 6.25rem);
         border-radius: 50rem;
+
       }
     }
 
-    & > span {
+    &>span {
       @include u.flex(grid);
-      font-size: 0.75rem;
+      font-size: clamp(0.55rem, 0.4833333333333334rem + 0.33333333333333326vw, 0.75rem);
       font-weight: 700;
       color: #555555;
     }
 
-    & > h2 {
-      width: 93.41px;
+    &>h2 {
+      width: clamp(3.125rem, 2.220625rem + 4.521875vw, 5.838125rem);
       flex-wrap: wrap;
       place-self: center;
-      font-size: 0.78rem;
+      font-size: clamp(0.5rem, 0.4066666666666667rem + 0.46666666666666673vw, 0.78rem);
       font-weight: 600;
       line-height: 0.85rem;
       color: #222222;
+
+
     }
   }
 }
@@ -82,16 +106,20 @@
   @include u.flex(grid, initial, center);
   grid-auto-flow: column;
   column-gap: 2rem;
+  margin: 0 auto;
 
-  & > div {
+  &>div {
     @include u.flex(grid);
-    row-gap: 0.25rem;
+    row-gap: clamp(0.5rem, -0.5rem + 5vw, 2rem);
   }
 
   .skeleton {
-    width: 100px;
-    height: 100px;
+    width: clamp(4.0625rem, 3.333333333333333rem + 3.6458333333333335vw, 6.25rem);
+    height: clamp(4.0625rem, 3.333333333333333rem + 3.6458333333333335vw, 6.25rem);
     border-radius: 50rem;
+
+    width: 80px;
+    height: 80px;
 
     &.sm {
       height: 10px;

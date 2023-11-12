@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/context/store";
 import cn from "../../../utils/cn";
 import { otherImgsTypes } from "@/context/Data";
-import { AsyncImage } from "loadable-image";
+import { AsyncImage } from "loadable-image"
 
 interface CategoryBannerTypes {
   categoryData: otherImgsTypes[] | null;
@@ -22,7 +22,7 @@ const CategoryBanner: React.FC<CategoryBannerTypes> = ({ className }) => {
 
       {/* cagegories mapping */}
       <div className="category-banner__wrapper">
-        {selector.satatus == "succeeded" ? (
+        {selector.satatus === "succeeded" ? (
           selector.categoriesData
             ?.filter((dat) => dat.category_type === "home_category")
             .sort((a, b) => a.index - b.index)
@@ -32,7 +32,7 @@ const CategoryBanner: React.FC<CategoryBannerTypes> = ({ className }) => {
                   <picture>
                     <AsyncImage
                       src={item.top_img}
-                      style={{ width: 100, height: 100 }}
+                      style={{ width: 65, height: 65 }}
                       sources={[{ type: "image/png", srcSet: item.low_img }]}
                       loader={<div className="skeleton r-full" />}
                       error={<div className="skeleton r-full" />}

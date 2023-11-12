@@ -27,10 +27,10 @@ const Home = () => {
         <section className="section pt-0">
           <ImgBanner dataIndex={0} />
 
-          {/* <CategoryBanner categoryData={selector.categoriesData} /> */}
+          <CategoryBanner categoryData={selector.categoriesData} />
         </section>
 
-        {/*         <section className="section">
+     {/*   <section className="section">
           <div>
             <h2
               className="
@@ -69,7 +69,7 @@ const Home = () => {
 
           <div
             className="
-                pagination_container 
+                pagination_container
                 flex
                 items-center
                 justify-center
@@ -80,9 +80,9 @@ const Home = () => {
             <PaginationDot />
             <PaginationDot />
           </div>
-        </section>
+        </section>*/}
 
-        <section
+     {/*   <section
           className="
               section
               relative
@@ -106,12 +106,12 @@ const Home = () => {
           />
 
           <Swiper
-            // FILTER__QUERY={selector.currentFilter} 
+            // FILTER__QUERY={selector.currentFilter}
             DATA__NAME={selector.products}
             ref={swiperContainerRef2}
             SWIPER__REF={swiperContainerRef2}
           />
-        </section>
+        </section>*/}
 
         <section className="section pb-6 pt-0">
           <ImgBanner dataIndex={1} />
@@ -121,7 +121,7 @@ const Home = () => {
           <ImgBanner dataIndex={2} />
         </section>
 
-        <section
+     {/*   <section
           className="
               section
               relative
@@ -145,14 +145,14 @@ const Home = () => {
             SWIPER_REF={swiperContainerRef3}
           />
 
-          
+
           <Swiper
             FILTER__QUERY={selector.currentFilter}
             DATA__NAME={selector.products}
             ref={swiperContainerRef3}
             SWIPER__REF={swiperContainerRef3}
           />
-        </section>
+        </section>*/}
 
         <section className="styledByYou__section section">
           <div>
@@ -167,7 +167,7 @@ const Home = () => {
             <LinkButton href={`/BeliBeli`}>Visit BeliBeli</LinkButton>
           </div>
 
-          <div>
+         {/* <div>
             <Navigation
               navigationFunction={PaginationStep}
               flex_mode={true}
@@ -183,10 +183,10 @@ const Home = () => {
               SWIPER__REF={swiperContainerRef4}
               MAGAZINE__TYPE={true}
             />
-          </div>
+          </div>*/}
         </section>
 
-        <section className="magazine__section">
+      {/*  <section className="magazine__section">
           <div className="section magazine__container mb-[2rem]">
             <h2>MAGAZINE</h2>
 
