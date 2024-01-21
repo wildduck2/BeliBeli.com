@@ -2,7 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
-import { LinkButton } from "@/components/UI";
+import { Link } from "@/components/UI";
 import { Daels } from "@/constants";
 import "swiper/scss";
 
@@ -41,7 +41,7 @@ const BannerDeals = () => {
       {Daels.map((item, key) => {
         return (
           <SwiperSlide key={key}>
-            <LinkButton className="banner-deals__link">{item}</LinkButton>
+            <Link className="banner-deals__link">{item}</Link>
           </SwiperSlide>
         );
       })}

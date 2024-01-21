@@ -1,5 +1,6 @@
 import Button from "./Button";
-import LinkButton from "./Link";
+import Input from "./Input";
+import Link from "./Link";
 import Navigation from "./Navigation";
 import Search from "./Search";
 import ImgBanner from "./ImgBanner";
@@ -10,7 +11,7 @@ import Skeleton from "./Skeleton";
 
 export {
   Button,
-  LinkButton,
+  Link,
   Navigation,
   Search,
   ImgBanner,
@@ -18,4 +19,7 @@ export {
   ToastProvider,
   HeaderNavigationLinks,
   Skeleton,
+  Input
 };
+
+

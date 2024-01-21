@@ -1,5 +1,5 @@
 import React from "react";
-import { LinkButton } from "../../components/UI";
+import { Link } from "../../components/UI";
 
 interface headerNavigationDataTypes {
   headerNavigationData: string[][][][];
@@ -43,7 +43,7 @@ const NavigationHeaderLooping = ({
               >
                 {child[1].map((item, index) => {
                   return (
-                    <LinkButton
+                    <Link
                       key={index}
                       href={item}
                       className=" 
@@ -56,7 +56,7 @@ const NavigationHeaderLooping = ({
                         "
                     >
                       {item}
-                    </LinkButton>
+                    </Link>
                   );
                 })}
               </div>

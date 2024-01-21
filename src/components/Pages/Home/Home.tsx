@@ -1,22 +1,12 @@
-import React, { MutableRefObject, Suspense, useRef } from "react";
-import { RootState } from "@/context/store";
+import React from "react";
 import { useSelector } from "react-redux";
 
-import { ImgBanner, MagazineCard, Navigation, LinkButton } from "../../UI";
-import { CategoryBanner, Filter, Swiper } from "../../Layouts";
-import PaginationStep from "../../../utils/PaginationStep";
-import PaginationIndex from "../../../utils/PaginationIndex/idnex";
-import PaginationDot from "../../Layouts/Swiper/PaginationDot";
-
+import { RootState } from "../../../context/store";
+import { ImgBanner, MagazineCard, Link } from "../../UI";
+import { CategoryBanner, Filter, Swiper, SwiperSmall } from "../../Layouts";
 import { magazine } from "../../../constants";
 
 const Home = () => {
-  const pagenaationRef1 = useRef() as MutableRefObject<HTMLDivElement>;
-  const swiperContainerRef1 = useRef() as MutableRefObject<HTMLUListElement>;
-  const swiperContainerRef2 = useRef() as MutableRefObject<HTMLUListElement>;
-  const swiperContainerRef3 = useRef() as MutableRefObject<HTMLUListElement>;
-  const swiperContainerRef4 = useRef() as MutableRefObject<HTMLUListElement>;
-
   const selector = useSelector((state: RootState) => state.data);
   const selector2 = useSelector((state: RootState) => state.util);
 
@@ -24,138 +14,64 @@ const Home = () => {
     <>
       <main>
         {/* Hero Section */}
-        <section className="section pt-0">
-          <ImgBanner dataIndex={0} />
-
-          <CategoryBanner categoryData={selector.categoriesData} />
+        <section>
+          <div>
+            <ImgBanner dataIndex={0} />
+            <CategoryBanner categoryData={selector.categoriesData} />
+          </div>
         </section>
 
-     {/*   <section className="section">
+        {/* Hero Section */}
+        <section className="trending__section">
           <div>
-            <h2
-              className="
-                  text-start
-                  text-[1.2rem]
-                  font-semibold
-                "
-            >
-              Trending Now
-            </h2>
-
-            <div
-              className="
-                  flex
-                  items-center
-                  justify-between
-                  gap-[3.5rem]
-                "
-            >
-              <Filter />
-              <Navigation
-                navigationFunction={PaginationIndex}
-                DOT_REF={pagenaationRef1}
-                SWIPER_REF={swiperContainerRef1}
-              />
+            <div className="trending__section__header">
+              <h2>Trending Now</h2>
+              <div className="trending__section__header__filter">
+                <Filter />
+              </div>
             </div>
+            <Swiper
+              FILTER__QUERY={selector2.currentFilter}
+              DATA__NAME={selector.products}
+            />
+          </div>
+        </section>
+
+        <section className="recommended__section">
+          <div>
+            <h2>Recommended for you</h2>
+          </div>
+          <Swiper
+            FILTER__QUERY={selector2.currentFilter}
+            DATA__NAME={selector.products}
+          />
+        </section>
+
+        <section>
+          <div>
+            <ImgBanner dataIndex={1} />
+          </div>
+        </section>
+
+        <section>
+          <div>
+            <ImgBanner dataIndex={2} />
+          </div>
+        </section>
+
+        <section className="customersAlsoViewed__section">
+          <div>
+            <h2>Customers Also Viewed</h2>
           </div>
 
           <Swiper
             FILTER__QUERY={selector2.currentFilter}
             DATA__NAME={selector.products}
-            ref={swiperContainerRef1}
-            DOT_REF={pagenaationRef1}
-            SWIPER__REF={swiperContainerRef1}
           />
-
-          <div
-            className="
-                pagination_container
-                flex
-                items-center
-                justify-center
-                gap-2
-              "
-            ref={pagenaationRef1}
-          >
-            <PaginationDot />
-            <PaginationDot />
-          </div>
-        </section>*/}
-
-     {/*   <section
-          className="
-              section
-              relative
-              pb-8
-            "
-        >
-          <h2
-            className="
-                text-center
-                text-[1.2rem]
-                font-semibold
-              "
-          >
-            Recommended for you
-          </h2>
-          <Navigation
-            navigationFunction={PaginationStep}
-            flex_mode={true}
-            btnClassName="navigation_flex"
-            SWIPER_REF={swiperContainerRef2}
-          />
-
-          <Swiper
-            // FILTER__QUERY={selector.currentFilter}
-            DATA__NAME={selector.products}
-            ref={swiperContainerRef2}
-            SWIPER__REF={swiperContainerRef2}
-          />
-        </section>*/}
-
-        <section className="section pb-6 pt-0">
-          <ImgBanner dataIndex={1} />
         </section>
 
-        <section className="section pb-6 pt-0">
-          <ImgBanner dataIndex={2} />
-        </section>
-
-     {/*   <section
-          className="
-              section
-              relative
-              pb-8
-              pt-0
-            "
-        >
-          <h2
-            className="
-                text-center
-                text-[1.2rem]
-                font-semibold
-              "
-          >
-            Customers Also Viewed
-          </h2>
-          <Navigation
-            navigationFunction={PaginationStep}
-            flex_mode={true}
-            btnClassName="navigation_flex"
-            SWIPER_REF={swiperContainerRef3}
-          />
-
-
-          <Swiper
-            FILTER__QUERY={selector.currentFilter}
-            DATA__NAME={selector.products}
-            ref={swiperContainerRef3}
-            SWIPER__REF={swiperContainerRef3}
-          />
-        </section>*/}
-
-        <section className="styledByYou__section section">
-          <div>
+        <section className="styledByYou__section">
+          <div className="styledByYou__section__header">
             <h3>Styled by you</h3>
             <p>
               We love to see how you style your favourites from BeliBeli: Keep
@@ -164,33 +80,22 @@ const Home = () => {
               our stores.
             </p>
 
-            <LinkButton href={`/BeliBeli`}>Visit BeliBeli</LinkButton>
+            <Link href={`/BeliBeli`}>Visit BeliBeli</Link>
           </div>
 
-         {/* <div>
-            <Navigation
-              navigationFunction={PaginationStep}
-              flex_mode={true}
-              btnClassName="navigation_flex"
-              SWIPER_REF={swiperContainerRef4}
-              className="styled"
-            />
-
-            <Swiper
+          <div className="styledByYou__section__content">
+            <SwiperSmall
               FILTER__QUERY="styledbyyou"
               DATA__NAME={selector.products}
-              ref={swiperContainerRef4}
-              SWIPER__REF={swiperContainerRef4}
-              MAGAZINE__TYPE={true}
             />
-          </div>*/}
+          </div>
         </section>
 
-      {/*  <section className="magazine__section">
-          <div className="section magazine__container mb-[2rem]">
+        <section className="magazine__section">
+          <div className="magazine__container">
             <h2>MAGAZINE</h2>
 
-            <LinkButton href={"/Magazine"}>READ BeliBeli MAGAZINE</LinkButton>
+            <Link href={"/Magazine"}>READ BeliBeli MAGAZINE</Link>
 
             <div>
               {magazine.map((data, index) => {
@@ -200,7 +105,7 @@ const Home = () => {
               })}
             </div>
           </div>
-        </section>*/}
+        </section>
       </main>
     </>
   );

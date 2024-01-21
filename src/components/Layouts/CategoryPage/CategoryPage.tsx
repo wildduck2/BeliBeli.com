@@ -41,6 +41,8 @@ const CategoryPage: React.FC<CategoryPageTypes> = ({
     headerNavigationData: navigationLink,
   });
 
+  console.log(banners);
+
   return (
     <>
       {/* TODO: choos the right html el for the side bar for screen readers */}
@@ -107,12 +109,7 @@ const CategoryPage: React.FC<CategoryPageTypes> = ({
             "
           >
             {/* TODO: craete a low resloution src img for lazy loading */}
-            <ImgBanner
-              img={banners[0].img}
-              title={banners[0].title}
-              subtitle={banners[0].subtitle}
-              buttonData={banners[0].buttons}
-            />
+            <ImgBanner dataIndex={0} />
 
             {categoryData && (
               <CategoryBanner
@@ -151,13 +148,10 @@ const CategoryPage: React.FC<CategoryPageTypes> = ({
             />
 
             {/* swiper */}
-            <Swiper
-              imgHeight={300}
-              fetchFileName={swiperFetchSwiperData}
-              ref={swiperContainerRef1}
-              className="small_wiper"
-              SWIPER__REF={swiperContainerRef1}
-            />
+            {/* <Swiper
+            DATA__NAME={swiperFetchSwiperData}
+            FILTER__QUERY="women"
+            /> */}
           </section>
 
           {/* Banner2 Section */}
@@ -170,12 +164,7 @@ const CategoryPage: React.FC<CategoryPageTypes> = ({
                     key={index}
                     className="section px-[24px] pb-6 pt-0 lg:max-w-[950px]"
                   >
-                    <ImgBanner
-                      img={data.img}
-                      title={data.title}
-                      subtitle={data.subtitle}
-                      buttonData={data.buttons}
-                    />
+                    <ImgBanner dataIndex={index} />
                   </section>
                 )
               );

@@ -58,3 +58,4 @@ export const logoutHandler = async ({
   await supabase.auth.signOut();
   setUser(false);
 };
+

@@ -2,7 +2,7 @@ import React from "react";
 import cn from "../../../utils/cn";
 
 interface SkeletonTypes extends React.HTMLAttributes<HTMLDivElement> {
-  className: string;
+  className?: string;
 }
 
 function Skeleton({ className, ...props }: SkeletonTypes) {

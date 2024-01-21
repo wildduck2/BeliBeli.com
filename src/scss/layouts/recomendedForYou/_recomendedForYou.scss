@@ -1,0 +1,29 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../utils" as u;
+@use "../../base" as *;
+
+/*
+
+   Recomended For You
+
+*/
+
+.recommended__section,
+.customersAlsoViewed__section {
+  & > div:first-child {
+    display: flex;
+    @include u.flex(flex, center, center);
+    margin-bottom: 1.5rem;
+
+    h2 {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
+}

@@ -15,20 +15,20 @@
 
 .img-banner {
   position: relative;
-  height: clamp(24rem, 17.75rem + 31.25vw, 42.75rem);
+  height: clamp(24rem, 20.286585365853657rem + 21.21951219512195vw, 45.75rem);
   overflow: hidden;
-
-
 
   &__layout {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
-    background: linear-gradient(to bottom,
-        rgba(255, 255, 255, 0),
-        rgb(85 85 85 / 16%),
-        rgba(0, 0, 0, 0.623));
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgb(85 85 85 / 16%),
+      rgba(0, 0, 0, 0.623)
+    );
     opacity: 0;
     pointer-events: none;
     transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -49,18 +49,26 @@
     & h2 {
       margin-bottom: 1;
       white-space: nowrap;
-      font-size: clamp(1.85rem, 1.5166666666666668rem + 1.6666666666666667vw, 2.85rem);
+      font-size: clamp(
+        1.85rem,
+        1.5166666666666668rem + 1.6666666666666667vw,
+        2.85rem
+      );
       font-weight: 600;
       color: var(--c-white);
     }
 
     & p {
-      margin-bottom: clamp(0.75rem, 0.6000000000000001rem + 0.7499999999999999vw, 1.2rem);
+      margin-bottom: clamp(
+        0.75rem,
+        0.6000000000000001rem + 0.7499999999999999vw,
+        1.2rem
+      );
       font-size: clamp(0.75rem, 0.7rem + 0.25000000000000006vw, 0.9rem);
       color: var(--c-white);
     }
 
-    &>div {
+    & > div {
       @include u.flex(flex, center, center);
       gap: 1.8rem;
     }
@@ -70,19 +78,34 @@
     cursor: pointer;
     white-space: nowrap;
     background: var(--c-white);
-    padding-inline: clamp(1rem, 0.9333333333333333rem + 0.33333333333333326vw, 1.2rem);
-    padding-block: clamp(0.5rem, 0.43333333333333335rem + 0.33333333333333326vw, 0.7rem);
+    padding-inline: clamp(
+      1rem,
+      0.9333333333333333rem + 0.33333333333333326vw,
+      1.2rem
+    );
+    padding-block: clamp(
+      0.5rem,
+      0.43333333333333335rem + 0.33333333333333326vw,
+      0.7rem
+    );
     font-weight: 500;
     color: var(--black-300);
-    font-size: clamp(0.7rem, 0.6666666666666666rem + 0.1666666666666668vw, 0.8rem);
+    font-size: clamp(
+      0.7rem,
+      0.6666666666666666rem + 0.1666666666666668vw,
+      0.8rem
+    );
   }
 }
 
 .img-banner__skeleton {
-  width: clamp(17.1875rem, 1.5416666666666679rem + 78.22916666666666vw, 64.125rem);
-  height: clamp(24rem, 17.75rem + 31.25vw, 42.75rem);
+  width: clamp(
+    17.6625rem,
+    8.931707317073172rem + 49.89024390243902vw,
+    68.8rem
+  );
+  height: clamp(24rem, 20.286585365853657rem + 21.21951219512195vw, 45.75rem);
 }
-
 
 .opacity-1 {
   opacity: 1;

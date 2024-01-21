@@ -13,6 +13,10 @@
 
 */
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *,
 *::after,
 *::before {
@@ -52,15 +56,6 @@ main {
   padding-top: 1rem;
 }
 
-.section {
-  margin: 0 auto;
-  max-width: 1026px;
-  padding-bottom: 2rem;
-  padding-top: 3rem;
+section > div {
+  @include section;
 }
-
-
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

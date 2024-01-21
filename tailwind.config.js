@@ -2,11 +2,12 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
   ],
+  prefix: "y",
   theme: {
     container: {
       center: true,
@@ -16,22 +17,7 @@ module.exports = {
       },
     },
     extend: {
-      extend: {
-        fontFamily: {
-          Poppins: ["Inter", "sans-serif"],
-        },
-      },
       colors: {
-        body: "#faf9f8",
-        blackOne: "#1c232c",
-        blackTwo: "#1e242e",
-        blackThree: "#222222",
-        blackForth: "#4a5359",
-        grayOne: "#4a5359",
-        grayTwo: "#d3d4da",
-        grayThree: "#e1e3e3",
-        grayForth: "#a0a3a6",
-        grayFifth: "#a0a3a6",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -73,12 +59,12 @@ module.exports = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: 0 },
+          from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
+          to: { height: "0" },
         },
       },
       animation: {
@@ -88,4 +74,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-};
+}

@@ -2,8 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/context/store";
 
-import { LinkButton, Skeleton } from "..";
-import AsyncImagee from "@/utils/LazyLoadingImg/LazyLoadinImg";
+import { Link, Skeleton } from "../../UI";
+import { AsyncImage } from "../../Layouts";
 
 interface ImgBannerProps {
 	dataIndex: number;
@@ -16,7 +16,7 @@ const ImgBanner: React.FC<ImgBannerProps> = ({ dataIndex }) => {
 		<div className="img-banner">
 			{selector.satatus === "succeeded" ? (
 				<>
-					<AsyncImagee
+					<AsyncImage
 						media="(min-width: 500px)"
 						src={selector.bannersData![dataIndex].mobile_top_img}
 						srcSet={selector.bannersData![dataIndex].top_img}
@@ -35,13 +35,13 @@ const ImgBanner: React.FC<ImgBannerProps> = ({ dataIndex }) => {
 						<div>
 							{selector.bannersData![dataIndex].button?.map((btn, index) => {
 								return (
-									<LinkButton
+									<Link
 										className="img-banner__button"
 										key={index}
 										href={btn}
 									>
 										{btn}
-									</LinkButton>
+									</Link>
 								);
 							})}
 						</div>

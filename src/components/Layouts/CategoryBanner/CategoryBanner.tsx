@@ -1,23 +1,21 @@
 import React from "react";
 
-import { LinkButton, Skeleton } from "../../UI";
+import { Link, Skeleton } from "../../UI";
 import { useSelector } from "react-redux";
 import { RootState } from "@/context/store";
-import cn from "../../../utils/cn";
 import { otherImgsTypes } from "@/context/Data";
-import { AsyncImage } from "loadable-image"
+import { AsyncImage } from "loadable-image";
 
 interface CategoryBannerTypes {
   categoryData: otherImgsTypes[] | null;
-  className:string
 }
 
-const CategoryBanner: React.FC<CategoryBannerTypes> = ({ className }) => {
+const CategoryBanner: React.FC<CategoryBannerTypes> = () => {
   const selector = useSelector((state: RootState) => state.data);
   const skeletonLength = " ".repeat(8).split("");
 
   return (
-    <div className={cn(`category-banner`, className)}>
+    <div className="category-banner">
       <h1>Categories you might like</h1>
 
       {/* cagegories mapping */}
@@ -28,7 +26,7 @@ const CategoryBanner: React.FC<CategoryBannerTypes> = ({ className }) => {
             .sort((a, b) => a.index - b.index)
             .map((item, index) => {
               return (
-                <LinkButton key={index} className="category-banner__bit">
+                <Link key={index} className="category-banner__bit">
                   <picture>
                     <AsyncImage
                       src={item.top_img}
@@ -40,7 +38,7 @@ const CategoryBanner: React.FC<CategoryBannerTypes> = ({ className }) => {
                   </picture>
                   <span>{item.tag}</span>
                   <h2>{item.name}</h2>
-                </LinkButton>
+                </Link>
               );
             })
         ) : (

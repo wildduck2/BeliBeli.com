@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-slot": "^1.0.2",
     "@reduxjs/toolkit": "^1.9.5",
     "@supabase/auth-helpers-react": "^0.4.2",
     "@supabase/auth-ui-react": "^0.4.5",
@@ -18,7 +19,8 @@
     "@supabase/supabase-js": "^2.37.0",
     "axios": "^1.5.0",
     "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
+    "clsx": "^2.1.0",
+    "embla-carousel-react": "^8.0.0-rc19",
     "eslint-plugin-react": "^7.33.2",
     "loadable-image": "^3.0.6",
     "lucide-react": "^0.290.0",
@@ -32,7 +34,7 @@
     "react-router-dom": "^6.16.0",
     "redux": "^4.2.1",
     "stripe": "^13.8.0",
-    "swiper": "^11.0.3",
+    "swiper": "^11.0.5",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -40,7 +42,7 @@
     "seed": "node prisma/seed.js"
   },
   "devDependencies": {
-    "@types/node": "^20.8.9",
+    "@types/node": "^20.11.5",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",

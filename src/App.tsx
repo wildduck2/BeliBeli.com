@@ -31,18 +31,18 @@ function App() {
       <HeaderMenu />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/*      <Route path="/Women" element={<Women />} />
-        <Route path="/Men" element={<Men />} />
+        <Route path="/Women" element={<Women />} />
+        {/* <Route path="/Men" element={<Men />} />
         <Route path="/Divided" element={<Divided />} />
         <Route path="/Baby" element={<Baby />} />
         <Route path="/Kids" element={<Kids />} />
         <Route path="/BeliBeli Home" element={<BeliBeliHome />} />
         <Route path="/login" element={<LogIn />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signup" element={<SignUp />} /> */}
 
-        <Route path="/*" element={<Error />} />*/}
+        <Route path="/*" element={<Error />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

@@ -28,17 +28,7 @@ const Navigation: React.FC<NavigationTypes> = ({
   navigationFunction,
 }) => {
   return (
-    <div
-      className={twMerge(
-        `
-          flex
-          items-center
-          justify-center  
-          gap-4
-        `,
-        className,
-      )}
-    >
+    <div className={twMerge(`navigation`, className)}>
       <Button
         className={`swiper_navigation white ${btnClassName}`}
         id="right"

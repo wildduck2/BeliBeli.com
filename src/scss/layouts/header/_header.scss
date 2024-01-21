@@ -31,7 +31,7 @@
       height: 3rem;
 
       &>div:last-child {
-        flex: 0.82;
+        flex: 0.92;
         @include u.flex(flex, center, space-between);
       }
     }
@@ -44,7 +44,7 @@
 
     @include u.breakpoint("xlarge") {
       &>div:last-child {
-        flex: 0.69;
+        flex: 0.625;
       }
     }
   }

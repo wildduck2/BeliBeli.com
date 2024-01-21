@@ -15,18 +15,11 @@
   $display,
   $alignItems: initial,
   $justifyContent: initial,
-  $alignContent: initial,
-  $justifyItems: initial,
-  $placeContent: initial,
-  $felxDirection: initial
+
 ) {
   display: $display;
-  place-content: $placeContent;
   align-items: $alignItems;
-  align-content: $alignContent;
   justify-content: $justifyContent;
-  justify-items: $justifyItems;
-  flex-direction: $felxDirection;
 }
 
 /*
@@ -36,7 +29,15 @@
 */
 
 @mixin container {
-  max-width: 1300px;
+  // max-width: 1300px;
   padding-inline: 1.3rem;
   margin: 0 auto;
+}
+
+
+@mixin section {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1100px;
+  padding-block: 3rem;
 }

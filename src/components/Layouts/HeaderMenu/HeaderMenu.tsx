@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, LinkButton } from "@/components/UI";
+import { Button, Link } from "@/components/UI";
 import {
   BabayHeaderNavigationLink,
   BeliBeliHomeHeaderNavigationLink,
@@ -91,13 +91,13 @@ const HeaderMenu = () => {
         className={`header-menu__active-buffer ${currentactive && "show--login"
           }`}
       >
-        <LinkButton href="/login" onClick={menuLinkClickHandler}>
+        <Link href="/login" onClick={menuLinkClickHandler}>
           sign In
-        </LinkButton>
+        </Link>
 
-        <LinkButton href="/signup" onClick={menuLinkClickHandler}>
+        <Link href="/signup" onClick={menuLinkClickHandler}>
           sign Up
-        </LinkButton>
+        </Link>
       </div>
 
       <ul ref={menuRef}>
@@ -147,12 +147,12 @@ const HeaderMenu = () => {
                           return (
                             typeof item3 === "string" && (
                               <li className="header-menu__list" key={index3}>
-                                <LinkButton
+                                <Link
                                   href={item3}
                                   onClick={menuLinkClickHandler}
                                 >
                                   {item3}
-                                </LinkButton>
+                                </Link>
                               </li>
                             )
                           );

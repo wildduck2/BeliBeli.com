@@ -1,2 +1,2 @@
-import Swiper from './Swiper'
-export default Swiper
+export { default as Swiper } from "./Swiper";
+export { default as SwiperSmall } from "./SwiperSmall";
