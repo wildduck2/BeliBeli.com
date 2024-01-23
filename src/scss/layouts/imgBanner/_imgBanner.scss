@@ -99,14 +99,9 @@
 }
 
 .img-banner__skeleton {
-  width: clamp(
-    17.6625rem,
-    8.931707317073172rem + 49.89024390243902vw,
-    68.8rem
-  );
+  width: clamp(17.6625rem, 5.195rem + 62.3375vw, 80rem);
   height: clamp(24rem, 20.286585365853657rem + 21.21951219512195vw, 45.75rem);
 }
-
 .opacity-1 {
   opacity: 1;
 }

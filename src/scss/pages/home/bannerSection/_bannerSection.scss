@@ -1,0 +1,21 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../../utils" as u;
+@use "../../../base" as *;
+
+/*
+
+    Banner Section
+
+*/
+
+
+.banner__section{
+  @include u.section;
+  @include u.flex(grid, center);
+  gap: 2rem;
+}

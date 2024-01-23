@@ -1,0 +1,60 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../../utils" as u;
+@use "../../../base" as *;
+
+/*
+
+    Styled By You
+
+*/
+
+.styledByYou__section {
+    --swiper-navigation-size: 18px;
+    @include u.section;
+    max-width: 1300px;
+    @include u.flex(flex, flex-start, space-between);
+    gap: 1rem;
+    margin-block: 1rem 3rem;
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        top: var(--swiper-navigation-top-offset, 50%);
+    }
+
+    &>&__header {
+        @include u.flex(grid, center, space-between);
+        max-width: 300px;
+        height: 100%;
+
+        h3 {
+            font-size: var(--f-xl);
+            font-weight: 600;
+        }
+
+        a {
+            font-size: var(--f-nor);
+            text-decoration: underline;
+        }
+    }
+
+    &>&__content {
+        max-width: 797px;
+
+        .swiper-slide {
+            width: 252px !important;
+            height: 252px !important;
+
+            .img__wrapper img {
+                width: 252px !important;
+                height: 252px !important;
+                object-fit: cover;
+                object-position: top;
+            }
+        }
+    }
+}

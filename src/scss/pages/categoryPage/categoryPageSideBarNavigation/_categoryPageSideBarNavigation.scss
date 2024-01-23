@@ -1,0 +1,96 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../../utils" as u;
+@use "../../../base" as *;
+
+/*
+
+    Category Page Side Bar Navigation
+
+*/
+.category-page {
+  & > div {
+    margin-block: auto;
+    @include u.flex(flex, flex-start);
+    gap: 20rem;
+
+    & > div:first-child {
+      margin-top: 2rem;
+      @include u.flex(grid, center);
+      gap: 2.25rem;
+
+      & > div {
+        @include u.flex(grid, center);
+        gap: 2.25rem;
+
+        & > ul {
+          @include u.flex(grid, center);
+          gap: 0.25rem;
+
+          & > h4 {
+            font-size: var(--f-nor);
+            font-weight: 600;
+          }
+
+          & > div {
+            @include u.flex(grid);
+            gap: 0.25rem;
+
+            & > a {
+              font-size: var(--f-md);
+              font-weight: 500;
+              color: var(--c-black-700);
+              transition: 0.05s ease-out;
+
+              &:hover {
+                color: var(--c-red-700);
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    & > div:last-child {
+      @include u.container;
+      @include u.flex(grid, center);
+      padding-top: 1rem;
+      margin: initial;
+      width: clamp(17.6625rem, 5.195rem + 62.3375vw, 80rem);
+
+      & > h1 {
+        @include u.flex(flex, center);
+        place-content: center;
+
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--c-gray-200);
+        font-size: var(--f-2xl);
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      & > .category-page__hero {
+        & > div {
+          max-width: 1230px !important;
+        }
+
+        .lazyLoadingImg {
+          &__img {
+            width: clamp(17.6625rem, 3.795rem + 69.3375vw, 87rem);
+            height: clamp(
+              24rem,
+              20.286585365853657rem + 21.21951219512195vw,
+              45.75rem
+            );
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

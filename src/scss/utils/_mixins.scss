@@ -11,15 +11,14 @@
 
 */
 
-@mixin flex(
-  $display,
-  $alignItems: initial,
-  $justifyContent: initial,
+@mixin flex($display,
+    $alignItems: initial,
+    $justifyContent: initial,
 
 ) {
-  display: $display;
-  align-items: $alignItems;
-  justify-content: $justifyContent;
+    display: $display;
+    align-items: $alignItems;
+    justify-content: $justifyContent;
 }
 
 /*
@@ -29,15 +28,15 @@
 */
 
 @mixin container {
-  // max-width: 1300px;
-  padding-inline: 1.3rem;
-  margin: 0 auto;
+    max-width: 1890px;
+    padding-inline: 1.3rem;
+    margin: 0 auto;
 }
 
 
 @mixin section {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1100px;
-  padding-block: 3rem;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1100px;
+    padding-block: 2rem;
 }

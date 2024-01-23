@@ -14,176 +14,177 @@
 */
 
 .trending__section {
-  &__header {
-    & > h2 {
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-
-    &__filter {
-      @include u.flex(flex, center, center);
-      gap: 3.5rem;
-
-      & > div.filter {
-        @include u.flex(flex, center);
-        gap: 1.2rem;
-
-        .active_filter {
-          background: #e50010;
-          border: transparent;
-          color: hsl(0, 0%, 100%);
-          cursor: initial;
+    &__header {
+        &>h2 {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
-        .rounded_button {
-          margin-block: 1.5rem 1rem;
-          padding: 0.7rem 1.3rem;
-          font-size: 0.75rem;
-          border: 1px solid #56595c;
-          border-radius: 10rem;
+        &__filter {
+            @include u.flex(flex, center, center);
+            gap: 3.5rem;
+            margin-bottom: 1rem;
 
-          &.active_filter {
-            border-color: transparent;
-          }
-        }
-      }
+            &>div.filter {
+                @include u.flex(flex, center);
+                gap: 1.2rem;
 
-    }
-  }
+                .active_filter {
+                    background: #e50010;
+                    border: transparent;
+                    color: hsl(0, 0%, 100%);
+                    cursor: initial;
+                }
 
-  &__swiper {
-    height: 480px;
+                .rounded_button {
+                    margin-block: 1.5rem 1rem;
+                    padding: 0.7rem 1.3rem;
+                    font-size: 0.75rem;
+                    border: 1px solid #56595c;
+                    border-radius: 10rem;
 
-    .swiper__card {
-      position: relative;
-      width: 245px;
-      max-width: 269px;
-      height: 455px;
-      text-transform: capitalize;
-      border-radius: 0.3rem;
-      cursor: grab;
-      transition: 0.4s;
-      scroll-snap-align: start;
-      z-index: 30;
-
-
-
-      &--active {
-        width: 0 !important;
-        height: 0 !important;
-        opacity: 0;
-        scale: 0;
-      }
-
-      &.skeleton__swiper {
-        display: grid;
-        gap: 0.5rem;
-
-        & > div {
-          width: 100%;
-          height: 10px;
-
-          &:nth-child(1) {
-            height: 350px;
-          }
-        }
-      }
-
-      .card__heart {
-        position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
-        z-index: 2;
-
-        img {
-          width: 25px;
-        }
-      }
-
-      .img__wrapper {
-        position: relative;
-        display: grid;
-        grid-auto-flow: column;
-        overflow-x: scroll;
-        grid-auto-columns: 100%;
-        overflow: hidden;
-        scroll-behavior: smooth;
-        scroll-snap-align: center;
-
-        max-width: 255px;
-        margin-bottom: 0.4rem;
-
-        img {
-          height: 100%;
-          height: 350px;
-          user-select: none;
-          transition: 0.3s ease;
-        }
-      }
-
-    
-
-      .card__slider-info {
-        font-size: var(--f-sm);
-        font-weight: 500;
-        padding-inline: 0.5rem;
-        color: #222222;
-
-        h3 {
-          font-weight: 500;
-          // padding-block: 0.1rem;
-          transition: 0.3s ease;
-
-          &:hover {
-            text-decoration: line-through;
-          }
-        }
-
-        .costs {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-
-          .discount {
-            font-size: var(--f-sm);
-
-            &.show__discount {
-              span {
-                text-decoration: line-through;
-              }
+                    &.active_filter {
+                        border-color: transparent;
+                    }
+                }
             }
-          }
 
-          .price {
-            font-size: var(--f-sm);
-            color: #e50010;
-            padding-block: 0.1rem;
-          }
         }
-
-        .save {
-          font-size: calc(var(--f-sm) - 0.1rem);
-          color: #e50010;
-        }
-
-        .recomended {
-          color: #007b5f;
-          opacity: 0;
-          pointer-events: none;
-
-          &.show {
-            opacity: 1;
-            pointer-events: all;
-          }
-        }
-      }
-
-      &:hover .pagenation__card {
-        opacity: 1;
-      }
     }
-  }
+
+    &__swiper {
+        height: 480px;
+
+        .swiper__card {
+            position: relative;
+            width: 245px;
+            max-width: 269px;
+            height: 455px;
+            text-transform: capitalize;
+            border-radius: 0.3rem;
+            cursor: grab;
+            transition: 0.4s;
+            scroll-snap-align: start;
+            z-index: 30;
+
+
+
+            &--active {
+                width: 0 !important;
+                height: 0 !important;
+                opacity: 0;
+                scale: 0;
+            }
+
+            &.skeleton__swiper {
+                display: grid;
+                gap: 0.5rem;
+
+                &>div {
+                    width: 100%;
+                    height: 10px;
+
+                    &:nth-child(1) {
+                        height: 350px;
+                    }
+                }
+            }
+
+            .card__heart {
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                z-index: 2;
+
+                img {
+                    width: 25px;
+                }
+            }
+
+            .img__wrapper {
+                position: relative;
+                display: grid;
+                grid-auto-flow: column;
+                overflow-x: scroll;
+                grid-auto-columns: 100%;
+                overflow: hidden;
+                scroll-behavior: smooth;
+                scroll-snap-align: center;
+
+                max-width: 255px;
+                margin-bottom: 0.4rem;
+
+                img {
+                    height: 100%;
+                    height: 350px;
+                    user-select: none;
+                    transition: 0.3s ease;
+                }
+            }
+
+
+
+            .card__slider-info {
+                font-size: var(--f-sm);
+                font-weight: 500;
+                padding-inline: 0.5rem;
+                color: #222222;
+
+                h3 {
+                    font-weight: 500;
+                    // padding-block: 0.1rem;
+                    transition: 0.3s ease;
+
+                    &:hover {
+                        text-decoration: line-through;
+                    }
+                }
+
+                .costs {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+
+                    .discount {
+                        font-size: var(--f-sm);
+
+                        &.show__discount {
+                            span {
+                                text-decoration: line-through;
+                            }
+                        }
+                    }
+
+                    .price {
+                        font-size: var(--f-sm);
+                        color: #e50010;
+                        padding-block: 0.1rem;
+                    }
+                }
+
+                .save {
+                    font-size: calc(var(--f-sm) - 0.1rem);
+                    color: #e50010;
+                }
+
+                .recomended {
+                    color: #007b5f;
+                    opacity: 0;
+                    pointer-events: none;
+
+                    &.show {
+                        opacity: 1;
+                        pointer-events: all;
+                    }
+                }
+            }
+
+            &:hover .pagenation__card {
+                opacity: 1;
+            }
+        }
+    }
 
 
 }

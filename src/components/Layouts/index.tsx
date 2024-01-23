@@ -8,3 +8,4 @@ export { default as CategoryBanner } from "./CategoryBanner";
 export { default as CategoryPage } from "./CategoryPage";
 export { default as AsyncImage } from "./AsyncImage/AsyncImage";
 export * from "./Swiper";
+export { default as ColorfulBanner } from "./ColorfulBanner/ColorfulBanner"

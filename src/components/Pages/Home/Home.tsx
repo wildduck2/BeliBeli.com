@@ -1,110 +1,56 @@
 import React from "react";
+import { ImgBanner, StyledByYouWrapper, SwiperSectionWrapper } from "../../UI";
+import { CategoryBanner } from "../../Layouts";
+import { ColorfulBanner } from "@/components/Layouts/ColorfulBanner/ColorfulBanner";
+import { BlackBannerHome, RedBannerHome } from "@/constants";
 import { useSelector } from "react-redux";
-
-import { RootState } from "../../../context/store";
-import { ImgBanner, MagazineCard, Link } from "../../UI";
-import { CategoryBanner, Filter, Swiper, SwiperSmall } from "../../Layouts";
-import { magazine } from "../../../constants";
+import { RootState } from "@/context/store";
 
 const Home = () => {
-  const selector = useSelector((state: RootState) => state.data);
-  const selector2 = useSelector((state: RootState) => state.util);
+  const satatus = useSelector((state: RootState) => state.data.satatus);
 
   return (
     <>
       <main>
         {/* Hero Section */}
-        <section>
-          <div>
-            <ImgBanner dataIndex={0} />
-            <CategoryBanner categoryData={selector.categoriesData} />
-          </div>
+        <section className="hero__section">
+          {/* RedBanner Section */}
+          <ColorfulBanner
+            title={RedBannerHome.title}
+            description={RedBannerHome.description}
+            supTitle={RedBannerHome.subtitle}
+            buttonText={RedBannerHome.Links}
+            color={RedBannerHome.ColorfulBanner}
+          />
+
+          {/* <ImgBanner dataIndex={0} /> */}
+
+          {/* BlackBanner Section */}
+          <ColorfulBanner
+            title={BlackBannerHome.title}
+            description={BlackBannerHome.description}
+            supTitle={BlackBannerHome.subtitle}
+            buttonText={BlackBannerHome.Links}
+            color={BlackBannerHome.ColorfulBanner}
+          />
+
+          <CategoryBanner dataIndex={0} satatus={satatus} />
         </section>
 
         {/* Hero Section */}
         <section className="trending__section">
-          <div>
-            <div className="trending__section__header">
-              <h2>Trending Now</h2>
-              <div className="trending__section__header__filter">
-                <Filter />
-              </div>
-            </div>
-            <Swiper
-              FILTER__QUERY={selector2.currentFilter}
-              DATA__NAME={selector.products}
-            />
-          </div>
+          <SwiperSectionWrapper />
         </section>
 
-        <section className="recommended__section">
-          <div>
-            <h2>Recommended for you</h2>
-          </div>
-          <Swiper
-            FILTER__QUERY={selector2.currentFilter}
-            DATA__NAME={selector.products}
-          />
-        </section>
-
-        <section>
-          <div>
-            <ImgBanner dataIndex={1} />
-          </div>
-        </section>
-
-        <section>
-          <div>
-            <ImgBanner dataIndex={2} />
-          </div>
-        </section>
-
-        <section className="customersAlsoViewed__section">
-          <div>
-            <h2>Customers Also Viewed</h2>
-          </div>
-
-          <Swiper
-            FILTER__QUERY={selector2.currentFilter}
-            DATA__NAME={selector.products}
-          />
+        <section className="banner__section">
+          <ImgBanner dataIndex={1} />
+          <ImgBanner dataIndex={2} />
+          <ImgBanner dataIndex={3} />
+          <ImgBanner dataIndex={4} />
         </section>
 
         <section className="styledByYou__section">
-          <div className="styledByYou__section__header">
-            <h3>Styled by you</h3>
-            <p>
-              We love to see how you style your favourites from BeliBeli: Keep
-              sharing your personal style with @BeliBeli and #BeliBelixME for a
-              chance to be featured at hm.com, in our marketing materials and in
-              our stores.
-            </p>
-
-            <Link href={`/BeliBeli`}>Visit BeliBeli</Link>
-          </div>
-
-          <div className="styledByYou__section__content">
-            <SwiperSmall
-              FILTER__QUERY="styledbyyou"
-              DATA__NAME={selector.products}
-            />
-          </div>
-        </section>
-
-        <section className="magazine__section">
-          <div className="magazine__container">
-            <h2>MAGAZINE</h2>
-
-            <Link href={"/Magazine"}>READ BeliBeli MAGAZINE</Link>
-
-            <div>
-              {magazine.map((data, index) => {
-                return (
-                  <MagazineCard key={index} img={data.img} title={data.title} />
-                );
-              })}
-            </div>
-          </div>
+          <StyledByYouWrapper />
         </section>
       </main>
     </>

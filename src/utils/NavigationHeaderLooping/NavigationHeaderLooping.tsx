@@ -10,51 +10,16 @@ const NavigationHeaderLooping = ({
 }: headerNavigationDataTypes) => {
   const HeaderNavigationReactNode = headerNavigationData?.map((item, index) => {
     return (
-      <div
-        key={index}
-        className="
-          grid
-          gap-5
-        "
-      >
+      <div key={index}>
         {item.map((child, index) => {
           return (
-            <ul
-              key={index}
-              className="
-                grid
-                gap-1
-              "
-            >
-              <h4
-                className="
-                  text-[.95rem]
-                  font-semibold
-                "
-              >
-                {child[0]}
-              </h4>
+            <ul key={index}>
+              <h4>{child[0]}</h4>
 
-              <div
-                className="
-                  grid
-                  gap-1
-                "
-              >
+              <div>
                 {child[1].map((item, index) => {
                   return (
-                    <Link
-                      key={index}
-                      href={item}
-                      className=" 
-                        text-[.67rem]
-                        font-medium
-                        text-[#222222]
-                        transition-none
-                        hover:text-red-600
-                        hover:underline
-                        "
-                    >
+                    <Link key={index} href={item}>
                       {item}
                     </Link>
                   );

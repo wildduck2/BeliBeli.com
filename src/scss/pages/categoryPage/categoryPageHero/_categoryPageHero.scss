@@ -1,0 +1,23 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../../utils" as u;
+@use "../../../base" as *;
+
+/*
+
+   Category page Hero
+  
+*/
+
+.category-page__hero {
+  padding-block: 2rem;
+
+  .category-banner {
+    margin-top: 1rem;
+  }
+}
+

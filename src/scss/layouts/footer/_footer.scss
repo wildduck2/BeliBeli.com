@@ -14,148 +14,150 @@
 */
 
 footer {
-  background-color: #e4e4e4;
+    background-color: #e4e4e4;
 
-  .footer__container {
-    @include u.section;
-    max-width: 85%;
+    .footer__container {
+        @include u.section;
+        max-width: 85%;
+        padding-block: 4rem;
 
-    nav {
-      margin-bottom: 8rem;
-      @include u.flex(flex, flex-start, space-between);
-      gap: 13.5rem;
+        nav {
+            margin-bottom: 8rem;
+            @include u.flex(flex, flex-start, space-between);
+            gap: 13.5rem;
 
-      & > div:first-child {
-        @include u.flex(flex, flex-start, space-between);
-        width: 100%;
-        max-width: 55%;
+            &>div:first-child {
+                @include u.flex(flex, flex-start, space-between);
+                width: 100%;
+                max-width: 55%;
 
-        & > div {
-          @include u.flex(grid, center);
-          gap: 0.8rem;
+                &>div {
+                    @include u.flex(grid, center);
+                    gap: 0.8rem;
 
-          p {
-            font-weight: 500;
-            color: #1e242e;
-            font-size: calc(var(--f-nor) - 0.1rem);
-          }
+                    p {
+                        font-weight: 500;
+                        color: #1e242e;
+                        font-size: calc(var(--f-nor) - 0.1rem);
+                    }
 
-          h5 {
-            font-weight: 600;
-            font-size: calc(var(--f-nor));
-          }
-        }
-
-        .copyright {
-          p {
-            font-size: calc(var(--f-nor) - 0.08rem);
-          }
-          p:last-child {
-            font-weight: 600;
-            font-size: calc(var(--f-nor) - 0.02rem);
-          }
-        }
-      }
-
-      & > div:last-child {
-        max-width: 18%;
-
-        h5 {
-          margin-bottom: 0.75rem;
-        }
-
-        p {
-          margin-bottom: 3rem;
-        }
-
-        & > div {
-          & > form {
-            & > div {
-              @include u.flex(flex, center, center);
-
-              & > input {
-                height: 38px;
-                width: 200px;
-                border-bottom: 1px solid #1e242e;
-                padding: 0.5rem;
-
-                &::placeholder {
-                  font-size: var(--f-nor);
-                  font-weight: 600;
-                  color: #1e242e;
+                    h5 {
+                        font-weight: 600;
+                        font-size: calc(var(--f-nor));
+                    }
                 }
 
-                &:focus {
-                  outline: none;
-                }
-              }
+                .copyright {
+                    p {
+                        font-size: calc(var(--f-nor) - 0.08rem);
+                    }
 
-              & > button {
-                width: 100px;
-                border-radius: 0;
-                background-color: #1e242e;
-                padding: 0.5rem;
-                font-size: var(--f-nor);
-                font-weight: 600;
-                color: white;
-              }
+                    p:last-child {
+                        font-weight: 600;
+                        font-size: calc(var(--f-nor) - 0.02rem);
+                    }
+                }
             }
-          }
+
+            &>div:last-child {
+                max-width: 18%;
+
+                h5 {
+                    margin-bottom: 0.75rem;
+                }
+
+                p {
+                    margin-bottom: 3rem;
+                }
+
+                &>div {
+                    &>form {
+                        &>div {
+                            @include u.flex(flex, center, center);
+
+                            &>input {
+                                height: 38px;
+                                width: 200px;
+                                border-bottom: 1px solid #1e242e;
+                                padding: 0.5rem;
+
+                                &::placeholder {
+                                    font-size: var(--f-nor);
+                                    font-weight: 600;
+                                    color: #1e242e;
+                                }
+
+                                &:focus {
+                                    outline: none;
+                                }
+                            }
+
+                            &>button {
+                                width: 100px;
+                                border-radius: 0;
+                                background-color: #1e242e;
+                                padding: 0.5rem;
+                                font-size: var(--f-nor);
+                                font-weight: 600;
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
         }
-      }
+
+        .footer__bottom {
+            @include u.flex(grid, center, center);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+
+            h6 {
+                font-size: var(--f-nor);
+                margin-bottom: 0.4rem;
+                font-weight: 600;
+                color: #1e242e;
+            }
+
+            &>p {
+                font-size: var(--f-sm);
+                color: #1e242e;
+
+                &:nth-child(2) {
+                    margin-bottom: 0.6rem;
+                    font-size: 0.7rem;
+                    font-weight: 600;
+                }
+
+                &:nth-child(3) {
+                    margin-bottom: 0.9rem;
+                }
+
+                &:nth-child(3) {
+                    margin-bottom: 0.9rem;
+                }
+            }
+
+            &>a {
+                @include u.flex(grid);
+                justify-self: center;
+
+                img {
+                    @include u.flex(flex);
+                    justify-self: center;
+                    width: 150px;
+                    margin: .6rem;
+                }
+            }
+
+            &>div {
+                @include u.flex(flex, center);
+                place-content: center;
+                gap: 0.75rem;
+                margin-bottom: 1.5rem;
+            }
+        }
     }
-
-    .footer__bottom {
-      @include u.flex(grid, center, center);
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-
-      h6 {
-        font-size: var(--f-nor);
-        margin-bottom: 0.4rem;
-        font-weight: 600;
-        color: #1e242e;
-      }
-
-      & > p {
-        font-size: var(--f-sm);
-        color: #1e242e;
-
-        &:nth-child(2) {
-          margin-bottom: 0.6rem;
-          font-size: 0.7rem;
-          font-weight: 600;
-        }
-
-        &:nth-child(3) {
-          margin-bottom: 0.9rem;
-        }
-
-        &:nth-child(3) {
-          margin-bottom: 0.9rem;
-        }
-      }
-
-      & > a {
-        @include u.flex(grid);
-        justify-self: center;
-
-        img {
-          @include u.flex(flex);
-          justify-self: center;
-          width: 150px;
-          margin: 1.6rem;
-        }
-      }
-
-      & > div {
-        @include u.flex(flex, center);
-        place-content: center;
-        gap: 0.75rem;
-        margin-bottom: 1.5rem;
-      }
-    }
-  }
 }

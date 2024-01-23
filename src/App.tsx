@@ -19,9 +19,12 @@ import cn from "./utils/cn";
 import BeliBeliHome from "./components/Pages/Category/BeliBeliHome";
 import { store } from "./context/store";
 import { thunkFetchingBannerFromSupabase } from "./context/Data";
+import { useEffect } from "react";
 
 function App() {
-  store.dispatch(thunkFetchingBannerFromSupabase());
+  useEffect(() => {
+    store.dispatch(thunkFetchingBannerFromSupabase());
+  }, []);
 
   return (
     <>

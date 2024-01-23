@@ -14,15 +14,14 @@
 */
 
 .banner {
-  column-gap: 1.5rem;
-  display: none;
-  padding: 0.5rem;
+    column-gap: 1.5rem;
+    display: none;
+    padding: 0.5rem;
 
-  &__link {
-  }
+    &__link {}
 
-  // breakpoint on 700px
-  @include u.breakpoint("medium") {
-    @include u.flex(flex, center, center);
-  }
+    // breakpoint on 700px
+    @include u.breakpoint("medium") {
+        @include u.flex(flex, center, center);
+    }
 }

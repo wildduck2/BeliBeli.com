@@ -1,0 +1,81 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../utils" as u;
+@use "../../base" as *;
+
+/*
+
+   Colorful Banner 
+
+*/
+
+
+.colorful-banner {
+    @include u.section;
+    padding-block: 2rem;
+    margin-block: 1.5rem;
+
+    &.red {
+        background-color: var(--c-red-800);
+    }
+
+    &.black {
+        background-color: var(--c-black-900);
+    }
+
+    * {
+        color: var(--c-white);
+    }
+
+    &__content {
+        @include u.flex(flex, center, center);
+        flex-direction: column;
+        gap: 1rem;
+        font-weight: 700;
+
+        span {
+            font-size: var(--f-lg);
+        }
+
+        h2 {
+            font-size: var(--f-2xl);
+            font-weight: 800;
+        }
+
+        span {
+            font-size: var(--f-lg);
+        }
+
+        p {
+            font-size: var(--f-md);
+        }
+
+        div:nth-of-type(1) {
+            @include u.flex(flex, center, center);
+            flex-direction: column;
+        }
+
+        div:nth-of-type(2) {
+            @include u.flex(flex, center);
+            gap: 1rem;
+
+            a {
+                cursor: pointer;
+                white-space: nowrap;
+                background: var(--c-white);
+                padding-inline: clamp(1rem, 0.9333333333rem + 0.3333333333vw, 1.2rem);
+                padding-block: clamp(0.5rem, 0.4333333333rem + 0.3333333333vw, 0.7rem);
+                font-weight: 600;
+                color: var(--c-black-700);
+
+                font-size: clamp(0.7rem, 0.6666666667rem + 0.1666666667vw, 0.8rem);
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,39 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../utils" as u;
+@use "../../base" as *;
+
+/*
+
+    Category Page
+
+*/
+
+.category-page {
+  @include u.container;
+
+  & > span {
+    @include u.flex(flex, center);
+    place-content: center;
+    font-size: var(--f-nor);
+  }
+
+
+  .img-banner {
+    height: clamp(24rem, 18.52rem + 27.399999999999995vw, 51.4rem);
+  
+    .lazyLoaingImg-wrapper .lazyLoadingImg__img {
+      width: clamp(17.6625rem, 3.795rem + 69.3375vw, 87rem);
+      height: clamp(24rem, 18.52rem + 27.399999999999995vw, 51.4rem);
+    }
+  
+    .img-banner__skeleton {
+      height: clamp(24rem, 18.52rem + 27.399999999999995vw, 51.4rem);
+    }
+  }
+  
+}

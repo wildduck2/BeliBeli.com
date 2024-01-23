@@ -14,62 +14,62 @@
 */
 
 .header {
-  &__search {
-    @include u.flex(flex, center, center);
-    position: relative;
-    border-bottom: 1px solid var(--c-black-700);
-    gap: 0.5rem;
-    padding-bottom: 0.5rem;
-    order: 3;
-    max-width: 425px;
+    &__search {
+        @include u.flex(flex, center, center);
+        position: relative;
+        border-bottom: 1px solid var(--c-black-700);
+        gap: 0.5rem;
+        padding-bottom: 0.5rem;
+        order: 3;
+        max-width: 425px;
 
-    & input {
-      width: 86vw;
-      font-size: var(--f-body);
+        & input {
+            width: 86vw;
+            font-size: calc(var(--f-body) - .1rem);
 
-      &::placeholder {
-        color: var(--c-black-700);
-        font-weight: 500;
-      }
+            &::placeholder {
+                color: var(--c-black-700);
+                font-weight: 500;
+            }
 
-      &::-webkit-search-cancel-button {
-        opacity: 0;
-      }
+            &::-webkit-search-cancel-button {
+                opacity: 0;
+            }
+        }
+
+        &-close {
+            position: absolute;
+            right: 0;
+            background: var(--c-white);
+            stroke-width: 1px;
+            opacity: 0;
+
+            &--active {
+                opacity: 1;
+            }
+        }
+
+        &-search {
+            position: absolute;
+            fill: var(--c-black-900);
+            stroke-width: 1px;
+            right: 0;
+            opacity: 1;
+
+            &--active {
+                pointer-events: none;
+                opacity: 0;
+            }
+        }
+
+        // breakpoint on 700px
+        @include u.breakpoint("medium") {
+            max-width: initial;
+            order: 0;
+
+            input {
+                width: auto;
+            }
+        }
     }
-
-    &-close {
-      position: absolute;
-      right: 0;
-      background: var(--c-white);
-      stroke-width: 1px;
-      opacity: 0;
-
-      &--active {
-        opacity: 1;
-      }
-    }
-
-    &-search {
-      position: absolute;
-      fill: var(--c-black-900);
-      stroke-width: 1px;
-      right: 0;
-      opacity: 1;
-
-      &--active {
-        pointer-events: none;
-        opacity: 0;
-      }
-    }
-
-    // breakpoint on 700px
-    @include u.breakpoint("medium") {
-      max-width: initial;
-      order: 0;
-
-      input {
-        width: auto;
-      }
-    }
-  }
 }

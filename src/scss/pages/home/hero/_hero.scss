@@ -1,0 +1,20 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../../utils" as u;
+@use "../../../base" as *;
+
+/*
+
+    Hero
+
+*/
+
+
+.hero__section {
+    @include u.section;
+    padding-top: 0;
+}

@@ -1,0 +1,20 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../../utils" as u;
+@use "../../../base" as *;
+
+/*
+
+    Category Page Banner
+
+*/
+
+.category-page__banners{
+    padding-block: 2rem;
+    @include u.flex(grid, center);
+    gap: 3rem;
+}

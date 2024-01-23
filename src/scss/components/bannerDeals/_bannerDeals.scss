@@ -14,34 +14,34 @@
 */
 
 .banner-deals {
-  // width: 278px;
+    margin-top: 1.8rem;
 
-  @include u.breakpoint("medium") {
-    width: 600px;
-  }
-
-  @include u.breakpoint("large") {
-    width: 960px;
-  }
-
-  & .swiper-slide {
-    @include u.flex(flex, center, center);
-    text-align: center;
+    @include u.breakpoint("medium") {
+        width: 600px;
+    }
 
     @include u.breakpoint("large") {
-      width: fit-content !important;
+        width: 960px;
     }
-  }
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+    & .swiper-slide {
+        @include u.flex(flex, center, center);
+        text-align: center;
 
-  &__link {
-    font-size: var(--f-sm);
-
-    @include u.breakpoint("large") {
-      font-size: initial;
+        @include u.breakpoint("large") {
+            width: fit-content !important;
+        }
     }
-  }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &__link {
+        font-size: var(--f-body);
+
+        @include u.breakpoint("large") {
+            font-size: initial;
+        }
+    }
 }

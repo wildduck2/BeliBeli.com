@@ -29,7 +29,6 @@ const SwiperSmall = ({ DATA__NAME }: SwiperTypes) => {
     >
       {selector.satatus === "succeeded" ? (
         DATA__NAME?.map((item, index) => {
-          console.log(DATA__NAME);
           return (
             item.type === "styledbyyou" &&
             item.product_type.map((data) => {
