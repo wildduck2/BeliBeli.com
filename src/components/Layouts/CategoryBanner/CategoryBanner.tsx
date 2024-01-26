@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { Link, Skeleton } from "../../UI";
-import { otherImgsTypes } from "@/context/Data";
 import { AsyncImage } from "loadable-image";
 import { useSelector } from "react-redux";
 import { RootState } from "@/context/store";

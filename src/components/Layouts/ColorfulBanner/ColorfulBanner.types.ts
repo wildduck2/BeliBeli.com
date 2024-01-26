@@ -1,7 +1,8 @@
 export interface ColorfulBannerProps {
-    title: string;
-    description: string | null;
-    supTitle: string[]
-    buttonText: string[];
-    color: string
+  title?: string;
+  description?: string | null;
+  supTitle?: string[];
+  buttonText?: string[];
+  color?: string;
+  satatus: "loading" | "succeeded" | "failed";
 }

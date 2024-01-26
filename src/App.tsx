@@ -1,25 +1,17 @@
-import React, { Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 
+import { Error, Home } from "./components/Pages";
 import {
-  Divided,
-  Error,
-  Home,
-  LogIn,
-  Men,
-  SignUp,
-  Women,
-} from "./components/Pages";
-import { Footer, Header, HeaderBanner, HeaderMenu } from "./components/Layouts";
+  CategoryPage,
+  Footer,
+  Header,
+  HeaderBanner,
+  HeaderMenu,
+} from "./components/Layouts";
 import { HeaderNavigationLinks } from "./components/UI";
-import { Baby, Kids } from "./components/Pages/Category";
-import { Auth } from "@supabase/auth-ui-react";
-import { supabase } from "./supabase/supabase";
-import { ThemeSupa } from "@supabase/auth-ui-shared";
-import cn from "./utils/cn";
-import BeliBeliHome from "./components/Pages/Category/BeliBeliHome";
 import { store } from "./context/store";
 import { thunkFetchingBannerFromSupabase } from "./context/Data";
-import { useEffect } from "react";
 
 function App() {
   useEffect(() => {
@@ -32,18 +24,15 @@ function App() {
       <Header />
       <HeaderNavigationLinks />
       <HeaderMenu />
+
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Women" element={<Women />} />
-        {/* <Route path="/Men" element={<Men />} />
-        <Route path="/Divided" element={<Divided />} />
-        <Route path="/Baby" element={<Baby />} />
-        <Route path="/Kids" element={<Kids />} />
-        <Route path="/BeliBeli Home" element={<BeliBeliHome />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/signup" element={<SignUp />} /> */}
+        <Route path="/category/:id" element={<CategoryPage />} />
+        {/* <Route path="/produc-show/:id" element={<CategoryPage />} /> */}
+        {/* <Route path="/login" element={<LogIn />} />
+        <Route path="/signup" element={<SignUp />} />  */}
 
-        <Route path="/*" element={<Error />} />
+        {/* <Route path="/*" element={<Error />} /> */}
       </Routes>
       <Footer />
     </>

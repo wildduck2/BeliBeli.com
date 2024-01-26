@@ -1,94 +1,72 @@
-import React, { MutableRefObject, useRef } from "react";
-import { ImgBanner, Navigation } from "../../UI";
+import React from "react";
+import { ImgBanner } from "../../UI";
 import { NavigationHeaderLooping } from "../../../utils/";
-import { CategoryBanner, Swiper } from "..";
-import PaginationStep from "../../../utils/PaginationStep";
-import { WomenHeaderNavigationLink } from "../../../constants";
+import { ColorfulBanner } from "..";
+import { useMatch } from "react-router-dom";
+import { useCategoryData } from "@/hooks";
 
-interface BannersData {
-  img: string;
-  title: string | null;
-  subtitle: string | null;
-  buttons: string[];
-}
+const CategoryPage = () => {
+  const match = useMatch("/category/:id");
+  const { data, error, status } = useCategoryData({
+    id: match?.params.id as string,
+  });
 
-interface CategoryData {
-  name: string;
-  tag: string;
-  img: string;
-}
-
-interface CategoryPageTypes {
-  pageTile: string;
-  categoryData: CategoryData[] | null;
-  banners: BannersData[];
-  swiperFetchSwiperData: string;
-  navigationLink: string[][][][];
-  routeText: string;
-}
-
-const CategoryPage: React.FC<CategoryPageTypes> = ({
-  pageTile,
-  categoryData,
-  banners,
-  swiperFetchSwiperData,
-  navigationLink,
-  routeText,
-}) => {
-  const swiperContainerRef1 = useRef() as MutableRefObject<HTMLUListElement>;
-
-  console.log(banners);
+  console.log(status);
 
   return (
     <>
-      {/* TODO: choos the right html el for the side bar for screen readers */}
       <main className="category-page">
-        <span>{routeText}</span>
+        <span>{data?.routeText}</span>
 
-        <div>
-          <div>
-            {<NavigationHeaderLooping headerNavigationData={navigationLink} />}
+        <div className="category-page__wrapper">
+          <div className="category-page__wrapper__sidebar">
+            {
+              <NavigationHeaderLooping
+                headerNavigationData={data?.navigationLink}
+                satatus={status}
+              />
+            }
           </div>
-
-          <div>
-            <h1>{pageTile}</h1>
+          <div className="category-page__wrapper__content">
+            <h1>{data?.pageTile}</h1>
 
             {/* Hero Section */}
-            <section className="category-page__hero">
-              {/* TODO: craete a low resloution src img for lazy loading */}
-              <ImgBanner dataIndex={0} />
+            <section className="category-page__wrapper__content__hero">
+              {/* RedBanner Section */}
+              <ColorfulBanner
+                title={data?.redBannerWomen.title}
+                description={data?.redBannerWomen.description}
+                supTitle={data?.redBannerWomen.subtitle}
+                buttonText={data?.redBannerWomen.Links}
+                color={data?.redBannerWomen.ColorfulBanner}
+                satatus={status}
+              />
 
-              {categoryData && (
-                <CategoryBanner
-                  categoryData={categoryData}
-                  className="small_banner"
-                />
-              )}
-            </section>
+              <ImgBanner dataIndex={data?.bannerIndexes[0]} satatus={status} />
+              <ImgBanner dataIndex={data?.bannerIndexes[1]} satatus={status} />
 
-            {/* Recomended for you Section*/}
-            <section className="category-page__hero">
-              <h2>Recommended for you</h2>
-
-              {/* swiper */}
-              <Swiper
-                DATA__NAME={swiperFetchSwiperData}
-                FILTER__QUERY="women"
+              {/* BlackBanner Section */}
+              <ColorfulBanner
+                title={data?.blackBannerWomen.title}
+                description={data?.blackBannerWomen.description}
+                supTitle={data?.blackBannerWomen.subtitle}
+                buttonText={data?.blackBannerWomen.Links}
+                color={data?.blackBannerWomen.ColorfulBanner}
+                satatus={status}
               />
             </section>
-
-            {/* Banner2 Section */}
-            <div className="category-page__banners">
-              {banners.map((data, index) => {
-                return (
-                  index !== 0 && (
-                    <section key={index}>
-                      <ImgBanner dataIndex={index} />
-                    </section>
-                  )
-                );
-              })}
-            </div>
+            <section className="category-page__wrapper__content__disc">
+              {status === "succeeded" ? (
+                Object.entries(data!.discrptionData).map(([key, value]) => (
+                  <div key={key}>
+                    {value.title}
+                    {value.disc.map((item) => item)}
+                  </div>
+                ))
+              ) : (
+                <h1>laoding...</h1>
+              )}
+            </section>
           </div>
         </div>
       </main>

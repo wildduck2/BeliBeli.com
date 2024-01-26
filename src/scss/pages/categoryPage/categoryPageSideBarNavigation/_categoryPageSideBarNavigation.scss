@@ -13,15 +13,16 @@
 
 */
 .category-page {
-  & > div {
+  &__wrapper {
     margin-block: auto;
     @include u.flex(flex, flex-start);
     gap: 20rem;
 
-    & > div:first-child {
+    &__sidebar {
       margin-top: 2rem;
       @include u.flex(grid, center);
       gap: 2.25rem;
+      width: 204px;
 
       & > div {
         @include u.flex(grid, center);
@@ -56,7 +57,7 @@
       }
     }
 
-    & > div:last-child {
+    &__content {
       @include u.container;
       @include u.flex(grid, center);
       padding-top: 1rem;
@@ -74,9 +75,15 @@
         text-transform: uppercase;
       }
 
-      & > .category-page__hero {
+      &__hero {
+        padding-block: 0;
+
+        & > .img-banner {
+          margin-top: 1rem;
+        }
+
         & > div {
-          max-width: 1230px !important;
+          max-width: 1237px !important;
         }
 
         .lazyLoadingImg {
@@ -88,6 +95,27 @@
               45.75rem
             );
             height: auto;
+          }
+        }
+      }
+
+      &__disc {
+        @include u.flex(grid, center);
+        gap: 1rem;
+        margin-block: 3rem 5rem;
+
+        & > div {
+          @include u.flex(grid, center);
+          gap: 0.3rem;
+
+          & > h4 {
+            font-size: var(--f-lg);
+          font-weight: 600;
+          }
+
+          & > p {
+            font-size: var(--f-nor);
+            margin-bottom: 0.3rem;
           }
         }
       }

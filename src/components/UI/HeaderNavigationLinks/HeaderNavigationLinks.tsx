@@ -14,7 +14,7 @@ const HeaderNavigationLinks = () => {
           {navigationLinks.map((link, index) => {
             return (
               <li key={index}>
-                <LinkButton href={link} className="navigations__link">
+                <LinkButton href={`/category/${link}`} key={link} className="navigations__link">
                   {link}
                 </LinkButton>
               </li>

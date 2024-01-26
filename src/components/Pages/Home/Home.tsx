@@ -21,9 +21,11 @@ const Home = () => {
             supTitle={RedBannerHome.subtitle}
             buttonText={RedBannerHome.Links}
             color={RedBannerHome.ColorfulBanner}
+            satatus={satatus}
+
           />
 
-          {/* <ImgBanner dataIndex={0} /> */}
+          <ImgBanner dataIndex={0} satatus={satatus} />
 
           {/* BlackBanner Section */}
           <ColorfulBanner
@@ -32,6 +34,7 @@ const Home = () => {
             supTitle={BlackBannerHome.subtitle}
             buttonText={BlackBannerHome.Links}
             color={BlackBannerHome.ColorfulBanner}
+            satatus={satatus}
           />
 
           <CategoryBanner dataIndex={0} satatus={satatus} />
@@ -43,10 +46,10 @@ const Home = () => {
         </section>
 
         <section className="banner__section">
-          <ImgBanner dataIndex={1} />
-          <ImgBanner dataIndex={2} />
-          <ImgBanner dataIndex={3} />
-          <ImgBanner dataIndex={4} />
+          <ImgBanner dataIndex={1} satatus={satatus} />
+          <ImgBanner dataIndex={2} satatus={satatus} />
+          <ImgBanner dataIndex={3} satatus={satatus} />
+          <ImgBanner dataIndex={4} satatus={satatus} />
         </section>
 
         <section className="styledByYou__section">
