@@ -161,13 +161,13 @@ export const MenDiscriptionData = {
   },
 };
 
-const categoryData = {
+export const categoryData = {
   women: {
     routeText: "Home /Women",
     pageTile: "Women",
     navigationLink: WoemnSideBarNavigation,
     discrptionData: WomenDiscriptionData,
-    bannerIndexes: [0, 1],
+    bannerIndexes: [0, 6],
     redBannerWomen: RedBannerWomen,
     blackBannerWomen: BlackBannerWomen,
   },
@@ -176,7 +176,7 @@ const categoryData = {
     pageTile: "Men",
     navigationLink: MenSideBarNavigation,
     discrptionData: MenDiscriptionData,
-    bannerIndexes: [2, 3],
+    bannerIndexes: [5, 2],
     redBannerWomen: RedBannerWomen,
     blackBannerWomen: BlackBannerWomen,
   },
@@ -188,14 +188,22 @@ const useCategoryData = ({ id }: UseCategoryDataProps) => {
   const [status, setStatus] = useState<"loading" | "succeeded" | "failed">(
     "loading",
   );
-  console.log(id);
+
+  const categoryDataEntries = Object.entries(categoryData);
+
   useEffect(() => {
-    Object.entries(categoryData).forEach(([key, value]) => {
+    setStatus("loading");
+    setData(null);
+    setError(null);
+
+    for (let i = 0; i < categoryDataEntries.length; i++) {
+      const [key, value] = categoryDataEntries[i];
       try {
-        if (key === id.toLowerCase()) {
+        if (key === id) {
           setData(value);
           setError(null);
           setStatus("succeeded");
+          break;
         } else {
           setData(null);
           setError("Data not found");
@@ -204,7 +212,7 @@ const useCategoryData = ({ id }: UseCategoryDataProps) => {
       } catch (error) {
         throw new Error(error as string);
       }
-    });
+    }
   }, [id]);
 
   return { data, error, status } as const;

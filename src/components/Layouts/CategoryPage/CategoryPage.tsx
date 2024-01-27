@@ -8,7 +8,7 @@ import { useCategoryData } from "@/hooks";
 const CategoryPage = () => {
   const match = useMatch("/category/:id");
   const { data, error, status } = useCategoryData({
-    id: match?.params.id as string,
+    id: match?.params.id?.toLowerCase() as string,
   });
 
   console.log(status);

@@ -1,6 +1,6 @@
 import React from "react";
 import { ColorfulBannerProps } from "./ColorfulBanner.types";
-import { Link } from "@/components/UI";
+import { Link, Skeleton } from "@/components/UI";
 
 export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
   color,
@@ -50,7 +50,7 @@ export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
           </div>
         </div>
       ) : (
-        <h1>laoding...</h1>
+            <Skeleton className="colorful-banner__skeleton  " aria-hidden="true" />
       )}
     </>
   );
