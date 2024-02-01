@@ -1,8 +1,8 @@
 import React, { MutableRefObject, useEffect, useRef } from "react";
 
 interface AsyncImageTypes extends React.ImgHTMLAttributes<HTMLImageElement> {
-  media: string;
-  ariaLabel: string;
+  media?: string;
+  ariaLabel?: string;
 }
 
 const AsyncImage: React.FC<AsyncImageTypes> = ({

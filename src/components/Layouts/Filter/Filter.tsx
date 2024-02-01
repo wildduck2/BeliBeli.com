@@ -1,7 +1,7 @@
 import React, { MouseEvent, useRef } from "react";
 import { FilterLinks } from "../../../constants";
-import Button from "../../UI/Button";
 import { cn } from "../../../utils";
+import { Button } from "@/components/UI";
 
 export interface FilterProps {
     setFilterQuery: React.Dispatch<React.SetStateAction<string>>
@@ -31,6 +31,7 @@ const Filter: React.FC<FilterProps> = ({ setFilterQuery }) => {
                     <Button
                         key={index}
                         type="button"
+                        variant={"outline"}
                         onClick={filterButtonHandler}
                         className={cn(`rounded_button ${index === 0 && "active_filter"}`,
                         )}

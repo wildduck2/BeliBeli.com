@@ -1,6 +1,5 @@
 import React, { FormEvent, MutableRefObject, useRef, useState } from "react";
-import Input from "../../../UI/Input";
-import { Button } from "../../../UI";
+import { Button, Input } from "../../../UI";
 import { useNavigate } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 import GetDataLog from "../../../../utils/GetDataLog";

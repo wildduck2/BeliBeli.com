@@ -2,13 +2,13 @@ import React from "react";
 import { ImgBanner } from "../../UI";
 import { NavigationHeaderLooping } from "../../../utils/";
 import { ColorfulBanner } from "..";
-import { useMatch } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useCategoryData } from "@/hooks";
 
 const CategoryPage = () => {
-  const match = useMatch("/category/:id");
+  const id = useParams();
   const { data, error, status } = useCategoryData({
-    id: match?.params.id?.toLowerCase() as string,
+    id: id?.id?.toLowerCase() as string,
   });
 
   console.log(status);

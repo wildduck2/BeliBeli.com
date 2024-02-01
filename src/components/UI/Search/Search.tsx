@@ -1,7 +1,8 @@
+import React from'react'
 import { MutableRefObject, useRef, useState } from "react";
-import Input from "../Input";
 import { AiOutlineClose } from "react-icons/ai";
 import { CiSearch } from "react-icons/ci";
+import { Input } from "..";
 
 const Search = () => {
   const [value, setValue] = useState<string>("");
