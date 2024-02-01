@@ -25,7 +25,7 @@ const Home = () => {
 
           />
 
-          <ImgBanner dataIndex={0} satatus={satatus} />
+          <ImgBanner dataIndex={7} satatus={satatus} />
 
           {/* BlackBanner Section */}
           <ColorfulBanner
@@ -47,7 +47,6 @@ const Home = () => {
 
         <section className="banner__section">
           <ImgBanner dataIndex={1} satatus={satatus} />
-          <ImgBanner dataIndex={2} satatus={satatus} />
           <ImgBanner dataIndex={3} satatus={satatus} />
           <ImgBanner dataIndex={4} satatus={satatus} />
         </section>

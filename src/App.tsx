@@ -8,6 +8,7 @@ import {
   Header,
   HeaderBanner,
   HeaderMenu,
+  ShopProduct,
 } from "./components/Layouts";
 import { HeaderNavigationLinks } from "./components/UI";
 import { store } from "./context/store";
@@ -28,7 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/category/:id" element={<CategoryPage />} />
-        {/* <Route path="/produc-show/:id" element={<CategoryPage />} /> */}
+        <Route path="/produc-show/:id" element={<ShopProduct />} />
         {/* <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />  */}
 

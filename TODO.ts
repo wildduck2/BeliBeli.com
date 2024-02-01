@@ -91,3 +91,11 @@ fruitSwitchx("pineapples"); // Logs: 'Unknown fruit'
 //
 // fruitSwitch("apples"); // Logs: 'Known fruit'
 // fruitSwitch("pineapples"); // Logs: 'Unknown fruit'
+
+////////////////////////////////////// /////////////////////////
+
+// category page you should chnge the data of the category page and to the right one
+// the navigation links for each page and the about section down the banners
+// fix the black banner show height to fit the content
+
+////////////////////////////////////// /////////////////////////

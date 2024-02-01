@@ -2,6 +2,5 @@ import Home from "./Home/Home";
 import Error from "./Error";
 import LogIn from "./LogIn";
 import SignUp from "./SignUp";
-import Divided from "./Category/Divided";
 
-export { Home, Error, LogIn, SignUp, Divided };
+export { Home, Error, LogIn, SignUp };

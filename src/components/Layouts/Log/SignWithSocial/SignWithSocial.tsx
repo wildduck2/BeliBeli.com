@@ -10,7 +10,9 @@ import {
 } from "../../../../utils/Login/Login";
 
 import { AiOutlineUser } from "react-icons/ai";
-import { discord, google } from "../../../../assets";
+// import { discord, google } from "../../../../assets";
+import { FcGoogle } from "react-icons/fc";
+import { BsDiscord } from "react-icons/bs";
 import { useUser } from "@supabase/auth-helpers-react";
 
 export interface SignInWithSocialTyps {
@@ -53,11 +55,11 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
           });
         }}
       >
-        <img width={35} src={google} alt="google img" />
+        <FcGoogle width={35} />
         <span>{mainTittle} with Google</span>
       </Button>
       <Button className="social_button" onClick={loginWithDiscordHandler}>
-        <img width={25} src={discord} alt="discord img" />
+        <BsDiscord width={25} />
         <span>{mainTittle} with Discord</span>
       </Button>
 
