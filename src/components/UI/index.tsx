@@ -68,13 +68,12 @@ export {
   DialogFooter,
   DialogTitle,
   DialogDescription,
-} from './Dialog/Dialog'
+} from "./Dialog/Dialog";
 
-export { Button, buttonVariants } from './Button/Button'
+export { Button, buttonVariants } from "./Button/Button";
 
-export { Input } from './Input/Input'
+export { Input } from "./Input/Input";
 
 // export { Slidergcc } from './Slider/slider'
 
-export { Progress } from './Progress/progress'
-
+export { Progress } from "./Progress/Progress";
