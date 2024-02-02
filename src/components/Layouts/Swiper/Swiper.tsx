@@ -3,18 +3,13 @@ import { Swiper as SW, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import { Product } from "@/context/Data";
 import { useSelector } from "react-redux";
 import { RootState } from "@/context/store";
 import { Navigation, Pagination } from "swiper/modules";
 import { AsyncImage } from "loadable-image";
 import CardInfo from "./CardInfo";
 import { Skeleton } from "@/components/UI";
-
-export interface SwiperTypes {
-    DATA__NAME: Product[] | null;
-    FILTER__QUERY?: string;
-}
+import { SwiperTypes } from "./Swiper.types";
 
 const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
     const selector = useSelector((state: RootState) => state.data);

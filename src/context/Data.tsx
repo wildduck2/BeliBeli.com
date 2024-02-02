@@ -24,6 +24,7 @@ export interface Product {
   product_type: ProductVariation[];
   product_review: string;
   treding: boolean;
+  choosen: boolean;
 }
 
 export interface otherImgsTypes {

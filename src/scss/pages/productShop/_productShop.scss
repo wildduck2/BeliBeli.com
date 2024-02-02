@@ -1,0 +1,160 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../utils" as u;
+@use "../../base" as *;
+
+/*
+
+   product Shop page 
+  
+*/
+
+.products-shop {
+  @include u.container;
+
+  & > span {
+    @include u.flex(flex, center);
+    place-content: center;
+    font-size: var(--f-nor);
+  }
+
+  &__wrapper {
+    margin-block: auto;
+    @include u.flex(flex, flex-start);
+    gap: 9rem;
+    margin-bottom: 4rem;
+
+    &__sidebar {
+      margin-top: 2rem;
+      @include u.flex(grid, center);
+      gap: 2.25rem;
+      width: 204px;
+
+      & > ul {
+        @include u.flex(grid, center);
+        gap: 2.25rem;
+
+        & > li {
+          @include u.flex(grid, center);
+          gap: 0.25rem;
+
+          & > h4 {
+            font-size: calc(var(--f-nor) * 1);
+            font-weight: 600;
+          }
+
+          & > ul {
+            & > li {
+              @include u.flex(grid);
+              gap: 0.25rem;
+
+              & > a {
+                font-size: var(--f-md);
+                font-weight: 500;
+                color: var(--c-black-700);
+                transition: 0.05s ease-out;
+
+                &:hover {
+                  color: var(--c-red-700);
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__content {
+      @include u.container;
+      @include u.flex(grid, center);
+      padding-top: 1rem;
+      margin: initial;
+      width: 94.8rem;
+
+      & > h1 {
+        @include u.flex(flex, center);
+
+        padding-bottom: 1rem;
+        font-size: calc(var(--f-2xl) * 1.5);
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      &__filter {
+        @include u.flex(flex, center, flex-start);
+        gap: 1.4rem;
+        margin-bottom: 2rem;
+
+        & > div {
+          width: 150px;
+        }
+
+        &__price {
+        }
+
+        &__price {
+          button {
+            width: 150px;
+          }
+
+          &__input {
+            @include u.flex(flex, center);
+            gap: 1.4rem;
+          }
+        }
+      }
+
+      &__products {
+        @include u.flex(flex, flex-start, space-between);
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-bottom: 4rem;
+        min-height: 800px;
+
+        .swiper__card {
+          width: 269.4px;
+          height: 480px;
+
+          .img__wrapper {
+            max-width: 270px;
+          }
+        }
+      }
+
+      &__load {
+        @include u.flex(grid, center);
+        gap: 1rem;
+
+        & > *:not(p) {
+          place-self: center;
+        }
+
+        & > span {
+          font-size: var(--f-md);
+          margin-bottom: -0.5rem;
+        }
+
+        & > .progress {
+          max-width: 200px;
+          height: 5px;
+        }
+
+        & > button {
+          width: fit-content;
+          border-radius: 0;
+          padding-inline: 2.5rem;
+        }
+
+        & > p {
+          margin-top: 1rem;
+          font-size: var(--f-md);
+        }
+      }
+    }
+  }
+}

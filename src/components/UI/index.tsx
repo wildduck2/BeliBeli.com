@@ -74,4 +74,7 @@ export { Button, buttonVariants } from './Button/Button'
 
 export { Input } from './Input/Input'
 
+// export { Slidergcc } from './Slider/slider'
+
+export { Progress } from './Progress/progress'
 

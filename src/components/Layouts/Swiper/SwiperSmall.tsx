@@ -5,11 +5,10 @@ import { Navigation } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import CardInfo from "./CardInfo";
 import { Skeleton } from "@/components/UI";
 import { RootState } from "@/context/store";
 import { useSelector } from "react-redux";
-import { SwiperTypes } from "./Swiper";
+import { SwiperTypes } from "./Swiper.types";
 
 const SwiperSmall = ({ DATA__NAME }: SwiperTypes) => {
   const selector = useSelector((state: RootState) => state.data);

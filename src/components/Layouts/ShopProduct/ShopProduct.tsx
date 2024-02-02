@@ -1,10 +1,10 @@
 import React from "react";
 import { useShopProductData } from "@/hooks";
 import { useParams } from "react-router-dom";
-import { NavigationHeaderLooping } from "@/utils";
 import {
   Button,
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -12,47 +12,42 @@ import {
   DialogTitle,
   DialogTrigger,
   Input,
+  Link,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
 } from "@/components/UI";
-import { Label } from "@radix-ui/react-select";
-// import { AsyncImage } from "loadable-image";
-import CardInfo from "../Swiper/CardInfo";
-import { AsyncImage } from "..";
-import { useSelector } from "react-redux";
-import { RootState } from "@/context/store";
+import ShopProductProducts from "./ShopProductProducts";
 
 const ShopProduct = () => {
   const id = useParams();
-  const satatus = useSelector((state: RootState) => state.data.satatus);
 
-  const products = useSelector((state: RootState) => state.data.products);
   const [ShopProductData, status] = useShopProductData({
     id: id.id,
   });
-  console.log(satatus, status);
 
   return (
     <>
       <main className="products-shop">
-        <span>{ShopProductData.pageTilte}</span>
+        <span>{ShopProductData.routeText}</span>
 
         <div className="products-shop__wrapper">
           <aside className="products-shop__wrapper__sidebar">
             <ul>
               {Object.entries(ShopProductData.navigationLink).map(
                 ([key, value]) => (
-                  <div key={key}>
-                    <li>{key}</li>
+                  <li key={key}>
+                    <h4>{key}</h4>
                     <ul>
                       {value.map((item, index) => (
-                        <li key={index}>{item}</li>
+                        <li key={index}>
+                          <Link href={`/${item}`}>{item}</Link>
+                        </li>
                       ))}
                     </ul>
-                  </div>
+                  </li>
                 ),
               )}
             </ul>
@@ -62,72 +57,58 @@ const ShopProduct = () => {
             <h1>{id.id?.toUpperCase()}</h1>
 
             <div className="products-shop__wrapper__content__filter">
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Sort By" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="relevence">Relevance</SelectItem>
-                  <SelectItem value="name">Name</SelectItem>
-                  <SelectItem value="new in">New in</SelectItem>
-                </SelectContent>
-              </Select>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button variant="outline">Price</Button>
-                </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle>Make Price range</DialogTitle>
-                    <DialogDescription>
-                      Make changes to your budget here. Click save when you're
-                      done.
-                    </DialogDescription>
-                  </DialogHeader>
-                  <div className="flex gap-4 py-4">
-                    <Input
-                      placeholder="Enter the minimum price"
-                      required
-                      type="number"
-                      min={0}
-                      max={6000}
-                    />
-                    <Input
-                      placeholder="Enter the maximum price"
-                      required
-                      type="number"
-                      min={300}
-                      max={6000}
-                    />
-                  </div>
-                  <DialogFooter>
-                    <Button type="submit">Save changes</Button>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
-            </div>
-
-            <div className="products-shop__wrapper__content__products">
-              {status &&
-                satatus === "succeeded" &&
-                products?.map((item, index) => (
-                  <div className="swiper__card" key={index}>
-                    <div className="img__wrapper">
-                      <AsyncImage
-                        src={item.product_type[0].top_imgs["1"]}
-                        style={{ width: 254, height: 350 }}
+              <div className="products-shop__wrapper__content__filter__select">
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Sort By" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="relevence">Relevance</SelectItem>
+                    <SelectItem value="name">Name</SelectItem>
+                    <SelectItem value="new in">New in</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="products-shop__wrapper__content__filter__price">
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="outline">Price</Button>
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>Make Price range</DialogTitle>
+                      <DialogDescription>
+                        Make changes to your budget here. Click save when you're
+                        done.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="products-shop__wrapper__content__filter__price__input">
+                      <Input
+                        placeholder="Enter the minimum price"
+                        required
+                        type="number"
+                        min={300}
+                        max={6000}
+                      />
+                      <Input
+                        placeholder="Enter the maximum price"
+                        required
+                        type="number"
+                        min={1000}
+                        max={6000}
                       />
                     </div>
-                    {/*card information */}
-                    <CardInfo
-                      choosen={item?.choosen}
-                      discount={item.product_type[0].sizes[0]?.discount}
-                      price={item.product_type[0].sizes[0]?.price}
-                      title={item.title}
-                    />
-                  </div>
-                ))}
+                    <DialogFooter>
+                      <DialogClose asChild>
+                        <Button type="submit">Save changes</Button>
+                      </DialogClose>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
+              </div>
             </div>
+
+            <ShopProductProducts status={status} />
           </section>
         </div>
       </main>

@@ -1,9 +1,5 @@
-interface CardInfoTypes {
-  choosen?: boolean;
-  title: string;
-  discount?: string | null;
-  price?: string;
-}
+import React from "react";
+import { CardInfoTypes } from "../Swiper.types";
 
 const CardInfo = ({ choosen, discount, price, title }: CardInfoTypes) => {
   return (
