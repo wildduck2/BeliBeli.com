@@ -24,7 +24,7 @@ const ShopProductProducts: React.FC<ShowProductProductsProps> = ({
       <div className="products-shop__wrapper__content__products">
         {status && satatus === "succeeded" ? (
           products?.map((item, index) => {
-            return index < shownCard && <SwiperCard item={item} key={index} />;
+            return index < shownCard && <SwiperCard item={item} key={index}  width={269} height={400}/>;
           })
         ) : (
           <>

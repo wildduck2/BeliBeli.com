@@ -1,10 +1,15 @@
 import React from "react";
 import CardInfo from "@/components/Layouts/Swiper/CardInfo";
-import { AsyncImage } from "loadable-image";
+// import { AsyncImage } from "loadable-image";
 import { SwiperCardProps } from "./SwiperCard.types";
 import { cardImgHoverHandler, cardImgLeaveHandler } from "@/utils";
+import { AsyncImage } from "@/components/Layouts";
 
-const SwiperCard: React.FC<SwiperCardProps> = ({ item }) => {
+const SwiperCard: React.FC<SwiperCardProps> = ({
+  item,
+  width = 245,
+  height = 350,
+}) => {
   return (
     <div className="swiper__card">
       <div
@@ -18,7 +23,7 @@ const SwiperCard: React.FC<SwiperCardProps> = ({ item }) => {
               key={index}
               draggable={false}
               src={item.product_type[0].top_imgs[index + 1]}
-              style={{ width: 269, height: 400 }}
+              style={{ width: width, height: height }}
             />
           );
         })}
