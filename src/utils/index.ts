@@ -6,3 +6,4 @@ export { default as PaginationIndex } from "./PaginationIndex/PaginationIndex";
 export { default as PaginationStep } from "./PaginationStep";
 export * from "./Login/Login";
 export * from "./SwiperDragging/SwiperDragging";
+export * from './SwiperCardHoverHandler/SwiperCardHoverHandler'

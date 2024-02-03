@@ -77,3 +77,4 @@ export { Input } from "./Input/Input";
 // export { Slidergcc } from './Slider/slider'
 
 export { Progress } from "./Progress/Progress";
+export { default as SwiperCard } from "./SwiperCard/SwiperCard";
