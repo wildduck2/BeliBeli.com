@@ -72,32 +72,13 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
   };
 
   return (
-    <div
-      className="
-      w-full
-      max-w-[50%]
-      border-r
-      border-r-gray-300
-      pr-[10%] 
-    "
-    >
-      <h2
-        className="
-          pb-[3rem]
-          capitalize
-        "
-      >
-        {mainTittle} with email address
-      </h2>
+    <div className="log__wrapper__email">
+      <h2>{mainTittle} with email address</h2>
 
       <form
         action="post"
         onSubmit={(e) => emailSubmitHandler({ e })}
-        className={`
-          grid
-          items-center
-          ${!signUp ? "gap-[4rem]" : "gap-[2.5rem]"}
-        `}
+        className={`${!signUp ? "sign-in" : "sign-up"}`}
       >
         {signUp && (
           <div>
@@ -176,7 +157,7 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
           <>
             <div>
               <div
-                className={`agree__container mb-2`}
+                className={`agree__container`}
                 onClick={() =>
                   checkboxHandler({
                     checkBoxRef: checkBoxRef,
@@ -199,14 +180,7 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
                 </label>
               </div>
 
-              <div
-                className="
-                max-w-[240px]
-                text-[.7rem]
-                font-semibold
-                text-gray-700
-              "
-              >
+              <div className="terms__container">
                 <p>
                   By registering you agreed to our{" "}
                   <span className="underline">Terms & Conditions</span> and{" "}
@@ -218,31 +192,24 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
         )}
 
         {signUp ? (
-          <div
-            className="
-              submitin_buttons
-              flex
-              items-center
-            "
-          >
-            <Button type="submit" children={"Create Account"} />
+          <div className="submitin_buttons">
+            <Button type="submit" variant={"outline"}>
+              Create Account
+            </Button>
           </div>
         ) : (
-          <div
-            className="
-              submitin_buttons
-              flex
-              items-center
-            "
-          >
-            <Button type="submit" children={"sign in"} />
+          <div className="submitin_buttons">
+            <Button type="submit" variant={"outline"}>
+              sign in
+            </Button>
             <Button
               onClick={() => {
                 router("/forgotpassword");
               }}
               type="reset"
-              children={"forget password?"}
-            />
+            >
+              forget password
+            </Button>
           </div>
         )}
       </form>

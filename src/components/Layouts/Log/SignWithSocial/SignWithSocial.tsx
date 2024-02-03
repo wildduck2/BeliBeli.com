@@ -29,25 +29,12 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
   const data = useUser();
 
   return (
-    <div
-      className="
-        social_sign
-        w-full
-        max-w-[50%]
-        pl-[10%]
-      "
-    >
-      <h2
-        className="
-          pb-[2rem]
-          capitalize
-        "
-      >
-        {mainTittle} with social media
-      </h2>
+    <div className="log__wrapper__social">
+      <h2>{mainTittle} with social media</h2>
 
       <Button
         className="social_button"
+        variant={"outline"}
         onClick={() => {
           loginWithGoogleHandler({
             user_id: `${data?.identities![0].user_id}`,
@@ -55,11 +42,15 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
           });
         }}
       >
-        <FcGoogle width={35} />
+        <FcGoogle size={25} />
         <span>{mainTittle} with Google</span>
       </Button>
-      <Button className="social_button" onClick={loginWithDiscordHandler}>
-        <BsDiscord width={25} />
+      <Button
+        className="social_button"
+        variant={"outline"}
+        onClick={loginWithDiscordHandler}
+      >
+        <BsDiscord size={25} />
         <span>{mainTittle} with Discord</span>
       </Button>
 
@@ -71,6 +62,7 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
 
       <Button
         className="social_button"
+        variant={"outline"}
         onClick={() => routeHandler({ signUp, router } as RouteHandlerTypes)}
       >
         <AiOutlineUser size={25} />

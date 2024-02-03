@@ -10,18 +10,10 @@ interface LogTypes {
 
 const Log: React.FC<LogTypes> = ({ mainTittle, signUp }) => {
   return (
-    <section className="section log mb-[3rem]">
+    <section className="log">
       <h2>{mainTittle}</h2>
 
-      <div
-        className="
-          flex
-          justify-between  
-          border-t
-          border-t-gray-300
-          py-[2rem]
-        "
-      >
+      <div className="log__wrapper">
         <SignwithEmail mainTittle={mainTittle} signUp={signUp} />
 
         <SignWithSocial mainTittle={mainTittle} signUp={signUp} />

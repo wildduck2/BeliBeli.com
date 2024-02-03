@@ -1,0 +1,247 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../utils" as u;
+@use "../../base" as *;
+
+/*
+
+   Auth Page 
+
+*/
+
+.log {
+  @include u.section;
+  margin-bottom: 3rem;
+
+  h2 {
+    color: #222222;
+    font-size: calc(var(--f-xl) - 0.2rem);
+    text-transform: capitalize;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  & > h2 {
+    font-size: calc(var(--f-2xl) - 0.1rem);
+    text-transform: uppercase;
+  }
+
+  div {
+    position: relative;
+  }
+
+  &__wrapper {
+    @include u.flex(flex, flex-start, space-between);
+    border-top: 1px solid var(--c-gray-200);
+    padding-block: 2rem;
+
+    & > div {
+      padding-block: 2rem;
+    }
+
+    &__email {
+      width: 100%;
+      max-width: 50%;
+      border-right: 1px solid var(--c-gray-200);
+      padding-right: 10%;
+
+      h2 {
+        margin-bottom: 3rem;
+      }
+
+      & > form {
+        @include u.flex(grid, center);
+        &.sign-in {
+          gap: 3rem;
+        }
+
+        &.sign-up {
+          gap: 2.5rem;
+        }
+
+        input {
+          width: 100%;
+          display: block;
+          font-size: calc(var(--f-md) + 0.15rem);
+          height: 30px;
+          font-weight: 500;
+          background-color: transparent;
+          padding-inline: 0;
+          outline: none;
+          border-radius: 0;
+          border: none;
+          border-bottom: 1px solid #222222;
+
+          box-shadow: none;
+          &:focus-visible,
+          &:focus {
+            box-shadow: none;
+          }
+        }
+
+        input:focus ~ label:not(.show_passowrd, .agree__container label),
+        input.active_input
+          ~ label:not(.show_passowrd, .agree__container label) {
+          top: -1.3rem;
+
+          &.visiablity {
+            top: 13%;
+          }
+        }
+
+        label {
+          position: absolute;
+          top: 9%;
+          font-weight: 500;
+          font-size: var(--f-md);
+          transition: 0.3s ease;
+        }
+
+        .show_passowrd {
+          right: 0;
+          font-size: calc(var(--f-md) - 0.1rem);
+          top: 13%;
+          right: 0;
+          font-weight: 600;
+          text-transform: uppercase;
+          cursor: pointer;
+        }
+
+        .submitin_buttons {
+          button {
+            width: 45%;
+            font-size: var(--f-md);
+            padding: 0.8rem 1.2rem;
+            cursor: pointer;
+            font-weight: 500;
+            border-radius: 0;
+            background-color: #f3f3f3;
+            color: var(--c-black-700);
+
+            &:first-child {
+              text-transform: uppercase;
+              color: white;
+              background-color: #1e242e;
+            }
+          }
+        }
+
+        & .terms__container {
+          max-width: 240px;
+          margin-bottom: -1rem;
+          margin-top: 1rem;
+          P {
+            font-size: var(--f-sm);
+            color: var(--c-gray-200);
+
+            & .underline{
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    &__social {
+      width: 100%;
+      max-width: 50%;
+      padding-left: 10%;
+
+      h2 {
+        margin-bottom: 2rem;
+      }
+
+      p {
+        font-size: var(--f-md);
+        margin-bottom: 0.5rem;
+      }
+
+      button {
+        @include u.flex(flex, center);
+        width: 60%;
+        gap: 1rem;
+        border-radius: 0;
+        margin-bottom: 2rem;
+        border-width: 1px;
+        font-weight: 500;
+        font-size: var(--f-md);
+        height: 50px;
+      }
+    }
+  }
+
+  .agree__container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    input {
+      width: 20px;
+      height: 20px;
+      font-weight: 500;
+      font-size: var(--f-md);
+    }
+
+    label {
+      max-width: 300px;
+      position: relative;
+    }
+
+    .agree {
+      -webkit-appearance: none;
+      display: grid;
+      place-content: center;
+      appearance: none;
+      background-color: #fff;
+      margin: 0;
+      font: inherit;
+      color: currentColor;
+      width: 1.15em;
+      height: 1em;
+      border: 0.15em solid currentColor;
+      border-radius: 0.15em;
+      transition: all 1s ease;
+
+      &::before {
+        display: grid;
+        content: "";
+        width: 0.65em;
+        height: 0.65em;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em var(--c-black-700);
+        background-color: CanvasText;
+        transform-origin: bottom left;
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      }
+
+      &:checked::before {
+        transform: scale(1);
+      }
+    }
+  }
+}
+.social_button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  text-transform: capitalize;
+  border-radius: 0;
+  border: 1px solid #1c232c;
+
+  span {
+    font-weight: 600;
+    font-size: var(--f-md);
+  }
+
+  &:nth-of-type(2) {
+    svg {
+      fill: #5865f2;
+    }
+  }
+}

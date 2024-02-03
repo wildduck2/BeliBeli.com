@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
-import { Error, Home } from "./components/Pages";
+import { Error, Home, LogIn, SignUp } from "./components/Pages";
 import {
   CategoryPage,
   Footer,
@@ -30,8 +30,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/category/:id" element={<CategoryPage />} />
         <Route path="/produc-show/:id" element={<ShopProduct />} />
-        {/* <Route path="/login" element={<LogIn />} />
-        <Route path="/signup" element={<SignUp />} />  */}
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/signup" element={<SignUp />} />
 
         {/* <Route path="/*" element={<Error />} /> */}
       </Routes>

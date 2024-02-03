@@ -21,30 +21,30 @@
 
 */
 
-type P<T> = Record<string, T>;
+// type P<T> = Record<string, T>;
 
-const switchFnx =
-  <T extends P<typeof knownFruit>>(lookupObject: T, defaultCase = "_default") =>
-  (expression: keyof T) =>
-    (lookupObject[expression] || lookupObject[defaultCase])();
+// const switchFnx =
+//   <T extends P<typeof knownFruit>>(lookupObject: T, defaultCase = "_default") =>
+//   (expression: keyof T) =>
+//     (lookupObject[expression] || lookupObject[defaultCase])();
 
-const knownFruitx = () => console.log("Known fruit");
-const unknownFruitx = () => console.log("Unknown fruit");
+// const knownFruitx = () => console.log("Known fruit");
+// const unknownFruitx = () => console.log("Unknown fruit");
 
-const logFruitx: P<typeof knownFruit> = {
-  apples: knownFruitx,
-  oranges: knownFruitx,
-  default: unknownFruitx,
-};
+// const logFruitx: P<typeof knownFruit> = {
+//   apples: knownFruitx,
+//   oranges: knownFruitx,
+//   default: unknownFruitx,
+// };
 
-const fruitSwitchx = switchFnx(logFruitx, "default");
+// const fruitSwitchx = switchFnx(logFruitx, "default");
 
-fruitSwitchx("apples"); // Logs: 'Known fruit'
-fruitSwitchx("pineapples"); // Logs: 'Unknown fruit'
+// fruitSwitchx("apples"); // Logs: 'Known fruit'
+// fruitSwitchx("pineapples"); // Logs: 'Unknown fruit'
 
-//
-//
-//
+// //
+// //
+// //
 //
 //
 //

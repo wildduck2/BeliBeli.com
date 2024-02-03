@@ -1,6 +1,5 @@
 import React from "react";
 import Log from "../../Layouts/Log";
-import { HeaderNavigationLinks } from "../../UI";
 
 const LogIn = () => {
   return (
