@@ -41,11 +41,13 @@ export const signupWithEmailHandler = async ({
 export const loginWithEmailHandler = async ({
   email,
   password,
-}: loginWithEmailHandlerTypes) =>
+}: loginWithEmailHandlerTypes) => {
   await supabase.auth.signInWithPassword({
     email: email,
     password: password,
   });
+  console.log("logged in");
+};
 
 export const routeHandler = ({ signUp, router }: RouteHandlerTypes) =>
   router(`${signUp ? "/login" : "/signup"}`);
@@ -58,4 +60,3 @@ export const logoutHandler = async ({
   await supabase.auth.signOut();
   setUser(false);
 };
-

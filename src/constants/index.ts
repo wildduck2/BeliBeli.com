@@ -1,3 +1,43 @@
+import { z } from "zod";
+
+export const emailSchema = z.string().email();
+export const passwordInRange = z.string().min(8).max(32);
+export const passwordhasuppercase = z.string().regex(/(?=.*[A-Z])/);
+export const passwordhaslowercase = z.string().regex(/(?=.*[a-z])/);
+export const passwordhasnumber = z.string().regex(/(?=.*\d)/);
+export const passwordhasspecialcharacter = z.string().regex(/(?=.*[@$!%*?&])/);
+
+export const Emails = [
+  "ahmed@example.com",
+  "ayob@example.com",
+  "abdo@example.com",
+  "ali@example.com",
+  "mohamed@example.com",
+];
+
+export const passwordrules = [
+  {
+    id: 1,
+    name: "Lowercase letter",
+  },
+  {
+    id: 2,
+    name: "Uppercase letter",
+  },
+  {
+    id: 3,
+    name: "Number",
+  },
+  {
+    id: 4,
+    name: "Special character (e.g. !?<>@#$%)",
+  },
+  {
+    id: 5,
+    name: "Minimum 8 characters",
+  },
+];
+
 export const navigationLinks = [
   "category/Women",
   "category/Men",
@@ -51,8 +91,6 @@ export const FilterLinks = [
   "BeliBeli Home",
   "Sale",
 ];
-
-
 
 export const WomenHeaderNavigationLink = [
   "women",

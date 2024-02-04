@@ -9,12 +9,14 @@ import { ToastProvider } from "./components/UI/index.tsx";
 
 import "./scss/styles.scss";
 import "react-lazy-load-image-component/src/effects/opacity.css";
+import { Toaster } from "sonner";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ToastProvider />
     <BrowserRouter>
       <Provider store={store}>
+        <Toaster />
         <App />
       </Provider>
     </BrowserRouter>

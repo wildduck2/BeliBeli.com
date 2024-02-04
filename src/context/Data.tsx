@@ -1,62 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { supabase } from "../supabase/supabase";
 import { PostgrestSingleResponse } from "@supabase/supabase-js";
-
-export interface ProductSize {
-  size: string;
-  price: string;
-  discount: string | null;
-}
-
-export interface ProductVariation {
-  top_imgs: ProductImage;
-  low_imgs: ProductImage;
-  sizes: ProductSize[];
-  art_no: string;
-  name: string;
-}
-
-export interface Product {
-  id: number;
-  type: string;
-  title: string;
-  description: string;
-  product_type: ProductVariation[];
-  product_review: string;
-  treding: boolean;
-  choosen: boolean;
-}
-
-export interface otherImgsTypes {
-  id: number;
-  created_at: Date;
-  page__name: string;
-  name: string[];
-  category: string[];
-  category__img__high: string[];
-  category__img__low: string[];
-}
-
-export interface BannersType {
-  id: number;
-  created_at: Date;
-  title: string[];
-  subtitle: string;
-  top_img: string;
-  low_img: string;
-  mobile_top_img: string;
-  mobile_low_img: string;
-  button: string[];
-}
-
-export interface initialStateTypes {
-  satatus: "loading" | "succeeded" | "failed";
-  error: string | null;
-
-  bannersData: BannersType[] | null;
-  categoriesData: otherImgsTypes[] | null;
-  products: Product[] | null;
-}
+import {
+  BannersType,
+  Product,
+  initialStateTypes,
+  otherImgsTypes,
+} from "./Data.types";
+import { toast } from "sonner";
 
 const initialState: initialStateTypes = {
   satatus: "loading",
@@ -65,6 +16,8 @@ const initialState: initialStateTypes = {
   bannersData: null,
   categoriesData: null,
   products: null,
+  userData: null,
+  logged: JSON.parse(localStorage.getItem("userData") || "false"),
 };
 
 export const thunkFetchingBannerFromSupabase = createAsyncThunk(
@@ -110,7 +63,23 @@ export const thunkFetchingBannerFromSupabase = createAsyncThunk(
 export const dataSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    getUserDispatch: (state, action) => {
+      state.logged = true;
+      state.userData = action.payload;
+      localStorage.setItem("userData", JSON.stringify(state.logged));
+    },
+    signin: (state) => {
+      state.logged = true;
+      localStorage.setItem("userData", JSON.stringify(state.logged));
+    },
+    signout: (state) => {
+      state.logged = false;
+      state.userData = null;
+      localStorage.setItem("userData", JSON.stringify(state.logged));
+      toast.info("Logout Successful");
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(thunkFetchingBannerFromSupabase.pending, (state) => {
@@ -136,8 +105,5 @@ export const dataSlice = createSlice({
   },
 });
 
+export const { getUserDispatch, signin, signout } = dataSlice.actions;
 export default dataSlice.reducer;
-
-interface ProductImage {
-  [key: string]: string;
-}

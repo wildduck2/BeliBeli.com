@@ -55,60 +55,122 @@
 
       & > form {
         @include u.flex(grid, center);
-        &.sign-in {
-          gap: 3rem;
+
+        & > div {
+          position: relative;
         }
 
-        &.sign-up {
-          gap: 2.5rem;
-        }
+        .input__wrapper {
+          margin-bottom: 3.4rem;
 
-        input {
-          width: 100%;
-          display: block;
-          font-size: calc(var(--f-md) + 0.15rem);
-          height: 30px;
-          font-weight: 500;
-          background-color: transparent;
-          padding-inline: 0;
-          outline: none;
-          border-radius: 0;
-          border: none;
-          border-bottom: 1px solid #222222;
-
-          box-shadow: none;
-          &:focus-visible,
-          &:focus {
+          input {
+            width: 100%;
+            display: block;
+            font-size: calc(var(--f-md) + 0.15rem);
+            height: 30px;
+            font-weight: 500;
+            background-color: transparent;
+            padding-inline: 0;
+            outline: none;
+            border-radius: 0;
+            border: none;
+            border-bottom: 1px solid #222222;
             box-shadow: none;
+
+            &:focus-visible,
+            &:focus {
+              box-shadow: none;
+            }
+          }
+
+          .valid {
+            position: absolute;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+
+            .wrong {
+              fill: var(--c-red-700);
+            }
+          }
+
+          input:focus ~ label:not(.show_passowrd, .agree__container label),
+          input.active_input
+            ~ label:not(.show_passowrd, .agree__container label) {
+            top: -1.3rem;
+
+            &.visiablity {
+              top: 13%;
+            }
+          }
+
+          label {
+            position: absolute;
+            top: 9%;
+            font-weight: 500;
+            font-size: var(--f-md);
+            transition: 0.3s ease;
+          }
+
+          .show_passowrd {
+            top: 50%;
+            right: 0.5rem;
+            font-size: var(--f-lg);
+            transform: translateY(-50%);
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
           }
         }
 
-        input:focus ~ label:not(.show_passowrd, .agree__container label),
-        input.active_input
-          ~ label:not(.show_passowrd, .agree__container label) {
-          top: -1.3rem;
-
-          &.visiablity {
-            top: 13%;
-          }
-        }
-
-        label {
-          position: absolute;
-          top: 9%;
-          font-weight: 500;
-          font-size: var(--f-md);
+        & > p {
+          font-size: var(--f-nor);
+          margin-bottom: 0.5rem;
+          opacity: 0;
+          height: 0;
           transition: 0.3s ease;
+          color: var(--c-red-700);
+          margin-top: -4.4rem;
+
+          &.active {
+            opacity: 1;
+            height: 23px;
+          }
         }
 
-        .show_passowrd {
-          right: 0;
-          font-size: calc(var(--f-md) - 0.1rem);
-          top: 13%;
-          right: 0;
-          font-weight: 600;
-          text-transform: uppercase;
-          cursor: pointer;
+        & > .password-rules {
+          @include u.flex(grid);
+          margin-bottom: 1.5rem;
+          opacity: 0;
+          height: 0;
+          transition: 0.3s ease;
+          margin-top: -1.2rem;
+
+          &.active {
+            opacity: 1;
+            height: 110px;
+          }
+
+          li {
+            @include u.flex(flex, center);
+            gap: 0.5rem;
+
+            & > svg {
+              width: 0.9rem;
+              height: 0.9rem;
+            }
+
+            .red {
+              fill: var(--c-red-700);
+            }
+            .red.green {
+              fill: var(--c-green-600);
+            }
+
+            span {
+              font-size: var(--f-nor);
+            }
+          }
         }
 
         .submitin_buttons {
@@ -134,11 +196,12 @@
           max-width: 240px;
           margin-bottom: -1rem;
           margin-top: 1rem;
+
           P {
             font-size: var(--f-sm);
             color: var(--c-gray-200);
 
-            & .underline{
+            & .underline {
               text-decoration: underline;
             }
           }
@@ -188,7 +251,7 @@
 
     label {
       max-width: 300px;
-      position: relative;
+      position: relative !important;
     }
 
     .agree {

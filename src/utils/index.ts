@@ -6,4 +6,9 @@ export { default as PaginationIndex } from "./PaginationIndex/PaginationIndex";
 export { default as PaginationStep } from "./PaginationStep";
 export * from "./Login/Login";
 export * from "./SwiperDragging/SwiperDragging";
-export * from './SwiperCardHoverHandler/SwiperCardHoverHandler'
+export * from "./SwiperCardHoverHandler/SwiperCardHoverHandler";
+export * from "./zod/inputOnChage";
+export * from "./zod/inputvalidation";
+export * from "./zod/passowrdShow";
+export * from "./zod/zod.types";
+export * from "./signupPopup/signupPopup";

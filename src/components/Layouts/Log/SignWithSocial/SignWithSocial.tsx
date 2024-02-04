@@ -1,19 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Button } from "../../../UI";
 import { useNavigate } from "react-router-dom";
-import {
-  RouteHandlerTypes,
-  loginWithDiscordHandler,
-  loginWithGoogleHandler,
-  routeHandler,
-} from "../../../../utils/Login/Login";
+import { RouteHandlerTypes, routeHandler } from "../../../../utils/Login/Login";
 
 import { AiOutlineUser } from "react-icons/ai";
-// import { discord, google } from "../../../../assets";
 import { FcGoogle } from "react-icons/fc";
 import { BsDiscord } from "react-icons/bs";
 import { useUser } from "@supabase/auth-helpers-react";
+import { useSigninwithProvider } from "@/hooks";
+import { useDispatch } from "react-redux";
 
 export interface SignInWithSocialTyps {
   mainTittle: string;
@@ -25,8 +21,29 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
   signUp,
 }) => {
   const router = useNavigate();
+  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [emailValid, setEmailValid] = useState<boolean>(false);
+  const [passwordValid, setPasswordValid] = useState<boolean>(false);
 
   const data = useUser();
+  const Google = useSigninwithProvider({
+    dispatch,
+    setIsLoading,
+    setEmailValid,
+    setPasswordValid,
+    route: router,
+    provider: "google",
+  });
+
+  const GitHub = useSigninwithProvider({
+    dispatch,
+    setIsLoading,
+    setEmailValid,
+    setPasswordValid,
+    route: router,
+    provider: "discord",
+  });
 
   return (
     <div className="log__wrapper__social">
@@ -35,12 +52,7 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
       <Button
         className="social_button"
         variant={"outline"}
-        onClick={() => {
-          loginWithGoogleHandler({
-            user_id: `${data?.identities![0].user_id}`,
-            file: data?.identities![0].identity_data!.avatar_url,
-          });
-        }}
+        onClick={Google.authProvider}
       >
         <FcGoogle size={25} />
         <span>{mainTittle} with Google</span>
@@ -48,7 +60,7 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
       <Button
         className="social_button"
         variant={"outline"}
-        onClick={loginWithDiscordHandler}
+        onClick={GitHub.authProvider}
       >
         <BsDiscord size={25} />
         <span>{mainTittle} with Discord</span>

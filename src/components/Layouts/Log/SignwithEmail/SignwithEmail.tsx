@@ -1,21 +1,23 @@
-import React, { FormEvent, MutableRefObject, useRef, useState } from "react";
+import React, {
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { Button, Input } from "../../../UI";
 import { useNavigate } from "react-router-dom";
-import { twMerge } from "tailwind-merge";
-import GetDataLog from "../../../../utils/GetDataLog";
-import { toast } from "react-hot-toast";
-import {
-  loginWithEmailHandler,
-  signupWithEmailHandler,
-} from "../../../../utils/Login/Login";
+import { onChangeInput, onPasswordShow } from "@/utils";
+import { RootState } from "@/context/store";
+import { useDispatch, useSelector } from "react-redux";
+import { BsPatchExclamation } from "react-icons/bs";
+import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
+import { passwordrules } from "@/constants";
+import { GiPlainCircle } from "react-icons/gi";
+import { useSigninWithEmail, useSignupWithEmail } from "@/hooks";
 
 interface SigninWithEmailTypes {
   mainTittle: string;
   signUp: boolean;
-}
-
-interface emailSubmitHandlerTypes {
-  e: FormEvent<HTMLFormElement>;
 }
 
 interface checkboxHandlerTypes {
@@ -30,10 +32,7 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
   const router = useNavigate();
 
   const [fullNameValue, setFullNameValue] = useState<string>("");
-  const [emailValue, setEmailValue] = useState<string>("");
-  const [emailVaid, setEmailValid] = useState<boolean>(false);
-  const [passowrdValue, setPassowrdValue] = useState<string>("");
-  const [passwordShown, setPasswordShown] = useState<boolean>(false);
+
   const [passowrdConfirmValue, setPassowrdConfirmValue] = useState<string>("");
   const [passwordConfirmShown, setPasswordConfirmShown] =
     useState<boolean>(false);
@@ -41,27 +40,73 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
 
   const checkBoxRef = useRef() as MutableRefObject<HTMLInputElement>;
 
-  const emailSubmitHandler = ({ e }: emailSubmitHandlerTypes) => {
-    e.preventDefault();
-    //() TODO: make sure the email is a valid email
-    //() TODO: make sure the passoword is 7n 1upChar 1lowChar 1symobol
-    //() Todo: make sure the passowrd is hashed before sending to supabase
-    //() TODO: show password strength border color depending on the passowrd ruled 've been done
-    //() TODO: show the confirm pass strength
-    //() TODO: show a red warning if the input was not valid or empty when supmit or when you focus on an input and blur it empty
-    //(ok!) TODO: pretending to send data to server now after signup show email checking layout
-    if (signUp) {
-      signupWithEmailHandler({
-        email: emailValue,
-        fullName: fullNameValue,
-        password: passowrdValue,
-      });
-    }
+  const utils = useSelector((state: RootState) => state.util);
+  const dispatch = useDispatch();
 
-    if (!signUp) {
-      loginWithEmailHandler({ email: emailValue, password: passowrdValue });
-    }
-  };
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [notValid, setNotValid] = useState<boolean>(false);
+
+  const [emailValid, setEmailValid] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [passwordValid, setPasswordValid] = useState<boolean>(false);
+  const [password, setPassword] = useState<string>("");
+  const [passwordShow, setPasswordShow] = useState<boolean>(false);
+  const [passwordShowMenu, setPasswordShowMenu] = useState<boolean>(false);
+  const [passwordHasLowercase, setPasswordHasLowercase] =
+    useState<boolean>(false);
+  const [passwordHasUppercase, setPasswordHasUppercase] =
+    useState<boolean>(false);
+  const [passwordHasNumber, setPasswordHasNumber] = useState<boolean>(false);
+  const [passwordHasSpecialCharacter, setPasswordHasSpecialCharacter] =
+    useState<boolean>(false);
+  const [passwordInRange, setPasswordInRange] = useState<boolean>(false);
+  const [passwordcomfirmationValid, setPasswordcomfirmationValid] =
+    useState<boolean>(false);
+  const [passwordcomfirmation, setPasswordcomfirmation] = useState<string>("");
+  const [passwordcomfirmationShow, setPasswordcomfirmationShow] =
+    useState<boolean>(false);
+
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const passwordcomfirmationRef = useRef<HTMLInputElement>(null);
+
+  const { creditValidEmail, authEmail } = useSigninWithEmail({
+    email,
+    password,
+    dispatch,
+    setIsLoading,
+    setEmailValid,
+    setPasswordValid,
+    route: router,
+  });
+
+  useEffect(() => {
+    setNotValid(
+      utils.inputsValid.email && utils.inputsValid.password ? true : false,
+    );
+  }, [dispatch, emailValid, passwordValid, passwordShowMenu, creditValidEmail]);
+
+  const signupProvider = useSignupWithEmail({
+    notChecked,
+    email,
+    password,
+    fullNameValue,
+    dispatch,
+    setIsLoading,
+    route: router,
+    setEmailValid,
+    setPasswordValid,
+  });
+
+  const signinProvider = useSigninWithEmail({
+    email,
+    password,
+    dispatch,
+    setIsLoading,
+    route: router,
+    setEmailValid,
+    setPasswordValid,
+  });
 
   // checkbox handler
   const checkboxHandler = ({
@@ -75,13 +120,9 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
     <div className="log__wrapper__email">
       <h2>{mainTittle} with email address</h2>
 
-      <form
-        action="post"
-        onSubmit={(e) => emailSubmitHandler({ e })}
-        className={`${!signUp ? "sign-in" : "sign-up"}`}
-      >
+      <form action="post" onSubmit={authEmail}>
         {signUp && (
-          <div>
+          <div className="input__wrapper">
             <Input
               className={`${fullNameValue && "active_input"}`}
               type="text"
@@ -95,67 +136,167 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
             <label htmlFor="text">Full Name</label>
           </div>
         )}
-
-        <div>
+        <div className="input__wrapper">
           <Input
-            className={twMerge(`${emailValue && "active_input"}`)}
+            className={`${email && "active_input"}`}
             type="email"
             required
             id="email"
-            value={emailValue}
-            onBlur={() =>
-              emailValue ? setEmailValid(true) : setEmailValid(false)
-            }
-            onChange={({ currentTarget }) => setEmailValue(currentTarget.value)}
+            value={email}
+            autoCapitalize="none"
+            autoComplete="email"
+            autoCorrect="off"
+            disabled={isLoading}
+            onChange={(e) => {
+              onChangeInput({
+                e,
+                setFunc: setEmail,
+                setvalid: setEmailValid,
+                type: "email",
+                utils,
+                dispatch,
+              });
+            }}
+            ref={emailRef}
           />
           <label htmlFor="email">Email</label>
+          <div className="valid">
+            {emailValid && <BsPatchExclamation className="wrong" />}
+          </div>
         </div>
-
-        <div>
+        <p className={!emailValid ? "hide" : "active"}>Email is not valid.</p>
+        <div className="input__wrapper">
           <Input
-            className={`${passowrdValue && "active_input"}`}
-            type={`${!passwordShown ? "password" : "text"}`}
-            required
+            className={`${password && "active_input"}`}
             id="password"
-            value={passowrdValue}
-            onChange={({ currentTarget }) => {
-              setPassowrdValue(currentTarget.value);
+            type="password"
+            autoCapitalize="none"
+            autoComplete="password"
+            autoCorrect="off"
+            required
+            value={password}
+            onChange={(e) => {
+              onChangeInput({
+                e,
+                setFunc: setPassword,
+                setvalid: setPasswordValid,
+                password: password,
+                setPasswordShowMenu,
+                setPasswordHasLowercase,
+                setPasswordHasNumber,
+                setPasswordHasSpecialCharacter,
+                setPasswordHasUppercase,
+                setPasswordInRange,
+                type: "password",
+                utils,
+                dispatch,
+              });
+            }}
+            disabled={isLoading}
+            ref={passwordRef}
+            onFocus={() => {
+              setPasswordShowMenu(true);
             }}
           />
           <label htmlFor="password">Password</label>
           <label
             className="show_passowrd"
-            onClick={() => setPasswordShown(!passwordShown)}
+            onClick={() =>
+              onPasswordShow({
+                setFunc: setPasswordShow,
+                passwordRef,
+                passwordShow,
+              })
+            }
           >
-            {passwordShown ? "Hide" : "Show"}
+            {passwordShow ? <RiEyeLine /> : <RiEyeOffLine />}
           </label>
+
+          <div className="valid">
+            {passwordValid && <BsPatchExclamation className="wrong" />}
+          </div>
+        </div>
+        <p className={!passwordValid ? "hide" : "active"}>
+          Password is not valid.
+        </p>
+        <div
+          className={`password-rules ${passwordShowMenu ? "active" : "hide"} `}
+        >
+          <ul>
+            {passwordrules.map((rule) => (
+              <li key={rule.id}>
+                <GiPlainCircle
+                  className={`${passwordValid && "red"}  
+                  ${passwordHasLowercase && rule.id === 1 && "green"}
+                  ${passwordHasUppercase && rule.id === 2 && "green"}
+                  ${passwordHasNumber && rule.id === 3 && "green"}
+                  ${passwordHasSpecialCharacter && rule.id === 4 && "green"}
+                  ${passwordInRange && rule.id === 5 && "green"}
+                  `}
+                />
+                <span>{rule.name}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {signUp && (
-          <div>
-            <Input
-              className={`${passowrdConfirmValue && "active_input"}`}
-              type={`${!passwordConfirmShown ? "password" : "text"}`}
-              required
-              id="confirm"
-              value={passowrdConfirmValue}
-              onChange={({ currentTarget }) =>
-                setPassowrdConfirmValue(currentTarget.value)
-              }
-            />
-            <label htmlFor="confirm">Confirm Password</label>
-            <label
-              className="show_passowrd"
-              onClick={() => setPasswordConfirmShown(!passwordConfirmShown)}
-            >
-              {passwordConfirmShown ? "Hide" : "Show"}
-            </label>
-          </div>
+          <>
+            <div className="input__wrapper">
+              <Input
+                className={`${passwordcomfirmation && "active_input"}`}
+                type={`${!passwordConfirmShown ? "password" : "text"}`}
+                required
+                id="confirm"
+                value={passwordcomfirmation}
+                autoCapitalize="none"
+                autoComplete="password"
+                autoCorrect="off"
+                onChange={(e) => {
+                  onChangeInput({
+                    e,
+                    password,
+                    passwordconf: passwordcomfirmation,
+                    setFunc: setPasswordcomfirmation,
+                    setvalid: setPasswordcomfirmationValid,
+                    setvalidcomf: setPasswordValid,
+                    type: "passwordcomfirmation",
+                    utils,
+                    dispatch,
+                  });
+                }}
+                disabled={isLoading}
+                ref={passwordcomfirmationRef}
+              />
+              <label htmlFor="confirm">Confirm Password</label>
+              <label
+                className="show_passowrd"
+                onClick={() =>
+                  onPasswordShow({
+                    setFunc: setPasswordcomfirmationShow,
+                    passwordRef: passwordcomfirmationRef,
+                    passwordShow: passwordcomfirmationShow,
+                  })
+                }
+              >
+                {passwordcomfirmationShow ? <RiEyeLine /> : <RiEyeOffLine />}
+              </label>
+              <div className="valid">
+                {passwordcomfirmationValid && (
+                  <BsPatchExclamation className="wrong" />
+                )}
+              </div>
+            </div>
+
+            <p className={!passwordcomfirmationValid ? "hide" : "active"}>
+              Comfirm passowrd is not valid.
+            </p>
+          </>
         )}
 
         {signUp && (
           <>
-            <div>
+            <div className="input__wrapper">
               <div
                 className={`agree__container`}
                 onClick={() =>
@@ -170,12 +311,12 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
                   ref={checkBoxRef}
                   type="checkbox"
                   id="agree"
-                  value={emailValue}
+                  value={email}
                   onChange={({ currentTarget }) =>
-                    setEmailValue(currentTarget.value)
+                    setEmail(currentTarget.value)
                   }
                 />
-                <label htmlFor="agree" className="relative">
+                <label htmlFor="agree" className="agree__label">
                   I would like to receive exclusive deals from BeliBeli
                 </label>
               </div>
@@ -193,13 +334,21 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
 
         {signUp ? (
           <div className="submitin_buttons">
-            <Button type="submit" variant={"outline"}>
+            <Button
+              type="submit"
+              variant={"outline"}
+              onClick={signupProvider.authEmail}
+            >
               Create Account
             </Button>
           </div>
         ) : (
           <div className="submitin_buttons">
-            <Button type="submit" variant={"outline"}>
+            <Button
+              type="submit"
+              variant={"outline"}
+              onClick={signinProvider.authEmail}
+            >
               sign in
             </Button>
             <Button
