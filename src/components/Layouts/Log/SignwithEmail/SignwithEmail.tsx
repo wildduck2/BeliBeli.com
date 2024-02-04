@@ -1,9 +1,4 @@
-import React, {
-  MutableRefObject,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { MutableRefObject, useEffect, useRef, useState } from "react";
 import { Button, Input } from "../../../UI";
 import { useNavigate } from "react-router-dom";
 import { onChangeInput, onPasswordShow } from "@/utils";
@@ -14,6 +9,7 @@ import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
 import { passwordrules } from "@/constants";
 import { GiPlainCircle } from "react-icons/gi";
 import { useSigninWithEmail, useSignupWithEmail } from "@/hooks";
+import { Icons } from "../Icons";
 
 interface SigninWithEmailTypes {
   mainTittle: string;
@@ -70,21 +66,11 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
   const passwordRef = useRef<HTMLInputElement>(null);
   const passwordcomfirmationRef = useRef<HTMLInputElement>(null);
 
-  const { creditValidEmail, authEmail } = useSigninWithEmail({
-    email,
-    password,
-    dispatch,
-    setIsLoading,
-    setEmailValid,
-    setPasswordValid,
-    route: router,
-  });
-
   useEffect(() => {
     setNotValid(
       utils.inputsValid.email && utils.inputsValid.password ? true : false,
     );
-  }, [dispatch, emailValid, passwordValid, passwordShowMenu, creditValidEmail]);
+  }, [dispatch, emailValid, passwordValid, passwordShowMenu]);
 
   const signupProvider = useSignupWithEmail({
     notChecked,
@@ -98,14 +84,14 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
     setPasswordValid,
   });
 
-  const signinProvider = useSigninWithEmail({
+  const { creditValidEmail, authEmail } = useSigninWithEmail({
     email,
     password,
     dispatch,
     setIsLoading,
-    route: router,
     setEmailValid,
     setPasswordValid,
+    route: router,
   });
 
   // checkbox handler
@@ -338,7 +324,9 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
               type="submit"
               variant={"outline"}
               onClick={signupProvider.authEmail}
+              disabled={isLoading || !notValid}
             >
+              {isLoading && <Icons.spinner />}
               Create Account
             </Button>
           </div>
@@ -347,10 +335,13 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
             <Button
               type="submit"
               variant={"outline"}
-              onClick={signinProvider.authEmail}
+              className="animate-spin"
+              disabled={isLoading || !notValid}
             >
+              {isLoading && <Icons.spinner />}
               sign in
             </Button>
+
             <Button
               onClick={() => {
                 router("/forgotpassword");

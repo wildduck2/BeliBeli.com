@@ -184,6 +184,13 @@
             background-color: #f3f3f3;
             color: var(--c-black-700);
 
+            & > * {
+              margin-right: 0.5rem /* 8px */;
+              height: var(--f-nor) /* 16px */;
+              width: var(--f-nor) /* 16px */;
+              animation: spin 1s linear infinite;
+            }
+
             &:first-child {
               text-transform: uppercase;
               color: white;
@@ -306,5 +313,14 @@
     svg {
       fill: #5865f2;
     }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
