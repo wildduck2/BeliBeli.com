@@ -8,23 +8,21 @@ import { BsPatchExclamation } from "react-icons/bs";
 import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
 import { passwordrules } from "@/constants";
 import { GiPlainCircle } from "react-icons/gi";
-import { useSigninWithEmail, useSignupWithEmail } from "@/hooks";
+import { useSignupWithEmail } from "@/hooks";
 import { Icons } from "../Icons";
+import SignWithSocial from "../SignWithSocial";
 
-interface SigninWithEmailTypes {
+export interface SigninWithEmailTypes {
   mainTittle: string;
   signUp: boolean;
 }
 
-interface checkboxHandlerTypes {
+export interface checkboxHandlerTypes {
   checkBoxRef: React.MutableRefObject<HTMLInputElement>;
   setNotchecked: (value: boolean) => void;
 }
 
-const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
-  mainTittle,
-  signUp,
-}) => {
+const Signup = () => {
   const router = useNavigate();
 
   const [fullNameValue, setFullNameValue] = useState<string>("");
@@ -42,6 +40,7 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [notValid, setNotValid] = useState<boolean>(false);
 
+  console.log("notValid", notValid);
   const [emailValid, setEmailValid] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [passwordValid, setPasswordValid] = useState<boolean>(false);
@@ -84,16 +83,6 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
     setPasswordValid,
   });
 
-  const { creditValidEmail, authEmail } = useSigninWithEmail({
-    email,
-    password,
-    dispatch,
-    setIsLoading,
-    setEmailValid,
-    setPasswordValid,
-    route: router,
-  });
-
   // checkbox handler
   const checkboxHandler = ({
     setNotchecked,
@@ -103,131 +92,135 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
   };
 
   return (
-    <div className="log__wrapper__email">
-      <h2>{mainTittle} with email address</h2>
+    <section className="log">
+      <h2>{"Sign up"}</h2>
 
-      <form action="post" onSubmit={authEmail}>
-        {signUp && (
-          <div className="input__wrapper">
-            <Input
-              className={`${fullNameValue && "active_input"}`}
-              type="text"
-              required
-              id="text"
-              value={fullNameValue}
-              onChange={({ currentTarget }) =>
-                setFullNameValue(currentTarget.value)
-              }
-            />
-            <label htmlFor="text">Full Name</label>
-          </div>
-        )}
-        <div className="input__wrapper">
-          <Input
-            className={`${email && "active_input"}`}
-            type="email"
-            required
-            id="email"
-            value={email}
-            autoCapitalize="none"
-            autoComplete="email"
-            autoCorrect="off"
-            disabled={isLoading}
-            onChange={(e) => {
-              onChangeInput({
-                e,
-                setFunc: setEmail,
-                setvalid: setEmailValid,
-                type: "email",
-                utils,
-                dispatch,
-              });
-            }}
-            ref={emailRef}
-          />
-          <label htmlFor="email">Email</label>
-          <div className="valid">
-            {emailValid && <BsPatchExclamation className="wrong" />}
-          </div>
-        </div>
-        <p className={!emailValid ? "hide" : "active"}>Email is not valid.</p>
-        <div className="input__wrapper">
-          <Input
-            className={`${password && "active_input"}`}
-            id="password"
-            type="password"
-            autoCapitalize="none"
-            autoComplete="password"
-            autoCorrect="off"
-            required
-            value={password}
-            onChange={(e) => {
-              onChangeInput({
-                e,
-                setFunc: setPassword,
-                setvalid: setPasswordValid,
-                password: password,
-                setPasswordShowMenu,
-                setPasswordHasLowercase,
-                setPasswordHasNumber,
-                setPasswordHasSpecialCharacter,
-                setPasswordHasUppercase,
-                setPasswordInRange,
-                type: "password",
-                utils,
-                dispatch,
-              });
-            }}
-            disabled={isLoading}
-            ref={passwordRef}
-            onFocus={() => {
-              setPasswordShowMenu(true);
-            }}
-          />
-          <label htmlFor="password">Password</label>
-          <label
-            className="show_passowrd"
-            onClick={() =>
-              onPasswordShow({
-                setFunc: setPasswordShow,
-                passwordRef,
-                passwordShow,
-              })
-            }
-          >
-            {passwordShow ? <RiEyeLine /> : <RiEyeOffLine />}
-          </label>
+      <div className="log__wrapper">
+        <div className="log__wrapper__email">
+          <h2>{"Sign up"} with email address</h2>
 
-          <div className="valid">
-            {passwordValid && <BsPatchExclamation className="wrong" />}
-          </div>
-        </div>
-        <p className={!passwordValid ? "hide" : "active"}>
-          Password is not valid.
-        </p>
-        <div
-          className={`password-rules ${passwordShowMenu ? "active" : "hide"} `}
-        >
-          <ul>
-            {passwordrules.map((rule) => (
-              <li key={rule.id}>
-                <GiPlainCircle
-                  className={`${passwordValid && "red"}  
+          <form action="post" onSubmit={signupProvider.authEmail}>
+            <div className="input__wrapper">
+              <Input
+                className={`${fullNameValue && "active_input"}`}
+                type="text"
+                required
+                id="text"
+                value={fullNameValue}
+                onChange={({ currentTarget }) =>
+                  setFullNameValue(currentTarget.value)
+                }
+              />
+              <label htmlFor="text">Full Name</label>
+            </div>
+            <div className="input__wrapper">
+              <Input
+                className={`${email && "active_input"}`}
+                type="email"
+                required
+                id="email"
+                value={email}
+                autoCapitalize="none"
+                autoComplete="email"
+                autoCorrect="off"
+                disabled={isLoading}
+                onChange={(e) => {
+                  onChangeInput({
+                    e,
+                    setFunc: setEmail,
+                    setvalid: setEmailValid,
+                    type: "email",
+                    utils,
+                    dispatch,
+                  });
+                }}
+                ref={emailRef}
+              />
+              <label htmlFor="email">Email</label>
+              <div className="valid">
+                {emailValid && <BsPatchExclamation className="wrong" />}
+              </div>
+            </div>
+            <p className={!emailValid ? "hide" : "active"}>
+              Email is not valid.
+            </p>
+            <div className="input__wrapper">
+              <Input
+                className={`${password && "active_input"}`}
+                id="password"
+                type="password"
+                autoCapitalize="none"
+                autoComplete="password"
+                autoCorrect="off"
+                required
+                value={password}
+                onChange={(e) => {
+                  onChangeInput({
+                    e,
+                    setFunc: setPassword,
+                    setvalid: setPasswordValid,
+                    password: password,
+                    setPasswordShowMenu,
+                    setPasswordHasLowercase,
+                    setPasswordHasNumber,
+                    setPasswordHasSpecialCharacter,
+                    setPasswordHasUppercase,
+                    setPasswordInRange,
+                    type: "password",
+                    utils,
+                    dispatch,
+                  });
+                }}
+                disabled={isLoading}
+                ref={passwordRef}
+                onFocus={() => {
+                  setPasswordShowMenu(true);
+                }}
+              />
+              <label htmlFor="password">Password</label>
+              <label
+                className="show_passowrd"
+                onClick={() =>
+                  onPasswordShow({
+                    setFunc: setPasswordShow,
+                    passwordRef,
+                    passwordShow,
+                  })
+                }
+              >
+                {passwordShow ? <RiEyeLine /> : <RiEyeOffLine />}
+              </label>
+
+              <div className="valid">
+                {passwordValid && <BsPatchExclamation className="wrong" />}
+              </div>
+            </div>
+            <p className={!passwordValid ? "hide" : "active"}>
+              Password is not valid.
+            </p>
+            <div
+              className={`password-rules ${
+                passwordShowMenu ? "active" : "hide"
+              } `}
+            >
+              <ul>
+                {passwordrules.map((rule) => (
+                  <li key={rule.id}>
+                    <GiPlainCircle
+                      className={`${passwordValid && "red"}  
                   ${passwordHasLowercase && rule.id === 1 && "green"}
                   ${passwordHasUppercase && rule.id === 2 && "green"}
                   ${passwordHasNumber && rule.id === 3 && "green"}
                   ${passwordHasSpecialCharacter && rule.id === 4 && "green"}
                   ${passwordInRange && rule.id === 5 && "green"}
                   `}
-                />
-                <span>{rule.name}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+                    />
+                    <span>{rule.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-        {signUp && (
-          <>
             <div className="input__wrapper">
               <Input
                 className={`${passwordcomfirmation && "active_input"}`}
@@ -277,11 +270,7 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
             <p className={!passwordcomfirmationValid ? "hide" : "active"}>
               Comfirm passowrd is not valid.
             </p>
-          </>
-        )}
 
-        {signUp && (
-          <>
             <div className="input__wrapper">
               <div
                 className={`agree__container`}
@@ -315,48 +304,29 @@ const SignwithEmail: React.FC<SigninWithEmailTypes> = ({
                 </p>
               </div>
             </div>
-          </>
-        )}
 
-        {signUp ? (
-          <div className="submitin_buttons">
-            <Button
-              type="submit"
-              variant={"outline"}
-              onClick={signupProvider.authEmail}
-              disabled={isLoading || !notValid}
-            >
-              {isLoading && <Icons.spinner />}
-              Create Account
-            </Button>
-          </div>
-        ) : (
-          <div className="submitin_buttons">
-            <Button
-              type="submit"
-              variant={"outline"}
-              className="animate-spin"
-              disabled={isLoading || !notValid}
-            >
-              {isLoading && <Icons.spinner />}
-              sign in
-            </Button>
+            <div className="submitin_buttons">
+              <Button
+                type="submit"
+                variant={"outline"}
+                onClick={signupProvider.authEmail}
+                disabled={isLoading || !notValid}
+              >
+                {isLoading && <Icons.spinner />}
+                Create Account
+              </Button>
+            </div>
+          </form>
+        </div>
 
-            <Button
-              onClick={() => {
-                router("/forgotpassword");
-              }}
-              type="reset"
-            >
-              forget password
-            </Button>
-          </div>
-        )}
-      </form>
-    </div>
+        <SignWithSocial
+          mainTittle={"Sign up"}
+          signUp={true}
+          setNotValid={setNotValid}
+        />
+      </div>
+    </section>
   );
 };
 
-SignwithEmail.displayName = "SignwithEmail";
-
-export default SignwithEmail;
+export default Signup;

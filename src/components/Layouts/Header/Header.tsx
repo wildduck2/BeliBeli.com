@@ -15,7 +15,6 @@ const Header = () => {
 
   const showMenuHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.currentTarget.classList.toggle("header__menu--show");
-
     dispatch(showMobileMenu(!selector.mobileMenuActive));
   };
 

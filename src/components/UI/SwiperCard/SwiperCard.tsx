@@ -1,9 +1,9 @@
 import React from "react";
 import CardInfo from "@/components/Layouts/Swiper/CardInfo";
-// import { AsyncImage } from "loadable-image";
+import { AsyncImage } from "loadable-image";
 import { SwiperCardProps } from "./SwiperCard.types";
 import { cardImgHoverHandler, cardImgLeaveHandler } from "@/utils";
-import { AsyncImage } from "@/components/Layouts";
+// import { AsyncImage } from "@/components/Layouts";
 
 const SwiperCard: React.FC<SwiperCardProps> = ({
   item,

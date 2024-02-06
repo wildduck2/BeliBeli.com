@@ -3,11 +3,13 @@ import { toast } from "sonner";
 interface SignupPopupProps {
   url: string;
   provider: string;
+  key: string;
 }
 
 const signupPopup = async ({
   url,
   provider,
+  key,
 }: SignupPopupProps): Promise<boolean> => {
   const promise = new Promise((resolve, reject) => {
     const width = 600;
@@ -30,10 +32,10 @@ const signupPopup = async ({
         const popupLocation = popupWindow?.location;
 
         if (popupLocation?.href.includes("access_token")) {
-          console.log("Authentication successful");
           popupWindow?.close();
           clearInterval(checkPopup);
           resolve(true);
+          key = JSON.parse(popupLocation.href.split("access_token=")[1]);
         } else if (popupLocation?.href.includes("error")) {
           console.error("Authentication error");
           popupWindow?.close();

@@ -67,6 +67,7 @@ export const useSigninwithProvider = ({
   const [creditValidAuth, setCreditValidAuth] = useState<boolean>(false);
   const authProvider = async () => {
     setIsLoading(true);
+    let log = null;
 
     try {
       const { data, error } = await supabase.auth.signInWithOAuth({
@@ -79,7 +80,9 @@ export const useSigninwithProvider = ({
       const promise = await signupPopup({
         url: data.url!,
         provider: provider!,
+        key: log,
       });
+      console.log(log);
 
       if (error) {
         dispatch(emailisnotvalid(false));
@@ -102,10 +105,27 @@ export const useSigninwithProvider = ({
   };
 
   useEffect(() => {
-    if (creditValidAuth) {
-      route("/");
-    }
-  }, [creditValidAuth]);
+    // Set up an event listener for auth state changes
+    const authListener = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (event === "SIGNED_IN") {
+          // Access user data from the session
+          const user = session?.user;
+          console.log("User data:", user);
+
+          // Perform any additional actions with user data
+
+          // Redirect to the desired route
+          route("/");
+        }
+      },
+    );
+
+    return () => {
+      // Remove the event listener when the component is unmounted
+      authListener.data.subscription.unsubscribe();
+    };
+  }, []);
 
   return { creditValidAuth, authProvider } as const;
 };

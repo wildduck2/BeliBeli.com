@@ -5,15 +5,22 @@ import { supabase } from "../../../supabase/supabase";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/context/store";
 import { signout } from "@/context/Data";
+import { useUser } from "@/hooks";
 
 const HeaderBanner = () => {
   const logged = useSelector((state: RootState) => state.data.logged);
   const dispatch = useDispatch();
+
+  const user = useUser({ signedout: logged });
+
   return (
     <div className="banner">
       {/* here wher i will show the log out button if the user is utharized */}
       {logged ? (
         <>
+          <Link className="banner__link" href={"/account"}>
+            {user[0]?.identities![0].identity_data?.full_name}
+          </Link>
           <Link
             className="banner__link"
             href={"/"}

@@ -14,11 +14,13 @@ import { useDispatch } from "react-redux";
 export interface SignInWithSocialTyps {
   mainTittle: string;
   signUp?: boolean;
+  setNotValid: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
   mainTittle,
   signUp,
+  setNotValid,
 }) => {
   const router = useNavigate();
   const dispatch = useDispatch();
@@ -26,7 +28,6 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
   const [emailValid, setEmailValid] = useState<boolean>(false);
   const [passwordValid, setPasswordValid] = useState<boolean>(false);
 
-  const data = useUser();
   const Google = useSigninwithProvider({
     dispatch,
     setIsLoading,
@@ -75,7 +76,10 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
       <Button
         className="social_button"
         variant={"outline"}
-        onClick={() => routeHandler({ signUp, router } as RouteHandlerTypes)}
+        onClick={() => {
+          setNotValid(false);
+          routeHandler({ signUp, router } as RouteHandlerTypes);
+        }}
       >
         <AiOutlineUser size={25} />
         <span>{signUp ? "Sign In" : "Sign Up"} here </span>
@@ -87,5 +91,3 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
 SignWithSocial.displayName = "SignWithSocial";
 
 export default SignWithSocial;
-
-// ipan cib

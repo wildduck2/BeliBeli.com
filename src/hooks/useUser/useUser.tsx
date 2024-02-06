@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "../../supabase/supabase";
-import { AuthError, Session } from "@supabase/supabase-js";
+import { AuthError, User } from "@supabase/supabase-js";
+import { getUserDispatch } from "@/context/Data";
+import { useDispatch } from "react-redux";
 
 export interface UserData {
   id: string;
@@ -55,47 +57,22 @@ export interface UserMetadata {
   sub: string;
 }
 
-// const useUser = () => {
-//   const [data, setData] = useState<UserData>();
-//   const [error, setError] = useState<AuthError>();
-//
-//   useEffect(() => {
-//     const getCurrentSession = async () => {
-//       try {
-//         const { data, error } = await supabase.auth.getUser();
-//         if (data && data.user) {
-//           setData(data.user as UserData);
-//           // console.log(data.user.identities![0].identity_data);
-//
-//           return data.user;
-//         }
-//
-//         if (error) {
-//           setError(error);
-//         }
-//       } catch (error) {
-//         throw new Error(error as string);
-//       }
-//     };
-//     getCurrentSession();
-//   }, []);
-//
-//   return [data, error] as (UserData | AuthError | undefined)[];
-// };
-
 const useUser = ({ signedout }: { signedout: boolean }) => {
-  const [session, setSession] = useState<Session>();
+  const [session, setSession] = useState<User>();
   const [error, setError] = useState<AuthError>();
+  const dipatch = useDispatch();
 
   useEffect(() => {
     const fn = async () => {
       try {
-        const { data, error } = await supabase.auth.getSession();
-        setSession(data.session as Session);
+        const { data, error } = await supabase.auth.getUser();
+        if (data.user) {
+          setSession(data.user as User);
+          dipatch(getUserDispatch(data.user as User));
+        }
 
         if (error) {
           setError(error);
-          console.log(error);
         }
       } catch (error) {
         throw new Error(error as string);
@@ -104,7 +81,7 @@ const useUser = ({ signedout }: { signedout: boolean }) => {
     fn();
   }, [signedout]);
 
-  return [session, error] as (UserData | AuthError | undefined)[];
+  return [session, error] as const;
 };
 
 export default useUser;
