@@ -1,0 +1,21 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../../utils" as u;
+@use "../../../base" as *;
+
+/*
+
+   E-Gifts 
+
+*/
+
+
+.account__profile{
+  @include u.flex(grid, center);
+
+
+}

@@ -13,7 +13,7 @@
 
 */
 
-.account__profile__account {
+.account__profile {
   @include u.flex(grid, center);
   width: 100%;
   gap: 1.5rem;

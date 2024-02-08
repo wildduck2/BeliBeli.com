@@ -11,14 +11,16 @@ const needHelpNavigation = [
 
 const Profile = () => {
   const route = useNavigate();
+
   const data = true;
   const needHelp = true;
   const email = "wezonaser50@gmail.com";
+
   return (
-    <div className="account__profile__account">
+    <div className="account__profile">
       <h1>My Account</h1>
 
-      <div className="account__profile__account__recent">
+      <div className="account__profile__recent">
         <h2>Recent work</h2>
         <Button
           variant={"default"}
@@ -27,7 +29,7 @@ const Profile = () => {
           Edit Account details
         </Button>
       </div>
-      <div className="account__profile__account__orders">
+      <div className="account__profile__orders">
         <div>
           {data ? (
             <span>You have no recent orders to display.</span>
@@ -39,7 +41,7 @@ const Profile = () => {
       </div>
 
       {needHelp && (
-        <div className="account__profile__account__need">
+        <div className="account__profile__need">
           <div>
             <BadgeInfo />
             <h2>Need help with your order?</h2>
@@ -53,7 +55,7 @@ const Profile = () => {
           </div>
         </div>
       )}
-      <div className="account__profile__account__details">
+      <div className="account__profile__details">
         <h2>Account details</h2>
         <div>
           <h3>email address</h3>
