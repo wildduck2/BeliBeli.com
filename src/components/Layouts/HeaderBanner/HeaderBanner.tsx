@@ -12,13 +12,14 @@ const HeaderBanner = () => {
   const dispatch = useDispatch();
 
   const user = useUser({ signedout: logged });
+  
 
   return (
     <div className="banner">
       {/* here wher i will show the log out button if the user is utharized */}
       {logged ? (
         <>
-          <Link className="banner__link" href={"/account"}>
+          <Link className="banner__link" href={"/account/profile"}>
             {user[0]?.identities![0].identity_data?.full_name}
           </Link>
           <Link

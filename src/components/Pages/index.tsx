@@ -1,4 +1,5 @@
-import Home from "./Home/Home";
-import Error from "./Error";
-
-export { Home, Error };
+export {default as Home } from './Home/Home'
+export {default as Profile } from './Profile/Profile'
+export {default as ShopProduct } from './ShopProduct/ShopProduct'
+export {default as CategoryPage } from './CategoryPage/CategoryPage'
+export {default as Error } from './Error/Error'

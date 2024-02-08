@@ -1,7 +1,7 @@
 import React from "react";
 import { ImgBanner } from "../../UI";
-import { NavigationHeaderLooping } from "../../../utils/";
-import { ColorfulBanner } from "..";
+import { NavigationHeaderLooping } from "../../../utils";
+import { ColorfulBanner } from "../../Layouts";
 import { useParams } from "react-router-dom";
 import { useCategoryData } from "@/hooks";
 

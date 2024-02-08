@@ -72,17 +72,17 @@ export const useSigninwithProvider = ({
     try {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: provider!,
-        options: {
-          skipBrowserRedirect: true,
-        },
+        // options: {
+        //   skipBrowserRedirect: true,
+        // },
       });
 
-      const promise = await signupPopup({
-        url: data.url!,
-        provider: provider!,
-        key: log,
-      });
-      console.log(log);
+      // const promise = await signupPopup({
+      //   url: data.url!,
+      //   provider: provider!,
+      //   key: log,
+      // });
+      // console.log(log);
 
       if (error) {
         dispatch(emailisnotvalid(false));
@@ -92,7 +92,7 @@ export const useSigninwithProvider = ({
         setIsLoading(false);
       }
 
-      if (!error && promise) {
+      if (!error && data) {
         dispatch(signin());
         dispatch(emailisnotvalid(true));
         setCreditValidAuth(true);

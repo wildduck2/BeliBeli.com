@@ -1,22 +1,25 @@
 import React, { useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Outlet } from "react-router-dom";
 
-import { Error, Home } from "./components/Pages";
 import {
   CategoryPage,
+  Error,
+  Home,
+  Profile,
+  ShopProduct,
+} from "./components/Pages";
+import {
   Footer,
   Header,
   HeaderBanner,
   HeaderMenu,
-  ShopProduct,
   Signin,
 } from "./components/Layouts";
 import { HeaderNavigationLinks } from "./components/UI";
 import { store } from "./context/store";
 import { thunkFetchingBannerFromSupabase } from "./context/Data";
 import Signup from "./components/Layouts/Log/Signup/Signup";
-import { supabase } from "./supabase/supabase";
-import { log } from "console";
+import AccountSideLinks from "./components/Layouts/AccountSideLinks/AccountSideLinks";
 
 function App() {
   useEffect(() => {
@@ -36,8 +39,19 @@ function App() {
         <Route path="/produc-show/:id" element={<ShopProduct />} />
         <Route path="/login" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/account/"
+          element={
+            <main className="account">
+              <AccountSideLinks />
+              <Outlet />
+            </main>
+          }
+        >
+          <Route path="profile" element={<Profile />} />
+        </Route>
 
-        {/* <Route path="/*" element={<Error />} /> */}
+        <Route path="/*" element={<Error />} />
       </Routes>
       <Footer />
     </>

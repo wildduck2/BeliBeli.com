@@ -6,7 +6,7 @@ import {
   RedBannerWomen,
   WoemnSideBarNavigation,
 } from "@/constants";
-import { CategoryPageTypes } from "@/components/Layouts/CategoryPage/CategoryPage.types";
+import { CategoryPageTypes } from "@/components/Pages/CategoryPage/CategoryPage.types";
 
 export const WomenDiscriptionData = {
   1: {
