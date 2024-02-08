@@ -1,0 +1,38 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../utils" as u;
+@use "../../base" as *;
+
+/*
+
+   Account 
+
+*/
+
+
+.account {
+    @include u.flex(flex, flex-start);
+    @include u.container;
+    gap: 18rem;
+    margin-block: 7rem;
+
+
+    &>aside {
+        @include u.flex(grid, center);
+        gap: 1.5rem;
+
+        &>a {
+            font-size: var(--f-nor);
+            font-weight: 500;
+
+            &.active {
+                font-weight: 600;
+                color: var(--c-red-700);
+            }
+        }
+    }
+}

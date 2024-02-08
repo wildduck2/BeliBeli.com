@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Link } from "@/components/UI";
 import { BadgeInfo } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const needHelpNavigation = [
   "Contact customer service",
@@ -9,6 +10,7 @@ const needHelpNavigation = [
 ];
 
 const Profile = () => {
+  const route = useNavigate();
   const data = true;
   const needHelp = true;
   const email = "wezonaser50@gmail.com";
@@ -18,10 +20,24 @@ const Profile = () => {
 
       <div className="account__profile__account__recent">
         <h2>Recent work</h2>
-        <Button variant={"default"}>View all</Button>
+        <Button
+          variant={"default"}
+          onClick={() => route("/account/my-account")}
+        >
+          Edit Account details
+        </Button>
       </div>
-      <div>{data ? <span>you don't have any orders</span> : <>orders</>}</div>
-      <Link href="/">Go shopping</Link>
+      <div className="account__profile__account__orders">
+        <div>
+          {data ? (
+            <span>You have no recent orders to display.</span>
+          ) : (
+            <>orders</>
+          )}
+        </div>
+        <Button onClick={() => route("/")}>Go shopping</Button>
+      </div>
+
       {needHelp && (
         <div className="account__profile__account__need">
           <div>
