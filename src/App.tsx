@@ -17,6 +17,7 @@ import {
   HeaderMenu,
   Signin,
   Signup,
+    Orders
 } from "./components/Layouts";
 import { HeaderNavigationLinks } from "./components/UI";
 import { store } from "./context/store";
@@ -51,7 +52,7 @@ function App() {
         >
           <Route path="my-account" element={<Profile />} />
           <Route path="eGift-card" element={<EgifttsCards />} />
-          <Route path="orders" element={<h2>hi form orders</h2>} />
+          <Route path="orders" element={<Orders />} />
           <Route path="orders" element={<h2>hi form orders</h2>} />
           <Route path="orders" element={<h2>hi form orders</h2>} />
           <Route path="orders" element={<h2>hi form orders</h2>} />

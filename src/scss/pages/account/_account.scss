@@ -20,6 +20,10 @@
     gap: 18rem;
     margin-block: 7rem;
 
+    &>div {
+        width: 100%;
+    }
+
 
     &>aside {
         @include u.flex(grid, center);

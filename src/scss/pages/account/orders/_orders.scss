@@ -1,0 +1,61 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../../utils" as u;
+@use "../../../base" as *;
+
+/*
+
+   Orders 
+
+*/
+
+.account__orders {
+  @include u.flex(grid, center);
+  gap: 2rem;
+
+  & > div {
+    @include u.flex(flex, center, space-between);
+    border-bottom: 1px solid var(--c-gray-200);
+    padding-bottom: 1rem;
+
+    h1 {
+      @include u.flex(flex);
+      font-size: calc(var(--f-2xl) + 0.1rem);
+      font-weight: 600;
+    }
+
+    & > div {
+      @include u.flex(flex, center, space-between);
+      gap: 2rem;
+
+      & > div {
+        @include u.flex(flex, center, space-between);
+        gap: 1rem;
+
+        label {
+          white-space: nowrap;
+          text-transform: capitalize;
+          font-size: calc(var(--f-md) + 0.1rem);
+        }
+
+        .input {
+          width: 200px;
+        }
+      }
+    }
+  }
+  h2 {
+    font-size: calc(var(--f-md) + 0.2rem);
+    border-bottom: 1px solid var(--c-black-300);
+    padding-bottom: 0.8rem;
+  }
+
+  span {
+    font-size: calc(var(--f-sm) + 0.1rem);
+    text-align: center;
+  }
+}

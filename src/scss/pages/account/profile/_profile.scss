@@ -14,106 +14,105 @@
 */
 
 .account__profile {
-  @include u.flex(grid, center);
-  width: 100%;
-  gap: 1.5rem;
-
-  & > h1 {
-    @include u.flex(flex);
-    font-size: calc(var(--f-2xl) + 0.1rem);
-    font-weight: 600;
-    border-bottom: 1px solid var(--c-gray-200);
-    padding-bottom: 1rem;
-  }
-
-  &__recent {
-    @include u.flex(flex, center, space-between);
-    border-bottom: 1px solid var(--c-gray-200);
-    padding-bottom: 1rem;
-
-    h2 {
-      font-size: calc(var(--f-xl) + 0.2rem);
-    }
-
-    button {
-      border-radius: 0;
-      text-transform: uppercase;
-      font-weight: 600;
-      font-size: calc(var(--f-sm) + 0.1rem);
-    }
-  }
-
-  &__orders {
-    @include u.flex(grid);
-    padding-block: 0 3rem;
-    border-bottom: 1px solid var(--c-gray-200);
-
-    & > div {
-      & > span {
-        font-size: calc(var(--f-sm) + 0.1rem);
-        color: var(--c-black-300);
-      }
-    }
-
-    & > button {
-      @include u.flex(flex);
-      place-self: center;
-      border-radius: 0;
-      text-transform: uppercase;
-      font-weight: 600;
-      padding-inline: 3.5rem;
-    }
-  }
-
-  &__need {
     @include u.flex(grid, center);
-    gap: 1rem;
-    padding: 2rem;
-    background-color: var(--c-blue-600);
+    gap: 1.5rem;
 
-    * {
-      color: var(--c-white) !important;
+    &>h1 {
+        @include u.flex(flex);
+        font-size: calc(var(--f-2xl) + 0.1rem);
+        font-weight: 600;
+        border-bottom: 1px solid var(--c-gray-200);
+        padding-bottom: 1rem;
     }
 
-    & > div {
-      @include u.flex(flex);
-      gap: 0.5rem;
+    &__recent {
+        @include u.flex(flex, center, space-between);
+        border-bottom: 1px solid var(--c-gray-200);
+        padding-bottom: 1rem;
 
-      & > a {
-        font-size: var(--f-md);
-      }
+        h2 {
+            font-size: calc(var(--f-xl) + 0.2rem);
+        }
+
+        button {
+            border-radius: 0;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: calc(var(--f-sm) + 0.1rem);
+        }
     }
 
-    & > div:last-child {
-      margin-left: 2rem;
-      gap: 4rem;
+    &__orders {
+        @include u.flex(grid);
+        padding-block: 0 3rem;
+        border-bottom: 1px solid var(--c-gray-200);
+
+        &>div {
+            &>span {
+                font-size: calc(var(--f-sm) + 0.1rem);
+                color: var(--c-black-300);
+            }
+        }
+
+        &>button {
+            @include u.flex(flex);
+            place-self: center;
+            border-radius: 0;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding-inline: 3.5rem;
+        }
     }
-  }
 
-  &__details {
-    @include u.flex(grid, center);
+    &__need {
+        @include u.flex(grid, center);
+        gap: 1rem;
+        padding: 2rem;
+        background-color: var(--c-blue-600);
 
-    h2 {
-      font-size: calc(var(--f-xl));
-      border-bottom: 1px solid var(--c-gray-200);
-      padding-bottom: 1rem;
-      text-transform: uppercase;
+        * {
+            color: var(--c-white) !important;
+        }
+
+        &>div {
+            @include u.flex(flex);
+            gap: 0.5rem;
+
+            &>a {
+                font-size: var(--f-md);
+            }
+        }
+
+        &>div:last-child {
+            margin-left: 2rem;
+            gap: 4rem;
+        }
     }
 
-    & > div {
-      @include u.flex(grid, center);
-      gap: .4rem;
-      margin-top: 1rem;
-      font-size: var(--f-nor);
+    &__details {
+        @include u.flex(grid, center);
 
-      h3 {
-        font-size: var(--f-nor);
-        text-transform: capitalize;
-      }
+        h2 {
+            font-size: calc(var(--f-xl));
+            border-bottom: 1px solid var(--c-gray-200);
+            padding-bottom: 1rem;
+            text-transform: uppercase;
+        }
 
-      span {
-        color: var(--c-black-300);
-      }
+        &>div {
+            @include u.flex(grid, center);
+            gap: .4rem;
+            margin-top: 1rem;
+            font-size: var(--f-nor);
+
+            h3 {
+                font-size: var(--f-nor);
+                text-transform: capitalize;
+            }
+
+            span {
+                color: var(--c-black-300);
+            }
+        }
     }
-  }
 }
