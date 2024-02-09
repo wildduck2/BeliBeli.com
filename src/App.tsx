@@ -1,13 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 
-import {
-  CategoryPage,
-  Error,
-  Home,
-  Profile,
-  ShopProduct,
-} from "./components/Pages";
+import { CategoryPage, Error, Home, ShopProduct } from "./components/Pages";
 import {
   AccountSideLinks,
   EgifttsCards,
@@ -17,7 +11,9 @@ import {
   HeaderMenu,
   Signin,
   Signup,
-    Orders
+  Orders,
+  Profile,
+  AccountDetails,
 } from "./components/Layouts";
 import { HeaderNavigationLinks } from "./components/UI";
 import { store } from "./context/store";
@@ -53,7 +49,7 @@ function App() {
           <Route path="my-account" element={<Profile />} />
           <Route path="eGift-card" element={<EgifttsCards />} />
           <Route path="orders" element={<Orders />} />
-          <Route path="orders" element={<h2>hi form orders</h2>} />
+          <Route path="contact-details" element={<AccountDetails />} />
           <Route path="orders" element={<h2>hi form orders</h2>} />
           <Route path="orders" element={<h2>hi form orders</h2>} />
         </Route>

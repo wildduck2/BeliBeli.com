@@ -8,7 +8,7 @@ import {
   SelectItem,
   SelectValue,
   Input,
-} from "../../UI";
+} from "../../../UI";
 
 const Orders = () => {
   return (

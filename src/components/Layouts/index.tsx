@@ -9,6 +9,4 @@ export { default as AsyncImage } from "./AsyncImage/AsyncImage";
 export * from "./Swiper";
 export { default as ColorfulBanner } from "./ColorfulBanner/ColorfulBanner";
 export * from "./Log";
-export { default as AccountSideLinks } from "./AccountSideLinks/AccountSideLinks";
-export { default as EgifttsCards } from "./EgifttsCards/EgifttsCards";
-export {default as Orders} from "./Orders/Orders"
+export * from './AccountPages'
