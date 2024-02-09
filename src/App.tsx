@@ -14,6 +14,7 @@ import {
   Orders,
   Profile,
   AccountDetails,
+  AddressBook,
 } from "./components/Layouts";
 import { HeaderNavigationLinks } from "./components/UI";
 import { store } from "./context/store";
@@ -50,7 +51,7 @@ function App() {
           <Route path="eGift-card" element={<EgifttsCards />} />
           <Route path="orders" element={<Orders />} />
           <Route path="contact-details" element={<AccountDetails />} />
-          <Route path="orders" element={<h2>hi form orders</h2>} />
+          <Route path="address-book" element={<AddressBook />} />
           <Route path="orders" element={<h2>hi form orders</h2>} />
         </Route>
 
