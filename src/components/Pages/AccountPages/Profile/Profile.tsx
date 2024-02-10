@@ -2,6 +2,9 @@ import React from "react";
 import { Button, Link } from "@/components/UI";
 import { BadgeInfo } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "@/hooks";
+import { useSelector } from "react-redux";
+import { RootState } from "@/context/store";
 
 const needHelpNavigation = [
   "Contact customer service",
@@ -11,6 +14,9 @@ const needHelpNavigation = [
 
 const Profile = () => {
   const route = useNavigate();
+  const logged = useSelector((state: RootState) => state.data.logged);
+  const userData = useUser({ signedout: logged });
+
 
   const data = true;
   const needHelp = true;
@@ -59,7 +65,7 @@ const Profile = () => {
         <h2>Account details</h2>
         <div>
           <h3>email address</h3>
-          <span>{email}</span>
+          <span>{userData[0]?.email}</span>
         </div>
       </div>
     </div>

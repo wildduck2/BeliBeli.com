@@ -1,0 +1,30 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../utils" as u;
+@use "../../base" as *;
+
+/*
+
+   Cart 
+  
+*/
+
+.cart {
+  @include u.container;
+  @include u.flex(grid, center);
+  gap: 4rem;
+  margin-block: 3rem 10rem;
+
+  & > div {
+    @include u.flex(grid, center, center);
+    gap: 1rem;
+
+    button {
+      border-radius: 0;
+    }
+  }
+}

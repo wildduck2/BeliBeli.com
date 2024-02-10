@@ -1,10 +1,9 @@
 import React, { MutableRefObject } from "react";
 
-import Button from "../Button";
 
-import { arrownHeadDown, leftArrow, rightArrow } from "../../../assets";
 import { twMerge } from "tailwind-merge";
 import { PaginationIndexTypes } from "../../../utils/PaginationIndex/PaginationIndex";
+import { Button } from "..";
 
 interface NavigationTypes {
   DOT_REF?: MutableRefObject<HTMLDivElement> | undefined;

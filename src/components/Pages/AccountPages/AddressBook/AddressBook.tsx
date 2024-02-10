@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, Input } from "@/components/UI";
-
 import {
+  Button,
+  Input,
   Select,
   SelectTrigger,
   SelectContent,
@@ -9,8 +9,14 @@ import {
   SelectItem,
   SelectValue,
 } from "@/components/UI";
+import { useSelector } from "react-redux";
+import { RootState } from "@/context/store";
+import { useUser } from "@/hooks";
 
 const AddressBook = () => {
+  const logged = useSelector((state: RootState) => state.data.logged);
+  const userData = useUser({ signedout: logged });
+
   return (
     <div className="account__address">
       <h1>Address Book</h1>
@@ -18,12 +24,20 @@ const AddressBook = () => {
       <form action="post">
         <div>
           <label htmlFor="name">Full Name</label>
-          <Input id="name" className="input" value="John Doe" />
+          <Input
+            id="name"
+            className="input"
+            value={userData[0]?.user_metadata.full_name}
+          />
         </div>
 
         <div>
           <label htmlFor="number">Mobile Number</label>
-          <Input id="number" className="input" value="+201027689409" />
+          <Input
+            id="number"
+            className="input"
+            value={`+20${userData[0]?.phone}`}
+          />
         </div>
 
         <div>
@@ -40,7 +54,7 @@ const AddressBook = () => {
           <label htmlFor="region">Region</label>
           <Select>
             <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Select a Region" />
+              <SelectValue placeholder="Select a City" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>

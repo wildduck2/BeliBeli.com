@@ -8,8 +8,10 @@ import Search from "../../UI/Search";
 import { useDispatch, useSelector } from "react-redux";
 import { showMobileMenu } from "@/context/Utils";
 import { RootState } from "@/context/store";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const route = useNavigate();
   const selector = useSelector((state: RootState) => state.util);
   const dispatch = useDispatch();
 
@@ -29,8 +31,11 @@ const Header = () => {
           </Link>
 
           <div className="header__functionality">
-            <IoNotificationsOutline size={27} />
-            <AiOutlineShopping size={27} />
+            <IoNotificationsOutline
+              size={27}
+              onClick={() => route("/wishlist")}
+            />
+            <AiOutlineShopping size={27} onClick={() => route("/cart")} />
           </div>
 
           <div className="header__menu" onClick={showMenuHandler}>

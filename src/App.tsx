@@ -1,28 +1,35 @@
 import React, { useEffect } from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 
-import { CategoryPage, Error, Home, ShopProduct } from "./components/Pages";
 import {
+  AccountDetails,
   AccountSideLinks,
+  AddressBook,
+  CategoryPage,
+  ChangePassowrd,
+  CommenicationDetails,
   EgifttsCards,
+  Error,
+  Home,
+  MyFavouriate,
+  Orders,
+  Profile,
+  Reviews,
+  ShopProduct,
+} from "./components/Pages";
+import {
   Footer,
   Header,
   HeaderBanner,
   HeaderMenu,
   Signin,
   Signup,
-  Orders,
-  Profile,
-  AccountDetails,
-  AddressBook,
-  Reviews,
-  MyFavouriate,
-  CommenicationDetails,
-  ChangePassowrd,
 } from "./components/Layouts";
 import { HeaderNavigationLinks } from "./components/UI";
 import { store } from "./context/store";
 import { thunkFetchingBannerFromSupabase } from "./context/Data";
+import WishList from "./components/Pages/WishList/WishList";
+import Cart from "./components/Pages/Cart/Cart";
 
 function App() {
   useEffect(() => {
@@ -58,9 +65,14 @@ function App() {
           <Route path="address-book" element={<AddressBook />} />
           <Route path="reviews" element={<Reviews />} />
           <Route path="my-favourites" element={<MyFavouriate />} />
-          <Route path="commenication-preferences" element={<CommenicationDetails />} />
+          <Route
+            path="commenication-preferences"
+            element={<CommenicationDetails />}
+          />
           <Route path="chage-passowrd" element={<ChangePassowrd />} />
         </Route>
+        <Route path="wishlist" element={<WishList />} />
+        <Route path="cart" element={<Cart />} />
 
         <Route path="/*" element={<Error />} />
       </Routes>

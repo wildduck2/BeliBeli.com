@@ -22,8 +22,7 @@
     gap: 1rem;
     padding-block: 1rem;
 
-
-    &>div:last-child {
+    & > div:last-child {
       @include u.flex(flex, center, space-between);
     }
 
@@ -31,20 +30,20 @@
       @include u.flex(flex, center, space-between);
       height: 3rem;
 
-      &>div:last-child {
+      & > div:last-child {
         flex: 0.92;
         @include u.flex(flex, center, space-between);
       }
     }
 
     @include u.breakpoint("large") {
-      &>div:last-child {
+      & > div:last-child {
         flex: 0.71;
       }
     }
 
     @include u.breakpoint("xlarge") {
-      &>div:last-child {
+      & > div:last-child {
         flex: 0.625;
       }
     }
@@ -124,12 +123,10 @@
     display: none;
     gap: 1rem;
 
-    video {
-      width: 25px;
-      height: 25px;
+    svg {
+      cursor: pointer;
     }
 
-    // breakpoint on 700px
     @include u.breakpoint("medium") {
       @include u.flex(flex, center, center);
     }
