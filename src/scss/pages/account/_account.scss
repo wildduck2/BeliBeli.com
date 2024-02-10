@@ -13,30 +13,41 @@
 
 */
 
-
 .account {
-    @include u.flex(flex, flex-start);
-    @include u.container;
-    gap: 18rem;
-    margin-block: 7rem;
+  @include u.flex(flex, flex-start);
+  @include u.container;
+  gap: 18rem;
+  margin-block: 7rem;
 
-    &>div {
-        width: 100%;
+  & > div {
+    @include u.flex(grid, center);
+    gap: 1.5rem;
+    width: 100%;
+
+    h1 {
+      @include u.flex(flex);
+      font-size: calc(var(--f-2xl) + 0.1rem);
+      font-weight: 600;
+      border-bottom: 1px solid var(--c-gray-200);
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
     }
+  }
 
+  & > aside {
+    @include u.flex(grid, center);
+    gap: 1.5rem;
 
-    &>aside {
-        @include u.flex(grid, center);
-        gap: 1.5rem;
+    & > a {
+      font-size: var(--f-nor);
+      font-weight: 500;
+      white-space: nowrap;
 
-        &>a {
-            font-size: var(--f-nor);
-            font-weight: 500;
-
-            &.active {
-                font-weight: 600;
-                color: var(--c-red-700);
-            }
-        }
+      &.active {
+        font-weight: 600;
+        color: var(--c-red-700);
+      }
     }
+  }
 }

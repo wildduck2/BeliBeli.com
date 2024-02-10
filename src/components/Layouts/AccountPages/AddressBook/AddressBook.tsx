@@ -1,5 +1,5 @@
-import { Button, Input } from "@/components/UI";
 import React from "react";
+import { Button, Input } from "@/components/UI";
 
 import {
   Select,
@@ -9,7 +9,6 @@ import {
   SelectItem,
   SelectValue,
 } from "@/components/UI";
-import { Calendar } from "lucide-react";
 
 const AddressBook = () => {
   return (

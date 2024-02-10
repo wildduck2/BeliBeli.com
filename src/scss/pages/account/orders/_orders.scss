@@ -22,12 +22,6 @@
     border-bottom: 1px solid var(--c-gray-200);
     padding-bottom: 1rem;
 
-    h1 {
-      @include u.flex(flex);
-      font-size: calc(var(--f-2xl) + 0.1rem);
-      font-weight: 600;
-    }
-
     & > div {
       @include u.flex(flex, center, space-between);
       gap: 2rem;

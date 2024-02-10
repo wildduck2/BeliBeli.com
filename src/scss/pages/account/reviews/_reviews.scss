@@ -1,0 +1,28 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../../utils" as u;
+@use "../../../base" as *;
+
+/*
+
+   reviews 
+
+*/
+
+.account__reviews {
+  @include u.flex(grid, center);
+
+  h1 {
+    @include u.flex(flex);
+    font-size: calc(var(--f-2xl) + 0.1rem);
+    font-weight: 600;
+    border-bottom: 1px solid var(--c-gray-200);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+}

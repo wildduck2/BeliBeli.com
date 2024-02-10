@@ -15,6 +15,10 @@ import {
   Profile,
   AccountDetails,
   AddressBook,
+  Reviews,
+  MyFavouriate,
+  CommenicationDetails,
+  ChangePassowrd,
 } from "./components/Layouts";
 import { HeaderNavigationLinks } from "./components/UI";
 import { store } from "./context/store";
@@ -52,7 +56,10 @@ function App() {
           <Route path="orders" element={<Orders />} />
           <Route path="contact-details" element={<AccountDetails />} />
           <Route path="address-book" element={<AddressBook />} />
-          <Route path="orders" element={<h2>hi form orders</h2>} />
+          <Route path="reviews" element={<Reviews />} />
+          <Route path="my-favourites" element={<MyFavouriate />} />
+          <Route path="commenication-preferences" element={<CommenicationDetails />} />
+          <Route path="chage-passowrd" element={<ChangePassowrd />} />
         </Route>
 
         <Route path="/*" element={<Error />} />

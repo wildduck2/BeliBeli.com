@@ -1,0 +1,32 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../../utils" as u;
+@use "../../../base" as *;
+
+/*
+
+   My Favouriate
+
+*/
+
+.account__favourites {
+
+  & > div {
+    @include u.flex(grid, center, center);
+    margin-top: 3rem;
+    gap: 1rem;
+    text-align: center;
+
+    p {
+      text-align: center;
+    }
+
+    & > button {
+      border-radius: 0;
+    }
+  }
+}

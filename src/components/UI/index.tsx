@@ -20,7 +20,6 @@ export {
   SheetTitle,
   SheetDescription,
 } from "./Sheet/Sheet";
-
 export {
   Link,
   // Navigation,
@@ -43,7 +42,6 @@ export {
   NavigationMenuIndicator,
   NavigationMenuViewport,
 } from "./NavigationMenu/NavigationMenu";
-
 export {
   Select,
   SelectGroup,
@@ -56,7 +54,6 @@ export {
   SelectScrollUpButton,
   SelectScrollDownButton,
 } from "./Selected/select";
-
 export {
   Dialog,
   DialogPortal,
@@ -69,12 +66,9 @@ export {
   DialogTitle,
   DialogDescription,
 } from "./Dialog/Dialog";
-
 export { Button, buttonVariants } from "./Button/Button";
-
 export { Input } from "./Input/Input";
-
-// export { Slidergcc } from './Slider/slider'
-
 export { Progress } from "./Progress/Progress";
 export { default as SwiperCard } from "./SwiperCard/SwiperCard";
+export { Label } from "./Label/Label";
+export { Checkbox } from "./CheckBox/checkbox";

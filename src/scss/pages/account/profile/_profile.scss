@@ -14,16 +14,8 @@
 */
 
 .account__profile {
-    @include u.flex(grid, center);
-    gap: 1.5rem;
 
-    &>h1 {
-        @include u.flex(flex);
-        font-size: calc(var(--f-2xl) + 0.1rem);
-        font-weight: 600;
-        border-bottom: 1px solid var(--c-gray-200);
-        padding-bottom: 1rem;
-    }
+
 
     &__recent {
         @include u.flex(flex, center, space-between);
