@@ -13,6 +13,7 @@ import {
   Home,
   MyFavouriate,
   Orders,
+  ProductShow,
   Profile,
   Reviews,
   ShopProduct,
@@ -46,7 +47,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/category/:id" element={<CategoryPage />} />
-        <Route path="/produc-show/:id" element={<ShopProduct />} />
+        <Route path="/shop-product/:id" element={<ShopProduct />} />
+        <Route path="/product-show/:id" element={<ProductShow />} />
         <Route path="/login" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route

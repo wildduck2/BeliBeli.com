@@ -6,31 +6,36 @@ import "swiper/css/pagination";
 import { useSelector } from "react-redux";
 import { RootState } from "@/context/store";
 import { Navigation, Pagination } from "swiper/modules";
-import { AsyncImage } from "loadable-image";
-import CardInfo from "./CardInfo";
 import { Skeleton, SwiperCard } from "@/components/UI";
 import { SwiperTypes } from "./Swiper.types";
+import { useNavigate } from "react-router-dom";
 
 const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
   const selector = useSelector((state: RootState) => state.data);
+  const route = useNavigate();
 
   return (
-    <SW
-      spaceBetween={25}
-      slidesPerView={4}
-      // slidesPerGroup={4}
-      cssMode={true}
-      navigation={true}
-      pagination={true}
-      modules={[Navigation, Pagination]}
-      className="trending__section__swiper"
-      loop={true}
+    <div
+      // spaceBetween={25}
+      // slidesPerView={4}
+      // // slidesPerGroup={4}
+      // cssMode={true}
+      // navigation={true}
+      // pagination={true}
+      // modules={[Navigation, Pagination]}
+      // className="trending__section__swiper"
+      // loop={true}
     >
       {selector.satatus === "succeeded" ? (
         DATA__NAME?.map((item, index) => {
           return (
             item.type === FILTER__QUERY?.toLowerCase() && (
-              <SwiperSlide key={index}>
+              <SwiperSlide
+                key={index}
+                onClick={() =>
+                  route(`/product-show/${item.id}`, { state: item })
+                }
+              >
                 <SwiperCard item={item} key={index} width={245} height={350} />
               </SwiperSlide>
             )
@@ -54,9 +59,11 @@ const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
           })}
         </>
       )}
-    </SW>
+    </div>
   );
 };
 
 Swiper.displayName = "Swiper";
 export default Swiper;
+
+

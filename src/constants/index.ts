@@ -46,7 +46,7 @@ export const navigationLinks = [
   "category/Kids",
   "category/BeliBeliHome",
   "category/Sport",
-  "produc-show/Sale",
+  "shop-product/Sale",
   "category/Sustainability",
 ];
 
