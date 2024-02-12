@@ -23,7 +23,7 @@
   right: -100%;
   z-index: 10;
   padding: 3rem 1rem 1rem 1rem;
-  @include u.flex(flex, start);
+  @include u.flex(flex, flex-start);
   flex-direction: column;
   row-gap: 2rem;
   transition: .3s ease;

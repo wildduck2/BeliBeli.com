@@ -9,6 +9,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import { Skeleton, SwiperCard } from "@/components/UI";
 import { SwiperTypes } from "./Swiper.types";
 import { useNavigate } from "react-router-dom";
+import { Product } from "@/context/Data.types";
 
 const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
   const selector = useSelector((state: RootState) => state.data);
@@ -16,24 +17,24 @@ const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
 
   return (
     <div
-      // spaceBetween={25}
-      // slidesPerView={4}
-      // // slidesPerGroup={4}
-      // cssMode={true}
-      // navigation={true}
-      // pagination={true}
-      // modules={[Navigation, Pagination]}
-      // className="trending__section__swiper"
-      // loop={true}
+    // spaceBetween={25}
+    // slidesPerView={4}
+    // // slidesPerGroup={4}
+    // cssMode={true}
+    // navigation={true}
+    // pagination={true}
+    // modules={[Navigation, Pagination]}
+    // className="trending__section__swiper"
+    // loop={true}
     >
       {selector.satatus === "succeeded" ? (
-        DATA__NAME?.map((item, index) => {
+        DATA__NAME?.map((item: Product, index) => {
           return (
             item.type === FILTER__QUERY?.toLowerCase() && (
               <SwiperSlide
                 key={index}
                 onClick={() =>
-                  route(`/product-show/${item.id}`, { state: item })
+                  route(`/product-show/${item.title}`, { state: item })
                 }
               >
                 <SwiperCard item={item} key={index} width={245} height={350} />
@@ -65,5 +66,3 @@ const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
 
 Swiper.displayName = "Swiper";
 export default Swiper;
-
-

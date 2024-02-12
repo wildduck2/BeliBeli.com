@@ -41,6 +41,7 @@ export interface Product {
   product_review: Product_review[];
   treding: boolean;
   choosen: boolean;
+  fit:string
 }
 
 export interface otherImgsTypes {
