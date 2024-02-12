@@ -30,4 +30,4 @@ export { default as SwiperCard } from "./SwiperCard/SwiperCard";
 export { Label } from "./Label/Label";
 export { Checkbox } from "./CheckBox/CheckBox";
 export * from "./Popover/Popover";
-export * from "./Command/command";
+export * from "./Command/Command";
