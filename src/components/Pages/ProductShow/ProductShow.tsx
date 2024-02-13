@@ -1,20 +1,24 @@
+import React, { useRef } from "react";
 import { frame } from "@/assets";
-import { Button } from "@/components/UI";
+import { Button, RatingStars, ShareProductWrapper } from "@/components/UI";
 import { Product } from "@/context/Data.types";
-import { Heart, Package, Share, Star } from "lucide-react";
-import React from "react";
+import { Heart, Package } from "lucide-react";
 import { AiOutlineShopping } from "react-icons/ai";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { TbShare3 } from "react-icons/tb";
+import { AsyncImage as LazyImg } from "@/components/Layouts";
+import { GoPackageDependents } from "react-icons/go";
+
+const height = 883.567;
 
 const ProductShow = () => {
-  const [currentIndex, setCurrentIndex] = React.useState(0);
+  // const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [currentTypeIndex, setCurrentTypeIndex] = React.useState<number>(0);
+  const [currentSizeIndex, setCurrentSizeIndex] = React.useState<number>(0);
+  const mainImgsRef = useRef<HTMLDivElement>(null);
 
-  const id = useParams();
   const { state } = useLocation();
   const product: Product = state;
-
-  console.log(product);
 
   return (
     <>
@@ -23,14 +27,23 @@ const ProductShow = () => {
 
         <div className="products-show__wrapper">
           <div className="products-show__wrapper__main">
-            <div className="products-show__wrapper__main__imgs">
-              <img
-                src={product.product_type[0].top_imgs[0]}
+            <div
+              className="products-show__wrapper__main__imgs"
+              ref={mainImgsRef}
+            >
+              <LazyImg
+                src={product.product_type[currentTypeIndex].top_imgs[0]}
+                srcSet={product.product_type[currentTypeIndex].low_imgs[0]}
                 alt={product.title}
+                style={{ width: "100%", height: height }}
+                draggable={false}
               />
-              <img
-                src={product.product_type[0].top_imgs[1]}
+              <LazyImg
+                src={product.product_type[currentTypeIndex].top_imgs[1]}
+                srcSet={product.product_type[currentTypeIndex].low_imgs[1]}
                 alt={product.title}
+                style={{ width: "100%", height: height }}
+                draggable={false}
               />
 
               <div className="products-show__wrapper__main__imgs__info">
@@ -43,27 +56,39 @@ const ProductShow = () => {
 
                 <div>
                   <span>Art. No.:</span>
-                  <span>{product.product_type[currentIndex].art_no}</span>
+                  <span>{product.product_type[currentTypeIndex].art_no}</span>
                 </div>
 
                 <Button variant={"link"}>DETAILS</Button>
               </div>
 
-              <img
-                src={product.product_type[0].top_imgs[2]}
+              <LazyImg
+                src={product.product_type[currentTypeIndex].top_imgs[2]}
+                srcSet={product.product_type[currentTypeIndex].low_imgs[2]}
                 alt={product.title}
+                style={{ width: "100%", height: height }}
+                draggable={false}
               />
-              <img
-                src={product.product_type[0].top_imgs[3]}
+              <LazyImg
+                src={product.product_type[currentTypeIndex].top_imgs[3]}
+                srcSet={product.product_type[currentTypeIndex].low_imgs[3]}
                 alt={product.title}
+                style={{ width: "100%", height: height }}
+                draggable={false}
               />
-              <img
-                src={product.product_type[0].top_imgs[4]}
+              <LazyImg
+                src={product.product_type[currentTypeIndex].top_imgs[4]}
+                srcSet={product.product_type[currentTypeIndex].low_imgs[4]}
                 alt={product.title}
+                style={{ width: "100%", height: height }}
+                draggable={false}
               />
-              <img
-                src={product.product_type[0].top_imgs[5]}
+              <LazyImg
+                src={product.product_type[currentTypeIndex].top_imgs[5]}
+                srcSet={product.product_type[currentTypeIndex].low_imgs[5]}
                 alt={product.title}
+                style={{ width: "100%", height: height }}
+                draggable={false}
               />
             </div>
 
@@ -72,9 +97,45 @@ const ProductShow = () => {
 
               <div className="products-show__wrapper__main__info__prize">
                 <div>
-                  <h2>EGP {product.product_type[0].sizes[0].price}</h2>
-                  <h2>EGP {product.product_type[0].sizes[0].price}</h2>
-                  <span>(save {`${25}%`})</span>
+                  <h2>
+                    EGP{" "}
+                    {
+                      product.product_type[currentTypeIndex].sizes[
+                        currentSizeIndex
+                      ].price
+                    }
+                  </h2>
+                  {product.product_type[currentTypeIndex].sizes[
+                    currentSizeIndex
+                  ].discount && (
+                    <>
+                      <h2>
+                        EGP{" "}
+                        {
+                          product.product_type[currentTypeIndex].sizes[
+                            currentSizeIndex
+                          ].discount
+                        }
+                      </h2>
+                      <span>
+                        (save{" "}
+                        {`${(
+                          (parseInt(
+                            product.product_type[currentTypeIndex].sizes[
+                              currentSizeIndex
+                            ].discount!,
+                          ) ||
+                            199 /
+                              parseInt(
+                                product.product_type[currentTypeIndex].sizes[
+                                  currentSizeIndex
+                                ].price,
+                              )) * 100
+                        ).toFixed()}%`}
+                        )
+                      </span>
+                    </>
+                  )}
                 </div>
 
                 <span>Inclusive of VAT</span>
@@ -85,31 +146,39 @@ const ProductShow = () => {
                 <span>Same Day Delivery Available</span>
               </div>
 
-              <div className="products-show__wrapper__main__info__review">
-                <div className={`${4}`}>
-                  {/* <div className="review__background"></div> */}
-                  <Star size={27} />
-                  <Star size={27} />
-                  <Star size={27} />
-                  <Star size={27} />
-                  <Star size={27} />
-                </div>
-                <span>({`${4}`})</span>
-                <Button variant={"link"}>Write a Review</Button>
-              </div>
+              <RatingStars />
 
               <div className="products-show__wrapper__main__info__varients">
                 <div>
-                  <span>{product.product_type[currentIndex].name}</span>
+                  <span>{product.product_type[currentTypeIndex].name}</span>
                   <div>
                     {product.product_type.map((item, index) => {
                       return (
-                        <img
-                          key={index}
-                          src={item.icon}
-                          alt={product.title}
-                          className={`${currentIndex === index && "active"}`}
-                        />
+                        <>
+                          <div
+                            onClick={() => {
+                              setCurrentTypeIndex(index);
+                              const imgs =
+                                mainImgsRef.current?.querySelectorAll(
+                                  ".lazyLoaingImg-wrapper",
+                                );
+                              imgs?.forEach((img) =>
+                                img.classList.remove("show--img"),
+                              );
+                            }}
+                          >
+                            <LazyImg
+                              key={index}
+                              src={item.icon}
+                              alt={product.title}
+                              className={`${
+                                currentTypeIndex === index && "active"
+                              }`}
+                              loading="lazy"
+                              draggable={false}
+                            />
+                          </div>
+                        </>
                       );
                     })}
                   </div>
@@ -122,17 +191,20 @@ const ProductShow = () => {
               <div className="products-show__wrapper__main__info__sizes">
                 <span>
                   Size:
-                  {` ${product.product_type[currentIndex].sizes[currentIndex].size}`}
+                  {` ${product.product_type[currentTypeIndex].sizes[currentSizeIndex].size}`}
                 </span>
 
                 <div>
-                  {product.product_type[currentIndex].sizes.map(
+                  {product.product_type[currentTypeIndex].sizes.map(
                     (item, index) => {
                       return (
                         <Button
                           key={index}
                           variant={"outline"}
-                          onClick={() => setCurrentIndex(index)}
+                          className={`${
+                            currentSizeIndex === index && "active"
+                          }`}
+                          onClick={() => setCurrentSizeIndex(index)}
                         >
                           {item.size}
                         </Button>
@@ -150,18 +222,16 @@ const ProductShow = () => {
                   </Button>
                   <Button variant={"outline"}>
                     <Heart size={25} />
-                    <span>Add to Basket</span>
+                    <span>Add to Favourites</span>
                   </Button>
                 </div>
 
-                <Button variant={"ghost"}>
-                  <TbShare3 size={25} />
-                  <span>Share</span>
-                </Button>
+                <ShareProductWrapper />
               </div>
 
               <div className="products-show__wrapper__main__info__recovery">
-                <img src={frame} alt="recovery box" />
+                {/* <img src={frame} alt="recovery box" /> */}
+                <GoPackageDependents size={27} />
                 <span>Free online returns within 14 days</span>
               </div>
             </div>

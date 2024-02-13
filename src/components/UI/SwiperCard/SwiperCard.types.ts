@@ -1,4 +1,4 @@
-import { Product } from "@/context/Data";
+import { Product } from "@/context/Data.types";
 
 export interface SwiperCardProps {
   item: Product;

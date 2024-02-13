@@ -1,9 +1,10 @@
 import React from "react";
 import CardInfo from "@/components/Layouts/Swiper/CardInfo";
-import { AsyncImage } from "loadable-image";
+// import { AsyncImage } from "loadable-image";
+import { Fade } from "transitions-kit";
 import { SwiperCardProps } from "./SwiperCard.types";
 import { cardImgHoverHandler, cardImgLeaveHandler } from "@/utils";
-// import { AsyncImage } from "@/components/Layouts";
+import { AsyncImage } from "@/components/Layouts";
 
 const SwiperCard: React.FC<SwiperCardProps> = ({
   item,
@@ -21,9 +22,13 @@ const SwiperCard: React.FC<SwiperCardProps> = ({
           return (
             <AsyncImage
               key={index}
-              draggable={false}
               src={item.product_type[0].top_imgs[index + 1]}
+              srcSet={item.product_type[0].low_imgs[index + 1]}
+              // loading="lazy"
+              // Transition={Fade}
               style={{ width: width, height: height }}
+              draggable={false}
+              alt={item.title}
             />
           );
         })}

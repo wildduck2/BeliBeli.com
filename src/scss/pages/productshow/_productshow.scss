@@ -120,10 +120,18 @@
           font-size: var(--f-nor);
 
           & > div {
+            position: relative;
             @include u.flex(flex, center);
 
+            .MuiRating-iconFilled svg {
+              fill: var(--c-black-700);
+            }
+
             svg {
+              color: var(--c-black-700);
+              z-index: 19;
               stroke-width: 1px;
+              overflow: hidden;
             }
           }
 
@@ -144,12 +152,19 @@
               @include u.flex(flex, center);
               gap: 0.5rem;
 
-              & > img {
-                width: 60px;
-                cursor: pointer;
+              .lazyLoaingImg-wrapper {
+                pointer-events: none;
+                & > picture {
+                  img {
+                    width: 60px;
+                    height: auto;
+                    cursor: pointer;
+                    border: 1px solid transparent;
 
-                &.active {
-                  border: 1px solid var(--c-black-300);
+                    &.active {
+                      border-color: var(--c-black-300);
+                    }
+                  }
                 }
               }
             }
@@ -179,6 +194,11 @@
             & > button {
               border: 1px solid var(--c-black-300);
               border-radius: 0;
+
+              &.active {
+                background-color: var(--c-black-700);
+                color: var(--c-white);
+              }
             }
           }
         }
@@ -251,6 +271,42 @@
           }
         }
       }
+    }
+  }
+}
+
+.share__wrapper {
+  @include u.section;
+  max-width: 550px;
+  button {
+    &.yopacity-70{
+      padding: 0;
+    }
+    padding: 0.9rem;
+    height: auto;
+  }
+
+  & > div {
+    @include u.flex(grid, center);
+    gap: 2rem;
+  }
+
+  &__buttons {
+    @include u.flex(flex, center, center);
+    gap: 1rem;
+
+    button {
+      border-radius: 50%;
+    }
+  }
+
+  &__input {
+    @include u.flex(flex, center);
+    gap: 0.5rem;
+
+    button {
+      padding: 0.5rem;
+      height: 2.5rem;
     }
   }
 }
