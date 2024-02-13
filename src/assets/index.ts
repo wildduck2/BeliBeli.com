@@ -1,4 +1,5 @@
 import logo from "./svgs/logo.svg";
-import frame from "./svgs/Frame.svg";
+import recover from "./svgs/Frame.svg";
+import fastshiping from "./svgs/fastshiping.svg";
 
-export { logo, frame };
+export { logo, recover, fastshiping };

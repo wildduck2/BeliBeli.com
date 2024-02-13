@@ -1,7 +1,5 @@
 import React from "react";
 import CardInfo from "@/components/Layouts/Swiper/CardInfo";
-// import { AsyncImage } from "loadable-image";
-import { Fade } from "transitions-kit";
 import { SwiperCardProps } from "./SwiperCard.types";
 import { cardImgHoverHandler, cardImgLeaveHandler } from "@/utils";
 import { AsyncImage } from "@/components/Layouts";

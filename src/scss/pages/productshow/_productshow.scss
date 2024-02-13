@@ -104,7 +104,7 @@
           font-size: calc(var(--f-nor));
           font-weight: 500;
           color: var(--c-black-300);
-          border: 1px solid var(--c-green-600);
+          border: 1px solid var(--c-blue-600);
           max-width: fit-content;
           padding: 0.4rem 1rem;
 
@@ -152,17 +152,22 @@
               @include u.flex(flex, center);
               gap: 0.5rem;
 
-              .lazyLoaingImg-wrapper {
-                pointer-events: none;
-                & > picture {
-                  img {
-                    width: 60px;
-                    height: auto;
-                    cursor: pointer;
-                    border: 1px solid transparent;
+              button {
+                height: 100%;
 
-                    &.active {
-                      border-color: var(--c-black-300);
+                .lazyLoaingImg-wrapper {
+                  pointer-events: none;
+
+                  & > picture {
+                    img {
+                      width: 60px;
+                      height: auto;
+                      cursor: pointer;
+                      border: 1px solid transparent;
+
+                      &.active {
+                        border-color: var(--c-black-300);
+                      }
                     }
                   }
                 }
@@ -181,7 +186,7 @@
         &__sizes {
           @include u.flex(grid, center);
           gap: 0.5rem;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.7rem;
 
           & > span {
             font-size: calc(var(--f-nor));
@@ -206,7 +211,7 @@
         &__buttons {
           @include u.flex(flex, center);
           gap: 2rem;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.7rem;
 
           svg {
             stroke-width: 1.5px;
@@ -240,6 +245,91 @@
           @include u.flex(flex, center);
           gap: 0.8rem;
           font-size: calc(var(--f-nor));
+        }
+
+        &__accord {
+          border-top: 1px solid #e9e9ed;
+          margin-top: 2rem;
+
+          button {
+            &:hover {
+              text-decoration-line: none;
+            }
+
+            & > div {
+              @include u.flex(flex, flex-start);
+              flex-direction: column;
+              gap: 0.6rem;
+
+              label:first-child {
+                font-size: calc(var(--f-lg) - 0.01rem);
+              }
+
+              label:last-child {
+                color: var(--c-black-300);
+              }
+            }
+          }
+
+          & .box {
+            @include u.flex(flex, center);
+            gap: 0.9rem;
+            padding: 0.7rem;
+            border: 1px solid var(--c-blue-600);
+            margin-top: 1rem;
+            width: fit-content;
+
+            &:nth-last-child(2) {
+              border-color: var(--c-green-600);
+            }
+
+            span {
+              width: 275px;
+
+              &:first-child {
+                font-size: calc(var(--f-lg) - 0.2rem);
+              }
+
+              &:last-child {
+                color: var(--c-black-300);
+                font-size: calc(var(--f-nor) - 0.2rem);
+              }
+            }
+
+            & > svg {
+              stroke-width: 1px;
+            }
+
+            & > div {
+              @include u.flex(grid, center);
+              gap: 0.1rem;
+            }
+          }
+
+          & .click-and-collect {
+            margin-top: 1rem;
+
+            label {
+              font-size: calc(var(--f-lg) - 0.1rem);
+            }
+
+            div {
+              @include u.flex(flex, flex-start);
+              margin-top: 0.3rem;
+
+              * {
+                border-radius: 0;
+              }
+
+              input:focus-visible {
+                box-shadow: none;
+              }
+
+              button {
+                padding-inline: 2.5rem;
+              }
+            }
+          }
         }
       }
     }
@@ -279,7 +369,7 @@
   @include u.section;
   max-width: 550px;
   button {
-    &.yopacity-70{
+    &.yopacity-70 {
       padding: 0;
     }
     padding: 0.9rem;

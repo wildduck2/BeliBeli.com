@@ -10,9 +10,9 @@ import {
 } from "..";
 import { Check, Clipboard } from "lucide-react";
 import { TbShare3 } from "react-icons/tb";
-import { FaWhatsapp } from "react-icons/fa6";
+import { FaFacebookMessenger, FaWhatsapp } from "react-icons/fa6";
 import { RiTwitterXFill } from "react-icons/ri";
-import { FaFacebookF } from "react-icons/fa";
+import { FaFacebookF, FaTelegramPlane } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 const ShareProduct = (
@@ -59,10 +59,10 @@ const ShareProductWrapper = () => {
               <MdEmail size={27} />
             </Button>
             <Button variant={"outline"}>
-              <MdEmail size={27} />
+              <FaTelegramPlane size={27} />
             </Button>
             <Button variant={"outline"}>
-              <MdEmail size={27} />
+              <FaFacebookMessenger size={27} />
             </Button>
           </div>
 

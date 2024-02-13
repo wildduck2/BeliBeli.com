@@ -34,3 +34,9 @@ export * from "./Command/Command";
 export { default as RatingStars } from "./RatingStars/RatingStars";
 export * from "./Drawer/Drawer";
 export { default as ShareProductWrapper } from "./ShareProductWrapper/ShareProductWrapper";
+export {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "./Accordion/Accordion";

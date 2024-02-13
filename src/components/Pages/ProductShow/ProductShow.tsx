@@ -1,13 +1,23 @@
 import React, { useRef } from "react";
-import { frame } from "@/assets";
-import { Button, RatingStars, ShareProductWrapper } from "@/components/UI";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+  Button,
+  Input,
+  Label,
+  RatingStars,
+  ShareProductWrapper,
+} from "@/components/UI";
 import { Product } from "@/context/Data.types";
 import { Heart, Package } from "lucide-react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
-import { TbShare3 } from "react-icons/tb";
 import { AsyncImage as LazyImg } from "@/components/Layouts";
 import { GoPackageDependents } from "react-icons/go";
+import { recover, fastshiping } from "@/assets";
+import { FaTelegramPlane } from "react-icons/fa";
 
 const height = 883.567;
 
@@ -142,7 +152,8 @@ const ProductShow = () => {
               </div>
 
               <div className="products-show__wrapper__main__info__package-type">
-                <Package size={27} />
+                {/* <Package size={27} /> */}
+                <img src={fastshiping} width={27} alt="package type" draggable={false} />
                 <span>Same Day Delivery Available</span>
               </div>
 
@@ -155,7 +166,8 @@ const ProductShow = () => {
                     {product.product_type.map((item, index) => {
                       return (
                         <>
-                          <div
+                          <Button
+                            variant={"ghost"}
                             onClick={() => {
                               setCurrentTypeIndex(index);
                               const imgs =
@@ -177,7 +189,7 @@ const ProductShow = () => {
                               loading="lazy"
                               draggable={false}
                             />
-                          </div>
+                          </Button>
                         </>
                       );
                     })}
@@ -230,9 +242,64 @@ const ProductShow = () => {
               </div>
 
               <div className="products-show__wrapper__main__info__recovery">
-                {/* <img src={frame} alt="recovery box" /> */}
                 <GoPackageDependents size={27} />
                 <span>Free online returns within 14 days</span>
+              </div>
+
+              <div className="products-show__wrapper__main__info__accord">
+                <Accordion type="single" collapsible className="">
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger>
+                      <div>
+                        <Label>Delivery Options</Label>
+                        <Label>
+                          Explore the delivery options applicable to your area.
+                        </Label>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="box">
+                        <Package size={27} />
+                        <div>
+                          <span>Standard Delivery</span>
+                          <span>
+                            Your order will be delivered within 1-5 days
+                          </span>
+                        </div>
+                      </div>
+                      <div className="box">
+                        <img
+                          src={fastshiping}
+                          width={27}
+                          alt="fast shiping img"
+                        />
+                        <div>
+                          <span>Same Day Delivery</span>
+                          <span>
+                            Order before 10AM and receive same-day delivery
+                          </span>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                  <AccordionItem value="item-2">
+                    <AccordionTrigger>
+                      <div>
+                        <Label>Click and Collect</Label>
+                        <Label>
+                          Order now & collect from a store of your choice.
+                        </Label>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="click-and-collect">
+                      <Label>Check in-store availability</Label>
+                      <div>
+                        <Input placeholder="Enter your area" />
+                        <Button variant={"default"}>CHECK STORES</Button>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </div>
             </div>
           </div>
