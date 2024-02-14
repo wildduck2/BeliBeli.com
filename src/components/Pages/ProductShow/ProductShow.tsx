@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useLocation } from "react-router-dom";
 import {
   Accordion,
   AccordionContent,
@@ -9,20 +10,18 @@ import {
   Label,
   RatingStars,
   ShareProductWrapper,
+  WriteReviewWrapper,
 } from "@/components/UI";
+import { AsyncImage as LazyImg } from "@/components/Layouts";
 import { Product } from "@/context/Data.types";
 import { Heart, Package } from "lucide-react";
 import { AiOutlineShopping } from "react-icons/ai";
-import { useLocation } from "react-router-dom";
-import { AsyncImage as LazyImg } from "@/components/Layouts";
 import { GoPackageDependents } from "react-icons/go";
-import { recover, fastshiping } from "@/assets";
-import { FaTelegramPlane } from "react-icons/fa";
+import { fastshiping } from "@/assets";
 
 const height = 883.567;
 
 const ProductShow = () => {
-  // const [currentIndex, setCurrentIndex] = React.useState(0);
   const [currentTypeIndex, setCurrentTypeIndex] = React.useState<number>(0);
   const [currentSizeIndex, setCurrentSizeIndex] = React.useState<number>(0);
   const mainImgsRef = useRef<HTMLDivElement>(null);
@@ -153,11 +152,18 @@ const ProductShow = () => {
 
               <div className="products-show__wrapper__main__info__package-type">
                 {/* <Package size={27} /> */}
-                <img src={fastshiping} width={27} alt="package type" draggable={false} />
+                <img
+                  src={fastshiping}
+                  width={27}
+                  alt="package type"
+                  draggable={false}
+                />
                 <span>Same Day Delivery Available</span>
               </div>
 
-              <RatingStars />
+              <div className="products-show__wrapper__main__info__review">
+                <RatingStars readOnly={true} value={4} precision={0.5} />
+              </div>
 
               <div className="products-show__wrapper__main__info__varients">
                 <div>
@@ -165,32 +171,30 @@ const ProductShow = () => {
                   <div>
                     {product.product_type.map((item, index) => {
                       return (
-                        <>
-                          <Button
-                            variant={"ghost"}
-                            onClick={() => {
-                              setCurrentTypeIndex(index);
-                              const imgs =
-                                mainImgsRef.current?.querySelectorAll(
-                                  ".lazyLoaingImg-wrapper",
-                                );
-                              imgs?.forEach((img) =>
-                                img.classList.remove("show--img"),
-                              );
-                            }}
-                          >
-                            <LazyImg
-                              key={index}
-                              src={item.icon}
-                              alt={product.title}
-                              className={`${
-                                currentTypeIndex === index && "active"
-                              }`}
-                              loading="lazy"
-                              draggable={false}
-                            />
-                          </Button>
-                        </>
+                        <Button
+                          key={index}
+                          variant={"ghost"}
+                          onClick={() => {
+                            setCurrentTypeIndex(index);
+                            const imgs = mainImgsRef.current?.querySelectorAll(
+                              ".lazyLoaingImg-wrapper",
+                            );
+                            imgs?.forEach((img) =>
+                              img.classList.remove("show--img"),
+                            );
+                          }}
+                        >
+                          <LazyImg
+                            key={index}
+                            src={item.icon}
+                            alt={product.title}
+                            className={`${
+                              currentTypeIndex === index && "active"
+                            }`}
+                            loading="lazy"
+                            draggable={false}
+                          />
+                        </Button>
                       );
                     })}
                   </div>
@@ -315,7 +319,11 @@ const ProductShow = () => {
                     product.
                   </span>
                 </div>
-                <Button variant={"default"}>Write a review</Button>
+                <WriteReviewWrapper
+                  img={product.product_type[currentTypeIndex].top_imgs[1]}
+                  lowImg={product.product_type[currentTypeIndex].low_imgs[1]}
+                  title={product.title}
+                />
               </div>
             </div>
           </div>

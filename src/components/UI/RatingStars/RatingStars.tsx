@@ -4,23 +4,32 @@ import { Star } from "lucide-react";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
 
-const RatingStars = () => {
+export interface RatingStarsProps {
+  value: number;
+  precision?: number;
+  readOnly: boolean;
+}
+const RatingStars: React.FC<RatingStarsProps> = ({
+  value,
+  precision,
+  readOnly,
+}) => {
   return (
-    <div className="products-show__wrapper__main__info__review">
+    <>
       <div>
         <Box component="fieldset" borderColor="transparent">
           <Rating
             name="customized-empty"
-            defaultValue={4}
-            // precision={0.5}
+            defaultValue={value}
+            precision={precision}
             emptyIcon={<Star />}
-            readOnly
+            readOnly={readOnly}
           />
         </Box>
       </div>
-      <span>({`${4}`})</span>
+      <span>({`${value}`})</span>
       <Button variant={"link"}>Write a Review</Button>
-    </div>
+    </>
   );
 };
 

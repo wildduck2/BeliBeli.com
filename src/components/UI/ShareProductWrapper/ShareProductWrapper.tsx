@@ -8,7 +8,7 @@ import {
   DialogTrigger,
   Input,
 } from "..";
-import { Check, Clipboard } from "lucide-react";
+import { Check, Clipboard, Copy } from "lucide-react";
 import { TbShare3 } from "react-icons/tb";
 import { FaFacebookMessenger, FaWhatsapp } from "react-icons/fa6";
 import { RiTwitterXFill } from "react-icons/ri";
@@ -32,7 +32,7 @@ const ShareProductWrapper = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">
+        <Button variant="ghost">
           <TbShare3 size={25} />
           <span>Share</span>
         </Button>
@@ -75,7 +75,7 @@ const ShareProductWrapper = () => {
                 ShareProduct(setClipboardClicked, window.location.href)
               }
             >
-              {!ClipboardClicked ? <Clipboard /> : <Check />}
+              {!ClipboardClicked ? <Copy size={18} /> : <Check size={18}/>}
             </Button>
           </div>
         </div>

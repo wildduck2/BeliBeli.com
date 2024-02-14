@@ -104,9 +104,11 @@
           font-size: calc(var(--f-nor));
           font-weight: 500;
           color: var(--c-black-300);
-          border: 1px solid var(--c-blue-600);
+          border: 1px solid hsla(var(--c-blue-600), 1);
           max-width: fit-content;
           padding: 0.4rem 1rem;
+          // background-color: hsla(210, 73.2%, 62%, 0.07);
+          background-color: hsla(var(--c-blue-600), 0.07);
 
           svg {
             stroke-width: 1px;
@@ -275,12 +277,14 @@
             @include u.flex(flex, center);
             gap: 0.9rem;
             padding: 0.7rem;
-            border: 1px solid var(--c-blue-600);
+            border: 1px solid hsla(var(--c-blue-600), 1);
+            background-color: hsla(var(--c-blue-600), 0.07);
             margin-top: 1rem;
             width: fit-content;
 
             &:nth-last-child(2) {
-              border-color: var(--c-green-600);
+              border-color: hsla(var(--c-green-600), 1);
+              background-color: hsla(var(--c-green-600), 0.07);
             }
 
             span {
@@ -395,7 +399,7 @@
     gap: 0.5rem;
 
     button {
-      padding: 0.5rem;
+      padding-inline: 0.7rem;
       height: 2.5rem;
     }
   }

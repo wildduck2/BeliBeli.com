@@ -1,0 +1,94 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../utils" as u;
+@use "../../base" as *;
+
+/*
+
+   Write Review Wrapper 
+  
+*/
+
+.write-review {
+  max-width: 1100px;
+
+  &__wrapper {
+    @include u.flex(flex, flex-start, space-between);
+    gap: 3rem;
+
+    &__img {
+      width: 50%;
+    }
+
+    &__form {
+      width: 100%;
+
+      & > form {
+        @include u.flex(grid, center);
+        gap: 1rem;
+
+        & > div {
+          @include u.flex(grid, center);
+          gap: 1.5rem;
+        }
+
+        .recommend {
+          @include u.flex(flex, center, space-between);
+          gap: 1rem;
+
+          & > div {
+            @include u.flex(flex, center);
+            gap: 0.7rem;
+
+            button {
+              width: 93px;
+            }
+          }
+        }
+
+        .user {
+          @include u.flex(grid, center);
+          gap: 0.8rem;
+
+          & > div {
+            @include u.flex(flex, center);
+            gap: 1rem;
+          }
+        }
+
+        .product {
+          @include u.flex(grid, center);
+
+          & > div {
+            @include u.flex(grid, center);
+            gap: 1rem;
+
+            & > div {
+              @include u.flex(flex, center);
+              gap: 4rem;
+
+              &>label {
+                width: 100px;   
+              }
+
+              & > div > div {
+                @include u.flex(flex, center, space-between);
+                gap: 3rem;
+
+                & > div {
+                  @include u.flex(flex, center);
+                  width: 100px;
+                  gap: 0.5rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
