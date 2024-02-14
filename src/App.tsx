@@ -87,7 +87,7 @@ export default App;
 
 /**
  * 
- * make write review dialog
+ * make write review dialog - Done
  * make review list desing 
  * make add to the cart function
  * make add to the wish list function

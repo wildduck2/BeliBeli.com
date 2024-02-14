@@ -29,6 +29,7 @@ export interface Product_review {
   true_to_size: "small" | "normal" | "large";
   fit: "tight" | "normal" | "large";
   lenght: "small" | "normal" | "large";
+  this_review_was_helpufll: Array<boolean>;
 }
 
 export interface Product {
@@ -38,10 +39,10 @@ export interface Product {
   description: string;
   product_type: ProductVariation[];
   product_category: string;
-  product_review: Product_review[];
+  product_reviews: Product_review[];
   treding: boolean;
   choosen: boolean;
-  fit:string
+  fit: string;
 }
 
 export interface otherImgsTypes {

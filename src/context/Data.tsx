@@ -46,7 +46,7 @@ export const thunkFetchingBannerFromSupabase = createAsyncThunk(
         error: productsError,
       }: PostgrestSingleResponse<otherImgsTypes[]> = await supabase
         .from("products")
-        .select("*, products_reviews(*)");
+        .select("*");
 
       // checking if any error log that
       if (!bannerError || !categoryError || !productsError) {
