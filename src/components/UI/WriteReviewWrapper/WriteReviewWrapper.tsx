@@ -1,5 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
   Button,
   Dialog,
   DialogClose,
@@ -18,101 +27,18 @@ import { WriteReviewWrapperProps } from "./WriteReviewWrapper.types";
 import { AsyncImage as LazyImg } from "@/components/Layouts";
 import { Box, Rating } from "@mui/material";
 import { Star } from "lucide-react";
-import { supabase } from "@/supabase/supabase";
-import { v4 as ID } from "uuid";
 import { useUser } from "@/hooks";
 import { useSelector } from "react-redux";
 import { RootState } from "@/context/store";
-import { toast } from "sonner";
-
-export interface handleSubmitProps {
-  product_id: number;
-  rate: number;
-  reviewTitle: string;
-  reviewDiscription: string;
-  nickname: string;
-  email: string;
-  userId: string;
-  productRecommended: boolean;
-  trueToSize: "small" | "normal" | "large";
-  fit: "tight" | "normal" | "large";
-  lenght: "small" | "normal" | "large";
-}
-
-const handleSubmit = async ({
-  fit,
-  lenght,
-  rate,
-  nickname,
-  reviewDiscription,
-  reviewTitle,
-  trueToSize,
-  email,
-  userId,
-  productRecommended,
-  product_id,
-}: handleSubmitProps) => {
-  const product_review = {
-    id: ID(),
-    created_at: new Date(),
-    email: email,
-    user_id: userId,
-    overall_rating: rate,
-    review_title: reviewTitle,
-    review_discription: reviewDiscription,
-    product_recommended: productRecommended,
-    nickname: nickname,
-    true_to_size: trueToSize,
-    fit: fit,
-    lenght: lenght,
-    this_review_was_helpufll: [],
-  };
-
-  try {
-    const { data: existingData, error } = await supabase
-      .from("products")
-      .select("*")
-      .eq("id", product_id);
-
-    if (error) {
-      throw error;
-    }
-
-    console.log(existingData);
-
-    if (existingData.length === 0) {
-      throw new Error(`Row with ID ${product_id} not found.`);
-    }
-
-    const product_reviews = [
-      ...existingData[0].product_reviews,
-      product_review,
-    ];
-
-    const { data: updatedRow, error: updateError } = await supabase
-      .from("products")
-      .update({ product_reviews: product_reviews })
-      .eq("id", product_id) 
-
-    if (updateError) {
-      throw updateError;
-    }
-    
-    console.log(product_reviews);
-    console.log(
-      `Row with ID ${product_id} updated successfully. Updated data:`,
-      updatedRow,
-    );
-  } catch (error) {
-    console.error("Error updating row:", error as string);
-  }
-};
+import { handleSubmit } from "@/utils";
+import { Icons } from "@/components/Layouts/Log/Icons";
 
 const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
   img,
   lowImg,
   title,
   productId,
+  setAllReviews,
 }) => {
   const [trueToSize, setTrueToSize] = React.useState<
     "small" | "normal" | "large"
@@ -127,9 +53,12 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
   const [rate, setRate] = React.useState<number>(0);
   const [productRecommended, setProductRecommended] =
     React.useState<boolean>(false);
+  const [loading, setLoading] = React.useState<boolean>(false);
 
   const logged = useSelector((state: RootState) => state.data.logged);
   const user = useUser({ signedout: logged });
+
+  const dialogClose = useRef<HTMLButtonElement>(null);
 
   return (
     <Dialog>
@@ -278,14 +207,41 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
             </form>
           </div>
         </div>
-        <DialogFooter>
-          <DialogClose asChild>
-            <Button variant={"outline"}>Cancel</Button>
-          </DialogClose>
+        <DialogFooter className="write-review__wrapper__footer">
+          {nickname !== "" ||
+          reviewDiscription !== "" ||
+          reviewTitle !== "" ||
+          productRecommended ? (
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button variant={"outline"}>Cancel</Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    This action cannot be undone. This will permanently delete
+                    your account and remove your data from our servers.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <DialogClose asChild>
+                    <AlertDialogAction>Continue</AlertDialogAction>
+                  </DialogClose>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          ) : (
+            <DialogClose asChild>
+              <Button variant={"outline"}>Cancel</Button>
+            </DialogClose>
+          )}
 
           <Button
             variant={"default"}
-            onClick={() =>
+            onClick={() => {
+              setLoading(true);
               handleSubmit({
                 fit,
                 nickname,
@@ -298,10 +254,18 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
                 reviewTitle,
                 userId: user[0]!.id!,
                 email: user[0]!.email!,
-              })
-            }
+                setLoading,
+                dialogClose,
+                setAllReviews,
+              });
+            }}
+            disabled={loading}
           >
-            Post review
+            {loading ? <Icons.spinner className="animate-spin" /> : "Submit"}
+
+            <DialogClose asChild ref={dialogClose} aria-hidden hidden>
+              <span>2</span>
+            </DialogClose>
           </Button>
         </DialogFooter>
       </DialogContent>

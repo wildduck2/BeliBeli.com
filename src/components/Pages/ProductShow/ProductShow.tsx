@@ -8,17 +8,17 @@ import {
   Button,
   Input,
   Label,
+  ProductReviews,
   RatingStars,
   ShareProductWrapper,
-  WriteReviewWrapper,
 } from "@/components/UI";
-import { AsyncImage as LazyImg, ReviewCard } from "@/components/Layouts";
+import { AsyncImage as LazyImg } from "@/components/Layouts";
 import { Product } from "@/context/Data.types";
-import { Heart, Package, Star } from "lucide-react";
+import { Heart, Package } from "lucide-react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { GoPackageDependents } from "react-icons/go";
 import { fastshiping } from "@/assets";
-import { Box, Rating } from "@mui/material";
+import { supabase } from "@/supabase/supabase";
 
 const height = 883.567;
 
@@ -318,50 +318,11 @@ const ProductShow = () => {
           </div>
 
           <div className="products-show__wrapper__second">
-            <div className="products-show__wrapper__second__reviews">
-              <span>Ratings + Reviews</span>
-              <div>
-                <div className="rate">
-                  {finalRate ? (
-                    <div>
-                      <div>
-                        <Box component="fieldset" borderColor="transparent">
-                          <Rating
-                            name="customized-empty"
-                            defaultValue={finalRate}
-                            precision={0.5}
-                            emptyIcon={<Star />}
-                            readOnly
-                          />
-                        </Box>
-                        <span>{`${finalRate}`}</span>
-                        <span>({product.product_reviews.length}) Reviews</span>
-                      </div>
-                    </div>
-                  ) : (
-                    <>
-                      <span>No reviews yet.</span>
-                      <span>
-                        Tell others what you think. Be the first to review this
-                        product.
-                      </span>
-                    </>
-                  )}
-                </div>
-                <WriteReviewWrapper
-                  img={product.product_type[currentTypeIndex].top_imgs[1]}
-                  lowImg={product.product_type[currentTypeIndex].low_imgs[1]}
-                  title={product.title}
-                  productId={product.id}
-                />
-              </div>
-            </div>
-
-            <ul className="products-show__wrapper__second__items">
-              {product.product_reviews.map((item, index) => {
-                return <ReviewCard key={index} review={item} />;
-              })}
-            </ul>
+            <ProductReviews
+              product={product}
+              currentTypeIndex={currentTypeIndex}
+              finalRate={finalRate}
+            />
           </div>
         </div>
       </main>

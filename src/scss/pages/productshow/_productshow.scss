@@ -474,7 +474,7 @@
 
                 & > button {
                   @include u.flex(flex, center);
-                  gap: .3rem;
+                  gap: 0.3rem;
                   border-radius: 0;
 
                   span {
@@ -487,6 +487,9 @@
         }
       }
     }
+  }
+
+  &__footer {
   }
 }
 
@@ -522,6 +525,19 @@
     button {
       padding-inline: 0.7rem;
       height: 2.5rem;
+    }
+  }
+}
+
+.animate-spin {
+  animation: spin 2s linear infinite;
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
     }
   }
 }

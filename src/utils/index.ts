@@ -12,3 +12,6 @@ export * from "./zod/inputvalidation";
 export * from "./zod/passowrdShow";
 export * from "./zod/zod.types";
 export * from "./signupPopup/signupPopup";
+export * from './HandleSubmitReview/HandleSubmitReview'
+export * from './HandleSubmitReview/HandleSubmitReview.types'
+

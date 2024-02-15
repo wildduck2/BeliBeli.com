@@ -33,9 +33,10 @@ const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
             item.type === FILTER__QUERY?.toLowerCase() && (
               <SwiperSlide
                 key={index}
-                onClick={() =>
-                  route(`/product-show/${item.title}`, { state: item })
-                }
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  route(`/product-show/${item.title}`, { state: item });
+                }}
               >
                 <SwiperCard item={item} key={index} width={245} height={350} />
               </SwiperSlide>

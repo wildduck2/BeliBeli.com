@@ -90,7 +90,7 @@
 
         .product {
           @include u.flex(grid, center);
-gap: .8rem;
+          gap: 0.8rem;
 
           & > div {
             @include u.flex(grid, center);

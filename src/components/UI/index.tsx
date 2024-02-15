@@ -43,3 +43,5 @@ export {
 export { default as WriteReviewWrapper } from "./WriteReviewWrapper/WriteReviewWrapper";
 export { Textarea } from "./Textarea/Textarea";
 export * from "./RadioGroup/RadioGroup";
+export * from "./AlertDialog/AlertDialog";
+export { default as ProductReviews } from './ProductReviews/ProductReviews'
