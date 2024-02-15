@@ -48,7 +48,7 @@
               transition: 0.05s ease-out;
 
               &:hover {
-                color: var(--c-red-700);
+                color: hsla(var(--c-red-700),1);
                 text-decoration: underline;
               }
             }

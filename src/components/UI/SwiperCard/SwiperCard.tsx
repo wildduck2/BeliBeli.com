@@ -20,8 +20,8 @@ const SwiperCard: React.FC<SwiperCardProps> = ({
           return (
             <AsyncImage
               key={index}
-              src={item.product_type[0].top_imgs[index + 1]}
-              srcSet={item.product_type[0].low_imgs[index + 1]}
+              src={item.product_type[0].top_imgs[index]}
+              srcSet={item.product_type[0].low_imgs[index]}
               // loading="lazy"
               // Transition={Fade}
               style={{ width: width, height: height }}

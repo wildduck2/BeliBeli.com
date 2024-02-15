@@ -11,6 +11,7 @@ import {
   ProductReviews,
   RatingStars,
   ShareProductWrapper,
+  Skeleton,
 } from "@/components/UI";
 import { AsyncImage as LazyImg } from "@/components/Layouts";
 import { Product } from "@/context/Data.types";
@@ -18,7 +19,7 @@ import { Heart, Package } from "lucide-react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { GoPackageDependents } from "react-icons/go";
 import { fastshiping } from "@/assets";
-import { supabase } from "@/supabase/supabase";
+import useGetReviews from "@/hooks/useGetReviews/useGetReviews";
 
 const height = 883.567;
 
@@ -30,10 +31,10 @@ const ProductShow = () => {
   const { state } = useLocation();
   const product: Product = state;
 
-  const finalRate =
-    product?.product_reviews
-      .map((item) => item.overall_rating)
-      .reduce((a, b) => a + b, 0) / product?.product_reviews.length;
+  const [reviews, error] = useGetReviews({
+    reviews_id: product.review_id,
+  });
+
 
   return (
     <>
@@ -167,11 +168,21 @@ const ProductShow = () => {
               </div>
 
               <div className="products-show__wrapper__main__info__review">
-                <RatingStars
-                  readOnly={true}
-                  value={finalRate}
-                  precision={0.5}
-                />
+                {reviews !== null ? (
+                  reviews.reviews.length > 0 && (
+                    <RatingStars
+                      readOnly={true}
+                      value={
+                        reviews.reviews
+                          .map((item) => item.overall_rating)
+                          .reduce((a, b) => a + b, 0) / reviews.reviews.length
+                      }
+                      precision={0.5}
+                    />
+                  )
+                ) : (
+                  <Skeleton className="skeleton" />
+                )}
               </div>
 
               <div className="products-show__wrapper__main__info__varients">
@@ -318,11 +329,24 @@ const ProductShow = () => {
           </div>
 
           <div className="products-show__wrapper__second">
-            <ProductReviews
-              product={product}
-              currentTypeIndex={currentTypeIndex}
-              finalRate={finalRate}
-            />
+            {reviews !== null ? (
+              <ProductReviews
+                product={product}
+                reviews={reviews}
+                currentTypeIndex={currentTypeIndex}
+                finalRate={
+                  reviews.reviews
+                    .map((item) => item.overall_rating)
+                    .reduce((a, b) => a + b, 0) / reviews.reviews.length
+                }
+              />
+            ) : (
+              <div className="skeleton__wrapper">
+                <Skeleton className="skeleton"/>
+                <Skeleton className="skeleton"/>
+                <Skeleton className="skeleton"/>
+              </div>
+            )}
           </div>
         </div>
       </main>

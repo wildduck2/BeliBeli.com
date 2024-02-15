@@ -2,6 +2,8 @@ import { toast } from "sonner";
 import { supabase } from "@/supabase/supabase";
 import { v4 as ID } from "uuid";
 import { handleSubmitProps } from "./HandleSubmitReview.types";
+import { PostgrestSingleResponse } from "@supabase/supabase-js";
+import { Product_review } from "@/context/Data.types";
 
 export const handleSubmit = async ({
   fit,
@@ -14,7 +16,7 @@ export const handleSubmit = async ({
   email,
   userId,
   productRecommended,
-  product_id,
+  review_id,
   setLoading,
   dialogClose,
   setAllReviews,
@@ -40,26 +42,26 @@ export const handleSubmit = async ({
     const promise = new Promise((resolve, reject) => {
       const cb = async () => {
         try {
-          const { data: existingData, error } = await supabase
-            .from("products")
+          const { data: existingData, error } = (await supabase
+            .from("products_reviews")
             .select("*")
-            .eq("id", product_id);
+            .eq("id", review_id)) as PostgrestSingleResponse<Product_review[]>;
 
           if (error) {
             reject(error);
             throw error;
           }
 
-          const product_reviews = [
-            ...existingData[0].product_reviews,
-            product_review,
-          ];
+          console.log("existingData", existingData);
+
+          const product_reviews = [...existingData[0].reviews, product_review];
+          console.log("product_reviews", product_reviews);
 
           const { data: updatedRow, error: updateError } = await supabase
-            .from("products")
-            .update({ product_reviews: product_reviews })
-            .eq("id", product_id)
-            .select();
+            .from("products_reviews")
+            .update({ reviews: product_reviews })
+            .eq("id", review_id)
+            .select() as PostgrestSingleResponse<Product_review[]>;
 
           if (updateError) {
             reject(error);
@@ -69,7 +71,9 @@ export const handleSubmit = async ({
           resolve(updatedRow);
           setLoading(false);
           dialogClose.current?.click();
-          setAllReviews(updatedRow[0].product_reviews);
+
+          
+          setAllReviews(updatedRow[0]);
 
           console.log("Updated row:", updatedRow, updateError);
         } catch (error) {

@@ -90,7 +90,7 @@
             transform: translateY(-50%);
 
             .wrong {
-              fill: var(--c-red-700);
+              fill: hsla(var(--c-red-700),1);
             }
           }
 
@@ -129,7 +129,7 @@
           opacity: 0;
           height: 0;
           transition: 0.3s ease;
-          color: var(--c-red-700);
+          color: hsla(var(--c-red-700),1);
           margin-top: -4.4rem;
 
           &.active {
@@ -161,7 +161,7 @@
             }
 
             .red {
-              fill: var(--c-red-700);
+              fill: hsla(var(--c-red-700),1);
             }
             .red.green {
               fill: var(--c-green-600);

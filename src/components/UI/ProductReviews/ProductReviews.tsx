@@ -1,19 +1,24 @@
 import React from "react";
 import { Box, Rating } from "@mui/material";
 import { Star } from "lucide-react";
-import { WriteReviewWrapper } from "..";
+import { Button, WriteReviewWrapper } from "..";
 import { ReviewCard } from "@/components/Layouts";
-import { ProductReviewsProps } from "./ProductReviews.types";
+import {
+  MoreReviewsButtonProps,
+  ProductReviewsProps,
+} from "./ProductReviews.types";
 import { Product_review } from "@/context/Data.types";
+import { Icons } from "@/components/Layouts/Log/Icons";
+import { toast } from "sonner";
 
 const ProductReviews: React.FC<ProductReviewsProps> = ({
   finalRate,
   product,
+  reviews,
   currentTypeIndex,
 }) => {
-  const [allReviews, setAllReviews] = React.useState<Product_review[]>(
-    product.product_reviews,
-  );
+  const [allReviews, setAllReviews] = React.useState<Product_review>(reviews);
+  const [previewedCards, setPreviewedCards] = React.useState<number>(1);
 
   return (
     <>
@@ -34,7 +39,7 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({
                     />
                   </Box>
                   <span>{`${finalRate.toFixed(1)}`}</span>
-                  <span>({allReviews.length}) Reviews</span>
+                  <span>({allReviews.reviews.length}) Reviews</span>
                 </div>
               </div>
             ) : (
@@ -58,12 +63,46 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({
       </div>
 
       <ul className="products-show__wrapper__second__items">
-        {allReviews.map((item, index) => {
-          return <ReviewCard key={index} review={item} />;
+        {allReviews.reviews.map((item, index) => {
+          return (
+            index <= previewedCards && <ReviewCard key={index} index={index} reviews={item} />
+          );
         })}
       </ul>
+
+      <MoreReviewsButton
+        allReviews={allReviews}
+        setPreviewedCards={setPreviewedCards}
+      />
     </>
   );
 };
+
+function MoreReviewsButton({
+  allReviews,
+  setPreviewedCards,
+}: MoreReviewsButtonProps) {
+  const [loading, setLoading] = React.useState<boolean>(false);
+  return (
+    <Button
+      variant={"default"}
+      onClick={() => {
+        setPreviewedCards((prev) => {
+          if (allReviews.reviews.length < prev + 2) {
+            toast.error("No more reviews", { duration: 2000 });
+          }
+          return prev >= allReviews.reviews.length ? prev : prev + 2;
+        });
+        setLoading(true);
+
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
+      }}
+    >
+      {loading ? <Icons.spinner className="animate-spin" /> : "Submit"}
+    </Button>
+  );
+}
 
 export default ProductReviews;

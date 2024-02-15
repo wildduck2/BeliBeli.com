@@ -32,33 +32,36 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/context/store";
 import { handleSubmit } from "@/utils";
 import { Icons } from "@/components/Layouts/Log/Icons";
+import { useLocation } from "react-router-dom";
+import { Product } from "@/context/Data.types";
 
 const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
   img,
   lowImg,
   title,
-  productId,
   setAllReviews,
 }) => {
   const [trueToSize, setTrueToSize] = React.useState<
-    "small" | "normal" | "large"
+    "small" | "spot on" | "large"
   >("small");
-  const [fit, setFit] = React.useState<"tight" | "normal" | "large">("tight");
-  const [lenght, setLenght] = React.useState<"small" | "normal" | "large">(
+  const [fit, setFit] = React.useState<"tight" | "spot on" | "large">("tight");
+  const [lenght, setLenght] = React.useState<"small" | "spot on" | "large">(
     "small",
   );
   const [reviewTitle, setReviewTitle] = React.useState<string>("");
   const [reviewDiscription, setReviewDiscription] = React.useState<string>("");
   const [nickname, setNickname] = React.useState<string>("");
-  const [rate, setRate] = React.useState<number>(0);
+  const [rate, setRate] = React.useState<number>(4);
   const [productRecommended, setProductRecommended] =
-    React.useState<boolean>(false);
+    React.useState<boolean>(true);
   const [loading, setLoading] = React.useState<boolean>(false);
 
   const logged = useSelector((state: RootState) => state.data.logged);
   const user = useUser({ signedout: logged });
 
   const dialogClose = useRef<HTMLButtonElement>(null);
+  const { state } = useLocation();
+  const product: Product = state;
 
   return (
     <Dialog>
@@ -114,8 +117,20 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
               <div className="recommend">
                 <Label>Would you recommend this product to a friend?</Label>
                 <div>
-                  <Button variant={"outline"}>Yes</Button>
-                  <Button variant={"outline"}>No</Button>
+                  <Button
+                    type="button"
+                    variant={`${productRecommended ? "default" : "outline"}`}
+                    onClick={() => setProductRecommended(!productRecommended)}
+                  >
+                    Yes
+                  </Button>
+                  <Button
+                    type="button"
+                    variant={`${!productRecommended ? "default" : "outline"}`}
+                    onClick={() => setProductRecommended(!productRecommended)}
+                  >
+                    No
+                  </Button>
                 </div>
               </div>
 
@@ -151,9 +166,9 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
                           <RadioGroupItem value="small" id="r1" />
                           <Label htmlFor="r1">small</Label>
                         </div>
-                        <div onClick={() => setTrueToSize("normal")}>
-                          <RadioGroupItem value="normal" id="r2" />
-                          <Label htmlFor="r2">normal</Label>
+                        <div onClick={() => setTrueToSize("spot on")}>
+                          <RadioGroupItem value="Spot on" id="r2" />
+                          <Label htmlFor="r2">Spot on</Label>
                         </div>
                         <div onClick={() => setTrueToSize("large")}>
                           <RadioGroupItem value="large" id="r3" />
@@ -171,9 +186,9 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
                           <RadioGroupItem value="tight" id="s1" />
                           <Label htmlFor="s1">tight</Label>
                         </div>
-                        <div onClick={() => setFit("normal")}>
-                          <RadioGroupItem value="normal" id="s2" />
-                          <Label htmlFor="s2">normal</Label>
+                        <div onClick={() => setFit("spot on")}>
+                          <RadioGroupItem value="Spot on" id="s2" />
+                          <Label htmlFor="s2">Spot on</Label>
                         </div>
                         <div onClick={() => setFit("large")}>
                           <RadioGroupItem value="large" id="s3" />
@@ -191,9 +206,9 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
                           <RadioGroupItem value="small" id="a1" />
                           <Label htmlFor="a1">small</Label>
                         </div>
-                        <div onClick={() => setLenght("normal")}>
-                          <RadioGroupItem value="normal" id="a2" />
-                          <Label htmlFor="a2">normal</Label>
+                        <div onClick={() => setLenght("spot on")}>
+                          <RadioGroupItem value="Spot on" id="a2" />
+                          <Label htmlFor="a2">Spot on</Label>
                         </div>
                         <div onClick={() => setLenght("large")}>
                           <RadioGroupItem value="large" id="a3" />
@@ -249,7 +264,7 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
                 productRecommended,
                 rate,
                 lenght,
-                product_id: productId,
+                review_id: product.review_id,
                 reviewDiscription,
                 reviewTitle,
                 userId: user[0]!.id!,

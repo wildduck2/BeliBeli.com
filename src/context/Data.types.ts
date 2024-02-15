@@ -1,4 +1,5 @@
 import { UserData } from "@/hooks";
+import { UUID } from "crypto";
 
 export type ProductImage = Array<string>;
 export interface ProductSize {
@@ -17,19 +18,22 @@ export interface ProductVariation {
 }
 
 export interface Product_review {
-  id: number;
-  created_at: Date;
-  email: string;
-  user_id: string;
-  overall_rating: number;
-  review_title: string;
-  review_discription: string;
-  product_recommended: boolean;
-  nickname: string;
-  true_to_size: "small" | "normal" | "large";
-  fit: "tight" | "normal" | "large";
-  lenght: "small" | "normal" | "large";
-  this_review_was_helpufll: Array<boolean>;
+  id: UUID;
+  reviews: {
+    id: number;
+    created_at: Date;
+    email: string;
+    user_id: string;
+    overall_rating: number;
+    review_title: string;
+    review_discription: string;
+    product_recommended: boolean;
+    nickname: string;
+    true_to_size: "small" | "normal" | "large";
+    fit: "tight" | "normal" | "large";
+    lenght: "small" | "normal" | "large";
+    this_review_was_helpufll: Array<boolean>;
+  }[];
 }
 
 export interface Product {
@@ -39,7 +43,7 @@ export interface Product {
   description: string;
   product_type: ProductVariation[];
   product_category: string;
-  product_reviews: Product_review[];
+  review_id: UUID;
   treding: boolean;
   choosen: boolean;
   fit: string;

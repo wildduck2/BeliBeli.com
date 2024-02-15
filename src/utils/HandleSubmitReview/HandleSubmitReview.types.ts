@@ -1,7 +1,8 @@
-import { Product, Product_review } from "@/context/Data.types";
+import { Product_review } from "@/context/Data.types";
+import { UUID } from "crypto";
 
 export interface handleSubmitProps {
-  product_id: number;
+  review_id: UUID;
   rate: number;
   reviewTitle: string;
   reviewDiscription: string;
@@ -9,10 +10,10 @@ export interface handleSubmitProps {
   email: string;
   userId: string;
   productRecommended: boolean;
-  trueToSize: "small" | "normal" | "large";
-  fit: "tight" | "normal" | "large";
-  lenght: "small" | "normal" | "large";
+  trueToSize: "small" | "spot on" | "large";
+  fit: "tight" | "spot on" | "large";
+  lenght: "small" | "spot on" | "large";
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   dialogClose: React.RefObject<HTMLButtonElement>;
-  setAllReviews: React.Dispatch<React.SetStateAction<Product_review[]>>;
+  setAllReviews: React.Dispatch<React.SetStateAction<Product_review>>;
 }

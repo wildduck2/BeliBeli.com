@@ -147,7 +147,7 @@
         border: 1px solid var(--c-black-700);
 
         &.active {
-          background-color: var(--c-red-700);
+          background-color: hsla(var(--c-red-700),1);
           border-color: transparent;
         }
       }

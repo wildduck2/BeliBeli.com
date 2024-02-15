@@ -5,5 +5,5 @@ export interface WriteReviewWrapperProps {
   lowImg: string;
   title: string;
   productId: number;
-  setAllReviews: React.Dispatch<React.SetStateAction<Product_review[]>>;
+  setAllReviews: React.Dispatch<React.SetStateAction<Product_review>>;
 }

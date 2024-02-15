@@ -16,16 +16,16 @@ const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
   const route = useNavigate();
 
   return (
-    <div
-    // spaceBetween={25}
-    // slidesPerView={4}
-    // // slidesPerGroup={4}
-    // cssMode={true}
-    // navigation={true}
-    // pagination={true}
-    // modules={[Navigation, Pagination]}
-    // className="trending__section__swiper"
-    // loop={true}
+    <SW
+      spaceBetween={25}
+      // slidesPerView={4}
+      // slidesPerGroup={4}
+      // cssMode={true}
+      // navigation={true}
+      // pagination={true}
+      // modules={[Navigation, Pagination]}
+      className="trending__section__swiper"
+      loop={true}
     >
       {selector.satatus === "succeeded" ? (
         DATA__NAME?.map((item: Product, index) => {
@@ -40,6 +40,7 @@ const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
               >
                 <SwiperCard item={item} key={index} width={245} height={350} />
               </SwiperSlide>
+              
             )
           );
         })
@@ -61,7 +62,7 @@ const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
           })}
         </>
       )}
-    </div>
+    </SW>
   );
 };
 
