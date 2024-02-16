@@ -65,7 +65,7 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({
       <ul className="products-show__wrapper__second__items">
         {allReviews.reviews.map((item, index) => {
           return (
-            index <= previewedCards && <ReviewCard key={index} index={index} reviews={item} />
+            index <= previewedCards && <ReviewCard key={index} index={index} review={item} />
           );
         })}
       </ul>

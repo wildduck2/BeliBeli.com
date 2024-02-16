@@ -27,7 +27,7 @@ const RatingStars: React.FC<RatingStarsProps> = ({
           />
         </Box>
       </div>
-      <span>({`${value}`})</span>
+      <span>({`${value.toFixed(1)}`})</span>
       <Button variant={"link"}>Write a Review</Button>
     </>
   );

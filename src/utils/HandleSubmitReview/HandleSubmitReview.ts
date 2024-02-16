@@ -54,14 +54,13 @@ export const handleSubmit = async ({
 
           console.log("existingData", existingData);
 
-          const product_reviews = [...existingData[0].reviews, product_review];
-          console.log("product_reviews", product_reviews);
+          const product_reviews = [product_review, ...existingData[0].reviews];
 
-          const { data: updatedRow, error: updateError } = await supabase
+          const { data: updatedRow, error: updateError } = (await supabase
             .from("products_reviews")
             .update({ reviews: product_reviews })
             .eq("id", review_id)
-            .select() as PostgrestSingleResponse<Product_review[]>;
+            .select()) as PostgrestSingleResponse<Product_review[]>;
 
           if (updateError) {
             reject(error);
@@ -72,7 +71,6 @@ export const handleSubmit = async ({
           setLoading(false);
           dialogClose.current?.click();
 
-          
           setAllReviews(updatedRow[0]);
 
           console.log("Updated row:", updatedRow, updateError);

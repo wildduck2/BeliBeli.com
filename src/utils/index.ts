@@ -14,4 +14,6 @@ export * from "./zod/zod.types";
 export * from "./signupPopup/signupPopup";
 export * from './HandleSubmitReview/HandleSubmitReview'
 export * from './HandleSubmitReview/HandleSubmitReview.types'
+export * from './AppendThisReviewWasHelpfullData/AppendThisReviewWasHelpfullData'
+export * from './AppendThisReviewWasHelpfullData/AppendThisReviewWasHelpfullData.types'
 
