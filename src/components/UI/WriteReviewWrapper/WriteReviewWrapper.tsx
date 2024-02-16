@@ -34,6 +34,7 @@ import { handleSubmit } from "@/utils";
 import { Icons } from "@/components/Layouts/Log/Icons";
 import { useLocation } from "react-router-dom";
 import { Product } from "@/context/Data.types";
+import { toast } from "sonner";
 
 const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
   img,
@@ -65,9 +66,18 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant={"default"}>Write a review</Button>
-      </DialogTrigger>
+      {logged && user[0]?.id ? (
+        <DialogTrigger asChild>
+          <Button variant={"default"}>Write a review</Button>
+        </DialogTrigger>
+      ) : (
+        <Button
+          variant={"default"}
+          onClick={() => toast.info("Please login to write a review")}
+        >
+          Write a review
+        </Button>
+      )}
       <DialogContent className="write-review">
         <DialogHeader>
           <DialogTitle className="write-review__title">
