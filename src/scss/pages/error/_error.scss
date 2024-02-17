@@ -1,0 +1,38 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use "../../utils" as u;
+@use "../../base" as *;
+
+/*
+
+   Error Page 
+
+*/
+
+.error__section {
+  @include u.section;
+  @include u.flex(grid, center, center);
+  text-align: center;
+  padding-block: 9rem;
+
+  img {
+    place-self: center;
+    width: 299px;
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    font-size: calc(var(--f-xl) + 0.1rem);
+  }
+
+  button{
+    width: 200px;
+    place-self: center;
+    border-radius: 3px;
+    margin-top: 1rem;
+  }
+}

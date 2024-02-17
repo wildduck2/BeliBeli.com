@@ -72,7 +72,7 @@
             background-color: transparent;
             padding-inline: 0;
             outline: none;
-            border-radius: 0;
+            border-radius: 3px;
             border: none;
             border-bottom: 1px solid #222222;
             box-shadow: none;
@@ -180,7 +180,7 @@
             padding: 0.8rem 1.2rem;
             cursor: pointer;
             font-weight: 500;
-            border-radius: 0;
+            border-radius: 3px;
             background-color: #f3f3f3;
             color: var(--c-black-700);
 
@@ -234,7 +234,7 @@
         @include u.flex(flex, center);
         width: 60%;
         gap: 1rem;
-        border-radius: 0;
+        border-radius: 3px;
         margin-bottom: 2rem;
         border-width: 1px;
         font-weight: 500;
@@ -301,7 +301,7 @@
   justify-content: flex-start;
   gap: 0.5rem;
   text-transform: capitalize;
-  border-radius: 0;
+  border-radius: 3px;
   border: 1px solid #1c232c;
 
   span {

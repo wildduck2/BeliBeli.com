@@ -24,32 +24,31 @@
       gap: 2.25rem;
       width: 204px;
 
-      & > div {
+      & > ul {
+        @include u.flex(flex, flex-start, flex-start);
         @include u.flex(grid, center);
-        gap: 2.25rem;
+        gap: 1.2rem;
+        width: 100%;
 
-        & > ul {
-          @include u.flex(grid, center);
-          gap: 0.25rem;
+        & > li {
+          & > ul {
+            & > li {
+              & > h4 {
+                font-size: var(--f-nor);
+                font-weight: 600;
+                margin-top: 1.2rem;
+              }
 
-          & > h4 {
-            font-size: var(--f-nor);
-            font-weight: 600;
-          }
+              & > a {
+                font-size: var(--f-md);
+                font-weight: 500;
+                color: var(--c-black-700);
+                transition: 0.05s ease-out;
 
-          & > div {
-            @include u.flex(grid);
-            gap: 0.25rem;
-
-            & > a {
-              font-size: var(--f-md);
-              font-weight: 500;
-              color: var(--c-black-700);
-              transition: 0.05s ease-out;
-
-              &:hover {
-                color: hsla(var(--c-red-700),1);
-                text-decoration: underline;
+                &:hover {
+                  color: hsla(var(--c-red-700), 1);
+                  text-decoration: underline;
+                }
               }
             }
           }
@@ -110,7 +109,7 @@
 
           & > h4 {
             font-size: var(--f-lg);
-          font-weight: 600;
+            font-weight: 600;
           }
 
           & > p {

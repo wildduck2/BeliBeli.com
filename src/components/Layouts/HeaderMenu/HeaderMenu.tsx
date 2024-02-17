@@ -16,7 +16,7 @@ import { RootState } from "@/context/store";
 import { useDispatch, useSelector } from "react-redux";
 import { showMobileMenu } from "@/context/Utils";
 
-const navigationLinksData = [
+export const navigationLinksData = [
   WomenHeaderNavigationLink,
   MenHeaderNavigationLink,
   DividedHeaderNavigationLink,

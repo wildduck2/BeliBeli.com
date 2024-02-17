@@ -42,7 +42,7 @@ function App() {
       <HeaderBanner />
       <Header />
       <HeaderNavigationLinks />
-      <HeaderMenu />
+      {/* <HeaderMenu /> */}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -84,15 +84,3 @@ function App() {
 }
 
 export default App;
-
-/**
- * 
- * make write review dialog - Done
- * make review list desing 
- * make add to the cart function
- * make add to the wish list function
- * make show more details dialog
- * edit the db for all products
- * add some men card to fix swiper issue
- * 
- */

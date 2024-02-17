@@ -1,6 +1,8 @@
 import React from "react";
 import { ColorfulBannerProps } from "./ColorfulBanner.types";
-import { Link, Skeleton } from "@/components/UI";
+import { Button, Link, Skeleton } from "@/components/UI";
+import { useNavigate } from "react-router-dom";
+import { categoryData } from "@/constants";
 
 export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
   color,
@@ -10,6 +12,7 @@ export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
   buttonText,
   satatus,
 }) => {
+  const route = useNavigate();
   return (
     <>
       {satatus === "succeeded" ? (
@@ -24,9 +27,18 @@ export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
                 </div>
                 <div>
                   {buttonText?.map((item, index) => (
-                    <Link key={index} href={item}>
+                    <Button
+                      key={index}
+                      variant={"default"}
+                      onClick={() => {
+                        window.scrollTo(0, 0);
+                        route(`/category/${item}`, {
+                          state: categoryData[index],
+                        });
+                      }}
+                    >
                       {item}
-                    </Link>
+                    </Button>
                   ))}
                 </div>
                 <p>{description}</p>
@@ -39,9 +51,18 @@ export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
                 </div>
                 <div>
                   {buttonText?.map((item, index) => (
-                    <Link key={index} href={item}>
+                    <Button
+                      key={index}
+                      variant={"default"}
+                      onClick={() => {
+                        window.scrollTo(0, 0);
+                        route(`/category/${item}`, {
+                          state: categoryData[index],
+                        });
+                      }}
+                    >
                       {item}
-                    </Link>
+                    </Button>
                   ))}
                 </div>
                 <p>{description && description}</p>
@@ -50,7 +71,7 @@ export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
           </div>
         </div>
       ) : (
-            <Skeleton className="colorful-banner__skeleton  " aria-hidden="true" />
+        <Skeleton className="colorful-banner__skeleton  " aria-hidden="true" />
       )}
     </>
   );

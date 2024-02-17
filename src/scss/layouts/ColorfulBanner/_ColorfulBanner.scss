@@ -17,9 +17,9 @@
   @include u.section;
   padding-block: 2rem;
   margin-block: 1.5rem;
-  height: 242px;
 
   &.red {
+    height: 242px;
     background-color: var(--c-red-800);
   }
 
@@ -63,7 +63,7 @@
       @include u.flex(flex, center);
       gap: 1rem;
 
-      a {
+      button {
         cursor: pointer;
         white-space: nowrap;
         background: var(--c-white);
@@ -71,7 +71,7 @@
         padding-block: clamp(0.5rem, 0.4333333333rem + 0.3333333333vw, 0.7rem);
         font-weight: 600;
         color: var(--c-black-700);
-
+        border-radius: 3px;
         font-size: clamp(0.7rem, 0.6666666667rem + 0.1666666667vw, 0.8rem);
       }
     }

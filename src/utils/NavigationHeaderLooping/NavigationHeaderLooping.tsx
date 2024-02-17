@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "../../components/UI";
+import { Link } from "react-router-dom";
 
 interface headerNavigationDataTypes {
   headerNavigationData?: string[][][][];
@@ -8,37 +8,36 @@ interface headerNavigationDataTypes {
 
 const NavigationHeaderLooping = ({
   headerNavigationData,
-  satatus,
 }: headerNavigationDataTypes) => {
-  const HeaderNavigationReactNode = headerNavigationData?.map((item, index) => {
-    return (
-      <div key={index}>
-        {satatus === "succeeded" ? (
-          item.map((child, index) => {
-            return (
-              <ul key={index}>
-                <h4>{child[0]}</h4>
-
-                <div>
-                  {child[1].map((item, index) => {
-                    return (
-                      <Link key={index} href={item}>
-                        {item}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </ul>
-            );
-          })
-        ) : (
-          <h1>laoding </h1>
-        )}
-      </div>
-    );
-  });
-
-  return HeaderNavigationReactNode;
+  return (
+    <ul>
+      {headerNavigationData?.map((item, index) => {
+        return (
+          <li key={index}>
+            {item.map((child) => {
+              return child.map((item, index) => {
+                return (
+                  <ul key={index}>
+                    {item.map((item, index) => {
+                      return (
+                        <li key={index}>
+                          {index === 0 ? (
+                            <h4>{item}</h4>
+                          ) : (
+                            <Link to={item}>{item}</Link>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                );
+              });
+            })}
+          </li>
+        );
+      })}
+    </ul>
+  );
 };
 
 export default NavigationHeaderLooping;

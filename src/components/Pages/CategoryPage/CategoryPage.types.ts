@@ -15,3 +15,23 @@ export interface CategoryPageTypes {
   redBannerWomen: typeof RedBannerWomen;
   blackBannerWomen: typeof BlackBannerWomen;
 }
+
+export type CategoryDataType = {
+  routeText: string;
+  pageTile: string;
+  navigationLink: string[][][][];
+  // discrptionData: {
+  //   1: {
+  //     title: JSX.Element;
+  //     disc: JSX.Element[];
+  //   };
+  //   2: {
+  //     title: JSX.Element;
+  //     disc: JSX.Element[];
+  //   };
+  // };
+  bannerIndexes: number[];
+  redBannerWomen: typeof RedBannerWomen;
+  blackBannerWomen: typeof BlackBannerWomen;
+};
+
