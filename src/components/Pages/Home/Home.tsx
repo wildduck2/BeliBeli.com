@@ -25,7 +25,7 @@ const Home = () => {
 
           />
 
-          <ImgBanner dataIndex={7} satatus={satatus} />
+          <ImgBanner dataIndex={6} satatus={satatus} />
 
           {/* BlackBanner Section */}
           <ColorfulBanner

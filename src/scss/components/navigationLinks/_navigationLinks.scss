@@ -32,10 +32,20 @@
   &__list {
     &__item {
       &__link {
-        & > a {
+        @include u.flex(flex, center, center);
+
+        svg {
+          // width: 1rem;
+          // height: 1rem;
+          // margin-top: -0.3rem;
+          display: none;
+        }
+
+        & > h5 {
           border-bottom: 2px solid transparent;
           transition: 0.3s ease;
           padding-bottom: 0.2rem;
+          font-size: var(--f-lg);
 
           &:hover {
             border-bottom-color: var(--c-black-900);
@@ -45,7 +55,7 @@
 
       &__content {
         @include u.section;
-        padding: .1rem 1.9rem 1.9rem 1.9rem;
+        padding: 0.1rem 1.9rem 1.9rem 1.9rem;
         height: 700px;
 
         & > ul {

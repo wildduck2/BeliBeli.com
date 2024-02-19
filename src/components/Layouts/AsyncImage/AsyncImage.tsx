@@ -4,6 +4,7 @@ interface AsyncImageTypes extends React.ImgHTMLAttributes<HTMLImageElement> {
   media?: string;
   ariaLabel?: string;
   alt?: string;
+  clickable?: boolean;
 }
 
 const LazyLoadingImg = (
@@ -21,6 +22,7 @@ const AsyncImage: React.FC<AsyncImageTypes> = ({
   srcSet,
   media,
   ariaLabel,
+  clickable = false,
   alt = "img loading",
   width = 275,
   height = 384,
@@ -38,7 +40,7 @@ const AsyncImage: React.FC<AsyncImageTypes> = ({
       className="lazyLoaingImg-wrapper"
       ref={wrapperRef}
       onClick={() => {
-        if (srcy !== imgRef.current.src) {
+        if (srcy !== imgRef.current.src && clickable) {
           wrapperRef.current.classList.remove("show--img");
           LazyLoadingImg(imgRef, wrapperRef);
         }

@@ -73,8 +73,8 @@ function App() {
           />
           <Route path="chage-passowrd" element={<ChangePassowrd />} />
         </Route>
-        <Route path="wishlist" element={<WishList />} />
-        <Route path="cart" element={<Cart />} />
+        <Route path="/home/ishlist" element={<WishList />} />
+        <Route path="/home/cart" element={<Cart />} />
 
         <Route path="/*" element={<Error />} />
       </Routes>

@@ -1,14 +1,12 @@
 import React from "react";
-import Link from "../../UI/Link";
-
-import { IoNotificationsOutline } from "react-icons/io5";
-import { logo } from "../../../assets";
-import { AiOutlineShopping } from "react-icons/ai";
-import Search from "../../UI/Search";
-import { useDispatch, useSelector } from "react-redux";
-import { showMobileMenu } from "@/context/Utils";
-import { RootState } from "@/context/store";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/context/store";
+import { HeaderShoppingCard, Link, Search } from "@/components/UI";
+import { showMobileMenu } from "@/context/Utils";
+
+import { HiOutlineHeart } from "react-icons/hi2";
+import { logo } from "../../../assets";
 
 const Header = () => {
   const route = useNavigate();
@@ -31,11 +29,11 @@ const Header = () => {
           </Link>
 
           <div className="header__functionality">
-            <IoNotificationsOutline
-              size={27}
-              onClick={() => route("/wishlist")}
-            />
-            <AiOutlineShopping size={27} onClick={() => route("/cart")} />
+            <div>
+              <HiOutlineHeart  size={27} onClick={() => route("/home/wishlist")} />
+              {/* <span>{0}</span> */}
+            </div>
+            <HeaderShoppingCard />
           </div>
 
           <div className="header__menu" onClick={showMenuHandler}>

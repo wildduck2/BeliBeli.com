@@ -15,16 +15,253 @@
 
 .cart {
   @include u.container;
-  @include u.flex(grid, center);
-  gap: 4rem;
-  margin-block: 3rem 10rem;
 
-  & > div {
-    @include u.flex(grid, center, center);
-    gap: 1rem;
+  & > span {
+    @include u.flex(flex, center);
+    place-content: center;
+    font-size: var(--f-nor);
+    text-transform: capitalize;
 
-    button {
-      border-radius: 3px;
+    span {
+      margin-left: 0.4rem;
     }
+  }
+
+  &__wrapper {
+    @include u.flex(grid, center);
+    padding-block: 1rem 5rem;
+    gap: 3rem;
+
+    &__verify-steps {
+      @include u.flex(grid, center, center);
+      position: relative;
+
+      & > div {
+        @include u.flex(flex, center, center);
+      }
+
+      &__step {
+        @include u.flex(grid, center, center);
+        width: 178px;
+        gap: 0.6rem;
+        z-index: 4;
+
+        span {
+          @include u.flex(flex, center, center);
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: var(--c-gray-200);
+          place-self: center;
+        }
+
+        h4 {
+          font-size: calc(var(--f-nor));
+          text-align: center;
+        }
+
+        &.active {
+          span {
+            background-color: var(--c-black-900);
+            color: var(--c-white);
+          }
+        }
+      }
+
+      &__line {
+        position: absolute;
+        top: 29%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 21%;
+        height: 2px;
+        background-color: var(--c-gray-200);
+        z-index: -1;
+      }
+    }
+
+    &__products {
+      @include u.flex(flex, flex-start, space-between);
+      @include u.container;
+      gap: 13rem;
+      width: 100%;
+
+      &__info {
+        @include u.flex(grid, center);
+        gap: 1rem;
+        width: 100%;
+
+        & > div:first-child {
+          @include u.flex(flex, center, space-between);
+          gap: 12rem;
+
+          h4 {
+            font-size: calc(var(--f-xl) - 0.1rem);
+            text-transform: capitalize;
+            font-weight: 700;
+          }
+
+          button {
+            text-transform: capitalize;
+            border-radius: 3px;
+          }
+        }
+
+        & > div:nth-child(2) {
+          @include u.flex(flex, center);
+          gap: 1rem;
+          background-color: hsla(var(--c-orange-500), 1);
+          padding: 1rem;
+
+          img {
+            width: 40px;
+            height: 40px;
+          }
+
+          h4 {
+            font-size: calc(var(--f-lg) - 0.1rem);
+
+            span {
+              font-weight: 700;
+              margin-right: 0.5rem;
+            }
+          }
+        }
+
+        &__scroll {
+          max-height: 787px;
+          overflow-y: scroll;
+
+          li {
+            @include u.flex(flex, flex-start, space-between);
+            padding-block: 1rem;
+            padding-right: 1rem;
+            border-bottom: 1px solid var(--c-gray-200);
+
+            & > div:first-child {
+              @include u.flex(flex, flex-start, space-between);
+              gap: 1rem;
+
+              & > div {
+                @include u.flex(grid, center);
+                h4 {
+                  font-size: calc(var(--f-nor) + 0.1rem);
+                  margin-bottom: 0.5rem;
+                }
+                h5 {
+                  font-size: calc(var(--f-nor) + 0.05rem);
+                  margin-bottom: 2.5rem;
+                }
+                span {
+                  font-size: calc(var(--f-nor));
+                  color: var(--c-black-400);
+                  margin-bottom: 0.3rem;
+                }
+
+                button {
+                  margin-top: 0.98rem;
+                  padding-inline: 0;
+                  width: fit-content;
+                }
+              }
+            }
+
+            & > div:last-child {
+              @include u.flex(grid, center, space-between);
+              gap: 6rem;
+
+              button {
+                width: fit-content;
+                place-self: end;
+                font-size: var(--f-xl);
+              }
+
+              & > div {
+                @include u.flex(flex, center);
+                gap: 1rem;
+              }
+            }
+          }
+
+          li:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+
+      &__summary {
+        @include u.flex(grid, center);
+        gap: 1rem;
+        width: 70%;
+
+        & > h4 {
+          font-size: calc(var(--f-nor) + 0.1rem);
+        }
+
+        &__input {
+          @include u.flex(flex, center);
+          margin-bottom: 2rem;
+
+          input[type="number"]::-webkit-outer-spin-button,
+          input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+
+          input[type="number"] {
+            border: 1px solid var(--c-gray-200);
+            -moz-appearance: textfield;
+            border-radius: 3px 0 0 3px;
+          }
+
+          button {
+            width: 200px;
+            border-radius: 0 3px 3px 0;
+          }
+        }
+
+        &__total {
+          border: 1px solid var(--c-gray-200);
+          padding: 1rem;
+          border-radius: 3px;
+
+          & > h5 {
+            font-size: calc(var(--f-nor) + 0.2rem);
+            margin-bottom: 0.5rem;
+          }
+
+          & > div {
+            @include u.flex(flex, center, space-between);
+            gap: 1rem;
+            font-size: calc(var(--f-nor) + 0.2rem);
+            margin-bottom: 0.5rem;
+            text-transform: capitalize;
+          }
+
+          & > div:nth-child(2) {
+            font-size: calc(var(--f-nor) + 0.1rem);
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--c-gray-200);
+          }
+
+          & > div:nth-child(4) {
+            font-size: calc(var(--f-nor) - 0.1rem);
+          }
+
+          button {
+            width: 100%;
+            margin-top: 1rem;
+            border-radius: 3px;
+          }
+        }
+      }
+    }
+  }
+
+  &__wrapper__empty {
+    @include u.flex(grid, center);
+    padding-block: 1rem 5rem;
+    gap: 1rem;
+    place-content: center;
   }
 }

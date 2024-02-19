@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import {
   Accordion,
@@ -20,6 +20,10 @@ import { AiOutlineShopping } from "react-icons/ai";
 import { GoPackageDependents } from "react-icons/go";
 import { fastshiping } from "@/assets";
 import useGetReviews from "@/hooks/useGetReviews/useGetReviews";
+import { useDispatch, useSelector } from "react-redux";
+import { addProductToCart } from "@/context/Utils";
+import { RootState } from "@/context/store";
+import { useUser } from "@/hooks";
 
 const height = 883.567;
 
@@ -35,6 +39,10 @@ const ProductShow = () => {
     reviews_id: product.review_id,
   });
 
+  const logged = useSelector((state: RootState) => state.data.logged);
+  const dispatch = useDispatch();
+
+  const user = useUser({ signedout: logged });
 
   return (
     <>
@@ -208,6 +216,7 @@ const ProductShow = () => {
                             key={index}
                             src={item.icon}
                             alt={product.title}
+                            clickable={true}
                             className={`${
                               currentTypeIndex === index && "active"
                             }`}
@@ -252,11 +261,44 @@ const ProductShow = () => {
 
               <div className="products-show__wrapper__main__info__buttons">
                 <div>
-                  <Button variant={"default"}>
+                  <Button
+                    variant={"default"}
+                    onClick={() => {
+                      dispatch(
+                        addProductToCart([{
+                          id: product.id,
+                          name: product.title,
+                          price: parseInt(
+                            product.product_type[currentTypeIndex].sizes[
+                              currentSizeIndex
+                            ].price,
+                          ),
+                          discount: parseInt(
+                            product.product_type[currentTypeIndex].sizes[
+                              currentSizeIndex
+                            ].discount!,
+                          ),
+                          img: product.product_type[currentTypeIndex]
+                            .low_imgs[0],
+                          artNo: product.product_type[currentTypeIndex].art_no,
+                          color: product.product_type[currentTypeIndex].name,
+                          size: product.product_type[currentTypeIndex].sizes[
+                            currentSizeIndex
+                          ].size,
+                          quantity: 1,
+                        }]),
+                      );
+                    }}
+                  >
                     <AiOutlineShopping size={25} />
                     <span>Add to Basket</span>
                   </Button>
-                  <Button variant={"outline"}>
+                  <Button
+                    variant={"outline"}
+                    onClick={() => {
+                      console.log("this is favourite");
+                    }}
+                  >
                     <Heart size={25} />
                     <span>Add to Favourites</span>
                   </Button>
@@ -342,9 +384,9 @@ const ProductShow = () => {
               />
             ) : (
               <div className="skeleton__wrapper">
-                <Skeleton className="skeleton"/>
-                <Skeleton className="skeleton"/>
-                <Skeleton className="skeleton"/>
+                <Skeleton className="skeleton" />
+                <Skeleton className="skeleton" />
+                <Skeleton className="skeleton" />
               </div>
             )}
           </div>

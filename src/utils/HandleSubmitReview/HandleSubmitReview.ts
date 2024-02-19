@@ -52,8 +52,6 @@ export const handleSubmit = async ({
             throw error;
           }
 
-          console.log("existingData", existingData);
-
           const product_reviews = [product_review, ...existingData[0].reviews];
 
           const { data: updatedRow, error: updateError } = (await supabase
@@ -72,8 +70,6 @@ export const handleSubmit = async ({
           dialogClose.current?.click();
 
           setAllReviews(updatedRow[0]);
-
-          console.log("Updated row:", updatedRow, updateError);
         } catch (error) {
           console.error("Error updating row:", error as string);
         }

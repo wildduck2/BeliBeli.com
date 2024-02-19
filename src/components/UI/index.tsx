@@ -44,4 +44,7 @@ export { default as WriteReviewWrapper } from "./WriteReviewWrapper/WriteReviewW
 export { Textarea } from "./Textarea/Textarea";
 export * from "./RadioGroup/RadioGroup";
 export * from "./AlertDialog/AlertDialog";
-export { default as ProductReviews } from './ProductReviews/ProductReviews'
+export { default as ProductReviews } from "./ProductReviews/ProductReviews";
+export { default as HeaderShoppingCard } from "./HeaderShoppingCard/HeaderShoppingCard";
+export { default as DeliverToWrapper } from "./DeliverToWrapper/DeliverToWrapper";
+export * from "./ScrollArea/ScrollArea";

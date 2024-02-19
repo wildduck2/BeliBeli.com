@@ -127,6 +127,23 @@
       cursor: pointer;
     }
 
+    div {
+      position: relative;
+
+      span {
+        @include u.flex(flex, center, center);
+        position: absolute;
+        top: 61%;
+        right: -5px;
+        width: 17px;
+        height: 17px;
+        background-color: hsla(var(--c-red-700), 1);
+        color: var(--c-white);
+        font-size: calc(var(--f-nor) - 0.1rem);
+        border-radius: 50%;
+      }
+    }
+
     @include u.breakpoint("medium") {
       @include u.flex(flex, center, center);
     }
