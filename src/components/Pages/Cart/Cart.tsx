@@ -92,7 +92,7 @@ const Cart = () => {
               <ScrollArea className="cart__wrapper__products__info__scroll">
                 {cartProducts.map((item, index) => (
                   <CartProductComponent
-                    key={index}
+                    key={item.id}
                     item={item}
                     index={index}
                     setCart={setCart}
