@@ -69,11 +69,9 @@ export const utilSlice = createSlice({
     },
     removeProductCart: (state, action) => {
       if (action.payload) {
-        state.cartProducts.splice(
-          state.cartProducts.findIndex(
-            (item) => item.id === action.payload.product.id,
-          ),
-          1,
+        
+        state.cartProducts = state.cartProducts.filter(
+          (item) => item.id !== action.payload.product.id
         );
       }
     },
