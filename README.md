@@ -8,7 +8,7 @@ BeliBeli: Independently developed an e-commerce clothes shop built with React as
 
 -   **Tech Stack:** REACT, SCSS, TypeScript, GSAP, Supabase, Redux
 -   **GitHub Repository:** [Link]([https://github.com/thecoder512/ahmed-ayob-portofolio-with-ts](https://github.com/thecoder512/BeliBeli.com))
--   **Live Demo:** [Link](belibeli.vercel.app)
+-   **Live Demo:** [Link]([belibeli.vercel.app](https://belibeli.vercel.app/))
 
 ## Contact
 
