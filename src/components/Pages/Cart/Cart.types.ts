@@ -12,11 +12,6 @@ export interface CartProduct {
 
 export interface CartProductProps {
   item: CartProduct;
-  updateQuantity: (
-    index: number,
-    newQuantity: number,
-    setCart: React.Dispatch<React.SetStateAction<CartProduct[]>>,
-  ) => void;
   index: number;
   setCart: React.Dispatch<React.SetStateAction<CartProduct[]>>;
 }

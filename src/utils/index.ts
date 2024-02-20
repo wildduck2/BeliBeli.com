@@ -17,4 +17,5 @@ export * from "./HandleSubmitReview/HandleSubmitReview.types";
 export * from "./AppendThisReviewWasHelpfullData/AppendThisReviewWasHelpfullData";
 export * from "./AppendThisReviewWasHelpfullData/AppendThisReviewWasHelpfullData.types";
 export * from "./Formatter/Fortmatter";
-export {default as PushProductCart} from "./PushProductCart/PushProductCart";
+export * from "./PushProductCart/PushProductCart";
+export * from "./RemoveProductCart/RemoveProductCart";

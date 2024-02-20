@@ -4,7 +4,10 @@ import { supabase } from "@/supabase/supabase";
 import { PostgrestSingleResponse } from "@supabase/supabase-js";
 import { toast } from "sonner";
 
-const PushProductCart = async (product: CartProduct[]) => {
+export interface PushProductCartProps {
+  products: CartProduct[];
+}
+const PushProductCart = async ({ products }: PushProductCartProps) => {
   const promise = new Promise((resolve, reject) => {
     const cb = async () => {
       try {
@@ -14,50 +17,27 @@ const PushProductCart = async (product: CartProduct[]) => {
           reject(usererror);
           return;
         } else {
-          const { data: currentCart, error: currentCartError } = (await supabase
+          const { data, error } = (await supabase
             .from("users")
-            .select("user_cart")
-            .eq("id", user.user.id)) as PostgrestSingleResponse<User[]>;
+            .update({
+              user_cart: products,
+            })
+            .eq("id", user.user.id)
+            .select()) as PostgrestSingleResponse<User[]>;
 
-          if (currentCartError) {
+          if (error) {
             reject(usererror);
-            return;
+            throw new Error("Failed to add product to cart");
           } else {
-            if (
-              currentCart![0].user_cart?.find(
-                (item) => item.id === product[0].id,
-              )
-            ) {
-              toast.error("Product already in cart");
-              reject(usererror);
-            } else {
-              const finalCart = [
-                ...(currentCart![0].user_cart || []),
-                product[0],
-              ];
-
-              const { data, error } = (await supabase
-                .from("users")
-                .update({
-                  user_cart: finalCart,
-                })
-                .eq("id", user.user.id)
-                .select()) as PostgrestSingleResponse<User[]>;
-
-              if (error) {
-                reject(usererror);
-                throw new Error("something went wrong");
-              } else {
-                resolve(data![0].user_cart);
-              }
-            }
+            console.log(products);
+            localStorage.setItem("cartProducts", JSON.stringify(products));
+            resolve(data![0].user_cart);
           }
         }
       } catch (error) {
-        throw new Error("something went wrong");
+        throw new Error("something went wrong in adding product to cart");
       }
     };
-
     cb();
   });
 
@@ -68,4 +48,4 @@ const PushProductCart = async (product: CartProduct[]) => {
   });
 };
 
-export default PushProductCart;
+export { PushProductCart };

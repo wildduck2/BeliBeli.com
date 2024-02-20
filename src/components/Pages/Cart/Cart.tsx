@@ -1,101 +1,36 @@
-import React, { useEffect, useState } from "react";
-import { Button, DeliverToWrapper, Input, ScrollArea } from "@/components/UI";
+import React from "react";
 import { useLocation } from "react-router-dom";
-import { recover } from "@/assets";
-import { AsyncImage } from "loadable-image";
-import { MdOutlineDeleteOutline } from "react-icons/md";
-import { CartProduct, CartProductProps } from "./Cart.types";
-import { formatter, updateQuantity } from "@/utils";
 import { RootState } from "@/context/store";
-import { useSelector } from "react-redux";
-import { supabase } from "@/supabase/supabase";
-import { toast } from "sonner";
-import {
-  PostgrestSingleResponse,
-  User as UserSupa,
-} from "@supabase/supabase-js";
-import { User } from "@/context/Data.types";
+import { useDispatch, useSelector } from "react-redux";
+import { AsyncImage } from "loadable-image";
+import { Button, DeliverToWrapper, Input, ScrollArea } from "@/components/UI";
+import { MdOutlineDeleteOutline } from "react-icons/md";
+import { CartProductProps } from "./Cart.types";
+import { RemoveProductCart, formatter } from "@/utils";
+import { recover } from "@/assets";
+import { useGetCartProducts } from "@/hooks";
+import { updateCartProducts } from "@/context/Utils";
 
 const steps = ["Bag", "Delivery and Payment", "Confirmation"];
-
-export interface useGetCartProducts {
-  user_id: string | undefined;
-}
-
-const useGetCartProducts = () => {
-  const cartProductsLocal = JSON.parse(localStorage.getItem("cartProducts")!);
-  const logged = useSelector((state: RootState) => state.data.logged);
-  const [cart, setCart] = React.useState<CartProduct[]>(cartProductsLocal);
-  const [error, setError] = React.useState<string>("");
-  const [user, setUser] = useState<UserSupa>();
-
-  console.log(cartProductsLocal);
-  const cb = async () => {
-    try {
-      if (logged && cartProductsLocal === null) {
-        const { data: user, error: userError } = await supabase.auth.getUser();
-
-        if (userError) {
-          toast.error("You are not logged in");
-          throw new Error(userError.message);
-        } else {
-          setUser(user.user);
-
-          const { data, error } = (await supabase
-            .from("users")
-            .select("user_cart")
-            .eq("id", user.user?.id)) as PostgrestSingleResponse<User[]>;
-
-          if (data) {
-            localStorage.setItem(
-              "cartProducts",
-              JSON.stringify(data[0].user_cart),
-            );
-            setCart(data[0].user_cart);
-          } else {
-            toast.error("Faild to get cart");
-            setError(error.message);
-          }
-        }
-      }
-    } catch (error) {
-      toast.error("Faild to get cart");
-      throw new Error(error as string);
-    }
-  };
-
-  useEffect(() => {
-    cb();
-  }, []);
-
-  return { cart, error, user } as const;
-};
 
 const Cart = () => {
   const location = useLocation();
   const logged = useSelector((state: RootState) => state.data.logged);
-  const { cart: carts, error, user } = useGetCartProducts();
-  const cartProductsLocal = JSON.parse(localStorage.getItem("cartProducts")!);
   const cartProducts = useSelector(
     (state: RootState) => state.util.cartProducts,
   );
-
+  const { cart, setCart, error, user } = useGetCartProducts(cartProducts);
   const [totalPrice, setTotalPrice] = React.useState(0);
-  const [cart, setCart] = React.useState<CartProduct[]>(
-    cartProductsLocal || cartProducts || carts,
-  );
 
   React.useEffect(() => {
-    setCart(carts);
-    localStorage.setItem("cartProducts", JSON.stringify(carts));
-    if (cart) {
-      const total = cart.reduce(
+    if (cartProducts) {
+      const total = cartProducts.reduce(
         (acc, item) => acc + item.price * item.quantity,
         0,
       );
       setTotalPrice(total);
     }
-  }, [cart, carts]);
+  }, [cartProducts]);
 
   return (
     <main className="cart">
@@ -112,7 +47,7 @@ const Cart = () => {
         })}
       </span>
 
-      {cart && logged && user !== null ? (
+      {cartProducts && cartProducts.length && logged && user !== null ? (
         <div className="cart__wrapper">
           <div className="cart__wrapper__verify-steps">
             <div>
@@ -149,12 +84,11 @@ const Cart = () => {
               </div>
 
               <ScrollArea className="cart__wrapper__products__info__scroll">
-                {cart.map((item, index) => (
+                {cartProducts.map((item, index) => (
                   <CartProductComponent
                     key={index}
                     item={item}
                     index={index}
-                    updateQuantity={updateQuantity}
                     setCart={setCart}
                   />
                 ))}
@@ -200,17 +134,18 @@ const Cart = () => {
 
 export default Cart;
 
-const CartProductComponent = ({
-  item,
-  index,
-  updateQuantity,
-  setCart,
-}: CartProductProps) => {
+const CartProductComponent = ({ item, index, setCart }: CartProductProps) => {
   const [quantity, setQuantity] = React.useState(item.quantity);
+  const dispatch = useDispatch();
 
   const handleQuantityChange = (newQuantity: number) => {
     setQuantity(newQuantity);
-    updateQuantity(index, newQuantity, setCart);
+    setCart((prevCart) => {
+      const newCart = [...prevCart];
+      newCart[index].quantity + 1;
+      return newCart;
+    });
+    dispatch(updateCartProducts({ product: item, quantity: newQuantity }));
   };
 
   return (
@@ -240,7 +175,16 @@ const CartProductComponent = ({
       </div>
 
       <div>
-        <Button variant={"destructive"}>
+        <Button
+          variant={"destructive"}
+          onClick={() => {
+            // dispatch(removeProductCart({ product: item }));
+            RemoveProductCart({
+              product: item,
+              dispatch,
+            });
+          }}
+        >
           <MdOutlineDeleteOutline size={23} />
         </Button>
 

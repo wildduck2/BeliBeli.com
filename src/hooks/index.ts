@@ -5,3 +5,4 @@ export { default as useShopProductData } from "./useShopProductData/useShopProdu
 export * from "./useAuth/useAuth.tsx";
 export * from "./useSession/useSession.tsx";
 export * from "./useSession/useSession.types.ts";
+export { default as useGetCartProducts } from "./useGetCartProducts/useGetCartProducts.ts";

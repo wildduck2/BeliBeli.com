@@ -43,6 +43,22 @@ const ProductShow = () => {
   const dispatch = useDispatch();
 
   const user = useUser({ signedout: logged });
+  const cartProduct = {
+    user_id: user[0]?.id,
+    id: product.id,
+    name: product.title,
+    price: parseInt(
+      product.product_type[currentTypeIndex].sizes[currentSizeIndex].price,
+    ),
+    discount: parseInt(
+      product.product_type[currentTypeIndex].sizes[currentSizeIndex].discount!,
+    ),
+    img: product.product_type[currentTypeIndex].low_imgs[0],
+    artNo: product.product_type[currentTypeIndex].art_no,
+    color: product.product_type[currentTypeIndex].name,
+    size: product.product_type[currentTypeIndex].sizes[currentSizeIndex].size,
+    quantity: 1,
+  };
 
   return (
     <>
@@ -264,30 +280,7 @@ const ProductShow = () => {
                   <Button
                     variant={"default"}
                     onClick={() => {
-                      dispatch(
-                        addProductToCart([{
-                          id: product.id,
-                          name: product.title,
-                          price: parseInt(
-                            product.product_type[currentTypeIndex].sizes[
-                              currentSizeIndex
-                            ].price,
-                          ),
-                          discount: parseInt(
-                            product.product_type[currentTypeIndex].sizes[
-                              currentSizeIndex
-                            ].discount!,
-                          ),
-                          img: product.product_type[currentTypeIndex]
-                            .low_imgs[0],
-                          artNo: product.product_type[currentTypeIndex].art_no,
-                          color: product.product_type[currentTypeIndex].name,
-                          size: product.product_type[currentTypeIndex].sizes[
-                            currentSizeIndex
-                          ].size,
-                          quantity: 1,
-                        }]),
-                      );
+                      dispatch(addProductToCart(cartProduct));
                     }}
                   >
                     <AiOutlineShopping size={25} />

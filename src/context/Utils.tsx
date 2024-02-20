@@ -39,15 +39,33 @@ export const utilSlice = createSlice({
         state.emailisnotvalid = action.payload;
       }
     },
+    getCartProducts: (state, action) => {
+      state.cartProducts = action.payload;
+      console.log(state.cartProducts);
+    },
+    updateCartProducts: (state, action) => {
+      if (action.payload) {
+        state.cartProducts!.find(
+          (item) => item.id === action.payload.product.id,
+        )!.quantity = action.payload.quantity;
+      }
+    },
     addProductToCart: (state, action) => {
       if (action.payload) {
         if (state.cartProducts.find((item) => item.id === action.payload.id)) {
-          console.log("already in cart");
           toast.error("Product already in cart");
         } else {
-          state.cartProducts.push(action.payload);
-          PushProductCart(action.payload);
+          state.cartProducts = [...state.cartProducts, action.payload];
+          PushProductCart({ products: state.cartProducts });
         }
+      }
+    },
+    removeProductCart: (state, action) => {
+      if (action.payload) {
+        state.cartProducts.splice(
+          state.cartProducts.findIndex((item) => item.id === action.payload.id),
+          1,
+        );
       }
     },
   },
@@ -59,5 +77,8 @@ export const {
   showMobileMenu,
   checkInputsValid,
   emailisnotvalid,
+  getCartProducts,
+  updateCartProducts,
   addProductToCart,
+  removeProductCart,
 } = utilSlice.actions;
