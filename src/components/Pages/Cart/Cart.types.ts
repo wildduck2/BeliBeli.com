@@ -1,3 +1,5 @@
+import { UUID } from "crypto";
+
 export interface CartProduct {
   id: number;
   name: string;
@@ -14,6 +16,7 @@ export interface CartProductProps {
   item: CartProduct;
   index: number;
   setCart: React.Dispatch<React.SetStateAction<CartProduct[]>>;
+  user_id: UUID;
 }
 
 export interface handleQuantityChange {

@@ -58,6 +58,6 @@ const useGetCartProducts = (cartProducts: CartProduct[]) => {
     cb();
   }, []);
 
-  return { cart, setCart, error, user } as const;
+  return { cart, setCart, error, user  } as const;
 };
 export default useGetCartProducts;

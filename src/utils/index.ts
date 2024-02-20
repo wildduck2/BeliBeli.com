@@ -19,3 +19,4 @@ export * from "./AppendThisReviewWasHelpfullData/AppendThisReviewWasHelpfullData
 export * from "./Formatter/Fortmatter";
 export * from "./PushProductCart/PushProductCart";
 export * from "./RemoveProductCart/RemoveProductCart";
+export * from './handleQuantityChange/handleQuantityChange'

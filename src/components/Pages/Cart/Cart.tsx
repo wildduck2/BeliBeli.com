@@ -6,10 +6,11 @@ import { AsyncImage } from "loadable-image";
 import { Button, DeliverToWrapper, Input, ScrollArea } from "@/components/UI";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { CartProductProps } from "./Cart.types";
-import { RemoveProductCart, formatter } from "@/utils";
+import { RemoveProductCart, formatter, handleQuantityChange } from "@/utils";
 import { recover } from "@/assets";
 import { useGetCartProducts } from "@/hooks";
-import { updateCartProducts } from "@/context/Utils";
+import { removeProductCart, updateCartProducts } from "@/context/Utils";
+import { UUID } from "crypto";
 
 const steps = ["Bag", "Delivery and Payment", "Confirmation"];
 
@@ -19,8 +20,13 @@ const Cart = () => {
   const cartProducts = useSelector(
     (state: RootState) => state.util.cartProducts,
   );
+
   const { cart, setCart, error, user } = useGetCartProducts(cartProducts);
   const [totalPrice, setTotalPrice] = React.useState(0);
+  
+
+  console.log(cartProducts);
+  
 
   React.useEffect(() => {
     if (cartProducts) {
@@ -90,6 +96,7 @@ const Cart = () => {
                     item={item}
                     index={index}
                     setCart={setCart}
+                    user_id={user?.id as UUID}
                   />
                 ))}
               </ScrollArea>
@@ -134,19 +141,14 @@ const Cart = () => {
 
 export default Cart;
 
-const CartProductComponent = ({ item, index, setCart }: CartProductProps) => {
+const CartProductComponent = ({
+  item,
+  index,
+  setCart,
+  user_id,
+}: CartProductProps) => {
   const [quantity, setQuantity] = React.useState(item.quantity);
   const dispatch = useDispatch();
-
-  const handleQuantityChange = (newQuantity: number) => {
-    setQuantity(newQuantity);
-    setCart((prevCart) => {
-      const newCart = [...prevCart];
-      newCart[index].quantity + 1;
-      return newCart;
-    });
-    dispatch(updateCartProducts({ product: item, quantity: newQuantity }));
-  };
 
   return (
     <li>
@@ -178,11 +180,11 @@ const CartProductComponent = ({ item, index, setCart }: CartProductProps) => {
         <Button
           variant={"destructive"}
           onClick={() => {
-            // dispatch(removeProductCart({ product: item }));
-            RemoveProductCart({
-              product: item,
-              dispatch,
-            });
+            dispatch(removeProductCart({ product: item }));
+            // RemoveProductCart({
+            //   product: item,
+            //   dispatch,
+            // });
           }}
         >
           <MdOutlineDeleteOutline size={23} />
@@ -192,7 +194,13 @@ const CartProductComponent = ({ item, index, setCart }: CartProductProps) => {
           <Button
             variant={"secondary"}
             onClick={() =>
-              handleQuantityChange(quantity > 1 ? quantity - 1 : 1)
+              handleQuantityChange({
+                dispatch,
+                item,
+                newQuantity: quantity > 1 ? quantity - 1 : 1,
+                setQuantity,
+                user_id,
+              })
             }
           >
             -
@@ -200,7 +208,15 @@ const CartProductComponent = ({ item, index, setCart }: CartProductProps) => {
           <span>{quantity}</span>
           <Button
             variant={"default"}
-            onClick={() => handleQuantityChange(quantity + 1)}
+            onClick={() =>
+              handleQuantityChange({
+                dispatch,
+                item,
+                newQuantity: quantity + 1,
+                setQuantity,
+                user_id,
+              })
+            }
           >
             +
           </Button>
