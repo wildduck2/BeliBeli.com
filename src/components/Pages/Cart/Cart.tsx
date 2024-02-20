@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { RootState } from "@/context/store";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,10 +23,8 @@ const Cart = () => {
 
   const { cart, setCart, error, user } = useGetCartProducts(cartProducts);
   const [totalPrice, setTotalPrice] = React.useState(0);
-  
 
   console.log(cartProducts);
-  
 
   React.useEffect(() => {
     if (cartProducts) {
@@ -92,7 +90,7 @@ const Cart = () => {
               <ScrollArea className="cart__wrapper__products__info__scroll">
                 {cartProducts.map((item, index) => (
                   <CartProductComponent
-                    key={index}
+                    key={item.id}
                     item={item}
                     index={index}
                     setCart={setCart}
@@ -147,8 +145,11 @@ const CartProductComponent = ({
   setCart,
   user_id,
 }: CartProductProps) => {
-  const [quantity, setQuantity] = React.useState(item.quantity);
+  const [quantity, setQuantity] = useState(item.quantity);
   const dispatch = useDispatch();
+  
+  console.log(item.quantity, quantity);
+  
 
   return (
     <li>

@@ -48,28 +48,35 @@ export const utilSlice = createSlice({
           (item) => item.id === action.payload.product.id,
         )!.quantity = action.payload.quantity;
 
-        // updateCartProductsFunc({
-        //   allProducts: state.cartProducts,
-        //   product: action.payload.product,
-        //   user_id: action.payload.user_id,
-        //   quantity: action.payload.quantity,
-        // });
+        updateCartProductsFunc({
+          allProducts: state.cartProducts,
+          product: action.payload.product,
+          user_id: action.payload.user_id,
+          quantity: action.payload.quantity,
+        });
       }
     },
     addProductToCart: (state, action) => {
-      state.cartProducts = [...state.cartProducts, action.payload];
-      // if (action.payload) {
-      //   if (state.cartProducts.find((item) => item.id === action.payload.id)) {
-      //     toast.error("Product already in cart");
-      //   } else {
-      //     state.cartProducts = [...state.cartProducts, action.payload];
-      //     // PushProductCart({ products: state.cartProducts });
-      //   }
-      // }
+          state.cartProducts = [...state.cartProducts, action.payload];
+      if (action.payload) {
+        if (state.cartProducts.find((item) => item.id === action.payload.id)) {
+          toast.error("Product already in cart");
+        } else {
+          state.cartProducts = [...state.cartProducts, action.payload];
+          // PushProductCart({ products: state.cartProducts });
+        }
+      }
     },
     removeProductCart: (state, action) => {
       if (action.payload) {
         state.cartProducts.splice(
+          state.cartProducts.findIndex(
+            (item) => item.id === action.payload.product.id,
+          ),
+          1,
+        );
+                      
+        console.log(
           state.cartProducts.findIndex(
             (item) => item.id === action.payload.product.id,
           ),
