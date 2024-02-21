@@ -1,10 +1,10 @@
-import { CartProduct } from "@/components/Pages/Cart/Cart.types";
-import { User } from "@/context/Data.types";
-import { removeProductCart } from "@/context/Utils";
-import { supabase } from "@/supabase/supabase";
-import { PostgrestSingleResponse } from "@supabase/supabase-js";
-import { AnyAction, Dispatch } from "redux";
-import { toast } from "sonner";
+import { CartProduct } from '@/components/Pages/Cart/Cart.types';
+import { User } from '@/context/Data.types';
+import { removeProductCart } from '@/context/Utils';
+import { supabase } from '@/supabase/supabase';
+import { PostgrestSingleResponse } from '@supabase/supabase-js';
+import { AnyAction, Dispatch } from 'redux';
+import { toast } from 'sonner';
 
 export interface RemoveProductCartProps {
   product: CartProduct;
@@ -13,7 +13,7 @@ export interface RemoveProductCartProps {
 
 const RemoveProductCart = async ({
   product,
-  dispatch,
+  dispatch
 }: RemoveProductCartProps) => {
   const promise = new Promise((resolve, reject) => {
     const cb = async () => {
@@ -25,9 +25,9 @@ const RemoveProductCart = async ({
           return;
         } else {
           const { data: currentCart, error: currentCartError } = (await supabase
-            .from("users")
-            .select("user_cart")
-            .eq("id", user.user.id)) as PostgrestSingleResponse<User[]>;
+            .from('users')
+            .select('user_cart')
+            .eq('id', user.user.id)) as PostgrestSingleResponse<User[]>;
 
           if (currentCartError) {
             reject(usererror);
@@ -36,20 +36,20 @@ const RemoveProductCart = async ({
             const finalCart = [...(currentCart![0].user_cart || [])];
             finalCart.splice(
               finalCart.findIndex((item) => item.id === product.id),
-              1,
+              1
             );
 
             const { data, error } = (await supabase
-              .from("users")
+              .from('users')
               .update({
-                user_cart: finalCart,
+                user_cart: finalCart
               })
-              .eq("id", user.user.id)
+              .eq('id', user.user.id)
               .select()) as PostgrestSingleResponse<User[]>;
 
             if (error) {
               reject(usererror);
-              throw new Error("something went wrong");
+              throw new Error('something went wrong');
             } else {
               dispatch(removeProductCart({ product }));
               resolve(data![0].user_cart);
@@ -57,7 +57,7 @@ const RemoveProductCart = async ({
           }
         }
       } catch (error) {
-        throw new Error("something went wrong");
+        throw new Error('something went wrong');
       }
     };
 
@@ -65,9 +65,9 @@ const RemoveProductCart = async ({
   });
 
   toast.promise(promise, {
-    success: "Product removed from cart!",
-    loading: "Removing product from cart...",
-    error: "Something went wrong!",
+    success: 'Product removed from cart!',
+    loading: 'Removing product from cart...',
+    error: 'Something went wrong!'
   });
 };
 

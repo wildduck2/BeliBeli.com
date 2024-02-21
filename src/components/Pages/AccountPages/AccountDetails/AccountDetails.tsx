@@ -1,8 +1,8 @@
-import React from "react";
-import { Button, Input } from "@/components/UI";
-import { useSelector } from "react-redux";
-import { RootState } from "@/context/store";
-import { useUser } from "@/hooks";
+import React from 'react';
+import { Button, Input } from '@/components/UI';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/context/store';
+import { useUser } from '@/hooks';
 
 const AccountDetails = () => {
   const logged = useSelector((state: RootState) => state.data.logged);
@@ -19,7 +19,11 @@ const AccountDetails = () => {
         </div>
         <div>
           <label htmlFor="number">Mobile Number</label>
-          <Input id="number" className="input" value={`+20${userData[0]?.phone}`} />
+          <Input
+            id="number"
+            className="input"
+            value={`+20${userData[0]?.phone}`}
+          />
         </div>
         <div>
           <label htmlFor="email">Eamil Address</label>

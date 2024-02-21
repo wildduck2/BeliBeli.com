@@ -1,5 +1,5 @@
-import React from "react";
-import { Button } from "@/components/UI";
+import React from 'react';
+import { Button } from '@/components/UI';
 
 const WishList = () => {
   return (

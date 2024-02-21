@@ -1,21 +1,21 @@
-import React from "react";
-import { Box, Rating } from "@mui/material";
-import { Star } from "lucide-react";
-import { Button, WriteReviewWrapper } from "..";
-import { ReviewCard } from "@/components/Layouts";
+import React from 'react';
+import { Box, Rating } from '@mui/material';
+import { Star } from 'lucide-react';
+import { Button, WriteReviewWrapper } from '..';
+import { ReviewCard } from '@/components/Layouts';
 import {
   MoreReviewsButtonProps,
-  ProductReviewsProps,
-} from "./ProductReviews.types";
-import { Product_review } from "@/context/Data.types";
-import { Icons } from "@/components/Layouts/Log/Icons";
-import { toast } from "sonner";
+  ProductReviewsProps
+} from './ProductReviews.types';
+import { Product_review } from '@/context/Data.types';
+import { Icons } from '@/components/Layouts/Log/Icons';
+import { toast } from 'sonner';
 
 const ProductReviews: React.FC<ProductReviewsProps> = ({
   finalRate,
   product,
   reviews,
-  currentTypeIndex,
+  currentTypeIndex
 }) => {
   const [allReviews, setAllReviews] = React.useState<Product_review>(reviews);
   const [previewedCards, setPreviewedCards] = React.useState<number>(1);
@@ -65,7 +65,9 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({
       <ul className="products-show__wrapper__second__items">
         {allReviews.reviews.map((item, index) => {
           return (
-            index <= previewedCards && <ReviewCard key={index} index={index} review={item} />
+            index <= previewedCards && (
+              <ReviewCard key={index} index={index} review={item} />
+            )
           );
         })}
       </ul>
@@ -80,16 +82,16 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({
 
 function MoreReviewsButton({
   allReviews,
-  setPreviewedCards,
+  setPreviewedCards
 }: MoreReviewsButtonProps) {
   const [loading, setLoading] = React.useState<boolean>(false);
   return (
     <Button
-      variant={"default"}
+      variant={'default'}
       onClick={() => {
         setPreviewedCards((prev) => {
           if (allReviews.reviews.length < prev + 2) {
-            toast.error("No more reviews", { duration: 2000 });
+            toast.error('No more reviews', { duration: 2000 });
           }
           return prev >= allReviews.reviews.length ? prev : prev + 2;
         });
@@ -100,7 +102,7 @@ function MoreReviewsButton({
         }, 500);
       }}
     >
-      {loading ? <Icons.spinner className="animate-spin" /> : "Submit"}
+      {loading ? <Icons.spinner className="animate-spin" /> : 'Submit'}
     </Button>
   );
 }

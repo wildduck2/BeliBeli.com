@@ -1,100 +1,100 @@
 {
-    "data": [
-        {
-            "id": "men1",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/slimFitCottonPoloShirt.webp",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/slimFitCottonPoloShirt.webp"
-            },
-            "title": "Slim Fit Cotton polo shirt",
-            "price": "599.00",
-            "discount": "550.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "men2",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/slimFitJumber.webp",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/slimFitJumber.webp"
-            },
-            "title": "Slim Fit jumper",
-            "price": "1199.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "men3",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/fineKitJumper.webp",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/fineKitJumper.webp"
-            },
-            "title": "Fine-knit jumper",
-            "price": "699.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "men4",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/regularFitPoloNeckJumper.jpg",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/regularFitPoloNeckJumper.jpg"
-            },
-            "title": "Regular Fit Polo-neck jumper",
-            "price": "1099.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "men5",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/regularFitPoloNeckJumper2.jpg",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/regularFitPoloNeckJumper2.jpg"
-            },
-            "title": "Regular Fit Polo-neck jumper",
-            "price": "999.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "men6",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/ribKnitHat.jpg",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/ribKnitHat.jpg"
-            },
-            "title": "Rib-knit hat",
-            "price": "400.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "men7",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/regularFitPoloNeckJumper3.jpg",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/regularFitPoloNeckJumper3.jpg"
-            },
-            "title": "Regular Fit Polo-neck jumper",
-            "price": "999.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "men8",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/regularFitPoloNeckJumper3.webp",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/regularFitPoloNeckJumper3.webp"
-            },
-            "title": "Regular Fit Cable-knit cardigan",
-            "price": "2499.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        }
-    ]
+  "data": [
+    {
+      "id": "men1",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/slimFitCottonPoloShirt.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/slimFitCottonPoloShirt.webp"
+      },
+      "title": "Slim Fit Cotton polo shirt",
+      "price": "599.00",
+      "discount": "550.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "men2",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/slimFitJumber.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/slimFitJumber.webp"
+      },
+      "title": "Slim Fit jumper",
+      "price": "1199.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "men3",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/fineKitJumper.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/fineKitJumper.webp"
+      },
+      "title": "Fine-knit jumper",
+      "price": "699.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "men4",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/regularFitPoloNeckJumper.jpg",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/regularFitPoloNeckJumper.jpg"
+      },
+      "title": "Regular Fit Polo-neck jumper",
+      "price": "1099.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "men5",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/regularFitPoloNeckJumper2.jpg",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/regularFitPoloNeckJumper2.jpg"
+      },
+      "title": "Regular Fit Polo-neck jumper",
+      "price": "999.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "men6",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/ribKnitHat.jpg",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/ribKnitHat.jpg"
+      },
+      "title": "Rib-knit hat",
+      "price": "400.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "men7",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/regularFitPoloNeckJumper3.jpg",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/regularFitPoloNeckJumper3.jpg"
+      },
+      "title": "Regular Fit Polo-neck jumper",
+      "price": "999.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "men8",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/regularFitPoloNeckJumper3.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/regularFitPoloNeckJumper3.webp"
+      },
+      "title": "Regular Fit Cable-knit cardigan",
+      "price": "2499.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    }
+  ]
 }

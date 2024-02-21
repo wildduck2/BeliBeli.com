@@ -1,244 +1,244 @@
 {
-    "data": [
-        {
-            "id": "customerAlsoViewed1",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/slimMomHighAnkleJeans.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/slimMomHighAnkleJeans.webp"
-            },
-            "title": "Slim Mom High Ankle Jeans",
-            "price": "1099.00",
-            "discount": "550.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed2",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/MomLooseFitHighAnkejeans.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/MomLooseFitHighAnkejeans.webp"
-            },
-            "title": "Mom Loose-fit High Ankle Jeans",
-            "price": "749.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed3",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/Momjeans.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Mom Jeans",
-            "price": "1499.00",
-            "discount": "450.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed4",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/flaredHighJeans.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Flared High Ankle Jeans",
-            "price": "749.00",
-            "discount": "260.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed5",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/momUltraHighAnkeJeans.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Mom Ultra High Ankle Jeans",
-            "price": "999.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed6",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/90sSkinnyRefularAnkleJeans.jpg",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "90s Skinny Regular Ankle Jeans",
-            "price": "899.00",
-            "discount": "520.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed7",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/toperedHighANkeJeans.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Tapered High Ankle Jeans",
-            "price": "999.00",
-            "discount": "600.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed8",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/slimHighANkeJEans2.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Slim High Ankle Jeans",
-            "price": "999.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed9",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/straightRegularAnkleJeans2.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Straight Regular Ankle Jeans",
-            "price": "1199.00",
-            "discount": "600.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed10",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/straightRegularJeans2.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Straight Regular Jeans",
-            "price": "1499.00",
-            "discount": "750.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed11",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/skinnyHighAnkleJeans.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Skinny High Ankle Jeans",
-            "price": "899.00",
-            "discount": "550.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed12",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/90sSkinnyRefularAnkleJeans2.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "90s Skinny Regular Ankle Jeans",
-            "price": "899.00",
-            "discount": "520.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed13",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/slimHighANkeJEans2.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Slim Mom High Ankle Jeans",
-            "price": "999.00",
-            "discount": "520.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed14",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/corduaryTrouseres.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Corduroy trousers",
-            "price": "999.00",
-            "discount": "300.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed15",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/flaredHighJeans.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Flared High Jeans",
-            "price": "749.00",
-            "discount": "370.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed16",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/shapingHighJeasn.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Shaping High Jeans",
-            "price": "999.00",
-            "discount": "500.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed17",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/skinnyLowJeans.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Skinny Low Jeans",
-            "price": "1199.00",
-            "discount": "370.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed18",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/skinnyLowJeans2.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Skinny Low Jeans",
-            "price": "899.00",
-            "discount": "450.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed19",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/straightRegularJeans2.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Straight Regular Jeans",
-            "price": "999.00",
-            "discount": "500.00",
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "customerAlsoViewed20",
-            "img1": {
-                "original": "/src/assets/imgs/CustomersAlsoViewed/straightRegularAnkleJeans2.webp",
-                "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
-            },
-            "title": "Straight Regular Ankle Jeans",
-            "price": "1199.00",
-            "discount": "500.00",
-            "choosen": null,
-            "liked": null
-        }
-    ]
+  "data": [
+    {
+      "id": "customerAlsoViewed1",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/slimMomHighAnkleJeans.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/slimMomHighAnkleJeans.webp"
+      },
+      "title": "Slim Mom High Ankle Jeans",
+      "price": "1099.00",
+      "discount": "550.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed2",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/MomLooseFitHighAnkejeans.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/MomLooseFitHighAnkejeans.webp"
+      },
+      "title": "Mom Loose-fit High Ankle Jeans",
+      "price": "749.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed3",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/Momjeans.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Mom Jeans",
+      "price": "1499.00",
+      "discount": "450.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed4",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/flaredHighJeans.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Flared High Ankle Jeans",
+      "price": "749.00",
+      "discount": "260.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed5",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/momUltraHighAnkeJeans.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Mom Ultra High Ankle Jeans",
+      "price": "999.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed6",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/90sSkinnyRefularAnkleJeans.jpg",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "90s Skinny Regular Ankle Jeans",
+      "price": "899.00",
+      "discount": "520.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed7",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/toperedHighANkeJeans.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Tapered High Ankle Jeans",
+      "price": "999.00",
+      "discount": "600.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed8",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/slimHighANkeJEans2.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Slim High Ankle Jeans",
+      "price": "999.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed9",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/straightRegularAnkleJeans2.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Straight Regular Ankle Jeans",
+      "price": "1199.00",
+      "discount": "600.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed10",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/straightRegularJeans2.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Straight Regular Jeans",
+      "price": "1499.00",
+      "discount": "750.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed11",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/skinnyHighAnkleJeans.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Skinny High Ankle Jeans",
+      "price": "899.00",
+      "discount": "550.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed12",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/90sSkinnyRefularAnkleJeans2.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "90s Skinny Regular Ankle Jeans",
+      "price": "899.00",
+      "discount": "520.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed13",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/slimHighANkeJEans2.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Slim Mom High Ankle Jeans",
+      "price": "999.00",
+      "discount": "520.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed14",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/corduaryTrouseres.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Corduroy trousers",
+      "price": "999.00",
+      "discount": "300.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed15",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/flaredHighJeans.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Flared High Jeans",
+      "price": "749.00",
+      "discount": "370.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed16",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/shapingHighJeasn.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Shaping High Jeans",
+      "price": "999.00",
+      "discount": "500.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed17",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/skinnyLowJeans.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Skinny Low Jeans",
+      "price": "1199.00",
+      "discount": "370.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed18",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/skinnyLowJeans2.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Skinny Low Jeans",
+      "price": "899.00",
+      "discount": "450.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed19",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/straightRegularJeans2.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Straight Regular Jeans",
+      "price": "999.00",
+      "discount": "500.00",
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "customerAlsoViewed20",
+      "img1": {
+        "original": "/src/assets/imgs/CustomersAlsoViewed/straightRegularAnkleJeans2.webp",
+        "lowReseloution": "/src/assets/imgs/CustomersAlsoViewed/ImageCompressor/"
+      },
+      "title": "Straight Regular Ankle Jeans",
+      "price": "1199.00",
+      "discount": "500.00",
+      "choosen": null,
+      "liked": null
+    }
+  ]
 }

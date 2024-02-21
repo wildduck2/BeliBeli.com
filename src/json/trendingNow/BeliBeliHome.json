@@ -1,100 +1,100 @@
 {
-    "data": [
-        {
-            "id": "belibelihome1",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/stainDressingGown.webp",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/stainDressingGown.webp"
-            },
-            "title": "Satin dressing gown",
-            "price": "1999.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "belibelihome2",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/childrensChair.webp",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/childrensChair.webp"
-            },
-            "title": "Children's chair",
-            "price": "1199.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "belibelihome3",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/miniVasClearGlass.webp",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/miniVasClearGlass.webp"
-            },
-            "title": "Mini vase in clear glass",
-            "price": "199.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "belibelihome4",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/smallPorcelainPlate.jpg",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/smallPorcelainPlate.jpg"
-            },
-            "title": "Small porcelain plate",
-            "price": "249.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "belibelihome5",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/pedestal.webp",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/pedestal.webp"
-            },
-            "title": "Pedestal",
-            "price": "4499.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "belibelihome6",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/stripedTeaTowel.webp",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/stripedTeaTowel.webp"
-            },
-            "title": "Striped tea towel",
-            "price": "249.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "belibelihome7",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/smallStonewareCup.webp",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/smallStonewareCup.webp"
-            },
-            "title": "Small stoneware cup",
-            "price": "149.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        },
-        {
-            "id": "belibelihome8",
-            "img1": {
-                "original": "/src/assets/imgs/trendingNow/childrensChair2.webp",
-                "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/childrensChair2.webp"
-            },
-            "title": "Children's chair",
-            "price": "1999.00",
-            "discount": null,
-            "choosen": null,
-            "liked": null
-        }
-    ]
+  "data": [
+    {
+      "id": "belibelihome1",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/stainDressingGown.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/stainDressingGown.webp"
+      },
+      "title": "Satin dressing gown",
+      "price": "1999.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "belibelihome2",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/childrensChair.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/childrensChair.webp"
+      },
+      "title": "Children's chair",
+      "price": "1199.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "belibelihome3",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/miniVasClearGlass.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/miniVasClearGlass.webp"
+      },
+      "title": "Mini vase in clear glass",
+      "price": "199.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "belibelihome4",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/smallPorcelainPlate.jpg",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/smallPorcelainPlate.jpg"
+      },
+      "title": "Small porcelain plate",
+      "price": "249.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "belibelihome5",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/pedestal.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/pedestal.webp"
+      },
+      "title": "Pedestal",
+      "price": "4499.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "belibelihome6",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/stripedTeaTowel.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/stripedTeaTowel.webp"
+      },
+      "title": "Striped tea towel",
+      "price": "249.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "belibelihome7",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/smallStonewareCup.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/smallStonewareCup.webp"
+      },
+      "title": "Small stoneware cup",
+      "price": "149.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    },
+    {
+      "id": "belibelihome8",
+      "img1": {
+        "original": "/src/assets/imgs/trendingNow/childrensChair2.webp",
+        "lowReseloution": "/src/assets/imgs/trendingNow/ImageCompressor/childrensChair2.webp"
+      },
+      "title": "Children's chair",
+      "price": "1999.00",
+      "discount": null,
+      "choosen": null,
+      "liked": null
+    }
+  ]
 }

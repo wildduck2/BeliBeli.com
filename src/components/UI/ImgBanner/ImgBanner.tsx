@@ -1,10 +1,10 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "@/context/store";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/context/store';
 
-import { Link, Skeleton } from "../../UI";
-import { AsyncImage } from "../../Layouts";
-import { ImgBannerProps } from "./ImgBanner.types";
+import { Link, Skeleton } from '../../UI';
+import { AsyncImage } from '../../Layouts';
+import { ImgBannerProps } from './ImgBanner.types';
 
 const ImgBanner: React.FC<ImgBannerProps> = ({ dataIndex, satatus }) => {
   const bannerData = useSelector((state: RootState) => state.data.bannersData);
@@ -14,7 +14,7 @@ const ImgBanner: React.FC<ImgBannerProps> = ({ dataIndex, satatus }) => {
     dataIndex !== undefined && (
       <>
         <div className="img-banner">
-          {satatus === "succeeded" && status === "succeeded" ? (
+          {satatus === 'succeeded' && status === 'succeeded' ? (
             <>
               <AsyncImage
                 media="(min-width: 500px)"
@@ -58,6 +58,6 @@ const ImgBanner: React.FC<ImgBannerProps> = ({ dataIndex, satatus }) => {
   );
 };
 
-ImgBanner.displayName = "ImgBanner";
+ImgBanner.displayName = 'ImgBanner';
 
 export default ImgBanner;

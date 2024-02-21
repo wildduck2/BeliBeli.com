@@ -1,2 +1,2 @@
-import CategoryBanner from './CategoryBanner'
-export default CategoryBanner
+import CategoryBanner from './CategoryBanner';
+export default CategoryBanner;

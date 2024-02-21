@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface headerNavigationDataTypes {
   headerNavigationData?: string[][][][];
-  satatus: "loading" | "succeeded" | "failed";
+  satatus: 'loading' | 'succeeded' | 'failed';
 }
 
 const NavigationHeaderLooping = ({
-  headerNavigationData,
+  headerNavigationData
 }: headerNavigationDataTypes) => {
   return (
     <ul>

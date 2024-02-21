@@ -1,2 +1,2 @@
-import HeaderBanner from './HeaderBanner'
-export default HeaderBanner
+import HeaderBanner from './HeaderBanner';
+export default HeaderBanner;

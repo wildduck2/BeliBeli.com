@@ -1,6 +1,6 @@
-import { Button } from "@/components/UI";
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Button } from '@/components/UI';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MyFavouriate = () => {
   const route = useNavigate();
@@ -11,7 +11,7 @@ const MyFavouriate = () => {
         {
           <>
             <p>Your favourites is empty.</p>
-            <Button variant="default" onClick={() => route("/")}>
+            <Button variant="default" onClick={() => route('/')}>
               Go shopping
             </Button>
           </>

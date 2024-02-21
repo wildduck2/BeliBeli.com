@@ -1,15 +1,15 @@
-import React from "react";
-import { Swiper as SW, SwiperSlide } from "swiper/react";
+import React from 'react';
+import { Swiper as SW, SwiperSlide } from 'swiper/react';
 
-import "swiper/css";
-import "swiper/css/pagination";
-import { useSelector } from "react-redux";
-import { RootState } from "@/context/store";
-import { Navigation, Pagination } from "swiper/modules";
-import { Skeleton, SwiperCard } from "@/components/UI";
-import { SwiperTypes } from "./Swiper.types";
-import { useNavigate } from "react-router-dom";
-import { Product } from "@/context/Data.types";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/context/store';
+import { Navigation, Pagination } from 'swiper/modules';
+import { Skeleton, SwiperCard } from '@/components/UI';
+import { SwiperTypes } from './Swiper.types';
+import { useNavigate } from 'react-router-dom';
+import { Product } from '@/context/Data.types';
 
 const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
   const selector = useSelector((state: RootState) => state.data);
@@ -27,7 +27,7 @@ const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
       className="trending__section__swiper"
       loop={true}
     >
-      {selector.satatus === "succeeded" ? (
+      {selector.satatus === 'succeeded' ? (
         DATA__NAME?.map((item: Product, index) => {
           return (
             item.type === FILTER__QUERY?.toLowerCase() && (
@@ -35,12 +35,13 @@ const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
                 key={index}
                 onClick={() => {
                   window.scrollTo(0, 0);
-                  route(`/product-show/${item.title}`, { state: item });
+                  route(`/product-show/${item.title}`, {
+                    state: item
+                  });
                 }}
               >
                 <SwiperCard item={item} key={index} width={245} height={350} />
               </SwiperSlide>
-              
             )
           );
         })
@@ -66,5 +67,5 @@ const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
   );
 };
 
-Swiper.displayName = "Swiper";
+Swiper.displayName = 'Swiper';
 export default Swiper;

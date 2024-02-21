@@ -11,7 +11,7 @@ export interface ProductShoptData {
     Men: string[];
     Kids: string[];
     Baby: string[];
-    "H&M Home": string[];
+    'H&M Home': string[];
     Sport: string[];
   };
 }

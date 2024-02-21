@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Button,
   Input,
@@ -7,11 +7,11 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectValue,
-} from "@/components/UI";
-import { useSelector } from "react-redux";
-import { RootState } from "@/context/store";
-import { useUser } from "@/hooks";
+  SelectValue
+} from '@/components/UI';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/context/store';
+import { useUser } from '@/hooks';
 
 const AddressBook = () => {
   const logged = useSelector((state: RootState) => state.data.logged);

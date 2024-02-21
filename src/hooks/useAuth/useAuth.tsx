@@ -1,10 +1,10 @@
-import { supabase } from "../../supabase/supabase";
-import { toast } from "sonner";
-import { useEffect, useState } from "react";
-import { signupPopup } from "../../utils";
-import { emailisnotvalid } from "@/context/Utils";
-import { signin } from "@/context/Data";
-import { useAuthEmailProps, useAuthProviderProps } from "./useAuth.types";
+import { supabase } from '../../supabase/supabase';
+import { toast } from 'sonner';
+import { useEffect, useState } from 'react';
+import { signupPopup } from '../../utils';
+import { emailisnotvalid } from '@/context/Utils';
+import { signin } from '@/context/Data';
+import { useAuthEmailProps, useAuthProviderProps } from './useAuth.types';
 
 export const useSigninWithEmail = ({
   email,
@@ -13,7 +13,7 @@ export const useSigninWithEmail = ({
   setIsLoading,
   setEmailValid,
   setPasswordValid,
-  route,
+  route
 }: useAuthEmailProps) => {
   const [creditValidEmail, setCreditValidEmail] = useState<boolean>(false);
   const authEmail = async (e: React.SyntheticEvent) => {
@@ -23,7 +23,7 @@ export const useSigninWithEmail = ({
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
-        password,
+        password
       });
 
       if (error) {
@@ -37,7 +37,7 @@ export const useSigninWithEmail = ({
 
       if (!error && data) {
         dispatch(signin());
-        toast.success("Access granted, authentication successful.");
+        toast.success('Access granted, authentication successful.');
         dispatch(emailisnotvalid(true));
         setCreditValidEmail(true);
         setIsLoading(false);
@@ -49,7 +49,7 @@ export const useSigninWithEmail = ({
 
   useEffect(() => {
     if (creditValidEmail) {
-      route("/");
+      route('/');
     }
   }, [creditValidEmail]);
 
@@ -62,7 +62,7 @@ export const useSigninwithProvider = ({
   setEmailValid,
   setPasswordValid,
   provider,
-  route,
+  route
 }: useAuthProviderProps) => {
   const [creditValidAuth, setCreditValidAuth] = useState<boolean>(false);
   const authProvider = async () => {
@@ -71,7 +71,7 @@ export const useSigninwithProvider = ({
 
     try {
       const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: provider!,
+        provider: provider!
         // options: {
         //   skipBrowserRedirect: true,
         // },
@@ -108,17 +108,17 @@ export const useSigninwithProvider = ({
     // Set up an event listener for auth state changes
     const authListener = supabase.auth.onAuthStateChange(
       async (event, session) => {
-        if (event === "SIGNED_IN") {
+        if (event === 'SIGNED_IN') {
           // Access user data from the session
           const user = session?.user;
-          console.log("User data:", user);
+          console.log('User data:', user);
 
           // Perform any additional actions with user data
 
           // Redirect to the desired route
-          route("/");
+          route('/');
         }
-      },
+      }
     );
 
     return () => {
@@ -139,7 +139,7 @@ export const useSignupWithEmail = ({
   setPasswordValid,
   fullNameValue,
   notChecked,
-  route,
+  route
 }: useAuthEmailProps) => {
   const [creditValidEmail, setCreditValidEmail] = useState<boolean>(false);
   const authEmail = async (e: React.SyntheticEvent) => {
@@ -151,7 +151,7 @@ export const useSignupWithEmail = ({
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
-          options: { data: { full_name: fullNameValue } },
+          options: { data: { full_name: fullNameValue } }
         });
 
         if (error) {
@@ -165,7 +165,7 @@ export const useSignupWithEmail = ({
 
         if (!error && data) {
           dispatch(signin());
-          toast.success("Access granted, authentication successful.");
+          toast.success('Access granted, authentication successful.');
           dispatch(emailisnotvalid(true));
           setCreditValidEmail(true);
           setIsLoading(false);
@@ -180,7 +180,7 @@ export const useSignupWithEmail = ({
 
   useEffect(() => {
     if (creditValidEmail) {
-      route("/");
+      route('/');
     }
   }, [creditValidEmail]);
 

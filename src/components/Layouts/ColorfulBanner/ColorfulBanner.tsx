@@ -1,8 +1,8 @@
-import React from "react";
-import { ColorfulBannerProps } from "./ColorfulBanner.types";
-import { Button, Link, Skeleton } from "@/components/UI";
-import { useNavigate } from "react-router-dom";
-import { categoryData } from "@/constants";
+import React from 'react';
+import { ColorfulBannerProps } from './ColorfulBanner.types';
+import { Button, Link, Skeleton } from '@/components/UI';
+import { useNavigate } from 'react-router-dom';
+import { categoryData } from '@/constants';
 
 export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
   color,
@@ -10,15 +10,15 @@ export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
   description,
   supTitle,
   buttonText,
-  satatus,
+  satatus
 }) => {
   const route = useNavigate();
   return (
     <>
-      {satatus === "succeeded" ? (
+      {satatus === 'succeeded' ? (
         <div className={`colorful-banner ${color}`}>
           <div className="colorful-banner__content">
-            {color !== "black" ? (
+            {color !== 'black' ? (
               <>
                 <div>
                   <span>{supTitle![0]}</span>
@@ -29,11 +29,11 @@ export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
                   {buttonText?.map((item, index) => (
                     <Button
                       key={index}
-                      variant={"default"}
+                      variant={'default'}
                       onClick={() => {
                         window.scrollTo(0, 0);
                         route(`/category/${item}`, {
-                          state: categoryData[index],
+                          state: categoryData[index]
                         });
                       }}
                     >
@@ -53,11 +53,11 @@ export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
                   {buttonText?.map((item, index) => (
                     <Button
                       key={index}
-                      variant={"default"}
+                      variant={'default'}
                       onClick={() => {
                         window.scrollTo(0, 0);
                         route(`/category/${item}`, {
-                          state: categoryData[index],
+                          state: categoryData[index]
                         });
                       }}
                     >

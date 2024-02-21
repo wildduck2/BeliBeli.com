@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, Checkbox, Label } from "@/components/UI";
+import React from 'react';
+import { Button, Checkbox, Label } from '@/components/UI';
 
 const CommenicationDetails = () => {
   return (

@@ -1,3 +1,3 @@
 export interface useGetReviewsProps {
-    reviews_id: string
+  reviews_id: string;
 }

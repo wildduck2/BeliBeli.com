@@ -1,10 +1,10 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 
-import { Link } from "@/components/UI";
-import { Daels } from "@/constants";
-import "swiper/scss";
+import { Link } from '@/components/UI';
+import { Daels } from '@/constants';
+import 'swiper/scss';
 
 const BannerDeals = () => {
   return (
@@ -13,29 +13,29 @@ const BannerDeals = () => {
       loop={true}
       autoplay={{
         delay: 3500,
-        disableOnInteraction: false,
+        disableOnInteraction: false
       }}
       modules={[Autoplay]}
       breakpoints={{
         280: {
           slidesPerView: 1,
-          spaceBetween: 50,
+          spaceBetween: 50
         },
 
         700: {
           slidesPerView: 2,
-          spaceBetween: 20,
+          spaceBetween: 20
         },
 
         800: {
           slidesPerView: 2,
-          spaceBetween: 90,
+          spaceBetween: 90
         },
 
         1024: {
           slidesPerView: 3,
-          spaceBetween: 30,
-        },
+          spaceBetween: 30
+        }
       }}
     >
       {Daels.map((item, key) => {

@@ -1,15 +1,15 @@
-import React from'react'
-import { MutableRefObject, useRef, useState } from "react";
-import { AiOutlineClose } from "react-icons/ai";
-import { CiSearch } from "react-icons/ci";
-import { Input } from "..";
+import React from 'react';
+import { MutableRefObject, useRef, useState } from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
+import { CiSearch } from 'react-icons/ci';
+import { Input } from '..';
 
 const Search = () => {
-  const [value, setValue] = useState<string>("");
+  const [value, setValue] = useState<string>('');
   const inputRef = useRef() as MutableRefObject<HTMLInputElement>;
   const clearInputValueHandler = () => {
-    setValue("");
-    inputRef.current.value = "";
+    setValue('');
+    inputRef.current.value = '';
   };
 
   return (
@@ -25,16 +25,12 @@ const Search = () => {
       <AiOutlineClose
         size={20}
         onClick={clearInputValueHandler}
-        className={`header__search-close ${
-          value && "header__search-close--active"
-        }`}
+        className={`header__search-close ${value && 'header__search-close--active'}`}
       />
 
       <CiSearch
         size={20}
-        className={`header__search-search ${
-          value && "header__search-search--active"
-        }`}
+        className={`header__search-search ${value && 'header__search-search--active'}`}
       />
     </form>
   );

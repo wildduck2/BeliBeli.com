@@ -1,13 +1,13 @@
-import React from "react";
-import CardInfo from "@/components/Layouts/Swiper/CardInfo";
-import { SwiperCardProps } from "./SwiperCard.types";
-import { cardImgHoverHandler, cardImgLeaveHandler } from "@/utils";
-import { AsyncImage } from "@/components/Layouts";
+import React from 'react';
+import CardInfo from '@/components/Layouts/Swiper/CardInfo';
+import { SwiperCardProps } from './SwiperCard.types';
+import { cardImgHoverHandler, cardImgLeaveHandler } from '@/utils';
+import { AsyncImage } from '@/components/Layouts';
 
 const SwiperCard: React.FC<SwiperCardProps> = ({
   item,
   width = 245,
-  height = 350,
+  height = 350
 }) => {
   return (
     <div className="swiper__card">
@@ -35,7 +35,7 @@ const SwiperCard: React.FC<SwiperCardProps> = ({
             return (
               <div
                 key={index}
-                className={`dot ${index === 0 ? "active" : ""}`}
+                className={`dot ${index === 0 ? 'active' : ''}`}
               ></div>
             );
           })}

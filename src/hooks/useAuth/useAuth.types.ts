@@ -1,7 +1,7 @@
-import { Dispatch } from "react";
-import { NavigateFunction } from "react-router-dom";
-import { AnyAction } from "redux";
-import { Provider } from "@supabase/supabase-js";
+import { Dispatch } from 'react';
+import { NavigateFunction } from 'react-router-dom';
+import { AnyAction } from 'redux';
+import { Provider } from '@supabase/supabase-js';
 
 export interface useAuthEmailProps extends useAuthProviderProps {
   fullNameValue?: string;

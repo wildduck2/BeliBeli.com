@@ -1,2 +1,2 @@
-import BannerDeals from "./BannerDeals";
+import BannerDeals from './BannerDeals';
 export default BannerDeals;

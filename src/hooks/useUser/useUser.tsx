@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { supabase } from "../../supabase/supabase";
-import { AuthError, User } from "@supabase/supabase-js";
-import { getUserDispatch } from "@/context/Data";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { supabase } from '../../supabase/supabase';
+import { AuthError, User } from '@supabase/supabase-js';
+import { getUserDispatch } from '@/context/Data';
+import { useDispatch } from 'react-redux';
 
 export interface UserData {
   id: string;

@@ -1,7 +1,7 @@
-import * as React from "react";
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
-import { Circle } from "lucide-react";
-import { cn } from "@/utils";
+import * as React from 'react';
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
+import { Circle } from 'lucide-react';
+import { cn } from '@/utils';
 
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
@@ -9,7 +9,7 @@ const RadioGroup = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <RadioGroupPrimitive.Root
-      className={cn("ygrid ygap-2", className)}
+      className={cn('ygrid ygap-2', className)}
       {...props}
       ref={ref}
     />
@@ -25,8 +25,8 @@ const RadioGroupItem = React.forwardRef<
     <RadioGroupPrimitive.Item
       ref={ref}
       className={cn(
-        "yaspect-square yh-4 yw-4 yrounded-full yborder yborder-primary ytext-primary yring-offset-background focus:youtline-none focus-visible:yring-2 focus-visible:yring-ring focus-visible:yring-offset-2 disabled:ycursor-not-allowed disabled:yopacity-50",
-        className,
+        'yaspect-square yh-4 yw-4 yrounded-full yborder yborder-primary ytext-primary yring-offset-background focus:youtline-none focus-visible:yring-2 focus-visible:yring-ring focus-visible:yring-offset-2 disabled:ycursor-not-allowed disabled:yopacity-50',
+        className
       )}
       {...props}
     >

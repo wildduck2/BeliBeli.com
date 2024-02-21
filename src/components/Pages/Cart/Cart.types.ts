@@ -1,4 +1,4 @@
-import { UUID } from "crypto";
+import { UUID } from 'crypto';
 
 export interface CartProduct {
   id: number;
@@ -14,8 +14,6 @@ export interface CartProduct {
 
 export interface CartProductProps {
   item: CartProduct;
-  index: number;
-  setCart: React.Dispatch<React.SetStateAction<CartProduct[]>>;
   user_id: UUID;
 }
 

@@ -1,7 +1,7 @@
-import { CartProduct } from "@/components/Pages/Cart/Cart.types";
-import { updateCartProducts } from "@/context/Utils";
-import { UUID } from "crypto";
-import { AnyAction, Dispatch } from "redux";
+import { CartProduct } from '@/components/Pages/Cart/Cart.types';
+import { updateCartProducts } from '@/context/Utils';
+import { UUID } from 'crypto';
+import { AnyAction, Dispatch } from 'redux';
 
 export interface handleQuantityChangeProps {
   newQuantity: number;
@@ -16,10 +16,10 @@ export const handleQuantityChange = ({
   setQuantity,
   newQuantity,
   item,
-  user_id,
+  user_id
 }: handleQuantityChangeProps) => {
   setQuantity(newQuantity);
   dispatch(
-    updateCartProducts({ product: item, quantity: newQuantity, user_id }),
+    updateCartProducts({ product: item, quantity: newQuantity, user_id })
   );
 };

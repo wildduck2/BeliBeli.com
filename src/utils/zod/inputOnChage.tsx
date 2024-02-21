@@ -1,4 +1,4 @@
-import { validateInput, onChangeInputProps } from "..";
+import { validateInput, onChangeInputProps } from '..';
 
 export const onChangeInput = async ({
   e,
@@ -15,22 +15,22 @@ export const onChangeInput = async ({
   password,
   passwordconf,
   utils,
-  dispatch,
+  dispatch
 }: onChangeInputProps) => {
   setFunc(e.target.value);
   setvalid(true);
 
-  if (type === "email") {
+  if (type === 'email') {
     validateInput({
       inputValue: e.target.value,
       setvalid,
       type,
       dispatch,
-      utils,
+      utils
     });
   }
 
-  if (type === "password") {
+  if (type === 'password') {
     validateInput({
       inputValue: e.target.value,
       passwordconf,
@@ -45,11 +45,11 @@ export const onChangeInput = async ({
       setPasswordHasNumber,
       setPasswordHasSpecialCharacter,
       setPasswordHasUppercase,
-      setPasswordInRange,
+      setPasswordInRange
     });
   }
 
-  if (type === "passwordcomfirmation") {
+  if (type === 'passwordcomfirmation') {
     validateInput({
       inputValue: e.target.value,
       passwordconf,
@@ -59,7 +59,7 @@ export const onChangeInput = async ({
       type,
       dispatch,
       utils,
-      setPasswordShowMenu,
+      setPasswordShowMenu
     });
   }
 };

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "@/context/store";
-import { Button, Progress, Skeleton, SwiperCard } from "@/components/UI";
-import { ShowProductProductsProps } from "./ShopProduct.types";
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/context/store';
+import { Button, Progress, Skeleton, SwiperCard } from '@/components/UI';
+import { ShowProductProductsProps } from './ShopProduct.types';
 
 const ShopProductProducts: React.FC<ShowProductProductsProps> = ({
-  status,
+  status
 }) => {
   const satatus = useSelector((state: RootState) => state.data.satatus);
   const products = useSelector((state: RootState) => state.data.products);
@@ -14,7 +14,7 @@ const ShopProductProducts: React.FC<ShowProductProductsProps> = ({
   const handleShowMore = () => {
     if (products) {
       setShownCard((prev) =>
-        prev + 10 < products?.length ? prev + 10 : products?.length,
+        prev + 10 < products?.length ? prev + 10 : products?.length
       );
     }
   };
@@ -22,9 +22,13 @@ const ShopProductProducts: React.FC<ShowProductProductsProps> = ({
   return (
     <>
       <div className="products-shop__wrapper__content__products">
-        {status && satatus === "succeeded" ? (
+        {status && satatus === 'succeeded' ? (
           products?.map((item, index) => {
-            return index < shownCard && <SwiperCard item={item} key={index}  width={269} height={400}/>;
+            return (
+              index < shownCard && (
+                <SwiperCard item={item} key={index} width={269} height={400} />
+              )
+            );
           })
         ) : (
           <>

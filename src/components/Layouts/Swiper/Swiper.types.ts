@@ -1,8 +1,8 @@
-import { Product } from "@/context/Data";
+import { Product } from '@/context/Data';
 
 export interface SwiperTypes {
-    DATA__NAME: Product[] | null;
-    FILTER__QUERY?: string;
+  DATA__NAME: Product[] | null;
+  FILTER__QUERY?: string;
 }
 
 export interface CardInfoTypes {

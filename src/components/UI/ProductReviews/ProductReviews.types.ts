@@ -1,10 +1,10 @@
-import { Product, Product_review } from "@/context/Data.types";
+import { Product, Product_review } from '@/context/Data.types';
 
 export interface ProductReviewsProps {
-    finalRate: number;
-    reviews:Product_review;
-    product: Product;
-    currentTypeIndex: number;
+  finalRate: number;
+  reviews: Product_review;
+  product: Product;
+  currentTypeIndex: number;
 }
 export interface MoreReviewsButtonProps {
   allReviews: Product_review;

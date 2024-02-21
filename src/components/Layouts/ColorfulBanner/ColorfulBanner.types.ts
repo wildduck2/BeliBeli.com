@@ -4,5 +4,5 @@ export interface ColorfulBannerProps {
   supTitle?: string[];
   buttonText?: string[];
   color?: string;
-  satatus: "loading" | "succeeded" | "failed";
+  satatus: 'loading' | 'succeeded' | 'failed';
 }

@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react';
 
-import { Link, Skeleton } from "../../UI";
-import { AsyncImage } from "loadable-image";
-import { useSelector } from "react-redux";
-import { RootState } from "@/context/store";
+import { Link, Skeleton } from '../../UI';
+import { AsyncImage } from 'loadable-image';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/context/store';
 
 interface CategoryBannerTypes {
   dataIndex: number;
-  satatus: "succeeded" | "loading" | "failed";
+  satatus: 'succeeded' | 'loading' | 'failed';
 }
 
 const CategoryBanner: React.FC<CategoryBannerTypes> = ({
   dataIndex,
-  satatus,
+  satatus
 }) => {
   const categoriesData = useSelector(
-    (state: RootState) => state.data.categoriesData,
+    (state: RootState) => state.data.categoriesData
   );
 
   return (
@@ -24,7 +24,7 @@ const CategoryBanner: React.FC<CategoryBannerTypes> = ({
 
       {/* cagegories mapping */}
       <div className="category-banner__wrapper">
-        {satatus === "succeeded" ? (
+        {satatus === 'succeeded' ? (
           categoriesData![dataIndex].category__img__high.map((item, index) => {
             return (
               <Link key={index} className="category-banner__bit">

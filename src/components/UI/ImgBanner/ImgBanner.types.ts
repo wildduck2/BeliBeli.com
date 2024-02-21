@@ -1,4 +1,4 @@
 export interface ImgBannerProps {
   dataIndex?: number;
- satatus: "loading" | "succeeded" | "failed";
+  satatus: 'loading' | 'succeeded' | 'failed';
 }

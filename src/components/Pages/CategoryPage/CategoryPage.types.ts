@@ -1,4 +1,4 @@
-import { BlackBannerWomen, RedBannerWomen } from "../../../constants";
+import { BlackBannerWomen, RedBannerWomen } from '../../../constants';
 
 // export interface CategoryPageTypes {
 //   pageTile: string;
@@ -34,4 +34,3 @@ export type CategoryDataType = {
   redBannerWomen: typeof RedBannerWomen;
   blackBannerWomen: typeof BlackBannerWomen;
 };
-

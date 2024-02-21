@@ -1,8 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { toast } from "sonner";
-import { PushProductCart, updateCartProductsFunc } from "@/utils";
-import { CartProduct } from "@/components/Pages/Cart/Cart.types";
-import { supabase } from "@/supabase/supabase";
+import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'sonner';
+import { CartProduct } from '@/components/Pages/Cart/Cart.types';
+import { updateCartProductsFunc } from '@/utils';
 
 export interface InitStateTypes {
   mobileMenuActive: boolean;
@@ -16,14 +15,14 @@ const initialState: InitStateTypes = {
   inputsValid: {
     email: false,
     password: false,
-    passwordcomfirmation: false,
+    passwordcomfirmation: false
   },
   cartProducts: [],
-  emailisnotvalid: false,
+  emailisnotvalid: false
 };
 
 export const utilSlice = createSlice({
-  name: "products",
+  name: 'products',
   initialState,
   reducers: {
     showMobileMenu: (state, actions) => {
@@ -45,22 +44,22 @@ export const utilSlice = createSlice({
     updateCartProducts: (state, action) => {
       if (action.payload) {
         state.cartProducts!.find(
-          (item) => item.id === action.payload.product.id,
+          (item) => item.id === action.payload.product.id
         )!.quantity = action.payload.quantity;
 
         updateCartProductsFunc({
           allProducts: state.cartProducts,
           product: action.payload.product,
           user_id: action.payload.user_id,
-          quantity: action.payload.quantity,
+          quantity: action.payload.quantity
         });
       }
     },
     addProductToCart: (state, action) => {
-          state.cartProducts = [...state.cartProducts, action.payload];
+      state.cartProducts = [...state.cartProducts, action.payload];
       if (action.payload) {
         if (state.cartProducts.find((item) => item.id === action.payload.id)) {
-          toast.error("Product already in cart");
+          toast.error('Product already in cart');
         } else {
           state.cartProducts = [...state.cartProducts, action.payload];
           // PushProductCart({ products: state.cartProducts });
@@ -69,20 +68,12 @@ export const utilSlice = createSlice({
     },
     removeProductCart: (state, action) => {
       if (action.payload) {
-        
         state.cartProducts = state.cartProducts.filter(
           (item) => item.id !== action.payload.product.id
         );
-                      
-        console.log(
-          state.cartProducts.findIndex(
-            (item) => item.id === action.payload.product.id,
-          ),
-          1,
-        );
       }
-    },
-  },
+    }
+  }
 });
 
 export default utilSlice.reducer;
@@ -94,5 +85,5 @@ export const {
   getCartProducts,
   updateCartProducts,
   addProductToCart,
-  removeProductCart,
+  removeProductCart
 } = utilSlice.actions;

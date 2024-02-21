@@ -1,12 +1,12 @@
-import React from "react";
-import { ImgBanner } from "../../UI";
-import { NavigationHeaderLooping } from "../../../utils";
-import { ColorfulBanner } from "../../Layouts";
-import { useLocation, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "@/context/store";
-import { CategoryDataType } from "./CategoryPage.types";
-import { categoryDiscriptionData } from "@/constants";
+import React from 'react';
+import { ImgBanner } from '../../UI';
+import { NavigationHeaderLooping } from '../../../utils';
+import { ColorfulBanner } from '../../Layouts';
+import { useLocation, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/context/store';
+import { CategoryDataType } from './CategoryPage.types';
+import { categoryDiscriptionData } from '@/constants';
 
 const CategoryPage = () => {
   const id = useParams();
@@ -59,11 +59,11 @@ const CategoryPage = () => {
               />
             </section>
             <section className="category-page__wrapper__content__disc">
-              {status === "succeeded" ? (
+              {status === 'succeeded' ? (
                 Object.entries(
                   Object.entries(categoryDiscriptionData).filter(
-                    (item) => item[0] === id.id?.toLowerCase(),
-                  )[0][1],
+                    (item) => item[0] === id.id?.toLowerCase()
+                  )[0][1]
                 ).map(([key, value]) => (
                   <div key={key}>
                     {value.title}

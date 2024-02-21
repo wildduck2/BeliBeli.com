@@ -1,16 +1,16 @@
-import React, { MutableRefObject, useEffect, useRef, useState } from "react";
-import { Button, Input } from "../../../UI";
-import { useNavigate } from "react-router-dom";
-import { onChangeInput, onPasswordShow } from "@/utils";
-import { RootState } from "@/context/store";
-import { useDispatch, useSelector } from "react-redux";
-import { BsPatchExclamation } from "react-icons/bs";
-import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
-import { passwordrules } from "@/constants";
-import { GiPlainCircle } from "react-icons/gi";
-import { useSignupWithEmail } from "@/hooks";
-import { Icons } from "../Icons";
-import SignWithSocial from "../SignWithSocial";
+import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
+import { Button, Input } from '../../../UI';
+import { useNavigate } from 'react-router-dom';
+import { onChangeInput, onPasswordShow } from '@/utils';
+import { RootState } from '@/context/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { BsPatchExclamation } from 'react-icons/bs';
+import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
+import { passwordrules } from '@/constants';
+import { GiPlainCircle } from 'react-icons/gi';
+import { useSignupWithEmail } from '@/hooks';
+import { Icons } from '../Icons';
+import SignWithSocial from '../SignWithSocial';
 
 export interface SigninWithEmailTypes {
   mainTittle: string;
@@ -25,9 +25,9 @@ export interface checkboxHandlerTypes {
 const Signup = () => {
   const router = useNavigate();
 
-  const [fullNameValue, setFullNameValue] = useState<string>("");
+  const [fullNameValue, setFullNameValue] = useState<string>('');
 
-  const [passowrdConfirmValue, setPassowrdConfirmValue] = useState<string>("");
+  const [passowrdConfirmValue, setPassowrdConfirmValue] = useState<string>('');
   const [passwordConfirmShown, setPasswordConfirmShown] =
     useState<boolean>(false);
   const [notChecked, setNotchecked] = useState<boolean>(false);
@@ -40,11 +40,11 @@ const Signup = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [notValid, setNotValid] = useState<boolean>(false);
 
-  console.log("notValid", notValid);
+  console.log('notValid', notValid);
   const [emailValid, setEmailValid] = useState<boolean>(false);
-  const [email, setEmail] = useState<string>("");
+  const [email, setEmail] = useState<string>('');
   const [passwordValid, setPasswordValid] = useState<boolean>(false);
-  const [password, setPassword] = useState<string>("");
+  const [password, setPassword] = useState<string>('');
   const [passwordShow, setPasswordShow] = useState<boolean>(false);
   const [passwordShowMenu, setPasswordShowMenu] = useState<boolean>(false);
   const [passwordHasLowercase, setPasswordHasLowercase] =
@@ -57,7 +57,7 @@ const Signup = () => {
   const [passwordInRange, setPasswordInRange] = useState<boolean>(false);
   const [passwordcomfirmationValid, setPasswordcomfirmationValid] =
     useState<boolean>(false);
-  const [passwordcomfirmation, setPasswordcomfirmation] = useState<string>("");
+  const [passwordcomfirmation, setPasswordcomfirmation] = useState<string>('');
   const [passwordcomfirmationShow, setPasswordcomfirmationShow] =
     useState<boolean>(false);
 
@@ -67,7 +67,7 @@ const Signup = () => {
 
   useEffect(() => {
     setNotValid(
-      utils.inputsValid.email && utils.inputsValid.password ? true : false,
+      utils.inputsValid.email && utils.inputsValid.password ? true : false
     );
   }, [dispatch, emailValid, passwordValid, passwordShowMenu]);
 
@@ -80,29 +80,29 @@ const Signup = () => {
     setIsLoading,
     route: router,
     setEmailValid,
-    setPasswordValid,
+    setPasswordValid
   });
 
   // checkbox handler
   const checkboxHandler = ({
     setNotchecked,
-    checkBoxRef,
+    checkBoxRef
   }: checkboxHandlerTypes) => {
     checkBoxRef.current.checked ? setNotchecked(false) : setNotchecked(true);
   };
 
   return (
     <section className="log">
-      <h2>{"Sign up"}</h2>
+      <h2>{'Sign up'}</h2>
 
       <div className="log__wrapper">
         <div className="log__wrapper__email">
-          <h2>{"Sign up"} with email address</h2>
+          <h2>{'Sign up'} with email address</h2>
 
           <form action="post" onSubmit={signupProvider.authEmail}>
             <div className="input__wrapper">
               <Input
-                className={`${fullNameValue && "active_input"}`}
+                className={`${fullNameValue && 'active_input'}`}
                 type="text"
                 required
                 id="text"
@@ -115,7 +115,7 @@ const Signup = () => {
             </div>
             <div className="input__wrapper">
               <Input
-                className={`${email && "active_input"}`}
+                className={`${email && 'active_input'}`}
                 type="email"
                 required
                 id="email"
@@ -129,9 +129,9 @@ const Signup = () => {
                     e,
                     setFunc: setEmail,
                     setvalid: setEmailValid,
-                    type: "email",
+                    type: 'email',
                     utils,
-                    dispatch,
+                    dispatch
                   });
                 }}
                 ref={emailRef}
@@ -141,12 +141,12 @@ const Signup = () => {
                 {emailValid && <BsPatchExclamation className="wrong" />}
               </div>
             </div>
-            <p className={!emailValid ? "hide" : "active"}>
+            <p className={!emailValid ? 'hide' : 'active'}>
               Email is not valid.
             </p>
             <div className="input__wrapper">
               <Input
-                className={`${password && "active_input"}`}
+                className={`${password && 'active_input'}`}
                 id="password"
                 type="password"
                 autoCapitalize="none"
@@ -166,9 +166,9 @@ const Signup = () => {
                     setPasswordHasSpecialCharacter,
                     setPasswordHasUppercase,
                     setPasswordInRange,
-                    type: "password",
+                    type: 'password',
                     utils,
-                    dispatch,
+                    dispatch
                   });
                 }}
                 disabled={isLoading}
@@ -184,7 +184,7 @@ const Signup = () => {
                   onPasswordShow({
                     setFunc: setPasswordShow,
                     passwordRef,
-                    passwordShow,
+                    passwordShow
                   })
                 }
               >
@@ -195,24 +195,22 @@ const Signup = () => {
                 {passwordValid && <BsPatchExclamation className="wrong" />}
               </div>
             </div>
-            <p className={!passwordValid ? "hide" : "active"}>
+            <p className={!passwordValid ? 'hide' : 'active'}>
               Password is not valid.
             </p>
             <div
-              className={`password-rules ${
-                passwordShowMenu ? "active" : "hide"
-              } `}
+              className={`password-rules ${passwordShowMenu ? 'active' : 'hide'} `}
             >
               <ul>
                 {passwordrules.map((rule) => (
                   <li key={rule.id}>
                     <GiPlainCircle
-                      className={`${passwordValid && "red"}  
-                  ${passwordHasLowercase && rule.id === 1 && "green"}
-                  ${passwordHasUppercase && rule.id === 2 && "green"}
-                  ${passwordHasNumber && rule.id === 3 && "green"}
-                  ${passwordHasSpecialCharacter && rule.id === 4 && "green"}
-                  ${passwordInRange && rule.id === 5 && "green"}
+                      className={`${passwordValid && 'red'}  
+                  ${passwordHasLowercase && rule.id === 1 && 'green'}
+                  ${passwordHasUppercase && rule.id === 2 && 'green'}
+                  ${passwordHasNumber && rule.id === 3 && 'green'}
+                  ${passwordHasSpecialCharacter && rule.id === 4 && 'green'}
+                  ${passwordInRange && rule.id === 5 && 'green'}
                   `}
                     />
                     <span>{rule.name}</span>
@@ -223,8 +221,8 @@ const Signup = () => {
 
             <div className="input__wrapper">
               <Input
-                className={`${passwordcomfirmation && "active_input"}`}
-                type={`${!passwordConfirmShown ? "password" : "text"}`}
+                className={`${passwordcomfirmation && 'active_input'}`}
+                type={`${!passwordConfirmShown ? 'password' : 'text'}`}
                 required
                 id="confirm"
                 value={passwordcomfirmation}
@@ -239,9 +237,9 @@ const Signup = () => {
                     setFunc: setPasswordcomfirmation,
                     setvalid: setPasswordcomfirmationValid,
                     setvalidcomf: setPasswordValid,
-                    type: "passwordcomfirmation",
+                    type: 'passwordcomfirmation',
                     utils,
-                    dispatch,
+                    dispatch
                   });
                 }}
                 disabled={isLoading}
@@ -254,7 +252,7 @@ const Signup = () => {
                   onPasswordShow({
                     setFunc: setPasswordcomfirmationShow,
                     passwordRef: passwordcomfirmationRef,
-                    passwordShow: passwordcomfirmationShow,
+                    passwordShow: passwordcomfirmationShow
                   })
                 }
               >
@@ -267,7 +265,7 @@ const Signup = () => {
               </div>
             </div>
 
-            <p className={!passwordcomfirmationValid ? "hide" : "active"}>
+            <p className={!passwordcomfirmationValid ? 'hide' : 'active'}>
               Comfirm passowrd is not valid.
             </p>
 
@@ -277,7 +275,7 @@ const Signup = () => {
                 onClick={() =>
                   checkboxHandler({
                     checkBoxRef: checkBoxRef,
-                    setNotchecked: setNotchecked,
+                    setNotchecked: setNotchecked
                   })
                 }
               >
@@ -298,8 +296,8 @@ const Signup = () => {
 
               <div className="terms__container">
                 <p>
-                  By registering you agreed to our{" "}
-                  <span className="underline">Terms & Conditions</span> and{" "}
+                  By registering you agreed to our{' '}
+                  <span className="underline">Terms & Conditions</span> and{' '}
                   <span className="underline">Privacy Policy</span>.
                 </p>
               </div>
@@ -308,7 +306,7 @@ const Signup = () => {
             <div className="submitin_buttons">
               <Button
                 type="submit"
-                variant={"outline"}
+                variant={'outline'}
                 onClick={signupProvider.authEmail}
                 disabled={isLoading || !notValid}
               >
@@ -320,7 +318,7 @@ const Signup = () => {
         </div>
 
         <SignWithSocial
-          mainTittle={"Sign up"}
+          mainTittle={'Sign up'}
           signUp={true}
           setNotValid={setNotValid}
         />

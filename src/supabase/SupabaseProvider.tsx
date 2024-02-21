@@ -1,8 +1,8 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useState } from 'react';
 
-import { Database } from "../types/types_db";
+import { Database } from '../types/types_db';
 
-import { cretateClientComponentClient } from "@supabase/auth-helpers-react";
+import { cretateClientComponentClient } from '@supabase/auth-helpers-react';
 
 interface SupabaseProviderTypes {
   children: ReactNode;

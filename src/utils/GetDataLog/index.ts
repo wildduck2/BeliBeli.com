@@ -1,2 +1,2 @@
-import GetDataLog from "./GetDataLog";
+import GetDataLog from './GetDataLog';
 export default GetDataLog;

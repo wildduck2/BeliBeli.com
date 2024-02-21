@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import {
   Select,
@@ -7,8 +7,8 @@ import {
   SelectGroup,
   SelectItem,
   SelectValue,
-  Input,
-} from "../../../UI";
+  Input
+} from '../../../UI';
 
 const Orders = () => {
   return (

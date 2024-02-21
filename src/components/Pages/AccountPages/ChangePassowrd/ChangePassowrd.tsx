@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, Input } from "@/components/UI";
+import React from 'react';
+import { Button, Input } from '@/components/UI';
 
 const ChangePassowrd = () => {
   return (

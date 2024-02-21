@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   Accordion,
   AccordionContent,
@@ -11,19 +11,19 @@ import {
   ProductReviews,
   RatingStars,
   ShareProductWrapper,
-  Skeleton,
-} from "@/components/UI";
-import { AsyncImage as LazyImg } from "@/components/Layouts";
-import { Product } from "@/context/Data.types";
-import { Heart, Package } from "lucide-react";
-import { AiOutlineShopping } from "react-icons/ai";
-import { GoPackageDependents } from "react-icons/go";
-import { fastshiping } from "@/assets";
-import useGetReviews from "@/hooks/useGetReviews/useGetReviews";
-import { useDispatch, useSelector } from "react-redux";
-import { addProductToCart } from "@/context/Utils";
-import { RootState } from "@/context/store";
-import { useUser } from "@/hooks";
+  Skeleton
+} from '@/components/UI';
+import { AsyncImage as LazyImg } from '@/components/Layouts';
+import { Product } from '@/context/Data.types';
+import { Heart, Package } from 'lucide-react';
+import { AiOutlineShopping } from 'react-icons/ai';
+import { GoPackageDependents } from 'react-icons/go';
+import { fastshiping } from '@/assets';
+import useGetReviews from '@/hooks/useGetReviews/useGetReviews';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProductToCart } from '@/context/Utils';
+import { RootState } from '@/context/store';
+import { useUser } from '@/hooks';
 
 const height = 883.567;
 
@@ -36,7 +36,7 @@ const ProductShow = () => {
   const product: Product = state;
 
   const [reviews, error] = useGetReviews({
-    reviews_id: product.review_id,
+    reviews_id: product.review_id
   });
 
   const logged = useSelector((state: RootState) => state.data.logged);
@@ -48,16 +48,16 @@ const ProductShow = () => {
     id: product.id,
     name: product.title,
     price: parseInt(
-      product.product_type[currentTypeIndex].sizes[currentSizeIndex].price,
+      product.product_type[currentTypeIndex].sizes[currentSizeIndex].price
     ),
     discount: parseInt(
-      product.product_type[currentTypeIndex].sizes[currentSizeIndex].discount!,
+      product.product_type[currentTypeIndex].sizes[currentSizeIndex].discount!
     ),
     img: product.product_type[currentTypeIndex].low_imgs[0],
     artNo: product.product_type[currentTypeIndex].art_no,
     color: product.product_type[currentTypeIndex].name,
     size: product.product_type[currentTypeIndex].sizes[currentSizeIndex].size,
-    quantity: 1,
+    quantity: 1
   };
 
   return (
@@ -75,14 +75,14 @@ const ProductShow = () => {
                 src={product.product_type[currentTypeIndex].top_imgs[0]}
                 srcSet={product.product_type[currentTypeIndex].low_imgs[0]}
                 alt={product.title}
-                style={{ width: "100%", height: height }}
+                style={{ width: '100%', height: height }}
                 draggable={false}
               />
               <LazyImg
                 src={product.product_type[currentTypeIndex].top_imgs[1]}
                 srcSet={product.product_type[currentTypeIndex].low_imgs[1]}
                 alt={product.title}
-                style={{ width: "100%", height: height }}
+                style={{ width: '100%', height: height }}
                 draggable={false}
               />
 
@@ -99,35 +99,35 @@ const ProductShow = () => {
                   <span>{product.product_type[currentTypeIndex].art_no}</span>
                 </div>
 
-                <Button variant={"link"}>DETAILS</Button>
+                <Button variant={'link'}>DETAILS</Button>
               </div>
 
               <LazyImg
                 src={product.product_type[currentTypeIndex].top_imgs[2]}
                 srcSet={product.product_type[currentTypeIndex].low_imgs[2]}
                 alt={product.title}
-                style={{ width: "100%", height: height }}
+                style={{ width: '100%', height: height }}
                 draggable={false}
               />
               <LazyImg
                 src={product.product_type[currentTypeIndex].top_imgs[3]}
                 srcSet={product.product_type[currentTypeIndex].low_imgs[3]}
                 alt={product.title}
-                style={{ width: "100%", height: height }}
+                style={{ width: '100%', height: height }}
                 draggable={false}
               />
               <LazyImg
                 src={product.product_type[currentTypeIndex].top_imgs[4]}
                 srcSet={product.product_type[currentTypeIndex].low_imgs[4]}
                 alt={product.title}
-                style={{ width: "100%", height: height }}
+                style={{ width: '100%', height: height }}
                 draggable={false}
               />
               <LazyImg
                 src={product.product_type[currentTypeIndex].top_imgs[5]}
                 srcSet={product.product_type[currentTypeIndex].low_imgs[5]}
                 alt={product.title}
-                style={{ width: "100%", height: height }}
+                style={{ width: '100%', height: height }}
                 draggable={false}
               />
             </div>
@@ -138,7 +138,7 @@ const ProductShow = () => {
               <div className="products-show__wrapper__main__info__prize">
                 <div>
                   <h2>
-                    EGP{" "}
+                    EGP{' '}
                     {
                       product.product_type[currentTypeIndex].sizes[
                         currentSizeIndex
@@ -150,7 +150,7 @@ const ProductShow = () => {
                   ].discount && (
                     <>
                       <h2>
-                        EGP{" "}
+                        EGP{' '}
                         {
                           product.product_type[currentTypeIndex].sizes[
                             currentSizeIndex
@@ -158,18 +158,18 @@ const ProductShow = () => {
                         }
                       </h2>
                       <span>
-                        (save{" "}
+                        (save{' '}
                         {`${(
                           (parseInt(
                             product.product_type[currentTypeIndex].sizes[
                               currentSizeIndex
-                            ].discount!,
+                            ].discount!
                           ) ||
                             199 /
                               parseInt(
                                 product.product_type[currentTypeIndex].sizes[
                                   currentSizeIndex
-                                ].price,
+                                ].price
                               )) * 100
                         ).toFixed()}%`}
                         )
@@ -217,14 +217,14 @@ const ProductShow = () => {
                       return (
                         <Button
                           key={index}
-                          variant={"ghost"}
+                          variant={'ghost'}
                           onClick={() => {
                             setCurrentTypeIndex(index);
                             const imgs = mainImgsRef.current?.querySelectorAll(
-                              ".lazyLoaingImg-wrapper",
+                              '.lazyLoaingImg-wrapper'
                             );
                             imgs?.forEach((img) =>
-                              img.classList.remove("show--img"),
+                              img.classList.remove('show--img')
                             );
                           }}
                         >
@@ -233,9 +233,7 @@ const ProductShow = () => {
                             src={item.icon}
                             alt={product.title}
                             clickable={true}
-                            className={`${
-                              currentTypeIndex === index && "active"
-                            }`}
+                            className={`${currentTypeIndex === index && 'active'}`}
                             loading="lazy"
                             draggable={false}
                           />
@@ -245,7 +243,7 @@ const ProductShow = () => {
                   </div>
                 </div>
                 <div>
-                  <Button variant={"link"}>size Guide</Button>
+                  <Button variant={'link'}>size Guide</Button>
                 </div>
               </div>
 
@@ -261,16 +259,14 @@ const ProductShow = () => {
                       return (
                         <Button
                           key={index}
-                          variant={"outline"}
-                          className={`${
-                            currentSizeIndex === index && "active"
-                          }`}
+                          variant={'outline'}
+                          className={`${currentSizeIndex === index && 'active'}`}
                           onClick={() => setCurrentSizeIndex(index)}
                         >
                           {item.size}
                         </Button>
                       );
-                    },
+                    }
                   )}
                 </div>
               </div>
@@ -278,7 +274,7 @@ const ProductShow = () => {
               <div className="products-show__wrapper__main__info__buttons">
                 <div>
                   <Button
-                    variant={"default"}
+                    variant={'default'}
                     onClick={() => {
                       dispatch(addProductToCart(cartProduct));
                     }}
@@ -287,9 +283,9 @@ const ProductShow = () => {
                     <span>Add to Basket</span>
                   </Button>
                   <Button
-                    variant={"outline"}
+                    variant={'outline'}
                     onClick={() => {
-                      console.log("this is favourite");
+                      console.log('this is favourite');
                     }}
                   >
                     <Heart size={25} />
@@ -354,7 +350,7 @@ const ProductShow = () => {
                       <Label>Check in-store availability</Label>
                       <div>
                         <Input placeholder="Enter your area" />
-                        <Button variant={"default"}>CHECK STORES</Button>
+                        <Button variant={'default'}>CHECK STORES</Button>
                       </div>
                     </AccordionContent>
                   </AccordionItem>

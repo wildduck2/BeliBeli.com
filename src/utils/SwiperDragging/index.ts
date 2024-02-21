@@ -1,7 +1,7 @@
 import {
   handleMouseDown,
   handleMouseDrag,
-  handleMouseUp,
-} from './SwiperDragging'
+  handleMouseUp
+} from './SwiperDragging';
 
-export { handleMouseDown, handleMouseDrag, handleMouseUp }
+export { handleMouseDown, handleMouseDrag, handleMouseUp };

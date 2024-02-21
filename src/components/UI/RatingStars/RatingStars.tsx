@@ -1,8 +1,8 @@
-import React from "react";
-import { Button } from "..";
-import { Star } from "lucide-react";
-import Rating from "@mui/material/Rating";
-import Box from "@mui/material/Box";
+import React from 'react';
+import { Button } from '..';
+import { Star } from 'lucide-react';
+import Rating from '@mui/material/Rating';
+import Box from '@mui/material/Box';
 
 export interface RatingStarsProps {
   value: number;
@@ -12,7 +12,7 @@ export interface RatingStarsProps {
 const RatingStars: React.FC<RatingStarsProps> = ({
   value,
   precision,
-  readOnly,
+  readOnly
 }) => {
   return (
     <>
@@ -28,7 +28,7 @@ const RatingStars: React.FC<RatingStarsProps> = ({
         </Box>
       </div>
       <span>({`${value.toFixed(1)}`})</span>
-      <Button variant={"link"}>Write a Review</Button>
+      <Button variant={'link'}>Write a Review</Button>
     </>
   );
 };

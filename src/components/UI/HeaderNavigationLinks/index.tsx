@@ -1,3 +1,3 @@
-import HeaderNavigationLinks from "./HeaderNavigationLinks";
+import HeaderNavigationLinks from './HeaderNavigationLinks';
 
 export default HeaderNavigationLinks;

@@ -1,7 +1,7 @@
-import * as React from "react";
-import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ChevronDown } from "lucide-react";
-import { cn } from "@/utils";
+import * as React from 'react';
+import * as AccordionPrimitive from '@radix-ui/react-accordion';
+import { ChevronDown } from 'lucide-react';
+import { cn } from '@/utils';
 
 const Accordion = AccordionPrimitive.Root;
 
@@ -11,11 +11,11 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
-    className={cn("yborder-b", className)}
+    className={cn('yborder-b', className)}
     {...props}
   />
 ));
-AccordionItem.displayName = "AccordionItem";
+AccordionItem.displayName = 'AccordionItem';
 
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
@@ -25,8 +25,8 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "yflex yflex-1 yitems-center yjustify-between ypy-4 yfont-medium ytransition-all hover:yunderline [&[data-state=open]>svg]:yrotate-180",
-        className,
+        'yflex yflex-1 yitems-center yjustify-between ypy-4 yfont-medium ytransition-all hover:yunderline [&[data-state=open]>svg]:yrotate-180',
+        className
       )}
       {...props}
     >
@@ -46,7 +46,7 @@ const AccordionContent = React.forwardRef<
     className="yoverflow-hidden ytext-sm ytransition-all data-[state=closed]:yanimate-accordion-up data-[state=open]:yanimate-accordion-down"
     {...props}
   >
-    <div className={cn("ypb-4 ypt-0", className)}>{children}</div>
+    <div className={cn('ypb-4 ypt-0', className)}>{children}</div>
   </AccordionPrimitive.Content>
 ));
 

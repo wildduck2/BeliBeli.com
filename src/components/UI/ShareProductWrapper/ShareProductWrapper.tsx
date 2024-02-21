@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Button,
   Dialog,
@@ -6,18 +6,18 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  Input,
-} from "..";
-import { Check, Clipboard, Copy } from "lucide-react";
-import { TbShare3 } from "react-icons/tb";
-import { FaFacebookMessenger, FaWhatsapp } from "react-icons/fa6";
-import { RiTwitterXFill } from "react-icons/ri";
-import { FaFacebookF, FaTelegramPlane } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+  Input
+} from '..';
+import { Check, Clipboard, Copy } from 'lucide-react';
+import { TbShare3 } from 'react-icons/tb';
+import { FaFacebookMessenger, FaWhatsapp } from 'react-icons/fa6';
+import { RiTwitterXFill } from 'react-icons/ri';
+import { FaFacebookF, FaTelegramPlane } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 
 const ShareProduct = (
   setClipboardClicked: React.Dispatch<React.SetStateAction<boolean>>,
-  link: string,
+  link: string
 ) => {
   setClipboardClicked(true);
   navigator.clipboard.writeText(link);
@@ -43,25 +43,25 @@ const ShareProductWrapper = () => {
         </DialogHeader>
         <div>
           <div className="share__wrapper__buttons">
-            <Button variant={"outline"}>
+            <Button variant={'outline'}>
               <Clipboard size={27} />
             </Button>
-            <Button variant={"outline"}>
+            <Button variant={'outline'}>
               <FaWhatsapp size={27} />
             </Button>
-            <Button variant={"outline"}>
+            <Button variant={'outline'}>
               <RiTwitterXFill size={27} />
             </Button>
-            <Button variant={"outline"}>
+            <Button variant={'outline'}>
               <FaFacebookF size={27} />
             </Button>
-            <Button variant={"outline"}>
+            <Button variant={'outline'}>
               <MdEmail size={27} />
             </Button>
-            <Button variant={"outline"}>
+            <Button variant={'outline'}>
               <FaTelegramPlane size={27} />
             </Button>
-            <Button variant={"outline"}>
+            <Button variant={'outline'}>
               <FaFacebookMessenger size={27} />
             </Button>
           </div>
@@ -69,13 +69,13 @@ const ShareProductWrapper = () => {
           <div className="share__wrapper__input">
             <Input value={window.location.href} />
             <Button
-              variant={"default"}
+              variant={'default'}
               disabled={ClipboardClicked}
               onClick={() =>
                 ShareProduct(setClipboardClicked, window.location.href)
               }
             >
-              {!ClipboardClicked ? <Copy size={18} /> : <Check size={18}/>}
+              {!ClipboardClicked ? <Copy size={18} /> : <Check size={18} />}
             </Button>
           </div>
         </div>

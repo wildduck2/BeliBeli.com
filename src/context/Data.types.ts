@@ -1,6 +1,6 @@
-import { CartProduct } from "@/components/Pages/Cart/Cart.types";
-import { UserData } from "@/hooks";
-import { UUID } from "crypto";
+import { CartProduct } from '@/components/Pages/Cart/Cart.types';
+import { UserData } from '@/hooks';
+import { UUID } from 'crypto';
 
 export type ProductImage = Array<string>;
 export interface ProductSize {
@@ -33,10 +33,10 @@ export interface review {
   review_discription: string;
   product_recommended: boolean;
   nickname: string;
-  true_to_size: "small" | "normal" | "large";
-  fit: "tight" | "normal" | "large";
-  lenght: "small" | "normal" | "large";
-  this_review_was_helpfll: Array<ReviewWasHelpfull>;
+  true_to_size: 'small' | 'normal' | 'large';
+  fit: 'tight' | 'normal' | 'large';
+  lenght: 'small' | 'normal' | 'large';
+  this_review_was_helpufll: Array<ReviewWasHelpfull>;
 }
 
 export interface Product_review {
@@ -80,7 +80,7 @@ export interface BannersType {
 }
 
 export interface initialStateTypes {
-  satatus: "loading" | "succeeded" | "failed";
+  satatus: 'loading' | 'succeeded' | 'failed';
   error: string | null;
 
   bannersData: BannersType[] | null;

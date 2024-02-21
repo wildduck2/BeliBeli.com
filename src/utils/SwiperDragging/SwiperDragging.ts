@@ -1,4 +1,4 @@
-import React, { MouseEvent, MutableRefObject } from "react";
+import React, { MouseEvent, MutableRefObject } from 'react';
 
 interface handleMouseDownTypes {
   e: MouseEvent<HTMLUListElement>;
@@ -25,7 +25,7 @@ export const handleMouseDown = ({
   setDragging,
   setPrevPageX,
   setPrevScrollLeft,
-  SWIPER__REF,
+  SWIPER__REF
 }: handleMouseDownTypes) => {
   setDragging!(true);
   setPrevPageX!(e!.pageX);
@@ -39,7 +39,7 @@ export const handleMouseDrag = ({
   prevScrollLeft,
   positonDiff,
   SWIPER__REF,
-  setPositonDiff,
+  setPositonDiff
 }: handleMouseDragTypes) => {
   if (dragging) {
     e!.preventDefault();

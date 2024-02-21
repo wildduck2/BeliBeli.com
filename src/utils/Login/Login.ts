@@ -1,6 +1,6 @@
-import { NavigateFunction } from "react-router-dom";
-import { supabase } from "../../supabase/supabase";
-import { Dispatch } from "react";
+import { NavigateFunction } from 'react-router-dom';
+import { supabase } from '../../supabase/supabase';
+import { Dispatch } from 'react';
 
 export interface RouteHandlerTypes {
   signUp: boolean;
@@ -19,41 +19,41 @@ export interface signupWithEmailHandlerTypes
 
 export const loginWithGoogleHandler = async () => {
   await supabase.auth.signInWithOAuth({
-    provider: "google",
+    provider: 'google'
   });
 };
 
 export const loginWithDiscordHandler = async () =>
   await supabase.auth.signInWithOAuth({
-    provider: "discord",
+    provider: 'discord'
   });
 
 export const signupWithEmailHandler = async ({
   email,
   fullName,
-  password,
+  password
 }: signupWithEmailHandlerTypes) =>
   await supabase.auth.signUp({
     email: email,
-    password: password,
+    password: password
   });
 
 export const loginWithEmailHandler = async ({
   email,
-  password,
+  password
 }: loginWithEmailHandlerTypes) => {
   await supabase.auth.signInWithPassword({
     email: email,
-    password: password,
+    password: password
   });
-  console.log("logged in");
+  console.log('logged in');
 };
 
 export const routeHandler = ({ signUp, router }: RouteHandlerTypes) =>
-  router(`${signUp ? "/login" : "/signup"}`);
+  router(`${signUp ? '/login' : '/signup'}`);
 
 export const logoutHandler = async ({
-  setUser,
+  setUser
 }: {
   setUser: Dispatch<React.SetStateAction<boolean>>;
 }) => {

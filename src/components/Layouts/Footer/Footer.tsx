@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import { Link, Button, Input } from "../../UI";
+import { Link, Button, Input } from '../../UI';
 
 import {
   AiFillFacebook,
   AiOutlineTwitter,
-  AiFillInstagram,
-} from "react-icons/ai";
-import { footerData } from "../../../constants";
-import { logo } from "../../../assets";
+  AiFillInstagram
+} from 'react-icons/ai';
+import { footerData } from '../../../constants';
+import { logo } from '../../../assets';
 
 const Footer = () => {
   return (
@@ -63,19 +63,19 @@ const Footer = () => {
             (Egypt local time, GMT +3)
           </p>
 
-          <Link href={"/"}>
+          <Link href={'/'}>
             <img src={logo} alt="footer__logo" />
           </Link>
 
           <div>
             <Link href="" target="_blank">
-              <AiFillFacebook className={"fill-[#1e242e]"} size={25} />
+              <AiFillFacebook className={'fill-[#1e242e]'} size={25} />
             </Link>
             <Link href="" target="_blank">
-              <AiOutlineTwitter className={"fill-[#1e242e]"} size={25} />
+              <AiOutlineTwitter className={'fill-[#1e242e]'} size={25} />
             </Link>
             <Link href="" target="_blank">
-              <AiFillInstagram className={"fill-[#1e242e]"} size={25} />
+              <AiFillInstagram className={'fill-[#1e242e]'} size={25} />
             </Link>
           </div>
 

@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import { Swiper as SW, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Swiper as SW, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 
-import "swiper/css";
-import "swiper/css/pagination";
-import { Skeleton } from "@/components/UI";
-import { RootState } from "@/context/store";
-import { useSelector } from "react-redux";
-import { SwiperTypes } from "./Swiper.types";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Skeleton } from '@/components/UI';
+import { RootState } from '@/context/store';
+import { useSelector } from 'react-redux';
+import { SwiperTypes } from './Swiper.types';
 
 const SwiperSmall = ({ DATA__NAME }: SwiperTypes) => {
   const selector = useSelector((state: RootState) => state.data);
@@ -26,18 +26,18 @@ const SwiperSmall = ({ DATA__NAME }: SwiperTypes) => {
       className="styledByYou__section__content__swiper"
       loop={true}
     >
-      {selector.satatus === "succeeded" ? (
+      {selector.satatus === 'succeeded' ? (
         DATA__NAME?.map((item, index) => {
           return (
-            item.type === "styledbyyou" &&
+            item.type === 'styledbyyou' &&
             item.product_type.map((data) => {
               return (
-                <SwiperSlide className="styledByYou__section__content__swiper__slide" key={index}>
+                <SwiperSlide
+                  className="styledByYou__section__content__swiper__slide"
+                  key={index}
+                >
                   <div className="img__wrapper">
-                    <img
-                      src={data.top_imgs["1"]}
-                      alt=""
-                    />
+                    <img src={data.top_imgs['1']} alt="" />
                     {/* <LazyLoadImage
                   width={252}
                   height={252}

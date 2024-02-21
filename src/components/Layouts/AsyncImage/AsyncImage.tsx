@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useEffect, useRef } from "react";
+import React, { MutableRefObject, useEffect, useRef } from 'react';
 
 interface AsyncImageTypes extends React.ImgHTMLAttributes<HTMLImageElement> {
   media?: string;
@@ -9,10 +9,10 @@ interface AsyncImageTypes extends React.ImgHTMLAttributes<HTMLImageElement> {
 
 const LazyLoadingImg = (
   imgRef: MutableRefObject<HTMLImageElement>,
-  wrapperRef: MutableRefObject<HTMLDivElement>,
+  wrapperRef: MutableRefObject<HTMLDivElement>
 ) => {
-  imgRef.current.addEventListener("load", () => {
-    imgRef.current.complete && wrapperRef.current.classList.add("show--img");
+  imgRef.current.addEventListener('load', () => {
+    imgRef.current.complete && wrapperRef.current.classList.add('show--img');
   });
 };
 
@@ -23,7 +23,7 @@ const AsyncImage: React.FC<AsyncImageTypes> = ({
   media,
   ariaLabel,
   clickable = false,
-  alt = "img loading",
+  alt = 'img loading',
   width = 275,
   height = 384,
   ...props
@@ -41,7 +41,7 @@ const AsyncImage: React.FC<AsyncImageTypes> = ({
       ref={wrapperRef}
       onClick={() => {
         if (srcy !== imgRef.current.src && clickable) {
-          wrapperRef.current.classList.remove("show--img");
+          wrapperRef.current.classList.remove('show--img');
           LazyLoadingImg(imgRef, wrapperRef);
         }
       }}
@@ -64,5 +64,5 @@ const AsyncImage: React.FC<AsyncImageTypes> = ({
   );
 };
 
-AsyncImage.displayName = "AsyncImage";
+AsyncImage.displayName = 'AsyncImage';
 export default AsyncImage;

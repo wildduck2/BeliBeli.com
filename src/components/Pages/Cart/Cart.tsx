@@ -1,27 +1,26 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
-import { RootState } from "@/context/store";
-import { useDispatch, useSelector } from "react-redux";
-import { AsyncImage } from "loadable-image";
-import { Button, DeliverToWrapper, Input, ScrollArea } from "@/components/UI";
-import { MdOutlineDeleteOutline } from "react-icons/md";
-import { CartProductProps } from "./Cart.types";
-import { RemoveProductCart, formatter, handleQuantityChange } from "@/utils";
-import { recover } from "@/assets";
-import { useGetCartProducts } from "@/hooks";
-import { removeProductCart, updateCartProducts } from "@/context/Utils";
-import { UUID } from "crypto";
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { RootState } from '@/context/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AsyncImage } from 'loadable-image';
+import { Button, DeliverToWrapper, Input, ScrollArea } from '@/components/UI';
+import { MdOutlineDeleteOutline } from 'react-icons/md';
+import { CartProductProps } from './Cart.types';
+import { RemoveProductCart, formatter, handleQuantityChange } from '@/utils';
+import { recover } from '@/assets';
+import { useUser } from '@/hooks';
+import { UUID } from 'crypto';
 
-const steps = ["Bag", "Delivery and Payment", "Confirmation"];
+const steps = ['Bag', 'Delivery and Payment', 'Confirmation'];
 
 const Cart = () => {
   const location = useLocation();
   const logged = useSelector((state: RootState) => state.data.logged);
   const cartProducts = useSelector(
-    (state: RootState) => state.util.cartProducts,
+    (state: RootState) => state.util.cartProducts
   );
 
-  const { cart, setCart, error, user } = useGetCartProducts(cartProducts);
+  const user = useUser({ signedout: logged });
   const [totalPrice, setTotalPrice] = React.useState(0);
 
   console.log(cartProducts);
@@ -30,7 +29,7 @@ const Cart = () => {
     if (cartProducts) {
       const total = cartProducts.reduce(
         (acc, item) => acc + item.price * item.quantity,
-        0,
+        0
       );
       setTotalPrice(total);
     }
@@ -39,11 +38,11 @@ const Cart = () => {
   return (
     <main className="cart">
       <span>
-        {location.pathname.split("/").map((item, index) => {
+        {location.pathname.split('/').map((item, index) => {
           return (
             <React.Fragment key={index}>
               <span>{item}</span>
-              {index < location.pathname.split("/").length - 1 && index > 0 && (
+              {index < location.pathname.split('/').length - 1 && index > 0 && (
                 <span>/</span>
               )}
             </React.Fragment>
@@ -58,9 +57,7 @@ const Cart = () => {
               {steps.map((item, i) => (
                 <div key={i}>
                   <div
-                    className={`cart__wrapper__verify-steps__step ${
-                      i === 0 && "active"
-                    }`}
+                    className={`cart__wrapper__verify-steps__step ${i === 0 && 'active'}`}
                   >
                     <span>{i + 1}</span>
 
@@ -88,13 +85,11 @@ const Cart = () => {
               </div>
 
               <ScrollArea className="cart__wrapper__products__info__scroll">
-                {cartProducts.map((item, index) => (
+                {cartProducts.map((item) => (
                   <CartProductComponent
                     key={item.id}
                     item={item}
-                    index={index}
-                    setCart={setCart}
-                    user_id={user?.id as UUID}
+                    user_id={user[0]?.id as UUID}
                   />
                 ))}
               </ScrollArea>
@@ -103,7 +98,7 @@ const Cart = () => {
               <h4>Do you have a Promotional Code?</h4>
               <div className="cart__wrapper__products__summary__input">
                 <Input placeholder="Enter code" type="number" min={0} />
-                <Button variant={"default"}>Apply</Button>
+                <Button variant={'default'}>Apply</Button>
               </div>
 
               <div className="cart__wrapper__products__summary__total">
@@ -122,7 +117,7 @@ const Cart = () => {
                   <span>Inclusive of VAT</span>
                 </div>
 
-                <Button variant={"default"}>CONTINUE TO CHECKOUT</Button>
+                <Button variant={'default'}>CONTINUE TO CHECKOUT</Button>
               </div>
             </div>
           </section>
@@ -139,17 +134,9 @@ const Cart = () => {
 
 export default Cart;
 
-const CartProductComponent = ({
-  item,
-  index,
-  setCart,
-  user_id,
-}: CartProductProps) => {
+const CartProductComponent = ({ item, user_id }: CartProductProps) => {
   const [quantity, setQuantity] = useState(item.quantity);
   const dispatch = useDispatch();
-  
-  console.log(item.quantity, quantity);
-  
 
   return (
     <li>
@@ -158,7 +145,7 @@ const CartProductComponent = ({
           style={{
             width: 155,
             height: 230,
-            objectFit: "contain",
+            objectFit: 'contain'
           }}
           src={item.img}
           alt={item.name}
@@ -173,19 +160,18 @@ const CartProductComponent = ({
           <span>Color: {item.color}</span>
           <span>Size: {item.size}</span>
 
-          <Button variant={"link"}>Move to Favourite</Button>
+          <Button variant={'link'}>Move to Favourite</Button>
         </div>
       </div>
 
       <div>
         <Button
-          variant={"destructive"}
+          variant={'destructive'}
           onClick={() => {
-            dispatch(removeProductCart({ product: item }));
-            // RemoveProductCart({
-            //   product: item,
-            //   dispatch,
-            // });
+            RemoveProductCart({
+              product: item,
+              dispatch
+            });
           }}
         >
           <MdOutlineDeleteOutline size={23} />
@@ -193,14 +179,14 @@ const CartProductComponent = ({
 
         <div>
           <Button
-            variant={"secondary"}
+            variant={'secondary'}
             onClick={() =>
               handleQuantityChange({
                 dispatch,
                 item,
                 newQuantity: quantity > 1 ? quantity - 1 : 1,
                 setQuantity,
-                user_id,
+                user_id
               })
             }
           >
@@ -208,14 +194,14 @@ const CartProductComponent = ({
           </Button>
           <span>{quantity}</span>
           <Button
-            variant={"default"}
+            variant={'default'}
             onClick={() =>
               handleQuantityChange({
                 dispatch,
                 item,
                 newQuantity: quantity + 1,
                 setQuantity,
-                user_id,
+                user_id
               })
             }
           >

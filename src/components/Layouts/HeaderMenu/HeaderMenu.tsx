@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, Link } from "@/components/UI";
+import React from 'react';
+import { Button, Link } from '@/components/UI';
 import {
   BabayHeaderNavigationLink,
   BeliBeliHomeHeaderNavigationLink,
@@ -9,12 +9,12 @@ import {
   SaleHeaderNavigationLink,
   SportsHeaderNavigationLink,
   SustainabilityHeaderNavigationLink,
-  WomenHeaderNavigationLink,
-} from "@/constants";
-import { MutableRefObject, useRef, useState } from "react";
-import { RootState } from "@/context/store";
-import { useDispatch, useSelector } from "react-redux";
-import { showMobileMenu } from "@/context/Utils";
+  WomenHeaderNavigationLink
+} from '@/constants';
+import { MutableRefObject, useRef, useState } from 'react';
+import { RootState } from '@/context/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { showMobileMenu } from '@/context/Utils';
 
 export const navigationLinksData = [
   WomenHeaderNavigationLink,
@@ -25,7 +25,7 @@ export const navigationLinksData = [
   BeliBeliHomeHeaderNavigationLink,
   SportsHeaderNavigationLink,
   SaleHeaderNavigationLink,
-  SustainabilityHeaderNavigationLink,
+  SustainabilityHeaderNavigationLink
 ];
 
 const HeaderMenu = () => {
@@ -37,48 +37,47 @@ const HeaderMenu = () => {
 
   const hideMenuTreeHandler = () => {
     const uls = menuRef.current.querySelectorAll(
-      ".header-menu__category-list",
+      '.header-menu__category-list'
     ) as NodeListOf<HTMLUListElement>;
-    uls.forEach((ul) => ul.classList.remove("show"));
+    uls.forEach((ul) => ul.classList.remove('show'));
   };
 
   const onclickHandler = (e: React.MouseEvent<HTMLLIElement>) => {
-    e.currentTarget.nextElementSibling?.classList.toggle("show");
+    e.currentTarget.nextElementSibling?.classList.toggle('show');
   };
 
   const activeHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     const el = e.currentTarget;
 
-    if (!el.classList.contains("show")) {
+    if (!el.classList.contains('show')) {
       el.parentElement
-        ?.querySelectorAll("button")
-        .forEach((btn) => btn.classList.remove("show"));
+        ?.querySelectorAll('button')
+        .forEach((btn) => btn.classList.remove('show'));
 
       menuRef.current
-        .querySelectorAll(".show")
-        .forEach((item) => item.classList.remove("show"));
+        .querySelectorAll('.show')
+        .forEach((item) => item.classList.remove('show'));
       setCurrentactive(!currentactive);
     }
 
-    el.classList.add("show");
+    el.classList.add('show');
   };
 
   const menuLinkClickHandler = () => {
     document
-      .querySelector(".header__menu")
-      ?.classList.remove("header__menu--show");
+      .querySelector('.header__menu')
+      ?.classList.remove('header__menu--show');
 
     menuRef.current
-      .querySelectorAll(".show")
-      .forEach((item) => item.classList.remove("show"));
+      .querySelectorAll('.show')
+      .forEach((item) => item.classList.remove('show'));
 
     dispatch(showMobileMenu(false));
   };
 
   return (
     <div
-      className={`header-menu  ${selector.mobileMenuActive && "header-menu__show--menu"
-        }`}
+      className={`header-menu  ${selector.mobileMenuActive && 'header-menu__show--menu'}`}
     >
       <div className="header-menu__top">
         <Button className="show" onClick={activeHandler}>
@@ -88,8 +87,7 @@ const HeaderMenu = () => {
       </div>
 
       <div
-        className={`header-menu__active-buffer ${currentactive && "show--login"
-          }`}
+        className={`header-menu__active-buffer ${currentactive && 'show--login'}`}
       >
         <Link href="/login" onClick={menuLinkClickHandler}>
           sign In
@@ -105,7 +103,7 @@ const HeaderMenu = () => {
           return (
             <ul className={`header-menu__menu menu${index}`} key={index}>
               {data.map((item, index1) => {
-                return typeof item === "string" ? (
+                return typeof item === 'string' ? (
                   <li
                     key={index1}
                     className="header-menu__menu-category"
@@ -140,12 +138,12 @@ const HeaderMenu = () => {
                       <span>{data[0]}</span>
                     </div>
                     {item.map((item2, index2) => {
-                      return typeof item2 === "string" ? (
+                      return typeof item2 === 'string' ? (
                         <li key={index2}>{item2}</li>
                       ) : (
                         item2?.map((item3, index3) => {
                           return (
-                            typeof item3 === "string" && (
+                            typeof item3 === 'string' && (
                               <li className="header-menu__list" key={index3}>
                                 <Link
                                   href={item3}

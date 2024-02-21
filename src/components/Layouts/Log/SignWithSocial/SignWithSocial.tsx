@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Button } from "../../../UI";
-import { useNavigate } from "react-router-dom";
-import { RouteHandlerTypes, routeHandler } from "../../../../utils/Login/Login";
+import { Button } from '../../../UI';
+import { useNavigate } from 'react-router-dom';
+import { RouteHandlerTypes, routeHandler } from '../../../../utils/Login/Login';
 
-import { AiOutlineUser } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
-import { BsDiscord } from "react-icons/bs";
-import { useUser } from "@supabase/auth-helpers-react";
-import { useSigninwithProvider } from "@/hooks";
-import { useDispatch } from "react-redux";
+import { AiOutlineUser } from 'react-icons/ai';
+import { FcGoogle } from 'react-icons/fc';
+import { BsDiscord } from 'react-icons/bs';
+import { useUser } from '@supabase/auth-helpers-react';
+import { useSigninwithProvider } from '@/hooks';
+import { useDispatch } from 'react-redux';
 
 export interface SignInWithSocialTyps {
   mainTittle: string;
@@ -20,7 +20,7 @@ export interface SignInWithSocialTyps {
 const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
   mainTittle,
   signUp,
-  setNotValid,
+  setNotValid
 }) => {
   const router = useNavigate();
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
     setEmailValid,
     setPasswordValid,
     route: router,
-    provider: "google",
+    provider: 'google'
   });
 
   const GitHub = useSigninwithProvider({
@@ -43,7 +43,7 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
     setEmailValid,
     setPasswordValid,
     route: router,
-    provider: "discord",
+    provider: 'discord'
   });
 
   return (
@@ -52,7 +52,7 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
 
       <Button
         className="social_button"
-        variant={"outline"}
+        variant={'outline'}
         onClick={Google.authProvider}
       >
         <FcGoogle size={25} />
@@ -60,7 +60,7 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
       </Button>
       <Button
         className="social_button"
-        variant={"outline"}
+        variant={'outline'}
         onClick={GitHub.authProvider}
       >
         <BsDiscord size={25} />
@@ -75,19 +75,19 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
 
       <Button
         className="social_button"
-        variant={"outline"}
+        variant={'outline'}
         onClick={() => {
           setNotValid(false);
           routeHandler({ signUp, router } as RouteHandlerTypes);
         }}
       >
         <AiOutlineUser size={25} />
-        <span>{signUp ? "Sign In" : "Sign Up"} here </span>
+        <span>{signUp ? 'Sign In' : 'Sign Up'} here </span>
       </Button>
     </div>
   );
 };
 
-SignWithSocial.displayName = "SignWithSocial";
+SignWithSocial.displayName = 'SignWithSocial';
 
 export default SignWithSocial;

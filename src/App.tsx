@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Routes, Route, Outlet } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { Routes, Route, Outlet } from 'react-router-dom';
 
 import {
   AccountDetails,
@@ -16,23 +16,25 @@ import {
   ProductShow,
   Profile,
   Reviews,
-  ShopProduct,
-} from "./components/Pages";
+  ShopProduct
+} from './components/Pages';
 import {
   Footer,
   Header,
   HeaderBanner,
   HeaderMenu,
   Signin,
-  Signup,
-} from "./components/Layouts";
-import { HeaderNavigationLinks } from "./components/UI";
-import { store } from "./context/store";
-import { thunkFetchingBannerFromSupabase } from "./context/Data";
-import WishList from "./components/Pages/WishList/WishList";
-import Cart from "./components/Pages/Cart/Cart";
+  Signup
+} from './components/Layouts';
+import { HeaderNavigationLinks } from './components/UI';
+import { store } from './context/store';
+import { thunkFetchingBannerFromSupabase } from './context/Data';
+import WishList from './components/Pages/WishList/WishList';
+import Cart from './components/Pages/Cart/Cart';
+import { useGetCartProducts } from './hooks';
 
 function App() {
+  useGetCartProducts();
   useEffect(() => {
     store.dispatch(thunkFetchingBannerFromSupabase());
   }, []);

@@ -1,52 +1,52 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { supabase } from "../supabase/supabase";
-import { PostgrestSingleResponse } from "@supabase/supabase-js";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { supabase } from '../supabase/supabase';
+import { PostgrestSingleResponse } from '@supabase/supabase-js';
 import {
   BannersType,
   Product,
   initialStateTypes,
-  otherImgsTypes,
-} from "./Data.types";
-import { toast } from "sonner";
+  otherImgsTypes
+} from './Data.types';
+import { toast } from 'sonner';
 
 const initialState: initialStateTypes = {
-  satatus: "loading",
+  satatus: 'loading',
   error: null,
 
   bannersData: null,
   categoriesData: null,
   products: null,
   userData: null,
-  logged: JSON.parse(localStorage.getItem("userData") || "false"),
+  logged: JSON.parse(localStorage.getItem('userData') || 'false')
 };
 
 export const thunkFetchingBannerFromSupabase = createAsyncThunk(
-  "products/fetchProducts",
+  'products/fetchProducts',
   async () => {
     try {
       // getting banners
       const {
         data: banners,
-        error: bannerError,
+        error: bannerError
       }: PostgrestSingleResponse<BannersType[]> = await supabase
-        .from("banners")
-        .select("*");
+        .from('banners')
+        .select('*');
 
       // getting categories
       const {
         data: categories,
-        error: categoryError,
+        error: categoryError
       }: PostgrestSingleResponse<otherImgsTypes[]> = await supabase
-        .from("categories")
-        .select("*");
+        .from('categories')
+        .select('*');
 
       // getting categories
       const {
         data: products,
-        error: productsError,
+        error: productsError
       }: PostgrestSingleResponse<otherImgsTypes[]> = await supabase
-        .from("products")
-        .select("*");
+        .from('products')
+        .select('*');
 
       // checking if any error log that
       if (!bannerError || !categoryError || !productsError) {
@@ -57,36 +57,36 @@ export const thunkFetchingBannerFromSupabase = createAsyncThunk(
     } catch (error: string | unknown) {
       throw new Error(error as string);
     }
-  },
+  }
 );
 
 export const dataSlice = createSlice({
-  name: "products",
+  name: 'products',
   initialState,
   reducers: {
     getUserDispatch: (state, action) => {
       state.logged = true;
       state.userData = action.payload;
-      localStorage.setItem("userData", JSON.stringify(state.logged));
+      localStorage.setItem('userData', JSON.stringify(state.logged));
     },
     signin: (state) => {
       state.logged = true;
-      localStorage.setItem("userData", JSON.stringify(state.logged));
+      localStorage.setItem('userData', JSON.stringify(state.logged));
     },
     signout: (state) => {
       state.logged = false;
       state.userData = null;
-      localStorage.setItem("userData", JSON.stringify(state.logged));
-      toast.info("Logout Successful");
-    },
+      localStorage.setItem('userData', JSON.stringify(state.logged));
+      toast.info('Logout Successful');
+    }
   },
   extraReducers(builder) {
     builder
       .addCase(thunkFetchingBannerFromSupabase.pending, (state) => {
-        state.satatus = "loading";
+        state.satatus = 'loading';
       })
       .addCase(thunkFetchingBannerFromSupabase.fulfilled, (state, action) => {
-        state.satatus = "succeeded";
+        state.satatus = 'succeeded';
 
         //  Getting the banners from the data
         state.bannersData = action.payload?.banners as BannersType[];
@@ -99,10 +99,10 @@ export const dataSlice = createSlice({
       })
 
       .addCase(thunkFetchingBannerFromSupabase.rejected, (state, action) => {
-        state.satatus = "failed";
+        state.satatus = 'failed';
         state.error = action.error.message as string;
       });
-  },
+  }
 });
 
 export const { getUserDispatch, signin, signout } = dataSlice.actions;

@@ -1,12 +1,12 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/context/store";
-import { HeaderShoppingCard, Link, Search } from "@/components/UI";
-import { showMobileMenu } from "@/context/Utils";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/context/store';
+import { HeaderShoppingCard, Link, Search } from '@/components/UI';
+import { showMobileMenu } from '@/context/Utils';
 
-import { HiOutlineHeart } from "react-icons/hi2";
-import { logo } from "../../../assets";
+import { HiOutlineHeart } from 'react-icons/hi2';
+import { logo } from '../../../assets';
 
 const Header = () => {
   const route = useNavigate();
@@ -14,7 +14,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const showMenuHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    e.currentTarget.classList.toggle("header__menu--show");
+    e.currentTarget.classList.toggle('header__menu--show');
     dispatch(showMobileMenu(!selector.mobileMenuActive));
   };
 
@@ -30,7 +30,10 @@ const Header = () => {
 
           <div className="header__functionality">
             <div>
-              <HiOutlineHeart  size={27} onClick={() => route("/home/wishlist")} />
+              <HiOutlineHeart
+                size={27}
+                onClick={() => route('/home/wishlist')}
+              />
               {/* <span>{0}</span> */}
             </div>
             <HeaderShoppingCard />

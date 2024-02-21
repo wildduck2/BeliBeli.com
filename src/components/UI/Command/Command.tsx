@@ -1,10 +1,9 @@
-import * as React from "react"
-import { type DialogProps } from "@radix-ui/react-dialog"
-import { Command as CommandPrimitive } from "cmdk"
-import { Search } from "lucide-react"
-import { cn } from "@/utils"
-import { Dialog, DialogContent } from "../Dialog/Dialog"
-
+import * as React from 'react';
+import { type DialogProps } from '@radix-ui/react-dialog';
+import { Command as CommandPrimitive } from 'cmdk';
+import { Search } from 'lucide-react';
+import { cn } from '@/utils';
+import { Dialog, DialogContent } from '../Dialog/Dialog';
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
@@ -13,13 +12,13 @@ const Command = React.forwardRef<
   <CommandPrimitive
     ref={ref}
     className={cn(
-      "yflex yh-full yw-full yflex-col yoverflow-hidden yrounded-md ybg-popover ytext-popover-foreground",
+      'yflex yh-full yw-full yflex-col yoverflow-hidden yrounded-md ybg-popover ytext-popover-foreground',
       className
     )}
     {...props}
   />
-))
-Command.displayName = CommandPrimitive.displayName
+));
+Command.displayName = CommandPrimitive.displayName;
 
 interface CommandDialogProps extends DialogProps {}
 
@@ -32,8 +31,8 @@ const CommandDialog = ({ children, ...props }: CommandDialogProps) => {
         </Command>
       </DialogContent>
     </Dialog>
-  )
-}
+  );
+};
 
 const CommandInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
@@ -44,15 +43,15 @@ const CommandInput = React.forwardRef<
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        "yflex yh-11 yw-full yrounded-md ybg-transparent ypy-3 ytext-sm youtline-none placeholder:ytext-muted-foreground disabled:ycursor-not-allowed disabled:yopacity-50",
+        'yflex yh-11 yw-full yrounded-md ybg-transparent ypy-3 ytext-sm youtline-none placeholder:ytext-muted-foreground disabled:ycursor-not-allowed disabled:yopacity-50',
         className
       )}
       {...props}
     />
   </div>
-))
+));
 
-CommandInput.displayName = CommandPrimitive.Input.displayName
+CommandInput.displayName = CommandPrimitive.Input.displayName;
 
 const CommandList = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.List>,
@@ -60,12 +59,15 @@ const CommandList = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.List
     ref={ref}
-    className={cn("ymax-h-[300px] yoverflow-y-auto yoverflow-x-hidden", className)}
+    className={cn(
+      'ymax-h-[300px] yoverflow-y-auto yoverflow-x-hidden',
+      className
+    )}
     {...props}
   />
-))
+));
 
-CommandList.displayName = CommandPrimitive.List.displayName
+CommandList.displayName = CommandPrimitive.List.displayName;
 
 const CommandEmpty = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Empty>,
@@ -76,9 +78,9 @@ const CommandEmpty = React.forwardRef<
     className="ypy-6 ytext-center ytext-sm"
     {...props}
   />
-))
+));
 
-CommandEmpty.displayName = CommandPrimitive.Empty.displayName
+CommandEmpty.displayName = CommandPrimitive.Empty.displayName;
 
 const CommandGroup = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Group>,
@@ -87,14 +89,14 @@ const CommandGroup = React.forwardRef<
   <CommandPrimitive.Group
     ref={ref}
     className={cn(
-      "yoverflow-hidden yp-1 ytext-foreground [&_[cmdk-group-heading]]:ypx-2 [&_[cmdk-group-heading]]:ypy-1.5 [&_[cmdk-group-heading]]:ytext-xs [&_[cmdk-group-heading]]:yfont-medium [&_[cmdk-group-heading]]:ytext-muted-foreground",
+      'yoverflow-hidden yp-1 ytext-foreground [&_[cmdk-group-heading]]:ypx-2 [&_[cmdk-group-heading]]:ypy-1.5 [&_[cmdk-group-heading]]:ytext-xs [&_[cmdk-group-heading]]:yfont-medium [&_[cmdk-group-heading]]:ytext-muted-foreground',
       className
     )}
     {...props}
   />
-))
+));
 
-CommandGroup.displayName = CommandPrimitive.Group.displayName
+CommandGroup.displayName = CommandPrimitive.Group.displayName;
 
 const CommandSeparator = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Separator>,
@@ -102,11 +104,11 @@ const CommandSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.Separator
     ref={ref}
-    className={cn("y-mx-1 yh-px ybg-border", className)}
+    className={cn('y-mx-1 yh-px ybg-border', className)}
     {...props}
   />
-))
-CommandSeparator.displayName = CommandPrimitive.Separator.displayName
+));
+CommandSeparator.displayName = CommandPrimitive.Separator.displayName;
 
 const CommandItem = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Item>,
@@ -115,14 +117,14 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      "yrelative yflex ycursor-default yselect-none yitems-center yrounded-sm ypx-2 ypy-1.5 ytext-sm youtline-none aria-selected:ybg-accent aria-selected:ytext-accent-foreground data-[disabled]:ypointer-events-none data-[disabled]:yopacity-50",
+      'yrelative yflex ycursor-default yselect-none yitems-center yrounded-sm ypx-2 ypy-1.5 ytext-sm youtline-none aria-selected:ybg-accent aria-selected:ytext-accent-foreground data-[disabled]:ypointer-events-none data-[disabled]:yopacity-50',
       className
     )}
     {...props}
   />
-))
+));
 
-CommandItem.displayName = CommandPrimitive.Item.displayName
+CommandItem.displayName = CommandPrimitive.Item.displayName;
 
 const CommandShortcut = ({
   className,
@@ -131,14 +133,14 @@ const CommandShortcut = ({
   return (
     <span
       className={cn(
-        "yml-auto ytext-xs ytracking-widest ytext-muted-foreground",
+        'yml-auto ytext-xs ytracking-widest ytext-muted-foreground',
         className
       )}
       {...props}
     />
-  )
-}
-CommandShortcut.displayName = "CommandShortcut"
+  );
+};
+CommandShortcut.displayName = 'CommandShortcut';
 
 export {
   Command,
@@ -149,5 +151,5 @@ export {
   CommandGroup,
   CommandItem,
   CommandShortcut,
-  CommandSeparator,
-}
+  CommandSeparator
+};

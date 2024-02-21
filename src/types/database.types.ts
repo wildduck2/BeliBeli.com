@@ -96,17 +96,17 @@ export interface Database {
         };
         Relationships: [
           {
-            foreignKeyName: "OrderItem_order_id_fkey";
-            columns: ["order_id"];
-            referencedRelation: "Orders";
-            referencedColumns: ["id"];
+            foreignKeyName: 'OrderItem_order_id_fkey';
+            columns: ['order_id'];
+            referencedRelation: 'Orders';
+            referencedColumns: ['id'];
           },
           {
-            foreignKeyName: "OrderItem_product_id_fkey";
-            columns: ["product_id"];
-            referencedRelation: "Products";
-            referencedColumns: ["id"];
-          },
+            foreignKeyName: 'OrderItem_product_id_fkey';
+            columns: ['product_id'];
+            referencedRelation: 'Products';
+            referencedColumns: ['id'];
+          }
         ];
       };
       Orders: {
@@ -191,15 +191,14 @@ export interface Database {
   };
 }
 
-export type Tables<T extends keyof Database["public"]["Tables"]> =
-  Database["public"]["Tables"][T]["Row"];
-export type Enums<T extends keyof Database["public"]["Enums"]> =
-  Database["public"]["Enums"][T];
+export type Tables<T extends keyof Database['public']['Tables']> =
+  Database['public']['Tables'][T]['Row'];
+export type Enums<T extends keyof Database['public']['Enums']> =
+  Database['public']['Enums'][T];
 
-import { PostgrestError } from "@supabase/supabase-js";
+import { PostgrestError } from '@supabase/supabase-js';
 
 export type DbResult<T> = T extends PromiseLike<infer U> ? U : never;
-export type DbResultOk<T> = T extends PromiseLike<{ data: infer U }>
-  ? Exclude<U, null>
-  : never;
+export type DbResultOk<T> =
+  T extends PromiseLike<{ data: infer U }> ? Exclude<U, null> : never;
 export type DbResultErr = PostgrestError;

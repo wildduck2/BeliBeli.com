@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react';
 
 import {
   WoemnSideBarNavigation,
   categoryData,
-  navigationLinks,
-} from "../../../constants";
-import { BannerDeals } from "@/components/Layouts";
-import { useLocation, useNavigate } from "react-router-dom";
+  navigationLinks
+} from '../../../constants';
+import { BannerDeals } from '@/components/Layouts';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
-  NavigationMenuTrigger,
-} from "..";
-import { NavigationHeaderLooping } from "@/utils";
+  NavigationMenuTrigger
+} from '..';
+import { NavigationHeaderLooping } from '@/utils';
 
 const HeaderNavigationLinks = () => {
   const { pathname } = useLocation();
@@ -34,16 +34,16 @@ const HeaderNavigationLinks = () => {
                   onClick={() => {
                     window.scrollTo(0, 0);
                     route(`/${link}`, {
-                      state: categoryData[index],
+                      state: categoryData[index]
                     });
                   }}
                 >
-                  <h5 key={link}>{link.split("/")[1]}</h5>
+                  <h5 key={link}>{link.split('/')[1]}</h5>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="navigations__list__item__content">
                   <NavigationHeaderLooping
                     headerNavigationData={WoemnSideBarNavigation}
-                    satatus={"succeeded"}
+                    satatus={'succeeded'}
                   />
                 </NavigationMenuContent>
               </NavigationMenuItem>
@@ -51,7 +51,7 @@ const HeaderNavigationLinks = () => {
           })}
         </NavigationMenuList>
       </NavigationMenu>
-      {pathname === "/" && <BannerDeals />}
+      {pathname === '/' && <BannerDeals />}
     </>
   );
 };

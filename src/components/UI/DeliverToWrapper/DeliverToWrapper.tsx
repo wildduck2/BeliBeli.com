@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Button,
   Input,
@@ -10,8 +10,8 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
-} from "..";
+  SheetTrigger
+} from '..';
 
 const DeliverToWrapper = () => {
   return (
