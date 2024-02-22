@@ -1,13 +1,13 @@
-import React from 'react';
-import { ImgBanner, StyledByYouWrapper, SwiperSectionWrapper } from '../../UI';
-import { CategoryBanner } from '../../Layouts';
-import { ColorfulBanner } from '@/components/Layouts/ColorfulBanner/ColorfulBanner';
-import { BlackBannerHome, RedBannerHome } from '@/constants';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/context/store';
+import React from 'react'
+import { ImgBanner, StyledByYouWrapper, SwiperSectionWrapper } from '../../UI'
+import { CategoryBanner } from '../../Layouts'
+import { ColorfulBanner } from '@/components/Layouts/ColorfulBanner/ColorfulBanner'
+import { BlackBannerHome, RedBannerHome } from '@/constants'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/context/store'
 
 const Home = () => {
-  const satatus = useSelector((state: RootState) => state.data.satatus);
+  const satatus = useSelector((state: RootState) => state.data.satatus)
 
   return (
     <>
@@ -55,7 +55,7 @@ const Home = () => {
         </section>
       </main>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

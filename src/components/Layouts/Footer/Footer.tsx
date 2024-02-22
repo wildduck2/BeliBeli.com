@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import { Link, Button, Input } from '../../UI';
+import { Link, Button, Input } from '../../UI'
 
 import {
   AiFillFacebook,
   AiOutlineTwitter,
   AiFillInstagram
-} from 'react-icons/ai';
-import { footerData } from '../../../constants';
-import { logo } from '../../../assets';
+} from 'react-icons/ai'
+import { footerData } from '../../../constants'
+import { logo } from '../../../assets'
 
 const Footer = () => {
   return (
@@ -26,10 +26,10 @@ const Footer = () => {
                       <Link href={data} key={index}>
                         <p key={index}>{data}</p>
                       </Link>
-                    );
+                    )
                   })}
                 </div>
-              );
+              )
             })}
           </div>
           <div>
@@ -91,7 +91,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

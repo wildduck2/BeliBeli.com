@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 interface LinkButtonProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
@@ -10,10 +10,10 @@ const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
       <Link to={href} className={className} {...props} ref={ref}>
         {children}
       </Link>
-    );
+    )
   }
-);
+)
 
-LinkButton.displayName = 'LinkButton';
+LinkButton.displayName = 'LinkButton'
 
-export default LinkButton;
+export default LinkButton

@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from 'react'
 
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast'
 
 const ToastProvider = () => {
   return (
@@ -9,7 +9,7 @@ const ToastProvider = () => {
         color: '#fff'
       }}
     />
-  );
-};
+  )
+}
 
-export default ToastProvider;
+export default ToastProvider

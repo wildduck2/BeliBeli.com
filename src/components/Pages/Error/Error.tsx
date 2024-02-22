@@ -1,10 +1,10 @@
-import React from 'react';
-import { logo } from '@/assets';
-import { Button } from '@/components/UI';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
+import { logo } from '@/assets'
+import { Button } from '@/components/UI'
+import { useNavigate } from 'react-router-dom'
 
 const Error = () => {
-  const route = useNavigate();
+  const route = useNavigate()
   return (
     <main>
       <section className="error__section">
@@ -16,7 +16,7 @@ const Error = () => {
         </Button>
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default Error;
+export default Error

@@ -1,6 +1,6 @@
-import React from 'react';
-import { useShopProductData } from '@/hooks';
-import { useParams } from 'react-router-dom';
+import React from 'react'
+import { useShopProductData } from '@/hooks'
+import { useParams } from 'react-router-dom'
 import {
   Button,
   Dialog,
@@ -18,15 +18,15 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue
-} from '@/components/UI';
-import ShopProductProducts from './ShopProductProducts';
+} from '@/components/UI'
+import ShopProductProducts from './ShopProductProducts'
 
 const ShopProduct = () => {
-  const id = useParams();
+  const id = useParams()
 
   const [ShopProductData, status] = useShopProductData({
     id: id.id
-  });
+  })
 
   return (
     <>
@@ -113,7 +113,7 @@ const ShopProduct = () => {
         </div>
       </main>
     </>
-  );
-};
+  )
+}
 
-export default ShopProduct;
+export default ShopProduct

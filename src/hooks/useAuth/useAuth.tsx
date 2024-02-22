@@ -1,10 +1,10 @@
-import { supabase } from '../../supabase/supabase';
-import { toast } from 'sonner';
-import { useEffect, useState } from 'react';
-import { signupPopup } from '../../utils';
-import { emailisnotvalid } from '@/context/Utils';
-import { signin } from '@/context/Data';
-import { useAuthEmailProps, useAuthProviderProps } from './useAuth.types';
+import { supabase } from '../../supabase/supabase'
+import { toast } from 'sonner'
+import { useEffect, useState } from 'react'
+import { signupPopup } from '../../utils'
+import { emailisnotvalid } from '@/context/Utils'
+import { signin } from '@/context/Data'
+import { useAuthEmailProps, useAuthProviderProps } from './useAuth.types'
 
 export const useSigninWithEmail = ({
   email,
@@ -15,46 +15,46 @@ export const useSigninWithEmail = ({
   setPasswordValid,
   route
 }: useAuthEmailProps) => {
-  const [creditValidEmail, setCreditValidEmail] = useState<boolean>(false);
+  const [creditValidEmail, setCreditValidEmail] = useState<boolean>(false)
   const authEmail = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
+    e.preventDefault()
+    setIsLoading(true)
 
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password
-      });
+      })
 
       if (error) {
-        toast.error(`Credentials didn't pass authentication check.`);
-        dispatch(emailisnotvalid(false));
-        setEmailValid(true);
-        setPasswordValid(true);
-        setCreditValidEmail(false);
-        setIsLoading(false);
+        toast.error(`Credentials didn't pass authentication check.`)
+        dispatch(emailisnotvalid(false))
+        setEmailValid(true)
+        setPasswordValid(true)
+        setCreditValidEmail(false)
+        setIsLoading(false)
       }
 
       if (!error && data) {
-        dispatch(signin());
-        toast.success('Access granted, authentication successful.');
-        dispatch(emailisnotvalid(true));
-        setCreditValidEmail(true);
-        setIsLoading(false);
+        dispatch(signin())
+        toast.success('Access granted, authentication successful.')
+        dispatch(emailisnotvalid(true))
+        setCreditValidEmail(true)
+        setIsLoading(false)
       }
     } catch (error) {
-      throw new Error(error as string);
+      throw new Error(error as string)
     }
-  };
+  }
 
   useEffect(() => {
     if (creditValidEmail) {
-      route('/');
+      route('/')
     }
-  }, [creditValidEmail]);
+  }, [creditValidEmail])
 
-  return { creditValidEmail, authEmail } as const;
-};
+  return { creditValidEmail, authEmail } as const
+}
 
 export const useSigninwithProvider = ({
   dispatch,
@@ -64,10 +64,10 @@ export const useSigninwithProvider = ({
   provider,
   route
 }: useAuthProviderProps) => {
-  const [creditValidAuth, setCreditValidAuth] = useState<boolean>(false);
+  const [creditValidAuth, setCreditValidAuth] = useState<boolean>(false)
   const authProvider = async () => {
-    setIsLoading(true);
-    let log = null;
+    setIsLoading(true)
+    let log = null
 
     try {
       const { data, error } = await supabase.auth.signInWithOAuth({
@@ -75,7 +75,7 @@ export const useSigninwithProvider = ({
         // options: {
         //   skipBrowserRedirect: true,
         // },
-      });
+      })
 
       // const promise = await signupPopup({
       //   url: data.url!,
@@ -85,24 +85,24 @@ export const useSigninwithProvider = ({
       // console.log(log);
 
       if (error) {
-        dispatch(emailisnotvalid(false));
-        setEmailValid(true);
-        setPasswordValid(true);
-        setCreditValidAuth(false);
-        setIsLoading(false);
+        dispatch(emailisnotvalid(false))
+        setEmailValid(true)
+        setPasswordValid(true)
+        setCreditValidAuth(false)
+        setIsLoading(false)
       }
 
       if (!error && data) {
-        dispatch(signin());
-        dispatch(emailisnotvalid(true));
-        setCreditValidAuth(true);
-        setIsLoading(false);
+        dispatch(signin())
+        dispatch(emailisnotvalid(true))
+        setCreditValidAuth(true)
+        setIsLoading(false)
       }
     } catch (error) {
-      setIsLoading(false);
-      throw new Error(error as string);
+      setIsLoading(false)
+      throw new Error(error as string)
     }
-  };
+  }
 
   useEffect(() => {
     // Set up an event listener for auth state changes
@@ -110,25 +110,25 @@ export const useSigninwithProvider = ({
       async (event, session) => {
         if (event === 'SIGNED_IN') {
           // Access user data from the session
-          const user = session?.user;
-          console.log('User data:', user);
+          const user = session?.user
+          console.log('User data:', user)
 
           // Perform any additional actions with user data
 
           // Redirect to the desired route
-          route('/');
+          route('/')
         }
       }
-    );
+    )
 
     return () => {
       // Remove the event listener when the component is unmounted
-      authListener.data.subscription.unsubscribe();
-    };
-  }, []);
+      authListener.data.subscription.unsubscribe()
+    }
+  }, [])
 
-  return { creditValidAuth, authProvider } as const;
-};
+  return { creditValidAuth, authProvider } as const
+}
 
 export const useSignupWithEmail = ({
   email,
@@ -141,48 +141,48 @@ export const useSignupWithEmail = ({
   notChecked,
   route
 }: useAuthEmailProps) => {
-  const [creditValidEmail, setCreditValidEmail] = useState<boolean>(false);
+  const [creditValidEmail, setCreditValidEmail] = useState<boolean>(false)
   const authEmail = async (e: React.SyntheticEvent) => {
     if (notChecked) {
-      e.preventDefault();
-      setIsLoading(true);
+      e.preventDefault()
+      setIsLoading(true)
 
       try {
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
           options: { data: { full_name: fullNameValue } }
-        });
+        })
 
         if (error) {
-          toast.error(`Credentials didn't pass authentication check.`);
-          dispatch(emailisnotvalid(false));
-          setEmailValid(true);
-          setPasswordValid(true);
-          setCreditValidEmail(false);
-          setIsLoading(false);
+          toast.error(`Credentials didn't pass authentication check.`)
+          dispatch(emailisnotvalid(false))
+          setEmailValid(true)
+          setPasswordValid(true)
+          setCreditValidEmail(false)
+          setIsLoading(false)
         }
 
         if (!error && data) {
-          dispatch(signin());
-          toast.success('Access granted, authentication successful.');
-          dispatch(emailisnotvalid(true));
-          setCreditValidEmail(true);
-          setIsLoading(false);
+          dispatch(signin())
+          toast.success('Access granted, authentication successful.')
+          dispatch(emailisnotvalid(true))
+          setCreditValidEmail(true)
+          setIsLoading(false)
         }
       } catch (error) {
-        throw new Error(error as string);
+        throw new Error(error as string)
       }
     } else {
-      toast.error(`Please accept terms and conditions.`);
+      toast.error(`Please accept terms and conditions.`)
     }
-  };
+  }
 
   useEffect(() => {
     if (creditValidEmail) {
-      route('/');
+      route('/')
     }
-  }, [creditValidEmail]);
+  }, [creditValidEmail])
 
-  return { creditValidEmail, authEmail } as const;
-};
+  return { creditValidEmail, authEmail } as const
+}

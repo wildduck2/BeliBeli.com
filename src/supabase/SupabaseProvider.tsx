@@ -1,19 +1,19 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useState } from 'react'
 
-import { Database } from '../types/types_db';
+import { Database } from '../types/types_db'
 
-import { cretateClientComponentClient } from '@supabase/auth-helpers-react';
+import { cretateClientComponentClient } from '@supabase/auth-helpers-react'
 
 interface SupabaseProviderTypes {
-  children: ReactNode;
+  children: ReactNode
 }
 
 const SupabaseProvider: React.FC<SupabaseProviderTypes> = ({ children }) => {
   const [supabaseClient] = useState<>(() => {
-    createBroweserSupabaseClient;
-  });
+    createBroweserSupabaseClient
+  })
 
-  return <div>SupabaseProvider</div>;
-};
+  return <div>SupabaseProvider</div>
+}
 
-export default SupabaseProvider;
+export default SupabaseProvider

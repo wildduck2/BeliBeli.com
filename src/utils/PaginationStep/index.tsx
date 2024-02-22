@@ -1,3 +1,3 @@
-import PaginationStep from './PaginationStep';
+import PaginationStep from './PaginationStep'
 
-export default PaginationStep;
+export default PaginationStep

@@ -1,39 +1,38 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { RootState } from '@/context/store';
-import { useDispatch, useSelector } from 'react-redux';
-import { AsyncImage } from 'loadable-image';
-import { Button, DeliverToWrapper, Input, ScrollArea } from '@/components/UI';
-import { MdOutlineDeleteOutline } from 'react-icons/md';
-import { CartProductProps } from './Cart.types';
-import { RemoveProductCart, formatter, handleQuantityChange } from '@/utils';
-import { recover } from '@/assets';
-import { useUser } from '@/hooks';
-import { UUID } from 'crypto';
+import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import { RootState } from '@/context/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { AsyncImage } from 'loadable-image'
+import { Button, DeliverToWrapper, Input, ScrollArea } from '@/components/UI'
+import { MdOutlineDeleteOutline } from 'react-icons/md'
+import { CartProductProps } from './Cart.types'
+import { RemoveProductCart, formatter, handleQuantityChange } from '@/utils'
+import { recover } from '@/assets'
+import { useUser } from '@/hooks'
+import { UUID } from 'crypto'
+import { addProductToCart } from '@/context/Utils'
 
-const steps = ['Bag', 'Delivery and Payment', 'Confirmation'];
+const steps = ['Bag', 'Delivery and Payment', 'Confirmation']
 
 const Cart = () => {
-  const location = useLocation();
-  const logged = useSelector((state: RootState) => state.data.logged);
+  const location = useLocation()
+  const logged = useSelector((state: RootState) => state.data.logged)
   const cartProducts = useSelector(
     (state: RootState) => state.util.cartProducts
-  );
+  )
 
-  const user = useUser({ signedout: logged });
-  const [totalPrice, setTotalPrice] = React.useState(0);
-
-  console.log(cartProducts);
+  const user = useUser({ signedout: logged })
+  const [totalPrice, setTotalPrice] = React.useState(0)
 
   React.useEffect(() => {
     if (cartProducts) {
       const total = cartProducts.reduce(
         (acc, item) => acc + item.price * item.quantity,
         0
-      );
-      setTotalPrice(total);
+      )
+      setTotalPrice(total)
     }
-  }, [cartProducts]);
+  }, [cartProducts])
 
   return (
     <main className="cart">
@@ -46,7 +45,7 @@ const Cart = () => {
                 <span>/</span>
               )}
             </React.Fragment>
-          );
+          )
         })}
       </span>
 
@@ -57,8 +56,7 @@ const Cart = () => {
               {steps.map((item, i) => (
                 <div key={i}>
                   <div
-                    className={`cart__wrapper__verify-steps__step ${i === 0 && 'active'}`}
-                  >
+                    className={`cart__wrapper__verify-steps__step ${i === 0 && 'active'}`}>
                     <span>{i + 1}</span>
 
                     <h4>{item}</h4>
@@ -129,14 +127,14 @@ const Cart = () => {
         </div>
       )}
     </main>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart
 
 const CartProductComponent = ({ item, user_id }: CartProductProps) => {
-  const [quantity, setQuantity] = useState(item.quantity);
-  const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(item.quantity)
+  const dispatch = useDispatch()
 
   return (
     <li>
@@ -160,7 +158,13 @@ const CartProductComponent = ({ item, user_id }: CartProductProps) => {
           <span>Color: {item.color}</span>
           <span>Size: {item.size}</span>
 
-          <Button variant={'link'}>Move to Favourite</Button>
+          <Button
+            variant={'link'}
+            onClick={() => {
+              dispatch(addProductToCart(item))
+            }}>
+            Move to Favourite
+          </Button>
         </div>
       </div>
 
@@ -171,9 +175,8 @@ const CartProductComponent = ({ item, user_id }: CartProductProps) => {
             RemoveProductCart({
               product: item,
               dispatch
-            });
-          }}
-        >
+            })
+          }}>
           <MdOutlineDeleteOutline size={23} />
         </Button>
 
@@ -188,8 +191,7 @@ const CartProductComponent = ({ item, user_id }: CartProductProps) => {
                 setQuantity,
                 user_id
               })
-            }
-          >
+            }>
             -
           </Button>
           <span>{quantity}</span>
@@ -203,12 +205,11 @@ const CartProductComponent = ({ item, user_id }: CartProductProps) => {
                 setQuantity,
                 user_id
               })
-            }
-          >
+            }>
             +
           </Button>
         </div>
       </div>
     </li>
-  );
-};
+  )
+}

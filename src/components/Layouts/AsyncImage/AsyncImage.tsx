@@ -1,10 +1,10 @@
-import React, { MutableRefObject, useEffect, useRef } from 'react';
+import React, { MutableRefObject, useEffect, useRef } from 'react'
 
 interface AsyncImageTypes extends React.ImgHTMLAttributes<HTMLImageElement> {
-  media?: string;
-  ariaLabel?: string;
-  alt?: string;
-  clickable?: boolean;
+  media?: string
+  ariaLabel?: string
+  alt?: string
+  clickable?: boolean
 }
 
 const LazyLoadingImg = (
@@ -12,9 +12,9 @@ const LazyLoadingImg = (
   wrapperRef: MutableRefObject<HTMLDivElement>
 ) => {
   imgRef.current.addEventListener('load', () => {
-    imgRef.current.complete && wrapperRef.current.classList.add('show--img');
-  });
-};
+    imgRef.current.complete && wrapperRef.current.classList.add('show--img')
+  })
+}
 
 const AsyncImage: React.FC<AsyncImageTypes> = ({
   className,
@@ -28,12 +28,12 @@ const AsyncImage: React.FC<AsyncImageTypes> = ({
   height = 384,
   ...props
 }) => {
-  const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const imgRef = useRef() as MutableRefObject<HTMLImageElement>;
-  const [srcy, setSrc] = React.useState(src);
+  const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
+  const imgRef = useRef() as MutableRefObject<HTMLImageElement>
+  const [srcy, setSrc] = React.useState(src)
   useEffect(() => {
-    LazyLoadingImg(imgRef, wrapperRef);
-  }, []);
+    LazyLoadingImg(imgRef, wrapperRef)
+  }, [])
 
   return (
     <div
@@ -41,8 +41,8 @@ const AsyncImage: React.FC<AsyncImageTypes> = ({
       ref={wrapperRef}
       onClick={() => {
         if (srcy !== imgRef.current.src && clickable) {
-          wrapperRef.current.classList.remove('show--img');
-          LazyLoadingImg(imgRef, wrapperRef);
+          wrapperRef.current.classList.remove('show--img')
+          LazyLoadingImg(imgRef, wrapperRef)
         }
       }}
     >
@@ -61,8 +61,8 @@ const AsyncImage: React.FC<AsyncImageTypes> = ({
         />
       </picture>
     </div>
-  );
-};
+  )
+}
 
-AsyncImage.displayName = 'AsyncImage';
-export default AsyncImage;
+AsyncImage.displayName = 'AsyncImage'
+export default AsyncImage

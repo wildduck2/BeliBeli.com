@@ -1,11 +1,11 @@
-import React from 'react';
-import { SwiperSmall } from '../../Layouts';
-import { useSelector } from 'react-redux';
-import { Link } from '../../UI';
-import { RootState } from '../../../context/store';
+import React from 'react'
+import { SwiperSmall } from '../../Layouts'
+import { useSelector } from 'react-redux'
+import { Link } from '../../UI'
+import { RootState } from '../../../context/store'
 
 const StyledByYouWrapper = () => {
-  const products = useSelector((state: RootState) => state.data.products);
+  const products = useSelector((state: RootState) => state.data.products)
 
   return (
     <>
@@ -25,7 +25,7 @@ const StyledByYouWrapper = () => {
         <SwiperSmall FILTER__QUERY="styledbyyou" DATA__NAME={products} />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default StyledByYouWrapper;
+export default StyledByYouWrapper

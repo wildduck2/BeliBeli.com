@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   Button,
   Input,
@@ -8,14 +8,14 @@ import {
   SelectGroup,
   SelectItem,
   SelectValue
-} from '@/components/UI';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/context/store';
-import { useUser } from '@/hooks';
+} from '@/components/UI'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/context/store'
+import { useUser } from '@/hooks'
 
 const AddressBook = () => {
-  const logged = useSelector((state: RootState) => state.data.logged);
-  const userData = useUser({ signedout: logged });
+  const logged = useSelector((state: RootState) => state.data.logged)
+  const userData = useUser({ signedout: logged })
 
   return (
     <div className="account__address">
@@ -119,7 +119,7 @@ const AddressBook = () => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default AddressBook;
+export default AddressBook

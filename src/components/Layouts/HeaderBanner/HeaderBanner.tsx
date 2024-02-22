@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-import Link from '../../UI/Link';
-import { supabase } from '../../../supabase/supabase';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/context/store';
-import { signout } from '@/context/Data';
-import { useUser } from '@/hooks';
+import Link from '../../UI/Link'
+import { supabase } from '../../../supabase/supabase'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '@/context/store'
+import { signout } from '@/context/Data'
+import { useUser } from '@/hooks'
 
 const HeaderBanner = () => {
-  const logged = useSelector((state: RootState) => state.data.logged);
-  const dispatch = useDispatch();
+  const logged = useSelector((state: RootState) => state.data.logged)
+  const dispatch = useDispatch()
 
-  const user = useUser({ signedout: logged });
+  const user = useUser({ signedout: logged })
 
   return (
     <div className="banner">
@@ -25,8 +25,8 @@ const HeaderBanner = () => {
             className="banner__link"
             href={'/'}
             onClick={() => {
-              supabase.auth.signOut();
-              dispatch(signout());
+              supabase.auth.signOut()
+              dispatch(signout())
             }}
           >
             Logout
@@ -47,7 +47,7 @@ const HeaderBanner = () => {
         Find Store
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default HeaderBanner;
+export default HeaderBanner

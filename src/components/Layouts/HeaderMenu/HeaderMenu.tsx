@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, Link } from '@/components/UI';
+import React from 'react'
+import { Button, Link } from '@/components/UI'
 import {
   BabayHeaderNavigationLink,
   BeliBeliHomeHeaderNavigationLink,
@@ -10,11 +10,11 @@ import {
   SportsHeaderNavigationLink,
   SustainabilityHeaderNavigationLink,
   WomenHeaderNavigationLink
-} from '@/constants';
-import { MutableRefObject, useRef, useState } from 'react';
-import { RootState } from '@/context/store';
-import { useDispatch, useSelector } from 'react-redux';
-import { showMobileMenu } from '@/context/Utils';
+} from '@/constants'
+import { MutableRefObject, useRef, useState } from 'react'
+import { RootState } from '@/context/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { showMobileMenu } from '@/context/Utils'
 
 export const navigationLinksData = [
   WomenHeaderNavigationLink,
@@ -26,54 +26,54 @@ export const navigationLinksData = [
   SportsHeaderNavigationLink,
   SaleHeaderNavigationLink,
   SustainabilityHeaderNavigationLink
-];
+]
 
 const HeaderMenu = () => {
-  const [currentactive, setCurrentactive] = useState<boolean>(false);
+  const [currentactive, setCurrentactive] = useState<boolean>(false)
 
-  const dispatch = useDispatch();
-  const selector = useSelector((state: RootState) => state.util);
-  const menuRef = useRef() as MutableRefObject<HTMLUListElement>;
+  const dispatch = useDispatch()
+  const selector = useSelector((state: RootState) => state.util)
+  const menuRef = useRef() as MutableRefObject<HTMLUListElement>
 
   const hideMenuTreeHandler = () => {
     const uls = menuRef.current.querySelectorAll(
       '.header-menu__category-list'
-    ) as NodeListOf<HTMLUListElement>;
-    uls.forEach((ul) => ul.classList.remove('show'));
-  };
+    ) as NodeListOf<HTMLUListElement>
+    uls.forEach((ul) => ul.classList.remove('show'))
+  }
 
   const onclickHandler = (e: React.MouseEvent<HTMLLIElement>) => {
-    e.currentTarget.nextElementSibling?.classList.toggle('show');
-  };
+    e.currentTarget.nextElementSibling?.classList.toggle('show')
+  }
 
   const activeHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const el = e.currentTarget;
+    const el = e.currentTarget
 
     if (!el.classList.contains('show')) {
       el.parentElement
         ?.querySelectorAll('button')
-        .forEach((btn) => btn.classList.remove('show'));
+        .forEach((btn) => btn.classList.remove('show'))
 
       menuRef.current
         .querySelectorAll('.show')
-        .forEach((item) => item.classList.remove('show'));
-      setCurrentactive(!currentactive);
+        .forEach((item) => item.classList.remove('show'))
+      setCurrentactive(!currentactive)
     }
 
-    el.classList.add('show');
-  };
+    el.classList.add('show')
+  }
 
   const menuLinkClickHandler = () => {
     document
       .querySelector('.header__menu')
-      ?.classList.remove('header__menu--show');
+      ?.classList.remove('header__menu--show')
 
     menuRef.current
       .querySelectorAll('.show')
-      .forEach((item) => item.classList.remove('show'));
+      .forEach((item) => item.classList.remove('show'))
 
-    dispatch(showMobileMenu(false));
-  };
+    dispatch(showMobileMenu(false))
+  }
 
   return (
     <div
@@ -153,19 +153,19 @@ const HeaderMenu = () => {
                                 </Link>
                               </li>
                             )
-                          );
+                          )
                         })
-                      );
+                      )
                     })}
                   </ul>
-                );
+                )
               })}
             </ul>
-          );
+          )
         })}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default HeaderMenu;
+export default HeaderMenu

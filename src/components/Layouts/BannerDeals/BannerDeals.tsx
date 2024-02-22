@@ -1,10 +1,10 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper/modules'
 
-import { Link } from '@/components/UI';
-import { Daels } from '@/constants';
-import 'swiper/scss';
+import { Link } from '@/components/UI'
+import { Daels } from '@/constants'
+import 'swiper/scss'
 
 const BannerDeals = () => {
   return (
@@ -43,10 +43,10 @@ const BannerDeals = () => {
           <SwiperSlide key={key}>
             <Link className="banner-deals__link">{item}</Link>
           </SwiperSlide>
-        );
+        )
       })}
     </Swiper>
-  );
-};
+  )
+}
 
-export default BannerDeals;
+export default BannerDeals

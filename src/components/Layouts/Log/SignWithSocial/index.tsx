@@ -1,2 +1,2 @@
-import SignWithSocial from './SignWithSocial';
-export default SignWithSocial;
+import SignWithSocial from './SignWithSocial'
+export default SignWithSocial

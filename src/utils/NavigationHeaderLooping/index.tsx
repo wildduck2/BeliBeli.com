@@ -1,2 +1,2 @@
-import NavigationHeaderLooping from './NavigationHeaderLooping';
-export default NavigationHeaderLooping;
+import NavigationHeaderLooping from './NavigationHeaderLooping'
+export default NavigationHeaderLooping

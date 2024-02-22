@@ -1,10 +1,10 @@
-import { nanoid } from '@reduxjs/toolkit';
-import React from 'react';
+import { nanoid } from '@reduxjs/toolkit'
+import React from 'react'
 
 interface GetDataLogTyps {
-  fullName?: string;
-  email: string;
-  password: string;
+  fullName?: string
+  email: string
+  password: string
 }
 
 const GetDataLog = ({ fullName, email, password }: GetDataLogTyps) => {
@@ -18,7 +18,7 @@ const GetDataLog = ({ fullName, email, password }: GetDataLogTyps) => {
         new Date().toDateString().split(' ')[0]
       } ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()} 
     `
-  );
-};
+  )
+}
 
-export default GetDataLog;
+export default GetDataLog

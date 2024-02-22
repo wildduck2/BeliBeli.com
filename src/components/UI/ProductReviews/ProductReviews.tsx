@@ -1,15 +1,15 @@
-import React from 'react';
-import { Box, Rating } from '@mui/material';
-import { Star } from 'lucide-react';
-import { Button, WriteReviewWrapper } from '..';
-import { ReviewCard } from '@/components/Layouts';
+import React from 'react'
+import { Box, Rating } from '@mui/material'
+import { Star } from 'lucide-react'
+import { Button, WriteReviewWrapper } from '..'
+import { ReviewCard } from '@/components/Layouts'
 import {
   MoreReviewsButtonProps,
   ProductReviewsProps
-} from './ProductReviews.types';
-import { Product_review } from '@/context/Data.types';
-import { Icons } from '@/components/Layouts/Log/Icons';
-import { toast } from 'sonner';
+} from './ProductReviews.types'
+import { Product_review } from '@/context/Data.types'
+import { Icons } from '@/components/Layouts/Log/Icons'
+import { toast } from 'sonner'
 
 const ProductReviews: React.FC<ProductReviewsProps> = ({
   finalRate,
@@ -17,8 +17,8 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({
   reviews,
   currentTypeIndex
 }) => {
-  const [allReviews, setAllReviews] = React.useState<Product_review>(reviews);
-  const [previewedCards, setPreviewedCards] = React.useState<number>(1);
+  const [allReviews, setAllReviews] = React.useState<Product_review>(reviews)
+  const [previewedCards, setPreviewedCards] = React.useState<number>(1)
 
   return (
     <>
@@ -68,7 +68,7 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({
             index <= previewedCards && (
               <ReviewCard key={index} index={index} review={item} />
             )
-          );
+          )
         })}
       </ul>
 
@@ -77,34 +77,34 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({
         setPreviewedCards={setPreviewedCards}
       />
     </>
-  );
-};
+  )
+}
 
 function MoreReviewsButton({
   allReviews,
   setPreviewedCards
 }: MoreReviewsButtonProps) {
-  const [loading, setLoading] = React.useState<boolean>(false);
+  const [loading, setLoading] = React.useState<boolean>(false)
   return (
     <Button
       variant={'default'}
       onClick={() => {
         setPreviewedCards((prev) => {
           if (allReviews.reviews.length < prev + 2) {
-            toast.error('No more reviews', { duration: 2000 });
+            toast.error('No more reviews', { duration: 2000 })
           }
-          return prev >= allReviews.reviews.length ? prev : prev + 2;
-        });
-        setLoading(true);
+          return prev >= allReviews.reviews.length ? prev : prev + 2
+        })
+        setLoading(true)
 
         setTimeout(() => {
-          setLoading(false);
-        }, 500);
+          setLoading(false)
+        }, 500)
       }}
     >
       {loading ? <Icons.spinner className="animate-spin" /> : 'Submit'}
     </Button>
-  );
+  )
 }
 
-export default ProductReviews;
+export default ProductReviews

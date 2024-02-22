@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, Checkbox, Label } from '@/components/UI';
+import React from 'react'
+import { Button, Checkbox, Label } from '@/components/UI'
 
 const CommenicationDetails = () => {
   return (
@@ -15,7 +15,7 @@ const CommenicationDetails = () => {
         <Button variant="default">Save</Button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default CommenicationDetails;
+export default CommenicationDetails

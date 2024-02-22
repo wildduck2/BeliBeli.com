@@ -1,8 +1,8 @@
-import React from 'react';
-import { ColorfulBannerProps } from './ColorfulBanner.types';
-import { Button, Link, Skeleton } from '@/components/UI';
-import { useNavigate } from 'react-router-dom';
-import { categoryData } from '@/constants';
+import React from 'react'
+import { ColorfulBannerProps } from './ColorfulBanner.types'
+import { Button, Link, Skeleton } from '@/components/UI'
+import { useNavigate } from 'react-router-dom'
+import { categoryData } from '@/constants'
 
 export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
   color,
@@ -12,7 +12,7 @@ export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
   buttonText,
   satatus
 }) => {
-  const route = useNavigate();
+  const route = useNavigate()
   return (
     <>
       {satatus === 'succeeded' ? (
@@ -31,10 +31,10 @@ export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
                       key={index}
                       variant={'default'}
                       onClick={() => {
-                        window.scrollTo(0, 0);
+                        window.scrollTo(0, 0)
                         route(`/category/${item}`, {
                           state: categoryData[index]
-                        });
+                        })
                       }}
                     >
                       {item}
@@ -55,10 +55,10 @@ export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
                       key={index}
                       variant={'default'}
                       onClick={() => {
-                        window.scrollTo(0, 0);
+                        window.scrollTo(0, 0)
                         route(`/category/${item}`, {
                           state: categoryData[index]
-                        });
+                        })
                       }}
                     >
                       {item}
@@ -74,7 +74,7 @@ export const ColorfulBanner: React.FC<ColorfulBannerProps> = ({
         <Skeleton className="colorful-banner__skeleton  " aria-hidden="true" />
       )}
     </>
-  );
-};
+  )
+}
 
-export default ColorfulBanner;
+export default ColorfulBanner

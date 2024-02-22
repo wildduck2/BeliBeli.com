@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-import { Swiper as SW, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Swiper as SW, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
 
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { Skeleton } from '@/components/UI';
-import { RootState } from '@/context/store';
-import { useSelector } from 'react-redux';
-import { SwiperTypes } from './Swiper.types';
+import 'swiper/css'
+import 'swiper/css/pagination'
+import { Skeleton } from '@/components/UI'
+import { RootState } from '@/context/store'
+import { useSelector } from 'react-redux'
+import { SwiperTypes } from './Swiper.types'
 
 const SwiperSmall = ({ DATA__NAME }: SwiperTypes) => {
-  const selector = useSelector((state: RootState) => state.data);
+  const selector = useSelector((state: RootState) => state.data)
 
   return (
     <SW
@@ -52,9 +52,9 @@ const SwiperSmall = ({ DATA__NAME }: SwiperTypes) => {
                   {/*card information */}
                   {/* <CardInfo title={item.title} /> */}
                 </SwiperSlide>
-              );
+              )
             })
-          );
+          )
         })
       ) : (
         <>
@@ -70,12 +70,12 @@ const SwiperSmall = ({ DATA__NAME }: SwiperTypes) => {
                 <Skeleton />
                 <Skeleton />
               </SwiperSlide>
-            );
+            )
           })}
         </>
       )}
     </SW>
-  );
-};
+  )
+}
 
-export default SwiperSmall;
+export default SwiperSmall

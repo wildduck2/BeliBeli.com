@@ -1,20 +1,20 @@
-import React from 'react';
-import { ImgBanner } from '../../UI';
-import { NavigationHeaderLooping } from '../../../utils';
-import { ColorfulBanner } from '../../Layouts';
-import { useLocation, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/context/store';
-import { CategoryDataType } from './CategoryPage.types';
-import { categoryDiscriptionData } from '@/constants';
+import React from 'react'
+import { ImgBanner } from '../../UI'
+import { NavigationHeaderLooping } from '../../../utils'
+import { ColorfulBanner } from '../../Layouts'
+import { useLocation, useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/context/store'
+import { CategoryDataType } from './CategoryPage.types'
+import { categoryDiscriptionData } from '@/constants'
 
 const CategoryPage = () => {
-  const id = useParams();
+  const id = useParams()
 
-  const location = useLocation();
-  const state = location.state as CategoryDataType;
+  const location = useLocation()
+  const state = location.state as CategoryDataType
 
-  const status = useSelector((state: RootState) => state.data.satatus);
+  const status = useSelector((state: RootState) => state.data.satatus)
 
   return (
     <>
@@ -78,7 +78,7 @@ const CategoryPage = () => {
         </div>
       </main>
     </>
-  );
-};
+  )
+}
 
-export default CategoryPage;
+export default CategoryPage

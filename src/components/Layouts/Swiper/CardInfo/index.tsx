@@ -1,2 +1,2 @@
-import CardInfo from './CardInfo';
-export default CardInfo;
+import CardInfo from './CardInfo'
+export default CardInfo

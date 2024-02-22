@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 interface headerNavigationDataTypes {
-  headerNavigationData?: string[][][][];
-  satatus: 'loading' | 'succeeded' | 'failed';
+  headerNavigationData?: string[][][][]
+  satatus: 'loading' | 'succeeded' | 'failed'
 }
 
 const NavigationHeaderLooping = ({
@@ -27,17 +27,17 @@ const NavigationHeaderLooping = ({
                             <Link to={item}>{item}</Link>
                           )}
                         </li>
-                      );
+                      )
                     })}
                   </ul>
-                );
-              });
+                )
+              })
             })}
           </li>
-        );
+        )
       })}
     </ul>
-  );
-};
+  )
+}
 
-export default NavigationHeaderLooping;
+export default NavigationHeaderLooping

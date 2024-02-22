@@ -1,13 +1,13 @@
-import { Product } from '@/context/Data';
+import { Product } from '@/context/Data.types'
 
 export interface SwiperTypes {
-  DATA__NAME: Product[] | null;
-  FILTER__QUERY?: string;
+  DATA__NAME: Product[] | null
+  FILTER__QUERY?: string
 }
 
 export interface CardInfoTypes {
-  choosen?: boolean;
-  title: string;
-  discount?: string | null;
-  price?: string;
+  choosen?: boolean
+  title: string
+  discount?: string | null
+  price?: string | null
 }

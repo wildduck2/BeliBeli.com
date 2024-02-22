@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const ProfilePageSideLinks = [
   'My Account',
@@ -11,7 +11,7 @@ const ProfilePageSideLinks = [
   'My Favourites',
   'Commenication Preferences',
   'Chage Passowrd'
-];
+]
 
 const AccountSideLinks = () => {
   return (
@@ -26,7 +26,7 @@ const AccountSideLinks = () => {
         </NavLink>
       ))}
     </aside>
-  );
-};
+  )
+}
 
-export default AccountSideLinks;
+export default AccountSideLinks

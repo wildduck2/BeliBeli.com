@@ -1,22 +1,27 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/context/store';
-import { HeaderShoppingCard, Link, Search } from '@/components/UI';
-import { showMobileMenu } from '@/context/Utils';
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '@/context/store'
+import {
+  HeaderFavouriteProducts,
+  HeaderShoppingCard,
+  Link,
+  Search
+} from '@/components/UI'
+import { showMobileMenu } from '@/context/Utils'
 
-import { HiOutlineHeart } from 'react-icons/hi2';
-import { logo } from '../../../assets';
+import { HiOutlineHeart } from 'react-icons/hi2'
+import { logo } from '../../../assets'
 
 const Header = () => {
-  const route = useNavigate();
-  const selector = useSelector((state: RootState) => state.util);
-  const dispatch = useDispatch();
+  const route = useNavigate()
+  const selector = useSelector((state: RootState) => state.util)
+  const dispatch = useDispatch()
 
   const showMenuHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    e.currentTarget.classList.toggle('header__menu--show');
-    dispatch(showMobileMenu(!selector.mobileMenuActive));
-  };
+    e.currentTarget.classList.toggle('header__menu--show')
+    dispatch(showMobileMenu(!selector.mobileMenuActive))
+  }
 
   return (
     <header className="header">
@@ -29,13 +34,7 @@ const Header = () => {
           </Link>
 
           <div className="header__functionality">
-            <div>
-              <HiOutlineHeart
-                size={27}
-                onClick={() => route('/home/wishlist')}
-              />
-              {/* <span>{0}</span> */}
-            </div>
+            <HeaderFavouriteProducts />
             <HeaderShoppingCard />
           </div>
 
@@ -47,7 +46,7 @@ const Header = () => {
         </div>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

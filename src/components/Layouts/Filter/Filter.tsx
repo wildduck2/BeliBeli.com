@@ -1,28 +1,28 @@
-import React, { MouseEvent, useRef } from 'react';
-import { FilterLinks } from '../../../constants';
-import { cn } from '../../../utils';
-import { Button } from '@/components/UI';
+import React, { MouseEvent, useRef } from 'react'
+import { FilterLinks } from '../../../constants'
+import { cn } from '../../../utils'
+import { Button } from '@/components/UI'
 
 export interface FilterProps {
-  setFilterQuery: React.Dispatch<React.SetStateAction<string>>;
+  setFilterQuery: React.Dispatch<React.SetStateAction<string>>
 }
 const Filter: React.FC<FilterProps> = ({ setFilterQuery }) => {
-  const ButtonsContainerRef = useRef<HTMLDivElement>(null);
+  const ButtonsContainerRef = useRef<HTMLDivElement>(null)
 
   const filterButtonHandler = (e: MouseEvent<HTMLButtonElement>) => {
-    const el = e.currentTarget;
+    const el = e.currentTarget
 
     const buttons = ButtonsContainerRef.current!
-      .childNodes as NodeListOf<HTMLButtonElement>;
+      .childNodes as NodeListOf<HTMLButtonElement>
 
     buttons.forEach((button) => {
-      button.classList.remove('active_filter');
-    });
+      button.classList.remove('active_filter')
+    })
 
-    el.classList.add('active_filter');
+    el.classList.add('active_filter')
 
-    setFilterQuery(el.innerHTML.split(' ').join(''));
-  };
+    setFilterQuery(el.innerHTML.split(' ').join(''))
+  }
 
   return (
     <div ref={ButtonsContainerRef} className="filter">
@@ -37,10 +37,10 @@ const Filter: React.FC<FilterProps> = ({ setFilterQuery }) => {
           >
             {data}
           </Button>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-export default Filter;
+export default Filter

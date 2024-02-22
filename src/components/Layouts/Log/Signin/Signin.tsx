@@ -1,51 +1,51 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Button, Input } from '@/components/UI';
-import { passwordrules } from '@/constants';
-import { RootState } from '@/context/store';
-import { onChangeInput, onPasswordShow } from '@/utils';
-import { BsPatchExclamation } from 'react-icons/bs';
-import { GiPlainCircle } from 'react-icons/gi';
-import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
-import { Icons } from '../Icons';
-import SignWithSocial from '../SignWithSocial';
-import { useDispatch, useSelector } from 'react-redux';
-import { useSigninWithEmail } from '@/hooks';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react'
+import { Button, Input } from '@/components/UI'
+import { passwordrules } from '@/constants'
+import { RootState } from '@/context/store'
+import { onChangeInput, onPasswordShow } from '@/utils'
+import { BsPatchExclamation } from 'react-icons/bs'
+import { GiPlainCircle } from 'react-icons/gi'
+import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri'
+import { Icons } from '../Icons'
+import SignWithSocial from '../SignWithSocial'
+import { useDispatch, useSelector } from 'react-redux'
+import { useSigninWithEmail } from '@/hooks'
+import { useNavigate } from 'react-router-dom'
 
 const Signin = () => {
-  const router = useNavigate();
+  const router = useNavigate()
 
-  const utils = useSelector((state: RootState) => state.util);
-  const dispatch = useDispatch();
+  const utils = useSelector((state: RootState) => state.util)
+  const dispatch = useDispatch()
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [notValid, setNotValid] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [notValid, setNotValid] = useState<boolean>(false)
 
-  const [emailValid, setEmailValid] = useState<boolean>(false);
-  const [email, setEmail] = useState<string>('');
-  const [passwordValid, setPasswordValid] = useState<boolean>(false);
-  const [password, setPassword] = useState<string>('');
-  const [passwordShow, setPasswordShow] = useState<boolean>(false);
-  const [passwordShowMenu, setPasswordShowMenu] = useState<boolean>(false);
+  const [emailValid, setEmailValid] = useState<boolean>(false)
+  const [email, setEmail] = useState<string>('')
+  const [passwordValid, setPasswordValid] = useState<boolean>(false)
+  const [password, setPassword] = useState<string>('')
+  const [passwordShow, setPasswordShow] = useState<boolean>(false)
+  const [passwordShowMenu, setPasswordShowMenu] = useState<boolean>(false)
   const [passwordHasLowercase, setPasswordHasLowercase] =
-    useState<boolean>(false);
+    useState<boolean>(false)
   const [passwordHasUppercase, setPasswordHasUppercase] =
-    useState<boolean>(false);
-  const [passwordHasNumber, setPasswordHasNumber] = useState<boolean>(false);
+    useState<boolean>(false)
+  const [passwordHasNumber, setPasswordHasNumber] = useState<boolean>(false)
   const [passwordHasSpecialCharacter, setPasswordHasSpecialCharacter] =
-    useState<boolean>(false);
-  const [passwordInRange, setPasswordInRange] = useState<boolean>(false);
+    useState<boolean>(false)
+  const [passwordInRange, setPasswordInRange] = useState<boolean>(false)
 
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null)
+  const passwordRef = useRef<HTMLInputElement>(null)
 
-  console.log('notValid', notValid);
+  console.log('notValid', notValid)
 
   useEffect(() => {
     setNotValid(
       utils.inputsValid.email && utils.inputsValid.password ? true : false
-    );
-  }, [dispatch, emailValid, passwordValid, passwordShowMenu]);
+    )
+  }, [dispatch, emailValid, passwordValid, passwordShowMenu])
 
   const SigninProvider = useSigninWithEmail({
     email,
@@ -55,7 +55,7 @@ const Signin = () => {
     setEmailValid,
     setPasswordValid,
     route: router
-  });
+  })
 
   return (
     <section className="log">
@@ -85,7 +85,7 @@ const Signin = () => {
                     type: 'email',
                     utils,
                     dispatch
-                  });
+                  })
                 }}
                 ref={emailRef}
               />
@@ -122,12 +122,12 @@ const Signin = () => {
                     type: 'password',
                     utils,
                     dispatch
-                  });
+                  })
                 }}
                 disabled={isLoading}
                 ref={passwordRef}
                 onFocus={() => {
-                  setPasswordShowMenu(true);
+                  setPasswordShowMenu(true)
                 }}
               />
               <label htmlFor="password">Password</label>
@@ -185,7 +185,7 @@ const Signin = () => {
 
               <Button
                 onClick={() => {
-                  router('/forgotpassword');
+                  router('/forgotpassword')
                 }}
                 type="reset"
               >
@@ -202,7 +202,7 @@ const Signin = () => {
         />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Signin;
+export default Signin

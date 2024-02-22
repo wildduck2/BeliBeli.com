@@ -1,48 +1,43 @@
-import React, { useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
   Button,
-  Input,
-  Label,
   ProductReviews,
+  ProductShowAccordionWrapper,
   RatingStars,
   ShareProductWrapper,
   Skeleton
-} from '@/components/UI';
-import { AsyncImage as LazyImg } from '@/components/Layouts';
-import { Product } from '@/context/Data.types';
-import { Heart, Package } from 'lucide-react';
-import { AiOutlineShopping } from 'react-icons/ai';
-import { GoPackageDependents } from 'react-icons/go';
-import { fastshiping } from '@/assets';
-import useGetReviews from '@/hooks/useGetReviews/useGetReviews';
-import { useDispatch, useSelector } from 'react-redux';
-import { addProductToCart } from '@/context/Utils';
-import { RootState } from '@/context/store';
-import { useUser } from '@/hooks';
+} from '@/components/UI'
+import { AsyncImage as LazyImg } from '@/components/Layouts'
+import { Product } from '@/context/Data.types'
+import { Heart } from 'lucide-react'
+import { AiOutlineShopping } from 'react-icons/ai'
+import { GoPackageDependents } from 'react-icons/go'
+import { fastshiping } from '@/assets'
+import useGetReviews from '@/hooks/useGetReviews/useGetReviews'
+import { useDispatch, useSelector } from 'react-redux'
+import { addProductToCart, addProductToFavorite } from '@/context/Utils'
+import { RootState } from '@/context/store'
+import { useUser } from '@/hooks'
 
-const height = 883.567;
+const height = 883.567
 
 const ProductShow = () => {
-  const [currentTypeIndex, setCurrentTypeIndex] = React.useState<number>(0);
-  const [currentSizeIndex, setCurrentSizeIndex] = React.useState<number>(0);
-  const mainImgsRef = useRef<HTMLDivElement>(null);
+  const [currentTypeIndex, setCurrentTypeIndex] = React.useState<number>(0)
+  const [currentSizeIndex, setCurrentSizeIndex] = React.useState<number>(0)
+  const mainImgsRef = useRef<HTMLDivElement>(null)
 
-  const { state } = useLocation();
-  const product: Product = state;
+  const { state } = useLocation()
+  const product: Product = state
 
   const [reviews, error] = useGetReviews({
     reviews_id: product.review_id
-  });
+  })
 
-  const logged = useSelector((state: RootState) => state.data.logged);
-  const dispatch = useDispatch();
+  const logged = useSelector((state: RootState) => state.data.logged)
+  const dispatch = useDispatch()
 
-  const user = useUser({ signedout: logged });
+  const user = useUser({ signedout: logged })
   const cartProduct = {
     user_id: user[0]?.id,
     id: product.id,
@@ -58,7 +53,21 @@ const ProductShow = () => {
     color: product.product_type[currentTypeIndex].name,
     size: product.product_type[currentTypeIndex].sizes[currentSizeIndex].size,
     quantity: 1
-  };
+  }
+  const favoriteProduct = {
+    id: product.id,
+    user_id: user[0]?.id,
+    created_at: product.created_at,
+    type: product.type,
+    title: product.title,
+    description: product.description,
+    product_type: product.product_type[currentTypeIndex],
+    product_category: product.product_category,
+    review_id: product.review_id,
+    treding: product.treding,
+    choosen: product.choosen,
+    fit: product.fit
+  }
 
   return (
     <>
@@ -69,8 +78,7 @@ const ProductShow = () => {
           <div className="products-show__wrapper__main">
             <div
               className="products-show__wrapper__main__imgs"
-              ref={mainImgsRef}
-            >
+              ref={mainImgsRef}>
               <LazyImg
                 src={product.product_type[currentTypeIndex].top_imgs[0]}
                 srcSet={product.product_type[currentTypeIndex].low_imgs[0]}
@@ -219,15 +227,14 @@ const ProductShow = () => {
                           key={index}
                           variant={'ghost'}
                           onClick={() => {
-                            setCurrentTypeIndex(index);
+                            setCurrentTypeIndex(index)
                             const imgs = mainImgsRef.current?.querySelectorAll(
                               '.lazyLoaingImg-wrapper'
-                            );
+                            )
                             imgs?.forEach((img) =>
                               img.classList.remove('show--img')
-                            );
-                          }}
-                        >
+                            )
+                          }}>
                           <LazyImg
                             key={index}
                             src={item.icon}
@@ -238,7 +245,7 @@ const ProductShow = () => {
                             draggable={false}
                           />
                         </Button>
-                      );
+                      )
                     })}
                   </div>
                 </div>
@@ -261,11 +268,10 @@ const ProductShow = () => {
                           key={index}
                           variant={'outline'}
                           className={`${currentSizeIndex === index && 'active'}`}
-                          onClick={() => setCurrentSizeIndex(index)}
-                        >
+                          onClick={() => setCurrentSizeIndex(index)}>
                           {item.size}
                         </Button>
-                      );
+                      )
                     }
                   )}
                 </div>
@@ -276,18 +282,16 @@ const ProductShow = () => {
                   <Button
                     variant={'default'}
                     onClick={() => {
-                      dispatch(addProductToCart(cartProduct));
-                    }}
-                  >
+                      dispatch(addProductToCart(cartProduct))
+                    }}>
                     <AiOutlineShopping size={25} />
                     <span>Add to Basket</span>
                   </Button>
                   <Button
                     variant={'outline'}
                     onClick={() => {
-                      console.log('this is favourite');
-                    }}
-                  >
+                      dispatch(addProductToFavorite(favoriteProduct))
+                    }}>
                     <Heart size={25} />
                     <span>Add to Favourites</span>
                   </Button>
@@ -302,59 +306,7 @@ const ProductShow = () => {
               </div>
 
               <div className="products-show__wrapper__main__info__accord">
-                <Accordion type="single" collapsible className="">
-                  <AccordionItem value="item-1">
-                    <AccordionTrigger>
-                      <div>
-                        <Label>Delivery Options</Label>
-                        <Label>
-                          Explore the delivery options applicable to your area.
-                        </Label>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="box">
-                        <Package size={27} />
-                        <div>
-                          <span>Standard Delivery</span>
-                          <span>
-                            Your order will be delivered within 1-5 days
-                          </span>
-                        </div>
-                      </div>
-                      <div className="box">
-                        <img
-                          src={fastshiping}
-                          width={27}
-                          alt="fast shiping img"
-                        />
-                        <div>
-                          <span>Same Day Delivery</span>
-                          <span>
-                            Order before 10AM and receive same-day delivery
-                          </span>
-                        </div>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                  <AccordionItem value="item-2">
-                    <AccordionTrigger>
-                      <div>
-                        <Label>Click and Collect</Label>
-                        <Label>
-                          Order now & collect from a store of your choice.
-                        </Label>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="click-and-collect">
-                      <Label>Check in-store availability</Label>
-                      <div>
-                        <Input placeholder="Enter your area" />
-                        <Button variant={'default'}>CHECK STORES</Button>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
+                <ProductShowAccordionWrapper />
               </div>
             </div>
           </div>
@@ -382,7 +334,7 @@ const ProductShow = () => {
         </div>
       </main>
     </>
-  );
-};
+  )
+}
 
-export default ProductShow;
+export default ProductShow

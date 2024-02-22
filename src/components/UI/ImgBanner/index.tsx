@@ -1,3 +1,3 @@
-import ImgBanner from './ImgBanner';
+import ImgBanner from './ImgBanner'
 
-export default ImgBanner;
+export default ImgBanner

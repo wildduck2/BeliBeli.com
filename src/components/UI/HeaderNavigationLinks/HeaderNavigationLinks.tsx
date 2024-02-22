@@ -1,24 +1,24 @@
-import React from 'react';
+import React from 'react'
 
 import {
   WoemnSideBarNavigation,
   categoryData,
   navigationLinks
-} from '../../../constants';
-import { BannerDeals } from '@/components/Layouts';
-import { useLocation, useNavigate } from 'react-router-dom';
+} from '../../../constants'
+import { BannerDeals } from '@/components/Layouts'
+import { useLocation, useNavigate } from 'react-router-dom'
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger
-} from '..';
-import { NavigationHeaderLooping } from '@/utils';
+} from '..'
+import { NavigationHeaderLooping } from '@/utils'
 
 const HeaderNavigationLinks = () => {
-  const { pathname } = useLocation();
-  const route = useNavigate();
+  const { pathname } = useLocation()
+  const route = useNavigate()
   return (
     <>
       <NavigationMenu className="navigations">
@@ -32,10 +32,10 @@ const HeaderNavigationLinks = () => {
                 <NavigationMenuTrigger
                   className="navigations__list__item__link"
                   onClick={() => {
-                    window.scrollTo(0, 0);
+                    window.scrollTo(0, 0)
                     route(`/${link}`, {
                       state: categoryData[index]
-                    });
+                    })
                   }}
                 >
                   <h5 key={link}>{link.split('/')[1]}</h5>
@@ -47,13 +47,13 @@ const HeaderNavigationLinks = () => {
                   />
                 </NavigationMenuContent>
               </NavigationMenuItem>
-            );
+            )
           })}
         </NavigationMenuList>
       </NavigationMenu>
       {pathname === '/' && <BannerDeals />}
     </>
-  );
-};
+  )
+}
 
-export default HeaderNavigationLinks;
+export default HeaderNavigationLinks

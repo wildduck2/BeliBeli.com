@@ -1,25 +1,25 @@
-import React from 'react';
-import { Button, Link } from '@/components/UI';
-import { BadgeInfo } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import { useUser } from '@/hooks';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/context/store';
+import React from 'react'
+import { Button, Link } from '@/components/UI'
+import { BadgeInfo } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { useUser } from '@/hooks'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/context/store'
 
 const needHelpNavigation = [
   'Contact customer service',
   'Return & Refund',
   'Delivery information'
-];
+]
 
 const Profile = () => {
-  const route = useNavigate();
-  const logged = useSelector((state: RootState) => state.data.logged);
-  const userData = useUser({ signedout: logged });
+  const route = useNavigate()
+  const logged = useSelector((state: RootState) => state.data.logged)
+  const userData = useUser({ signedout: logged })
 
-  const data = true;
-  const needHelp = true;
-  const email = 'wezonaser50@gmail.com';
+  const data = true
+  const needHelp = true
+  const email = 'wezonaser50@gmail.com'
 
   return (
     <div className="account__profile">
@@ -68,7 +68,7 @@ const Profile = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

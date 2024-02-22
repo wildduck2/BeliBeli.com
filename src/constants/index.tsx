@@ -1,12 +1,12 @@
-import React from 'react';
-import { z } from 'zod';
+import React from 'react'
+import { z } from 'zod'
 
-export const emailSchema = z.string().email();
-export const passwordInRange = z.string().min(8).max(32);
-export const passwordhasuppercase = z.string().regex(/(?=.*[A-Z])/);
-export const passwordhaslowercase = z.string().regex(/(?=.*[a-z])/);
-export const passwordhasnumber = z.string().regex(/(?=.*\d)/);
-export const passwordhasspecialcharacter = z.string().regex(/(?=.*[@$!%*?&])/);
+export const emailSchema = z.string().email()
+export const passwordInRange = z.string().min(8).max(32)
+export const passwordhasuppercase = z.string().regex(/(?=.*[A-Z])/)
+export const passwordhaslowercase = z.string().regex(/(?=.*[a-z])/)
+export const passwordhasnumber = z.string().regex(/(?=.*\d)/)
+export const passwordhasspecialcharacter = z.string().regex(/(?=.*[@$!%*?&])/)
 
 export const Emails = [
   'ahmed@example.com',
@@ -14,7 +14,7 @@ export const Emails = [
   'abdo@example.com',
   'ali@example.com',
   'mohamed@example.com'
-];
+]
 
 export const passwordrules = [
   {
@@ -37,7 +37,7 @@ export const passwordrules = [
     id: 5,
     name: 'Minimum 8 characters'
   }
-];
+]
 
 export const navigationLinks = [
   'category/Women',
@@ -49,7 +49,7 @@ export const navigationLinks = [
   'category/Sport',
   'shop-product/Sale',
   'specials/Sustainability'
-];
+]
 
 export const RedBannerHome = {
   ColorfulBanner: 'red',
@@ -57,7 +57,7 @@ export const RedBannerHome = {
   description: 'Offer valid on selected items until 25.01.2024',
   subtitle: ['Up to 70% off', 'Online only'],
   Links: ['Women', 'Divided', 'Men', 'Kids', 'BeliBeli Home']
-};
+}
 
 export const BlackBannerHome = {
   ColorfulBanner: 'black',
@@ -65,7 +65,7 @@ export const BlackBannerHome = {
   description: null,
   subtitle: ['Get your favourites — for less'],
   Links: ['Women', 'Divided', 'Men', 'Kids', 'BeliBeli Home']
-};
+}
 
 export const RedBannerWomen = {
   ColorfulBanner: 'red',
@@ -73,7 +73,7 @@ export const RedBannerWomen = {
   description: 'Offer valid on selected items until 25.01.2024',
   subtitle: ['Up to 70% off', 'Online only'],
   Links: ['Women', 'Divided', 'Men', 'Kids', 'BeliBeli Home']
-};
+}
 
 export const BlackBannerWomen = {
   ColorfulBanner: 'black',
@@ -81,7 +81,7 @@ export const BlackBannerWomen = {
   description: null,
   subtitle: ['Get your favourites — for less'],
   Links: ['Women', 'Divided', 'Men', 'Kids', 'BeliBeli Home']
-};
+}
 
 export const FilterLinks = [
   'Women',
@@ -91,7 +91,7 @@ export const FilterLinks = [
   'Baby',
   'BeliBeli Home',
   'Sale'
-];
+]
 
 export const WomenHeaderNavigationLink = [
   'women',
@@ -147,7 +147,7 @@ export const WomenHeaderNavigationLink = [
     ],
     [['Shop By Occasion', ['Going Out', 'Office Wear', 'Wedding']], 'Magazine']
   ]
-];
+]
 export const MenHeaderNavigationLink = [
   'men',
   [
@@ -190,7 +190,7 @@ export const MenHeaderNavigationLink = [
     ['Shop By Occasion', ['Going Out', 'Office Wear', 'Wedding']],
     'Magazine'
   ]
-];
+]
 export const DividedHeaderNavigationLink = [
   'divided',
   [
@@ -232,7 +232,7 @@ export const DividedHeaderNavigationLink = [
       ]
     ]
   ]
-];
+]
 export const BabayHeaderNavigationLink = [
   'baby',
   [
@@ -284,7 +284,7 @@ export const BabayHeaderNavigationLink = [
     ],
     ['Popular Now', ['Character Shop', 'Basics And Multipacks']]
   ]
-];
+]
 export const KidsHeaderNavigationLink = [
   'kids',
   [
@@ -367,7 +367,7 @@ export const KidsHeaderNavigationLink = [
       ]
     ]
   ]
-];
+]
 export const BeliBeliHomeHeaderNavigationLink = [
   'belibeli home',
   [
@@ -401,7 +401,7 @@ export const BeliBeliHomeHeaderNavigationLink = [
     ],
     ['Shop By Concept', ['Premium Selection']]
   ]
-];
+]
 export const SportsHeaderNavigationLink = [
   'sports',
   [
@@ -443,7 +443,7 @@ export const SportsHeaderNavigationLink = [
       ['Tights Guide', 'Bra Guide', 'The Shorts Guide', 'The T-Shirt Guide']
     ]
   ]
-];
+]
 export const SaleHeaderNavigationLink = [
   'sale',
   [
@@ -543,7 +543,7 @@ export const SaleHeaderNavigationLink = [
     ],
     ['Sport', ['Women', 'Men', 'Kids']]
   ]
-];
+]
 export const SustainabilityHeaderNavigationLink = [
   'sustainability',
   [
@@ -572,7 +572,7 @@ export const SustainabilityHeaderNavigationLink = [
       ]
     ]
   ]
-];
+]
 
 export const WoemnSideBarNavigation = [
   [
@@ -637,7 +637,7 @@ export const WoemnSideBarNavigation = [
       ['Magazine', 'Magazine']
     ]
   ]
-];
+]
 export const MenSideBarNavigation = [
   [
     [
@@ -674,7 +674,7 @@ export const MenSideBarNavigation = [
       ]
     ]
   ]
-];
+]
 export const DividedSideBarNavigation = [
   [
     [
@@ -712,7 +712,7 @@ export const DividedSideBarNavigation = [
       ]
     ]
   ]
-];
+]
 export const BabySideBarNavigation = [
   [[['Popular Now', 'Character Shop', 'Basics And Multipacks']]],
   [
@@ -767,7 +767,7 @@ export const BabySideBarNavigation = [
       ]
     ]
   ]
-];
+]
 export const kidsSideBarNavigation = [
   [
     [
@@ -852,7 +852,7 @@ export const kidsSideBarNavigation = [
       ]
     ]
   ]
-];
+]
 export const BeliBeliHomeSideBarNavigation = [
   [
     [
@@ -900,7 +900,7 @@ export const BeliBeliHomeSideBarNavigation = [
     ]
   ],
   [[['Shop By Concept', 'Premium Selection']]]
-];
+]
 export const SportsSideBarNavigation = [
   [
     [
@@ -950,7 +950,7 @@ export const SportsSideBarNavigation = [
       ]
     ]
   ]
-];
+]
 export const SaleSideBarNavigation = [
   [
     [
@@ -1054,7 +1054,7 @@ export const SaleSideBarNavigation = [
     ],
     [['Sport', 'Women', 'Men', 'Kids']]
   ]
-];
+]
 export const SustainabilitySideBarNavigation = [
   [
     [
@@ -1091,7 +1091,7 @@ export const SustainabilitySideBarNavigation = [
       ]
     ]
   ]
-];
+]
 
 export const magazine = [
   {
@@ -1106,7 +1106,7 @@ export const magazine = [
     img: '/src/assets/imgs/magazine/3.webp',
     title: 'AUTUMN ’23 MENSWEAR TRENDS'
   }
-];
+]
 
 export const footerData = [
   [
@@ -1140,13 +1140,13 @@ export const footerData = [
     'H&M Home Furniture & Lighting',
     'eGift Cards'
   ]
-];
+]
 
 export const Daels = [
   'Free delivery on all orders above EGP 699',
   'Free returns available online and in store',
   'Click & Collect available on all items'
-];
+]
 
 export const shoptProductSideBarNavigation = {
   Women: [
@@ -1235,7 +1235,7 @@ export const shoptProductSideBarNavigation = {
     'Cushion Covers'
   ],
   Sport: ['Women', 'Men', 'Kids']
-};
+}
 
 export const categoryData = [
   {
@@ -1294,7 +1294,7 @@ export const categoryData = [
     redBannerWomen: RedBannerWomen,
     blackBannerWomen: BlackBannerWomen
   }
-];
+]
 
 export const WomenDiscriptionData = {
   1: {
@@ -1375,7 +1375,7 @@ export const WomenDiscriptionData = {
       </>
     ]
   }
-};
+}
 
 export const MenDiscriptionData = {
   1: {
@@ -1447,7 +1447,7 @@ export const MenDiscriptionData = {
       </>
     ]
   }
-};
+}
 
 export const categoryDiscriptionData = {
   women: WomenDiscriptionData,
@@ -1457,4 +1457,4 @@ export const categoryDiscriptionData = {
   belibelihome: MenDiscriptionData,
   baby: MenDiscriptionData,
   sport: MenDiscriptionData
-};
+}

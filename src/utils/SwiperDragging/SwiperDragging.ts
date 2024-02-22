@@ -1,23 +1,23 @@
-import React, { MouseEvent, MutableRefObject } from 'react';
+import React, { MouseEvent, MutableRefObject } from 'react'
 
 interface handleMouseDownTypes {
-  e: MouseEvent<HTMLUListElement>;
-  setDragging?: (dragging: boolean) => void;
-  setPrevScrollLeft?: (scrollLeft: number) => void;
-  setPrevPageX?: (pageX: number) => void;
-  SWIPER__REF: MutableRefObject<HTMLUListElement>;
+  e: MouseEvent<HTMLUListElement>
+  setDragging?: (dragging: boolean) => void
+  setPrevScrollLeft?: (scrollLeft: number) => void
+  setPrevPageX?: (pageX: number) => void
+  SWIPER__REF: MutableRefObject<HTMLUListElement>
 }
 
 interface handleMouseDragTypes extends handleMouseDownTypes {
-  dragging?: boolean;
-  prevPageX?: number;
-  prevScrollLeft?: number;
-  positonDiff?: number;
-  setPositonDiff?: (scrollLeft: number) => void;
+  dragging?: boolean
+  prevPageX?: number
+  prevScrollLeft?: number
+  positonDiff?: number
+  setPositonDiff?: (scrollLeft: number) => void
 }
 
 interface handleMouseUpTypes {
-  setDragging: (dragging: boolean) => void;
+  setDragging: (dragging: boolean) => void
 }
 
 export const handleMouseDown = ({
@@ -27,10 +27,10 @@ export const handleMouseDown = ({
   setPrevScrollLeft,
   SWIPER__REF
 }: handleMouseDownTypes) => {
-  setDragging!(true);
-  setPrevPageX!(e!.pageX);
-  setPrevScrollLeft!(SWIPER__REF!.current.scrollLeft);
-};
+  setDragging!(true)
+  setPrevPageX!(e!.pageX)
+  setPrevScrollLeft!(SWIPER__REF!.current.scrollLeft)
+}
 
 export const handleMouseDrag = ({
   e,
@@ -42,12 +42,12 @@ export const handleMouseDrag = ({
   setPositonDiff
 }: handleMouseDragTypes) => {
   if (dragging) {
-    e!.preventDefault();
-    setPositonDiff!(e!.pageX - prevPageX!);
-    SWIPER__REF!.current.scrollLeft = prevScrollLeft! - positonDiff!;
+    e!.preventDefault()
+    setPositonDiff!(e!.pageX - prevPageX!)
+    SWIPER__REF!.current.scrollLeft = prevScrollLeft! - positonDiff!
   }
-};
+}
 
 export const handleMouseUp = ({ setDragging }: handleMouseUpTypes) => {
-  setDragging!(false);
-};
+  setDragging!(false)
+}

@@ -1,32 +1,32 @@
-import { NavigateFunction } from 'react-router-dom';
-import { supabase } from '../../supabase/supabase';
-import { Dispatch } from 'react';
+import { NavigateFunction } from 'react-router-dom'
+import { supabase } from '../../supabase/supabase'
+import { Dispatch } from 'react'
 
 export interface RouteHandlerTypes {
-  signUp: boolean;
-  router: NavigateFunction;
+  signUp: boolean
+  router: NavigateFunction
 }
 
 export interface loginWithEmailHandlerTypes {
-  email: string;
-  password: string;
+  email: string
+  password: string
 }
 
 export interface signupWithEmailHandlerTypes
   extends loginWithEmailHandlerTypes {
-  fullName: string;
+  fullName: string
 }
 
 export const loginWithGoogleHandler = async () => {
   await supabase.auth.signInWithOAuth({
     provider: 'google'
-  });
-};
+  })
+}
 
 export const loginWithDiscordHandler = async () =>
   await supabase.auth.signInWithOAuth({
     provider: 'discord'
-  });
+  })
 
 export const signupWithEmailHandler = async ({
   email,
@@ -36,7 +36,7 @@ export const signupWithEmailHandler = async ({
   await supabase.auth.signUp({
     email: email,
     password: password
-  });
+  })
 
 export const loginWithEmailHandler = async ({
   email,
@@ -45,18 +45,18 @@ export const loginWithEmailHandler = async ({
   await supabase.auth.signInWithPassword({
     email: email,
     password: password
-  });
-  console.log('logged in');
-};
+  })
+  console.log('logged in')
+}
 
 export const routeHandler = ({ signUp, router }: RouteHandlerTypes) =>
-  router(`${signUp ? '/login' : '/signup'}`);
+  router(`${signUp ? '/login' : '/signup'}`)
 
 export const logoutHandler = async ({
   setUser
 }: {
-  setUser: Dispatch<React.SetStateAction<boolean>>;
+  setUser: Dispatch<React.SetStateAction<boolean>>
 }) => {
-  await supabase.auth.signOut();
-  setUser(false);
-};
+  await supabase.auth.signOut()
+  setUser(false)
+}

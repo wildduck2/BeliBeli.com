@@ -1,5 +1,5 @@
-import React from 'react';
-import { CardInfoTypes } from '../Swiper.types';
+import React from 'react'
+import { CardInfoTypes } from '../Swiper.types'
 
 const CardInfo = ({ choosen, discount, price, title }: CardInfoTypes) => {
   return (
@@ -32,7 +32,7 @@ const CardInfo = ({ choosen, discount, price, title }: CardInfoTypes) => {
         )}%)`}</span>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default CardInfo;
+export default CardInfo

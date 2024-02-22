@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import {
   Select,
@@ -8,7 +8,7 @@ import {
   SelectItem,
   SelectValue,
   Input
-} from '../../../UI';
+} from '../../../UI'
 
 const Orders = () => {
   return (
@@ -47,7 +47,7 @@ const Orders = () => {
       <h2>Recent Orders</h2>
       <span>You haven’t ordered anything recently.</span>
     </div>
-  );
-};
+  )
+}
 
-export default Orders;
+export default Orders

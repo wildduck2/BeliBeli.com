@@ -4,8 +4,8 @@
 
 */
 
-@use "../../utils" as u;
-@use "../../base" as *;
+@use '../../utils' as u;
+@use '../../base' as *;
 
 /*
 
@@ -16,7 +16,6 @@
 .wishlist {
   @include u.container;
   @include u.flex(grid, center);
-  gap: 4rem;
   margin-block: 3rem 10rem;
 
   h1 {
@@ -32,9 +31,52 @@
   & > div {
     @include u.flex(grid, center, center);
     gap: 1rem;
+    margin-top: 4rem;
 
     button {
       border-radius: 3px;
+    }
+  }
+
+  &__products {
+    margin-top: 0 !important;
+    justify-content: flex-start;
+    grid-template-columns: repeat(4, minmax(445px, 1fr));
+
+    &__product {
+      @include u.flex(grid, center);
+      max-width: 405px;
+      width: 405px !important;
+
+      &__buttons {
+        @include u.flex(grid, center);
+        gap: 0.5rem;
+
+        button {
+          @include u.flex(flex, center, center);
+          gap: 0.5rem;
+          font-size: calc(var(--f-lg) - 0.1rem);
+          text-transform: capitalize;
+        }
+      }
+
+      .swiper__card {
+        max-width: 405px;
+        width: 405px !important;
+        height: 707px;
+
+        .img__wrapper {
+          max-width: 405px;
+        }
+
+        h3 {
+          font-size: calc(var(--f-lg) + 0.2rem);
+        }
+
+        span {
+          font-size: calc(var(--f-lg) - 0.1rem);
+        }
+      }
     }
   }
 }

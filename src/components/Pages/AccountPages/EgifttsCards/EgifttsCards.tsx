@@ -1,5 +1,5 @@
-import { Button } from '@/components/UI';
-import React from 'react';
+import { Button } from '@/components/UI'
+import React from 'react'
 
 const EgifttsCards = () => {
   return (
@@ -22,7 +22,7 @@ const EgifttsCards = () => {
         <Button variant={'default'}>Get Code</Button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default EgifttsCards;
+export default EgifttsCards

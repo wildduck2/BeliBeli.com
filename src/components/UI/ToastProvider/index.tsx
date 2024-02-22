@@ -1,3 +1,3 @@
-import ToastProvider from './ToastProvider';
+import ToastProvider from './ToastProvider'
 
-export default ToastProvider;
+export default ToastProvider

@@ -1,12 +1,12 @@
-import React from 'react';
-import { Button, Input } from '@/components/UI';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/context/store';
-import { useUser } from '@/hooks';
+import React from 'react'
+import { Button, Input } from '@/components/UI'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/context/store'
+import { useUser } from '@/hooks'
 
 const AccountDetails = () => {
-  const logged = useSelector((state: RootState) => state.data.logged);
-  const userData = useUser({ signedout: logged });
+  const logged = useSelector((state: RootState) => state.data.logged)
+  const userData = useUser({ signedout: logged })
 
   return (
     <div className="account__details">
@@ -37,7 +37,7 @@ const AccountDetails = () => {
         <Button variant="default">Save Changes</Button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default AccountDetails;
+export default AccountDetails

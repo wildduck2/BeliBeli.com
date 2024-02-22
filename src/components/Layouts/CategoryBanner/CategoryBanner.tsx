@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-import { Link, Skeleton } from '../../UI';
-import { AsyncImage } from 'loadable-image';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/context/store';
+import { Link, Skeleton } from '../../UI'
+import { AsyncImage } from 'loadable-image'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/context/store'
 
 interface CategoryBannerTypes {
-  dataIndex: number;
-  satatus: 'succeeded' | 'loading' | 'failed';
+  dataIndex: number
+  satatus: 'succeeded' | 'loading' | 'failed'
 }
 
 const CategoryBanner: React.FC<CategoryBannerTypes> = ({
@@ -16,7 +16,7 @@ const CategoryBanner: React.FC<CategoryBannerTypes> = ({
 }) => {
   const categoriesData = useSelector(
     (state: RootState) => state.data.categoriesData
-  );
+  )
 
   return (
     <div className="category-banner">
@@ -40,7 +40,7 @@ const CategoryBanner: React.FC<CategoryBannerTypes> = ({
                 <span>{categoriesData![dataIndex].category[index]}</span>
                 <h2>{categoriesData![dataIndex].name[index]}</h2>
               </Link>
-            );
+            )
           })
         ) : (
           <div className="category__skeleton">
@@ -51,13 +51,13 @@ const CategoryBanner: React.FC<CategoryBannerTypes> = ({
                   <Skeleton className="skeleton sm" />
                   <Skeleton className="skeleton sm" />
                 </div>
-              );
+              )
             })}
           </div>
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CategoryBanner;
+export default CategoryBanner

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, Input } from '@/components/UI';
+import React from 'react'
+import { Button, Input } from '@/components/UI'
 
 const ChangePassowrd = () => {
   return (
@@ -19,7 +19,7 @@ const ChangePassowrd = () => {
         <Button variant="default">Change Password</Button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default ChangePassowrd;
+export default ChangePassowrd

@@ -1,9 +1,9 @@
-import { toast } from 'sonner';
-import { supabase } from '@/supabase/supabase';
-import { v4 as ID } from 'uuid';
-import { handleSubmitProps } from './HandleSubmitReview.types';
-import { PostgrestSingleResponse } from '@supabase/supabase-js';
-import { Product_review } from '@/context/Data.types';
+import { toast } from 'sonner'
+import { supabase } from '@/supabase/supabase'
+import { v4 as ID } from 'uuid'
+import { handleSubmitProps } from './HandleSubmitReview.types'
+import { PostgrestSingleResponse } from '@supabase/supabase-js'
+import { Product_review } from '@/context/Data.types'
 
 export const handleSubmit = async ({
   fit,
@@ -35,48 +35,48 @@ export const handleSubmit = async ({
     fit: fit,
     lenght: lenght,
     this_review_was_helpufll: []
-  };
+  }
 
   if (nickname !== '' && reviewDiscription !== '' && reviewTitle !== '') {
-    setLoading(true);
+    setLoading(true)
     const promise = new Promise((resolve, reject) => {
       const cb = async () => {
         try {
           const { data: existingData, error } = (await supabase
             .from('products_reviews')
             .select('*')
-            .eq('id', review_id)) as PostgrestSingleResponse<Product_review[]>;
+            .eq('id', review_id)) as PostgrestSingleResponse<Product_review[]>
 
           if (error) {
-            reject(error);
-            throw error;
+            reject(error)
+            throw error
           }
 
-          const product_reviews = [product_review, ...existingData[0].reviews];
+          const product_reviews = [product_review, ...existingData[0].reviews]
 
           const { data: updatedRow, error: updateError } = (await supabase
             .from('products_reviews')
             .update({ reviews: product_reviews })
             .eq('id', review_id)
-            .select()) as PostgrestSingleResponse<Product_review[]>;
+            .select()) as PostgrestSingleResponse<Product_review[]>
 
           if (updateError) {
-            reject(error);
-            throw updateError;
+            reject(error)
+            throw updateError
           }
 
-          resolve(updatedRow);
-          setLoading(false);
-          dialogClose.current?.click();
+          resolve(updatedRow)
+          setLoading(false)
+          dialogClose.current?.click()
 
-          setAllReviews(updatedRow[0]);
+          setAllReviews(updatedRow[0])
         } catch (error) {
-          console.error('Error updating row:', error as string);
+          console.error('Error updating row:', error as string)
         }
-      };
+      }
 
-      cb();
-    });
+      cb()
+    })
 
     toast.promise(
       promise,
@@ -86,9 +86,9 @@ export const handleSubmit = async ({
         loading: 'Waiting to submit your review...',
         error: 'Something went wrong!'
       }
-    );
+    )
   } else {
-    toast.error('Please fill in all the fields');
-    setLoading(false);
+    toast.error('Please fill in all the fields')
+    setLoading(false)
   }
-};
+}

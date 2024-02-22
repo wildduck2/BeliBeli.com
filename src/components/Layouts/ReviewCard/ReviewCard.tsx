@@ -1,58 +1,57 @@
-import React from 'react';
-import { ReviewCardProps } from './ReviewCard.types';
-import { Box, Rating } from '@mui/material';
-import { Star } from 'lucide-react';
-import { Button, Label } from '@/components/UI';
-import { useLocation } from 'react-router-dom';
-import { Product, ReviewWasHelpfull } from '@/context/Data.types';
-import { appendThisReviewWasHelpfullData } from '@/utils';
-import { useUser } from '@/hooks';
-import { RootState } from '@/context/store';
-import { useSelector } from 'react-redux';
-import { UUID } from 'crypto';
+import React from 'react'
+import { ReviewCardProps } from './ReviewCard.types'
+import { Box, Rating } from '@mui/material'
+import { Star } from 'lucide-react'
+import { Button, Label } from '@/components/UI'
+import { useLocation } from 'react-router-dom'
+import { Product, ReviewWasHelpfull } from '@/context/Data.types'
+import { appendThisReviewWasHelpfullData } from '@/utils'
+import { useUser } from '@/hooks'
+import { RootState } from '@/context/store'
+import { useSelector } from 'react-redux'
+import { UUID } from 'crypto'
 
 const ReviewCard: React.FC<ReviewCardProps> = ({ index, review }) => {
-  const time = review.created_at;
-  const date = new Date(time);
+  const time = review.created_at
+  const date = new Date(time)
   const formatter = new Intl.DateTimeFormat('en', {
     year: 'numeric',
     month: 'short',
     day: 'numeric'
-  });
+  })
 
-  const created_at = formatter.format(date);
+  const created_at = formatter.format(date)
 
   const reviewTrue = review.this_review_was_helpufll?.filter(
     (item: ReviewWasHelpfull) => item.value === true
-  );
+  )
 
   const reviewFalse = review.this_review_was_helpufll?.filter(
     (item: ReviewWasHelpfull) => item.value === false
-  );
-  console.log(review.this_review_was_helpufll);
+  )
 
   const [reviewtrue, setReviewTrue] =
-    React.useState<Array<ReviewWasHelpfull>>(reviewTrue);
+    React.useState<Array<ReviewWasHelpfull>>(reviewTrue)
   const [reviewfalse, setReviewFalse] =
-    React.useState<Array<ReviewWasHelpfull>>(reviewFalse);
+    React.useState<Array<ReviewWasHelpfull>>(reviewFalse)
   const [reviewHelpfull, setReviewHelpfull] = React.useState<boolean | null>(
     null
-  );
+  )
 
-  const logged = useSelector((state: RootState) => state.data.logged);
-  const user = useUser({ signedout: logged });
+  const logged = useSelector((state: RootState) => state.data.logged)
+  const user = useUser({ signedout: logged })
 
   const REVIEW_USER_IDS = review.this_review_was_helpufll?.map(
     (item: ReviewWasHelpfull) => item.user_id
-  );
+  )
 
   const THIS_USER_ALLOWED_TO_HELP_THIS_REVIEW =
     review.this_review_was_helpufll?.filter(
       (item) => item.user_id === user[0]?.id
-    );
+    )
 
-  const { state } = useLocation();
-  const product: Product = state;
+  const { state } = useLocation()
+  const product: Product = state
 
   return (
     <li>
@@ -97,7 +96,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ index, review }) => {
                   reviewValue: reviewTrue,
                   setReviewValue: setReviewTrue,
                   setReviewHelpfull: setReviewHelpfull
-                });
+                })
               }}
               className={`${
                 THIS_USER_ALLOWED_TO_HELP_THIS_REVIEW &&
@@ -125,7 +124,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ index, review }) => {
                   reviewValue: reviewFalse,
                   setReviewValue: setReviewFalse,
                   setReviewHelpfull: setReviewHelpfull
-                });
+                })
               }}
               className={`${
                 THIS_USER_ALLOWED_TO_HELP_THIS_REVIEW &&
@@ -148,7 +147,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ index, review }) => {
         </div>
       </div>
     </li>
-  );
-};
+  )
+}
 
-export default ReviewCard;
+export default ReviewCard

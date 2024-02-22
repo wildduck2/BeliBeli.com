@@ -1,16 +1,16 @@
-import * as React from 'react';
-import * as SheetPrimitive from '@radix-ui/react-dialog';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { X } from 'lucide-react';
-import { cn } from '@/utils';
+import * as React from 'react'
+import * as SheetPrimitive from '@radix-ui/react-dialog'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { X } from 'lucide-react'
+import { cn } from '@/utils'
 
-const Sheet = SheetPrimitive.Root;
+const Sheet = SheetPrimitive.Root
 
-const SheetTrigger = SheetPrimitive.Trigger;
+const SheetTrigger = SheetPrimitive.Trigger
 
-const SheetClose = SheetPrimitive.Close;
+const SheetClose = SheetPrimitive.Close
 
-const SheetPortal = SheetPrimitive.Portal;
+const SheetPortal = SheetPrimitive.Portal
 
 const SheetOverlay = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Overlay>,
@@ -24,8 +24,8 @@ const SheetOverlay = React.forwardRef<
     {...props}
     ref={ref}
   />
-));
-SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
+))
+SheetOverlay.displayName = SheetPrimitive.Overlay.displayName
 
 const sheetVariants = cva(
   'yfixed yz-50 ygap-4 ybg-background yp-6 yshadow-lg ytransition yease-in-out data-[state=open]:yanimate-in data-[state=closed]:yanimate-out data-[state=closed]:yduration-300 data-[state=open]:yduration-500',
@@ -44,7 +44,7 @@ const sheetVariants = cva(
       side: 'right'
     }
   }
-);
+)
 
 interface SheetContentProps
   extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
@@ -68,8 +68,8 @@ const SheetContent = React.forwardRef<
       </SheetPrimitive.Close>
     </SheetPrimitive.Content>
   </SheetPortal>
-));
-SheetContent.displayName = SheetPrimitive.Content.displayName;
+))
+SheetContent.displayName = SheetPrimitive.Content.displayName
 
 const SheetHeader = ({
   className,
@@ -82,8 +82,8 @@ const SheetHeader = ({
     )}
     {...props}
   />
-);
-SheetHeader.displayName = 'SheetHeader';
+)
+SheetHeader.displayName = 'SheetHeader'
 
 const SheetFooter = ({
   className,
@@ -96,8 +96,8 @@ const SheetFooter = ({
     )}
     {...props}
   />
-);
-SheetFooter.displayName = 'SheetFooter';
+)
+SheetFooter.displayName = 'SheetFooter'
 
 const SheetTitle = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Title>,
@@ -108,8 +108,8 @@ const SheetTitle = React.forwardRef<
     className={cn('ytext-lg yfont-semibold ytext-foreground', className)}
     {...props}
   />
-));
-SheetTitle.displayName = SheetPrimitive.Title.displayName;
+))
+SheetTitle.displayName = SheetPrimitive.Title.displayName
 
 const SheetDescription = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Description>,
@@ -120,8 +120,8 @@ const SheetDescription = React.forwardRef<
     className={cn('ytext-sm ytext-muted-foreground', className)}
     {...props}
   />
-));
-SheetDescription.displayName = SheetPrimitive.Description.displayName;
+))
+SheetDescription.displayName = SheetPrimitive.Description.displayName
 
 export {
   Sheet,
@@ -134,4 +134,4 @@ export {
   SheetFooter,
   SheetTitle,
   SheetDescription
-};
+}

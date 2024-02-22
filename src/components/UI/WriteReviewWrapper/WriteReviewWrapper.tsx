@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef } from 'react'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -22,19 +22,19 @@ import {
   RadioGroup,
   RadioGroupItem,
   Textarea
-} from '..';
-import { WriteReviewWrapperProps } from './WriteReviewWrapper.types';
-import { AsyncImage as LazyImg } from '@/components/Layouts';
-import { Box, Rating } from '@mui/material';
-import { Star } from 'lucide-react';
-import { useUser } from '@/hooks';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/context/store';
-import { handleSubmit } from '@/utils';
-import { Icons } from '@/components/Layouts/Log/Icons';
-import { useLocation } from 'react-router-dom';
-import { Product } from '@/context/Data.types';
-import { toast } from 'sonner';
+} from '..'
+import { WriteReviewWrapperProps } from './WriteReviewWrapper.types'
+import { AsyncImage as LazyImg } from '@/components/Layouts'
+import { Box, Rating } from '@mui/material'
+import { Star } from 'lucide-react'
+import { useUser } from '@/hooks'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/context/store'
+import { handleSubmit } from '@/utils'
+import { Icons } from '@/components/Layouts/Log/Icons'
+import { useLocation } from 'react-router-dom'
+import { Product } from '@/context/Data.types'
+import { toast } from 'sonner'
 
 const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
   img,
@@ -44,25 +44,25 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
 }) => {
   const [trueToSize, setTrueToSize] = React.useState<
     'small' | 'spot on' | 'large'
-  >('small');
-  const [fit, setFit] = React.useState<'tight' | 'spot on' | 'large'>('tight');
+  >('small')
+  const [fit, setFit] = React.useState<'tight' | 'spot on' | 'large'>('tight')
   const [lenght, setLenght] = React.useState<'small' | 'spot on' | 'large'>(
     'small'
-  );
-  const [reviewTitle, setReviewTitle] = React.useState<string>('');
-  const [reviewDiscription, setReviewDiscription] = React.useState<string>('');
-  const [nickname, setNickname] = React.useState<string>('');
-  const [rate, setRate] = React.useState<number>(4);
+  )
+  const [reviewTitle, setReviewTitle] = React.useState<string>('')
+  const [reviewDiscription, setReviewDiscription] = React.useState<string>('')
+  const [nickname, setNickname] = React.useState<string>('')
+  const [rate, setRate] = React.useState<number>(4)
   const [productRecommended, setProductRecommended] =
-    React.useState<boolean>(true);
-  const [loading, setLoading] = React.useState<boolean>(false);
+    React.useState<boolean>(true)
+  const [loading, setLoading] = React.useState<boolean>(false)
 
-  const logged = useSelector((state: RootState) => state.data.logged);
-  const user = useUser({ signedout: logged });
+  const logged = useSelector((state: RootState) => state.data.logged)
+  const user = useUser({ signedout: logged })
 
-  const dialogClose = useRef<HTMLButtonElement>(null);
-  const { state } = useLocation();
-  const product: Product = state;
+  const dialogClose = useRef<HTMLButtonElement>(null)
+  const { state } = useLocation()
+  const product: Product = state
 
   return (
     <Dialog>
@@ -266,7 +266,7 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
           <Button
             variant={'default'}
             onClick={() => {
-              setLoading(true);
+              setLoading(true)
               handleSubmit({
                 fit,
                 nickname,
@@ -282,7 +282,7 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
                 setLoading,
                 dialogClose,
                 setAllReviews
-              });
+              })
             }}
             disabled={loading}
           >
@@ -295,7 +295,7 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  );
-};
+  )
+}
 
-export default WriteReviewWrapper;
+export default WriteReviewWrapper

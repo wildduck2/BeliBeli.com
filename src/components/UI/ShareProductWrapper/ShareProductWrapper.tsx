@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   Button,
   Dialog,
@@ -7,27 +7,27 @@ import {
   DialogTitle,
   DialogTrigger,
   Input
-} from '..';
-import { Check, Clipboard, Copy } from 'lucide-react';
-import { TbShare3 } from 'react-icons/tb';
-import { FaFacebookMessenger, FaWhatsapp } from 'react-icons/fa6';
-import { RiTwitterXFill } from 'react-icons/ri';
-import { FaFacebookF, FaTelegramPlane } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
+} from '..'
+import { Check, Clipboard, Copy } from 'lucide-react'
+import { TbShare3 } from 'react-icons/tb'
+import { FaFacebookMessenger, FaWhatsapp } from 'react-icons/fa6'
+import { RiTwitterXFill } from 'react-icons/ri'
+import { FaFacebookF, FaTelegramPlane } from 'react-icons/fa'
+import { MdEmail } from 'react-icons/md'
 
 const ShareProduct = (
   setClipboardClicked: React.Dispatch<React.SetStateAction<boolean>>,
   link: string
 ) => {
-  setClipboardClicked(true);
-  navigator.clipboard.writeText(link);
+  setClipboardClicked(true)
+  navigator.clipboard.writeText(link)
   setTimeout(() => {
-    setClipboardClicked(false);
-  }, 1000);
-};
+    setClipboardClicked(false)
+  }, 1000)
+}
 
 const ShareProductWrapper = () => {
-  const [ClipboardClicked, setClipboardClicked] = React.useState(false);
+  const [ClipboardClicked, setClipboardClicked] = React.useState(false)
 
   return (
     <Dialog>
@@ -81,7 +81,7 @@ const ShareProductWrapper = () => {
         </div>
       </DialogContent>
     </Dialog>
-  );
-};
+  )
+}
 
-export default ShareProductWrapper;
+export default ShareProductWrapper

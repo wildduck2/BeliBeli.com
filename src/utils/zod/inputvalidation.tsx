@@ -1,4 +1,4 @@
-import { validInput } from './zod.types';
+import { validInput } from './zod.types'
 import {
   emailSchema,
   passwordInRange,
@@ -6,8 +6,8 @@ import {
   passwordhasnumber,
   passwordhasspecialcharacter,
   passwordhasuppercase
-} from '../../constants';
-import { checkInputsValid } from '@/context/Utils';
+} from '../../constants'
+import { checkInputsValid } from '@/context/Utils'
 
 export const validateInput = ({
   setvalid,
@@ -25,82 +25,82 @@ export const validateInput = ({
   setPasswordHasSpecialCharacter,
   setPasswordInRange
 }: validInput) => {
-  const parsedValidEmail = emailSchema.safeParse(inputValue);
-  const passwordInRangee = passwordInRange.safeParse(inputValue);
-  const passwordhasuppercasee = passwordhasuppercase.safeParse(inputValue);
-  const passwordhaslowercasee = passwordhaslowercase.safeParse(inputValue);
-  const passwordhasnumbere = passwordhasnumber.safeParse(inputValue);
+  const parsedValidEmail = emailSchema.safeParse(inputValue)
+  const passwordInRangee = passwordInRange.safeParse(inputValue)
+  const passwordhasuppercasee = passwordhasuppercase.safeParse(inputValue)
+  const passwordhaslowercasee = passwordhaslowercase.safeParse(inputValue)
+  const passwordhasnumbere = passwordhasnumber.safeParse(inputValue)
   const passwordhasspecialcharactere =
-    passwordhasspecialcharacter.safeParse(inputValue);
+    passwordhasspecialcharacter.safeParse(inputValue)
 
   const parsedValidPassword =
     passwordInRangee.success &&
     passwordhasuppercasee.success &&
     passwordhaslowercasee.success &&
     passwordhasnumbere.success &&
-    passwordhasspecialcharactere.success;
+    passwordhasspecialcharactere.success
 
   if (type === 'email') {
     if (parsedValidEmail.success) {
-      setvalid(false);
+      setvalid(false)
 
       dispatch(
         checkInputsValid({
           ...utils.inputsValid,
           email: parsedValidEmail ? true : false
         })
-      );
+      )
     } else {
-      setvalid(true);
+      setvalid(true)
 
       dispatch(
         checkInputsValid({
           ...utils.inputsValid,
           email: false
         })
-      );
+      )
     }
   }
 
   if (type === 'password') {
     if (passwordconf) {
       if (passwordconf === inputValue && passwordconf === '') {
-        setvalidcomf!(false);
+        setvalidcomf!(false)
       } else if (passwordconf === inputValue && passwordconf !== '') {
-        setvalidcomf!(false);
+        setvalidcomf!(false)
       } else if (passwordconf !== inputValue && passwordconf !== '') {
-        setvalidcomf!(true);
+        setvalidcomf!(true)
       }
     }
 
     if (passwordInRangee.success.valueOf()) {
-      setPasswordInRange!(true);
+      setPasswordInRange!(true)
     } else {
-      setPasswordInRange!(false);
+      setPasswordInRange!(false)
     }
     if (passwordhaslowercasee.success.valueOf()) {
-      setPasswordHasLowercase!(true);
+      setPasswordHasLowercase!(true)
     } else {
-      setPasswordHasLowercase!(false);
+      setPasswordHasLowercase!(false)
     }
     if (passwordhasuppercasee.success.valueOf()) {
-      setPasswordHasUppercase!(true);
+      setPasswordHasUppercase!(true)
     } else {
-      setPasswordHasUppercase!(false);
+      setPasswordHasUppercase!(false)
     }
     if (passwordhasnumbere.success.valueOf()) {
-      setPasswordHasNumber!(true);
+      setPasswordHasNumber!(true)
     } else {
-      setPasswordHasNumber!(false);
+      setPasswordHasNumber!(false)
     }
     if (passwordhasspecialcharactere.success.valueOf()) {
-      setPasswordHasSpecialCharacter!(true);
+      setPasswordHasSpecialCharacter!(true)
     } else {
-      setPasswordHasSpecialCharacter!(false);
+      setPasswordHasSpecialCharacter!(false)
     }
     if (parsedValidPassword) {
-      setvalid(false);
-      setPasswordShowMenu!(false);
+      setvalid(false)
+      setPasswordShowMenu!(false)
 
       dispatch(
         checkInputsValid({
@@ -108,24 +108,24 @@ export const validateInput = ({
           password: parsedValidPassword ? true : false,
           passwordcomfirmation: utils.inputsValid.passwordcomfirmation
         })
-      );
+      )
     } else {
-      setvalid(true);
+      setvalid(true)
 
-      setPasswordShowMenu!(true);
+      setPasswordShowMenu!(true)
       dispatch(
         checkInputsValid({
           email: utils.inputsValid.email,
           password: false,
           passwordcomfirmation: utils.inputsValid.passwordcomfirmation
         })
-      );
+      )
     }
   }
 
   if (type === 'passwordcomfirmation') {
     if (password === inputValue) {
-      setvalid(false);
+      setvalid(false)
 
       dispatch(
         checkInputsValid({
@@ -133,9 +133,9 @@ export const validateInput = ({
           password: utils.inputsValid.password,
           passwordcomfirmation: true
         })
-      );
+      )
     } else if (password !== inputValue) {
-      setvalid(true);
+      setvalid(true)
 
       dispatch(
         checkInputsValid({
@@ -143,7 +143,7 @@ export const validateInput = ({
           password: utils.inputsValid.password,
           passwordcomfirmation: false
         })
-      );
+      )
     }
   }
-};
+}

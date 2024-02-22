@@ -1,75 +1,75 @@
-import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
-import { Button, Input } from '../../../UI';
-import { useNavigate } from 'react-router-dom';
-import { onChangeInput, onPasswordShow } from '@/utils';
-import { RootState } from '@/context/store';
-import { useDispatch, useSelector } from 'react-redux';
-import { BsPatchExclamation } from 'react-icons/bs';
-import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
-import { passwordrules } from '@/constants';
-import { GiPlainCircle } from 'react-icons/gi';
-import { useSignupWithEmail } from '@/hooks';
-import { Icons } from '../Icons';
-import SignWithSocial from '../SignWithSocial';
+import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
+import { Button, Input } from '../../../UI'
+import { useNavigate } from 'react-router-dom'
+import { onChangeInput, onPasswordShow } from '@/utils'
+import { RootState } from '@/context/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { BsPatchExclamation } from 'react-icons/bs'
+import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri'
+import { passwordrules } from '@/constants'
+import { GiPlainCircle } from 'react-icons/gi'
+import { useSignupWithEmail } from '@/hooks'
+import { Icons } from '../Icons'
+import SignWithSocial from '../SignWithSocial'
 
 export interface SigninWithEmailTypes {
-  mainTittle: string;
-  signUp: boolean;
+  mainTittle: string
+  signUp: boolean
 }
 
 export interface checkboxHandlerTypes {
-  checkBoxRef: React.MutableRefObject<HTMLInputElement>;
-  setNotchecked: (value: boolean) => void;
+  checkBoxRef: React.MutableRefObject<HTMLInputElement>
+  setNotchecked: (value: boolean) => void
 }
 
 const Signup = () => {
-  const router = useNavigate();
+  const router = useNavigate()
 
-  const [fullNameValue, setFullNameValue] = useState<string>('');
+  const [fullNameValue, setFullNameValue] = useState<string>('')
 
-  const [passowrdConfirmValue, setPassowrdConfirmValue] = useState<string>('');
+  const [passowrdConfirmValue, setPassowrdConfirmValue] = useState<string>('')
   const [passwordConfirmShown, setPasswordConfirmShown] =
-    useState<boolean>(false);
-  const [notChecked, setNotchecked] = useState<boolean>(false);
+    useState<boolean>(false)
+  const [notChecked, setNotchecked] = useState<boolean>(false)
 
-  const checkBoxRef = useRef() as MutableRefObject<HTMLInputElement>;
+  const checkBoxRef = useRef() as MutableRefObject<HTMLInputElement>
 
-  const utils = useSelector((state: RootState) => state.util);
-  const dispatch = useDispatch();
+  const utils = useSelector((state: RootState) => state.util)
+  const dispatch = useDispatch()
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [notValid, setNotValid] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [notValid, setNotValid] = useState<boolean>(false)
 
-  console.log('notValid', notValid);
-  const [emailValid, setEmailValid] = useState<boolean>(false);
-  const [email, setEmail] = useState<string>('');
-  const [passwordValid, setPasswordValid] = useState<boolean>(false);
-  const [password, setPassword] = useState<string>('');
-  const [passwordShow, setPasswordShow] = useState<boolean>(false);
-  const [passwordShowMenu, setPasswordShowMenu] = useState<boolean>(false);
+  console.log('notValid', notValid)
+  const [emailValid, setEmailValid] = useState<boolean>(false)
+  const [email, setEmail] = useState<string>('')
+  const [passwordValid, setPasswordValid] = useState<boolean>(false)
+  const [password, setPassword] = useState<string>('')
+  const [passwordShow, setPasswordShow] = useState<boolean>(false)
+  const [passwordShowMenu, setPasswordShowMenu] = useState<boolean>(false)
   const [passwordHasLowercase, setPasswordHasLowercase] =
-    useState<boolean>(false);
+    useState<boolean>(false)
   const [passwordHasUppercase, setPasswordHasUppercase] =
-    useState<boolean>(false);
-  const [passwordHasNumber, setPasswordHasNumber] = useState<boolean>(false);
+    useState<boolean>(false)
+  const [passwordHasNumber, setPasswordHasNumber] = useState<boolean>(false)
   const [passwordHasSpecialCharacter, setPasswordHasSpecialCharacter] =
-    useState<boolean>(false);
-  const [passwordInRange, setPasswordInRange] = useState<boolean>(false);
+    useState<boolean>(false)
+  const [passwordInRange, setPasswordInRange] = useState<boolean>(false)
   const [passwordcomfirmationValid, setPasswordcomfirmationValid] =
-    useState<boolean>(false);
-  const [passwordcomfirmation, setPasswordcomfirmation] = useState<string>('');
+    useState<boolean>(false)
+  const [passwordcomfirmation, setPasswordcomfirmation] = useState<string>('')
   const [passwordcomfirmationShow, setPasswordcomfirmationShow] =
-    useState<boolean>(false);
+    useState<boolean>(false)
 
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
-  const passwordcomfirmationRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null)
+  const passwordRef = useRef<HTMLInputElement>(null)
+  const passwordcomfirmationRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     setNotValid(
       utils.inputsValid.email && utils.inputsValid.password ? true : false
-    );
-  }, [dispatch, emailValid, passwordValid, passwordShowMenu]);
+    )
+  }, [dispatch, emailValid, passwordValid, passwordShowMenu])
 
   const signupProvider = useSignupWithEmail({
     notChecked,
@@ -81,15 +81,15 @@ const Signup = () => {
     route: router,
     setEmailValid,
     setPasswordValid
-  });
+  })
 
   // checkbox handler
   const checkboxHandler = ({
     setNotchecked,
     checkBoxRef
   }: checkboxHandlerTypes) => {
-    checkBoxRef.current.checked ? setNotchecked(false) : setNotchecked(true);
-  };
+    checkBoxRef.current.checked ? setNotchecked(false) : setNotchecked(true)
+  }
 
   return (
     <section className="log">
@@ -132,7 +132,7 @@ const Signup = () => {
                     type: 'email',
                     utils,
                     dispatch
-                  });
+                  })
                 }}
                 ref={emailRef}
               />
@@ -169,12 +169,12 @@ const Signup = () => {
                     type: 'password',
                     utils,
                     dispatch
-                  });
+                  })
                 }}
                 disabled={isLoading}
                 ref={passwordRef}
                 onFocus={() => {
-                  setPasswordShowMenu(true);
+                  setPasswordShowMenu(true)
                 }}
               />
               <label htmlFor="password">Password</label>
@@ -240,7 +240,7 @@ const Signup = () => {
                     type: 'passwordcomfirmation',
                     utils,
                     dispatch
-                  });
+                  })
                 }}
                 disabled={isLoading}
                 ref={passwordcomfirmationRef}
@@ -324,7 +324,7 @@ const Signup = () => {
         />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup

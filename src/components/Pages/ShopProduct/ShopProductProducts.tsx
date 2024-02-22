@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/context/store';
-import { Button, Progress, Skeleton, SwiperCard } from '@/components/UI';
-import { ShowProductProductsProps } from './ShopProduct.types';
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/context/store'
+import { Button, Progress, Skeleton, SwiperCard } from '@/components/UI'
+import { ShowProductProductsProps } from './ShopProduct.types'
 
 const ShopProductProducts: React.FC<ShowProductProductsProps> = ({
   status
 }) => {
-  const satatus = useSelector((state: RootState) => state.data.satatus);
-  const products = useSelector((state: RootState) => state.data.products);
-  const [shownCard, setShownCard] = useState<number>(10);
+  const satatus = useSelector((state: RootState) => state.data.satatus)
+  const products = useSelector((state: RootState) => state.data.products)
+  const [shownCard, setShownCard] = useState<number>(10)
 
   const handleShowMore = () => {
     if (products) {
       setShownCard((prev) =>
         prev + 10 < products?.length ? prev + 10 : products?.length
-      );
+      )
     }
-  };
+  }
 
   return (
     <>
@@ -28,7 +28,7 @@ const ShopProductProducts: React.FC<ShowProductProductsProps> = ({
               index < shownCard && (
                 <SwiperCard item={item} key={index} width={269} height={400} />
               )
-            );
+            )
           })
         ) : (
           <>
@@ -41,7 +41,7 @@ const ShopProductProducts: React.FC<ShowProductProductsProps> = ({
                   <Skeleton />
                   <Skeleton />
                 </div>
-              );
+              )
             })}
           </>
         )}
@@ -66,7 +66,7 @@ const ShopProductProducts: React.FC<ShowProductProductsProps> = ({
         </p>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default ShopProductProducts;
+export default ShopProductProducts

@@ -1,20 +1,20 @@
-import React, { MutableRefObject } from 'react';
+import React, { MutableRefObject } from 'react'
 
-import { twMerge } from 'tailwind-merge';
-import { PaginationIndexTypes } from '../../../utils/PaginationIndex/PaginationIndex';
-import { Button } from '..';
+import { twMerge } from 'tailwind-merge'
+import { PaginationIndexTypes } from '../../../utils/PaginationIndex/PaginationIndex'
+import { Button } from '..'
 
 interface NavigationTypes {
-  DOT_REF?: MutableRefObject<HTMLDivElement> | undefined;
-  SWIPER_REF: MutableRefObject<HTMLUListElement>;
-  flex_mode?: boolean;
-  btnClassName?: string;
-  className?: string;
+  DOT_REF?: MutableRefObject<HTMLDivElement> | undefined
+  SWIPER_REF: MutableRefObject<HTMLUListElement>
+  flex_mode?: boolean
+  btnClassName?: string
+  className?: string
   navigationFunction: ({
     currentTarget,
     DOT_REF,
     SWIPER_REF
-  }: PaginationIndexTypes) => void;
+  }: PaginationIndexTypes) => void
 }
 
 const Navigation: React.FC<NavigationTypes> = ({
@@ -68,9 +68,9 @@ const Navigation: React.FC<NavigationTypes> = ({
         )}
       </Button>
     </div>
-  );
-};
+  )
+}
 
-Navigation.displayName = 'Navigation';
+Navigation.displayName = 'Navigation'
 
-export default Navigation;
+export default Navigation

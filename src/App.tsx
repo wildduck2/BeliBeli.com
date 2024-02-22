@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Routes, Route, Outlet } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { Routes, Route, Outlet } from 'react-router-dom'
 
 import {
   AccountDetails,
@@ -17,7 +17,7 @@ import {
   Profile,
   Reviews,
   ShopProduct
-} from './components/Pages';
+} from './components/Pages'
 import {
   Footer,
   Header,
@@ -25,19 +25,19 @@ import {
   HeaderMenu,
   Signin,
   Signup
-} from './components/Layouts';
-import { HeaderNavigationLinks } from './components/UI';
-import { store } from './context/store';
-import { thunkFetchingBannerFromSupabase } from './context/Data';
-import WishList from './components/Pages/WishList/WishList';
-import Cart from './components/Pages/Cart/Cart';
-import { useGetCartProducts } from './hooks';
+} from './components/Layouts'
+import { HeaderNavigationLinks } from './components/UI'
+import { store } from './context/store'
+import { thunkFetchingFromSupabase } from './context/Data'
+import WishList from './components/Pages/WishList/WishList'
+import Cart from './components/Pages/Cart/Cart'
+import { useGetCartProducts } from './hooks'
 
-function App() {
-  useGetCartProducts();
+function App(): React.JSX.Element {
+  useGetCartProducts()
   useEffect(() => {
-    store.dispatch(thunkFetchingBannerFromSupabase());
-  }, []);
+    void store.dispatch(thunkFetchingFromSupabase())
+  }, [])
 
   return (
     <>
@@ -60,8 +60,7 @@ function App() {
               <AccountSideLinks />
               <Outlet />
             </main>
-          }
-        >
+          }>
           <Route path="my-account" element={<Profile />} />
           <Route path="eGift-card" element={<EgifttsCards />} />
           <Route path="orders" element={<Orders />} />
@@ -75,14 +74,14 @@ function App() {
           />
           <Route path="chage-passowrd" element={<ChangePassowrd />} />
         </Route>
-        <Route path="/home/ishlist" element={<WishList />} />
+        <Route path="/home/wishlist" element={<WishList />} />
         <Route path="/home/cart" element={<Cart />} />
 
         <Route path="/*" element={<Error />} />
       </Routes>
       <Footer />
     </>
-  );
+  )
 }
 
-export default App;
+export default App
