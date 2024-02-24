@@ -1,9 +1,8 @@
-import { User } from '@/context/Data/Data.types'
-import { removeProductCart } from '@/context/utils/Utils'
 import { supabase } from '@/supabase/supabase'
 import { PostgrestSingleResponse } from '@supabase/supabase-js'
 import { toast } from 'sonner'
 import { RemoveProductCartProps } from './RemoveProductCart.types'
+import { User, removeProductCart } from '@/context'
 
 const RemoveProductCart = async ({
   product,

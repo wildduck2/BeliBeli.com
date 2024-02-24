@@ -16,10 +16,8 @@ import { GoPackageDependents } from 'react-icons/go'
 import { fastshiping } from '@/assets'
 import useGetReviews from '@/hooks/useGetReviews/useGetReviews'
 import { useDispatch, useSelector } from 'react-redux'
-import { addProductToCart, addProductToFavorite } from '@/context/utils/Utils'
-import { RootState } from '@/context/store'
-import { useUser } from '@/hooks'
-import { PushProductCart, PushProductFavorite } from '@/utils'
+import { PushProductCart, PushProductFavorite, formatter } from '@/utils'
+import { RootState } from '@/context'
 
 const height = 883.567
 
@@ -31,23 +29,18 @@ const ProductShow = () => {
   const { state } = useLocation()
   const product: Product = state
 
-  const [reviews, error] = useGetReviews({
+  const [reviews] = useGetReviews({
     reviews_id: product.review_id
   })
 
-  const logged = useSelector((state: RootState) => state.data.logged)
-  const favouriteProducts = useSelector(
-    (state: RootState) => state.util.favouriteProducts
-  )
-  const cartProducts = useSelector(
-    (state: RootState) => state.util.cartProducts
-  )
+  const userSession = useSelector((state: RootState) => state.user.userSession)
+  const userData = useSelector((state: RootState) => state.user.userData)
+
   const dispatch = useDispatch()
 
-  const user = useUser({ signedout: logged })
   const cartProduct = {
     id: product.id,
-    user_id: user[0]?.id!,
+    user_id: userSession?.id!,
     name: product.title,
     price: parseInt(
       product.product_type[currentTypeIndex].sizes[currentSizeIndex].price
@@ -65,7 +58,7 @@ const ProductShow = () => {
 
   const favoriteProduct = {
     id: product.id,
-    user_id: user[0]?.id!,
+    user_id: userSession?.id!,
     title: product.title,
     product_type: product.product_type[currentTypeIndex]
   }
@@ -148,11 +141,13 @@ const ProductShow = () => {
                 <div>
                   <h2>
                     EGP{' '}
-                    {
-                      product.product_type[currentTypeIndex].sizes[
-                        currentSizeIndex
-                      ].price
-                    }
+                    {formatter.format(
+                      parseInt(
+                        product.product_type[currentTypeIndex].sizes[
+                          currentSizeIndex
+                        ].price
+                      )
+                    )}
                   </h2>
                   {product.product_type[currentTypeIndex].sizes[
                     currentSizeIndex
@@ -160,11 +155,13 @@ const ProductShow = () => {
                     <>
                       <h2>
                         EGP{' '}
-                        {
-                          product.product_type[currentTypeIndex].sizes[
-                            currentSizeIndex
-                          ].discount
-                        }
+                        {formatter.format(
+                          parseInt(
+                            product.product_type[currentTypeIndex].sizes[
+                              currentSizeIndex
+                            ].discount!
+                          )
+                        )}
                       </h2>
                       <span>
                         (save{' '}
@@ -173,13 +170,13 @@ const ProductShow = () => {
                             product.product_type[currentTypeIndex].sizes[
                               currentSizeIndex
                             ].discount!
-                          ) ||
-                            199 /
-                              parseInt(
-                                product.product_type[currentTypeIndex].sizes[
-                                  currentSizeIndex
-                                ].price
-                              )) * 100
+                          ) /
+                            parseInt(
+                              product.product_type[currentTypeIndex].sizes[
+                                currentSizeIndex
+                              ].price
+                            )) *
+                          100
                         ).toFixed()}%`}
                         )
                       </span>
@@ -285,7 +282,7 @@ const ProductShow = () => {
                     onClick={() => {
                       PushProductCart({
                         product: cartProduct,
-                        products: cartProducts,
+                        products: userData?.user_cart!,
                         dispatch: dispatch
                       })
                     }}>
@@ -297,7 +294,7 @@ const ProductShow = () => {
                     onClick={() => {
                       PushProductFavorite({
                         favourite_product: favoriteProduct,
-                        favourite_products: favouriteProducts,
+                        favourite_products: userData?.favourite_products!,
                         dispatch: dispatch
                       })
                     }}>

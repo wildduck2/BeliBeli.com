@@ -1,3 +1,5 @@
+import { CartProduct } from '@/components/Pages'
+
 export interface UpdateCartProductsProps {
   allProducts: CartProduct[]
   product: CartProduct

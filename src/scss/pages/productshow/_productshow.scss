@@ -4,8 +4,8 @@
 
 */
 
-@use "../../utils" as u;
-@use "../../base" as *;
+@use '../../utils' as u;
+@use '../../base' as *;
 
 /*
 
@@ -86,7 +86,8 @@
             @include u.flex(flex, center, flex-start);
             gap: 0.5rem;
 
-            & > h2 {
+            & > h2,
+            span {
               font-size: calc(var(--f-lg) - 0.08rem);
             }
 

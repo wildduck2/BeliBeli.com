@@ -21,7 +21,9 @@ const AccountSideLinks = () => {
           className={({ isActive }) => (isActive ? 'active' : '')}
           to={item.split(' ').join('-').toLowerCase()}
           key={index}
-        >
+          onClick={() => {
+            window.scrollTo(0, 0)
+          }}>
           {item}
         </NavLink>
       ))}

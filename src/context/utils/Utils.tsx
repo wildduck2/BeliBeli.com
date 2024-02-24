@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { updateCartProductsFunc } from '@/utils'
-
-import { InitStateTypes } from './Utils.types'
+import { InitStateTypes } from '.'
 
 const initialState: InitStateTypes = {
   mobileMenuActive: false,
@@ -11,8 +10,7 @@ const initialState: InitStateTypes = {
     passwordcomfirmation: false
   },
   emailisnotvalid: false,
-  cartProducts: [],
-  favouriteProducts: []
+  userReveiws: []
 }
 
 export const utilSlice = createSlice({
@@ -32,57 +30,10 @@ export const utilSlice = createSlice({
         state.emailisnotvalid = action.payload
       }
     },
-    getCartProducts: (state, action) => {
-      if (action.payload) {
-        state.cartProducts = action.payload
-      }
-    },
-    updateCartProducts: (state, action) => {
-      if (action.payload) {
-        state.cartProducts!.find(
-          (item) => item.art_no === action.payload.product.art_no
-        )!.quantity = action.payload.quantity
 
-        updateCartProductsFunc({
-          allProducts: state.cartProducts,
-          product: action.payload.product,
-          user_id: action.payload.user_id,
-          quantity: action.payload.quantity
-        })
-      }
-    },
-    addProductToCart: (state, action) => {
+    getUserReviews: (state, action) => {
       if (action.payload) {
-        state.cartProducts = [...state.cartProducts, action.payload.product]
-      }
-    },
-    removeProductCart: (state, action) => {
-      if (action.payload) {
-        state.cartProducts = state.cartProducts.filter(
-          (item) => item.art_no !== action.payload.product.art_no
-        )
-      }
-    },
-    getFavoriteProducts: (state, action) => {
-      if (action.payload) {
-        state.favouriteProducts = action.payload
-      }
-    },
-    addProductToFavorite: (state, action) => {
-      if (action.payload) {
-        state.favouriteProducts = [
-          ...state.favouriteProducts,
-          action.payload.product
-        ]
-      }
-    },
-    removeProductFavorite: (state, action) => {
-      if (action.payload) {
-        state.favouriteProducts = state.favouriteProducts.filter(
-          (item) =>
-            item.product_type.art_no !==
-            action.payload.product.product_type.art_no
-        )
+        state.userReveiws = action.payload
       }
     }
   }
@@ -94,11 +45,5 @@ export const {
   showMobileMenu,
   checkInputsValid,
   emailisnotvalid,
-  getCartProducts,
-  getFavoriteProducts,
-  updateCartProducts,
-  addProductToCart,
-  addProductToFavorite,
-  removeProductCart,
-  removeProductFavorite
+  getUserReviews
 } = utilSlice.actions

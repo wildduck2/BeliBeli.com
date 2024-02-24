@@ -3,22 +3,19 @@ import { supabase } from '../../supabase/supabase'
 import { PostgrestSingleResponse } from '@supabase/supabase-js'
 import {
   BannersType,
+  DataSliceTypes,
   Product,
-  User,
-  initialStateTypes,
   otherImgsTypes
 } from './Data.types'
 import { toast } from 'sonner'
 
-const initialState: initialStateTypes = {
+const initialState: DataSliceTypes = {
   satatus: 'loading',
   error: null,
-
   bannersData: null,
   categoriesData: null,
   products: null,
-  userData: null,
-  logged: JSON.parse(localStorage.getItem('userData') || 'false')
+  userData: null
 }
 
 export const thunkFetchingFromSupabase = createAsyncThunk(
@@ -64,23 +61,7 @@ export const thunkFetchingFromSupabase = createAsyncThunk(
 export const dataSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {
-    getUserDispatch: (state, action) => {
-      state.logged = true
-      state.userData = action.payload
-      localStorage.setItem('userData', JSON.stringify(state.logged))
-    },
-    signin: (state) => {
-      state.logged = true
-      localStorage.setItem('userData', JSON.stringify(state.logged))
-    },
-    signout: (state) => {
-      state.logged = false
-      state.userData = null
-      localStorage.setItem('userData', JSON.stringify(state.logged))
-      toast.info('Logout Successful')
-    }
-  },
+  reducers: {},
   extraReducers(builder) {
     builder
       .addCase(thunkFetchingFromSupabase.pending, (state) => {
@@ -106,5 +87,5 @@ export const dataSlice = createSlice({
   }
 })
 
-export const { getUserDispatch, signin, signout } = dataSlice.actions
+export const {} = dataSlice.actions
 export default dataSlice.reducer

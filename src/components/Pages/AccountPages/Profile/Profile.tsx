@@ -1,10 +1,10 @@
 import React from 'react'
-import { Button, Link } from '@/components/UI'
+import { Button, Link, OrderCard } from '@/components/UI'
 import { BadgeInfo } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import { useUser } from '@/hooks'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/context/store'
+import { CartProduct } from '../..'
 
 const needHelpNavigation = [
   'Contact customer service',
@@ -14,12 +14,10 @@ const needHelpNavigation = [
 
 const Profile = () => {
   const route = useNavigate()
-  const logged = useSelector((state: RootState) => state.data.logged)
-  const userData = useUser({ signedout: logged })
+  const userSession = useSelector((state: RootState) => state.user.userSession)
+  const userData = useSelector((state: RootState) => state.user.userData)
 
-  const data = true
   const needHelp = true
-  const email = 'wezonaser50@gmail.com'
 
   return (
     <div className="account__profile">
@@ -29,20 +27,30 @@ const Profile = () => {
         <h2>Recent work</h2>
         <Button
           variant={'default'}
-          onClick={() => route('/account/my-account')}
-        >
+          onClick={() => {
+            window.scrollTo(0, 0)
+            route('/account/contact-details')
+          }}>
           Edit Account details
         </Button>
       </div>
       <div className="account__profile__orders">
-        <div>
-          {data ? (
+        <ul>
+          {userData?.user_cart.length! < 1 ? (
             <span>You have no recent orders to display.</span>
           ) : (
-            <>orders</>
+            userData?.user_cart.map((item: CartProduct) => (
+              <OrderCard key={item.id} item={item} />
+            ))
           )}
-        </div>
-        <Button onClick={() => route('/')}>Go shopping</Button>
+        </ul>
+        <Button
+          onClick={() => {
+            window.scrollTo(0, 0)
+            route('/')
+          }}>
+          Go shopping
+        </Button>
       </div>
 
       {needHelp && (
@@ -64,7 +72,7 @@ const Profile = () => {
         <h2>Account details</h2>
         <div>
           <h3>email address</h3>
-          <span>{userData[0]?.email}</span>
+          <span>{userSession?.email}</span>
         </div>
       </div>
     </div>

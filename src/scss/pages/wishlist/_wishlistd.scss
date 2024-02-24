@@ -51,6 +51,7 @@
       &__buttons {
         @include u.flex(grid, center);
         gap: 0.5rem;
+        margin-top: 1rem;
 
         button {
           @include u.flex(flex, center, center);
@@ -63,7 +64,7 @@
       .swiper__card {
         max-width: 405px;
         width: 405px !important;
-        height: 707px;
+        height: fit-content;
 
         .img__wrapper {
           max-width: 405px;

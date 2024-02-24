@@ -53,10 +53,10 @@ const ProductReviews: React.FC<ProductReviewsProps> = ({
             )}
           </div>
           <WriteReviewWrapper
+            productId={product.id}
             img={product.product_type[currentTypeIndex].top_imgs[1]}
             lowImg={product.product_type[currentTypeIndex].low_imgs[1]}
             title={product.title}
-            productId={product.id}
             setAllReviews={setAllReviews}
           />
         </div>

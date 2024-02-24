@@ -4,8 +4,8 @@
 
 */
 
-@use "../../../utils" as u;
-@use "../../../base" as *;
+@use '../../../utils' as u;
+@use '../../../base' as *;
 
 /*
 
@@ -15,12 +15,18 @@
 
 .account__orders {
   @include u.flex(grid, center);
+  @include u.orderCard;
   gap: 2rem;
 
   & > div {
     @include u.flex(flex, center, space-between);
     border-bottom: 1px solid var(--c-gray-200);
     padding-bottom: 1rem;
+
+    h1 {
+      border: 0;
+      margin: 0;
+    }
 
     & > div {
       @include u.flex(flex, center, space-between);
@@ -42,14 +48,9 @@
       }
     }
   }
-  h2 {
+  & > h2 {
     font-size: calc(var(--f-md) + 0.2rem);
     border-bottom: 1px solid var(--c-black-300);
     padding-bottom: 0.8rem;
-  }
-
-  span {
-    font-size: calc(var(--f-sm) + 0.1rem);
-    text-align: center;
   }
 }

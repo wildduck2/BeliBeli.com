@@ -1,9 +1,8 @@
-import { User } from '@/context/Data/Data.types'
 import { supabase } from '@/supabase/supabase'
 import { PostgrestSingleResponse } from '@supabase/supabase-js'
 import { toast } from 'sonner'
 import { RemoveProductFavoriteProps } from './RemoveProductFavorite.types'
-import { removeProductFavorite } from '@/context/utils/Utils'
+import { User, removeProductFavorite } from '@/context'
 
 const RemoveProductFavorite = async ({
   product,

@@ -11,11 +11,9 @@ import {
 } from '@/components/UI'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/context/store'
-import { useUser } from '@/hooks'
 
 const AddressBook = () => {
-  const logged = useSelector((state: RootState) => state.data.logged)
-  const userData = useUser({ signedout: logged })
+  const userSession = useSelector((state: RootState) => state.user.userSession)
 
   return (
     <div className="account__address">
@@ -27,7 +25,7 @@ const AddressBook = () => {
           <Input
             id="name"
             className="input"
-            value={userData[0]?.user_metadata.full_name}
+            value={userSession?.user_metadata.full_name || ''}
           />
         </div>
 
@@ -36,7 +34,7 @@ const AddressBook = () => {
           <Input
             id="number"
             className="input"
-            value={`+20${userData[0]?.phone}`}
+            value={`+20${userSession?.phone || ''}`}
           />
         </div>
 

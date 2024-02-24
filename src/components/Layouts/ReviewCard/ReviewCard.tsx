@@ -6,7 +6,6 @@ import { Button, Label } from '@/components/UI'
 import { useLocation } from 'react-router-dom'
 import { Product, ReviewWasHelpfull } from '@/context/Data/Data.types'
 import { appendThisReviewWasHelpfullData } from '@/utils'
-import { useUser } from '@/hooks'
 import { RootState } from '@/context/store'
 import { useSelector } from 'react-redux'
 import { UUID } from 'crypto'
@@ -29,6 +28,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ index, review }) => {
   const reviewFalse = review.this_review_was_helpufll?.filter(
     (item: ReviewWasHelpfull) => item.value === false
   )
+  const userSession = useSelector((state: RootState) => state.user.userSession)
 
   const [reviewtrue, setReviewTrue] =
     React.useState<Array<ReviewWasHelpfull>>(reviewTrue)
@@ -38,18 +38,14 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ index, review }) => {
     null
   )
 
-  const logged = useSelector((state: RootState) => state.data.logged)
-  const user = useUser({ signedout: logged })
-
   const REVIEW_USER_IDS = review.this_review_was_helpufll?.map(
     (item: ReviewWasHelpfull) => item.user_id
   )
 
   const THIS_USER_ALLOWED_TO_HELP_THIS_REVIEW =
     review.this_review_was_helpufll?.filter(
-      (item) => item.user_id === user[0]?.id
+      (item) => item.user_id === userSession?.id
     )
-
   const { state } = useLocation()
   const product: Product = state
 
@@ -107,7 +103,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ index, review }) => {
                     : ''
               }`}
               disabled={
-                REVIEW_USER_IDS?.includes(user[0]?.id as UUID) ||
+                REVIEW_USER_IDS?.includes(userSession!.id) ||
                 reviewHelpfull !== null
               }>
               <span>Yes</span>
@@ -134,7 +130,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ index, review }) => {
                     : ''
               }`}
               disabled={
-                REVIEW_USER_IDS?.includes(user[0]?.id as UUID) ||
+                REVIEW_USER_IDS?.includes(userSession!.id as UUID) ||
                 reviewHelpfull !== null
               }>
               <span>No</span>

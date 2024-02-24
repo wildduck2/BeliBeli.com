@@ -3,7 +3,7 @@
     This code is writen by Ahmed Ayob
 
 */
-@use "./functions" as f;
+@use './functions' as f;
 
 /*
 
@@ -11,14 +11,10 @@
 
 */
 
-@mixin flex($display,
-    $alignItems: initial,
-    $justifyContent: initial,
-
-) {
-    display: $display;
-    align-items: $alignItems;
-    justify-content: $justifyContent;
+@mixin flex($display, $alignItems: initial, $justifyContent: initial) {
+  display: $display;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
 }
 
 /*
@@ -28,15 +24,65 @@
 */
 
 @mixin container {
-    max-width: 1890px;
-    padding-inline: 1.3rem;
-    margin: 0 auto;
+  max-width: 1890px;
+  padding-inline: 1.3rem;
+  margin: 0 auto;
 }
 
-
 @mixin section {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1100px;
-    padding-block: 2rem;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1100px;
+  padding-block: 2rem;
+}
+
+@mixin orderCard {
+  & > ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3.5rem;
+    margin-bottom: 5rem;
+
+    & > span {
+      font-size: calc(var(--f-sm) + 0.1rem);
+      color: var(--c-black-300);
+    }
+
+    & > li {
+      position: relative;
+
+      & > h4:not(:last-child) {
+        margin-top: 0.6rem;
+      }
+
+      & > div {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        & > h2,
+        span {
+          font-size: calc(var(--f-lg) - 0.08rem);
+        }
+
+        h2:not(h2:first-child),
+        span {
+          color: hsla(var(--c-red-700), 1);
+        }
+      }
+
+      & > .quantity {
+        position: absolute;
+        display: grid;
+        place-content: center;
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--c-black-700);
+        color: var(--c-white);
+      }
+    }
+  }
 }

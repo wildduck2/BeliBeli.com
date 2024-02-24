@@ -1,10 +1,9 @@
 import { FavouritesProduct } from '@/components/Pages/WishList/WishList.types'
-import { User } from '@/context/Data/Data.types'
-import { addProductToFavorite } from '@/context/utils/Utils'
 import { supabase } from '@/supabase/supabase'
 import { PostgrestSingleResponse } from '@supabase/supabase-js'
 import { toast } from 'sonner'
 import { PushProductProps } from './PushProductFavorite.types'
+import { User, addProductToFavorite } from '@/context'
 
 const PushProductFavorite = async ({
   favourite_product,

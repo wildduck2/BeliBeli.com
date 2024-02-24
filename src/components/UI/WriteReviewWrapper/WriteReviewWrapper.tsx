@@ -27,7 +27,6 @@ import { WriteReviewWrapperProps } from './WriteReviewWrapper.types'
 import { AsyncImage as LazyImg } from '@/components/Layouts'
 import { Box, Rating } from '@mui/material'
 import { Star } from 'lucide-react'
-import { useUser } from '@/hooks'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/context/store'
 import { handleSubmit } from '@/utils'
@@ -57,8 +56,7 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
     React.useState<boolean>(true)
   const [loading, setLoading] = React.useState<boolean>(false)
 
-  const logged = useSelector((state: RootState) => state.data.logged)
-  const user = useUser({ signedout: logged })
+  const userSession = useSelector((state: RootState) => state.user.userSession)
 
   const dialogClose = useRef<HTMLButtonElement>(null)
   const { state } = useLocation()
@@ -66,7 +64,7 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
 
   return (
     <Dialog>
-      {logged && user[0]?.id ? (
+      {userSession?.id ? (
         <DialogTrigger asChild>
           <Button variant={'default'}>Write a review</Button>
         </DialogTrigger>
@@ -274,8 +272,8 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
                 review_id: product.review_id,
                 reviewDiscription,
                 reviewTitle,
-                userId: user[0]!.id!,
-                email: user[0]!.email!,
+                userId: userSession!.id!,
+                email: userSession!.email!,
                 setLoading,
                 dialogClose,
                 setAllReviews

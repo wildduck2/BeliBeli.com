@@ -3,8 +3,8 @@ import { toast } from 'sonner'
 import { useEffect, useState } from 'react'
 import { signupPopup } from '../../utils'
 import { emailisnotvalid } from '@/context/utils/Utils'
-import { signin } from '@/context/Data/Data'
 import { useAuthEmailProps, useAuthProviderProps } from './useAuth.types'
+import { signin } from '@/context'
 
 export const useSigninWithEmail = ({
   email,

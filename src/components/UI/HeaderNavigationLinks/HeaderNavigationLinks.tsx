@@ -1,7 +1,6 @@
 import React from 'react'
 
 import {
-  WoemnSideBarNavigation,
   categoryData,
   navigationLinks,
   navigationLinksData
@@ -17,7 +16,7 @@ import {
 } from '..'
 import { NavigationHeaderLooping } from '@/utils'
 
-const HeaderNavigationLinks = () => {
+const HeaderNavigationLinks = (): React.JSX.Element => {
   const { pathname } = useLocation()
   const route = useNavigate()
   return (

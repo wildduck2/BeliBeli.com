@@ -1,4 +1,3 @@
-import React, { MouseEvent, MutableRefObject } from 'react'
 import {
   handleMouseDownTypes,
   handleMouseDragTypes,

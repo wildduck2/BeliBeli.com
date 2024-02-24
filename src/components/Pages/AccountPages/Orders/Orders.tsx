@@ -7,10 +7,15 @@ import {
   SelectGroup,
   SelectItem,
   SelectValue,
-  Input
-} from '../../../UI'
+  Input,
+  OrderCard
+} from '@/components/UI'
+import { RootState } from '@/context'
+import { useSelector } from 'react-redux'
+import { CartProduct } from '../..'
 
-const Orders = () => {
+const Orders = (): React.JSX.Element => {
+  const userData = useSelector((state: RootState) => state.user.userData)
   return (
     <div className="account__orders">
       <div>
@@ -45,7 +50,15 @@ const Orders = () => {
       </div>
 
       <h2>Recent Orders</h2>
-      <span>You haven’t ordered anything recently.</span>
+      <ul>
+        {userData?.user_cart.length! < 1 ? (
+          <span>You have no recent orders to display.</span>
+        ) : (
+          userData?.user_cart.map((item: CartProduct) => (
+            <OrderCard key={item.id} item={item} />
+          ))
+        )}
+      </ul>
     </div>
   )
 }

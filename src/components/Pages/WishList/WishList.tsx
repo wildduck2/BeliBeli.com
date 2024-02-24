@@ -7,12 +7,7 @@ import { AiOutlineShopping } from 'react-icons/ai'
 import { MdDeleteOutline } from 'react-icons/md'
 
 const WishList = () => {
-  const favouriteProducts = useSelector(
-    (state: RootState) => state.util.favouriteProducts
-  )
-  const cartProducts = useSelector(
-    (state: RootState) => state.util.cartProducts
-  )
+  const userData = useSelector((state: RootState) => state.user.userData)
   const dispatch = useDispatch()
   const currentSizeIndex = 0
 
@@ -20,9 +15,9 @@ const WishList = () => {
     <section className="wishlist">
       <h1>my favourites</h1>
 
-      {favouriteProducts.length > 0 ? (
+      {userData?.favourite_products.length! > 0 ? (
         <div className="wishlist__products">
-          {favouriteProducts.map((product) => {
+          {userData?.favourite_products.map((product) => {
             return (
               <div
                 key={product.id + Math.random()}
@@ -52,7 +47,7 @@ const WishList = () => {
 
                       PushProductCart({
                         product: cartProduct,
-                        products: cartProducts,
+                        products: userData.user_cart,
                         dispatch: dispatch
                       })
                     }}>

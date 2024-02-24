@@ -4,8 +4,8 @@
 
 */
 
-@use "../../../utils" as u;
-@use "../../../base" as *;
+@use '../../../utils' as u;
+@use '../../../base' as *;
 
 /*
 
@@ -14,19 +14,55 @@
 */
 
 .account__favourites {
+  &__products {
+    @include u.flex(grid, center, flex-start);
+    margin-top: 0 !important;
+    grid-template-columns: repeat(4, minmax(300px, 1fr));
+    gap: 3.5rem;
+    margin-bottom: 3rem;
 
-  & > div {
-    @include u.flex(grid, center, center);
-    margin-top: 3rem;
-    gap: 1rem;
-    text-align: center;
+    &__product {
+      @include u.flex(grid, center);
+      max-width: 300px;
+      width: 300px !important;
 
-    p {
-      text-align: center;
+      &__buttons {
+        @include u.flex(grid, center);
+        gap: 0.5rem;
+        margin-top: 1rem;
+
+        button {
+          @include u.flex(flex, center, center);
+          gap: 0.5rem;
+          font-size: calc(var(--f-lg) - 0.1rem);
+          text-transform: capitalize;
+          border-radius: 3px;
+        }
+      }
+
+      .swiper__card {
+        max-width: 300px;
+        width: 300px !important;
+        height: max-content;
+
+        .img__wrapper {
+          max-width: 400px;
+        }
+
+        h3 {
+          font-size: calc(var(--f-lg));
+        }
+
+        span {
+          font-size: calc(var(--f-lg) - 0.1rem);
+        }
+      }
     }
-
-    & > button {
-      border-radius: 3px;
-    }
+  }
+  .shop {
+    width: fit-content;
+    place-self: center;
+    border-radius: 3px;
+    padding-inline: 2.5rem;
   }
 }

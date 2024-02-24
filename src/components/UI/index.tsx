@@ -49,3 +49,4 @@ export { default as DeliverToWrapper } from './DeliverToWrapper/DeliverToWrapper
 export * from './ScrollArea/ScrollArea'
 export { default as ProductShowAccordionWrapper } from './ProductShowAccordionWrapper/ProductShowAccordionWrapper'
 export { default as HeaderFavouriteProducts } from './HeaderFavouriteProducts/HeaderFavouriteProducts'
+export * from './OrderCard'

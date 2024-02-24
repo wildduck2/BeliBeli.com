@@ -1,4 +1,3 @@
-import { User } from '@/context/Data/Data.types'
 import { getCartProducts, getFavoriteProducts } from '@/context/utils/Utils'
 import { RootState } from '@/context/store'
 import { supabase } from '@/supabase/supabase'
@@ -10,9 +9,10 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'sonner'
+import { User, getUserData, getUserSession } from '@/context'
 
 const useGetCartProducts = () => {
-  const logged = useSelector((state: RootState) => state.data.logged)
+  const logged = useSelector((state: RootState) => state.user.userLogged)
   const dispatch = useDispatch()
   const [error, setError] = React.useState<string>('')
   const [user, setUser] = useState<UserSupa>()
@@ -28,14 +28,16 @@ const useGetCartProducts = () => {
         } else {
           setUser(user.user)
 
-          const { data, error } = (await supabase
+          const { data: UserData, error } = (await supabase
             .from('users')
             .select('user_cart, favourite_products')
             .eq('id', user.user?.id)) as PostgrestSingleResponse<User[]>
 
-          if (data) {
-            dispatch(getCartProducts(data[0].user_cart))
-            dispatch(getFavoriteProducts(data[0].favourite_products))
+          if (UserData) {
+            // dispatch(getCartProducts(data[0].user_cart))
+            // dispatch(getFavoriteProducts(data[0].favourite_products))
+            dispatch(getUserSession(user.user))
+            dispatch(getUserData(UserData[0]))
           } else {
             toast.error('Faild to get cart')
             setError(error.message)

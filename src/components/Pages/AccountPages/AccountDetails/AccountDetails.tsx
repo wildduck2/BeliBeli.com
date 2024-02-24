@@ -2,11 +2,9 @@ import React from 'react'
 import { Button, Input } from '@/components/UI'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/context/store'
-import { useUser } from '@/hooks'
 
 const AccountDetails = () => {
-  const logged = useSelector((state: RootState) => state.data.logged)
-  const userData = useUser({ signedout: logged })
+  const userSession = useSelector((state: RootState) => state.user.userSession)
 
   return (
     <div className="account__details">
@@ -15,14 +13,18 @@ const AccountDetails = () => {
       <form action="post">
         <div>
           <label htmlFor="name">Full Name</label>
-          <Input id="name" className="input" value="John Doe" />
+          <Input
+            id="name"
+            className="input"
+            value={userSession?.user_metadata.full_name || ''}
+          />
         </div>
         <div>
           <label htmlFor="number">Mobile Number</label>
           <Input
             id="number"
             className="input"
-            value={`+20${userData[0]?.phone}`}
+            value={`+20${userSession?.phone || ''}`}
           />
         </div>
         <div>
@@ -30,7 +32,7 @@ const AccountDetails = () => {
           <Input
             id="email"
             className="input"
-            value={userData[0]?.email}
+            value={userSession?.email || 'example@example.com'}
             disabled
           />
         </div>

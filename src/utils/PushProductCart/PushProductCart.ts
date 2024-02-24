@@ -1,10 +1,9 @@
 import { CartProduct } from '@/components/Pages/Cart/Cart.types'
-import { User } from '@/context/Data/Data.types'
-import { addProductToCart } from '@/context/utils/Utils'
 import { supabase } from '@/supabase/supabase'
 import { PostgrestSingleResponse } from '@supabase/supabase-js'
 import { toast } from 'sonner'
 import { PushProductCartProps } from './PushProductCart.types'
+import { User, addProductToCart } from '@/context'
 
 const PushProductCart = async ({
   products,

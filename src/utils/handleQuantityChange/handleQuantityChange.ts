@@ -1,4 +1,4 @@
-import { updateCartProducts } from '@/context/utils/Utils'
+import { updateCartProducts } from '@/context'
 import { handleQuantityChangeProps } from './handleQuantityChange.types'
 
 export const handleQuantityChange = ({

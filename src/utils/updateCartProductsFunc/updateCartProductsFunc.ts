@@ -1,8 +1,8 @@
 import { PostgrestSingleResponse } from '@supabase/supabase-js'
-import { User } from '@/context/Data/Data.types'
 import { supabase } from '@/supabase/supabase'
 import { UpdateCartProductsProps } from './updateCartProductsFunc.types'
 import { toast } from 'sonner'
+import { User } from '@/context'
 
 const updateCartProductsFunc = async ({
   product,

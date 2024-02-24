@@ -12,7 +12,7 @@ export interface CartProduct {
   size: string
   quantity: number
   art_no: string
-  full_type_data: ProductVariation
+  full_type_data?: ProductVariation
 }
 
 export interface CartProductProps {

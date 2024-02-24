@@ -14,30 +14,25 @@ import {
 } from '@/utils'
 import { recover } from '@/assets'
 import { UUID } from 'crypto'
-import { addProductToCart } from '@/context/utils/Utils'
-import { useUser } from '@/hooks'
 
 const steps = ['Bag', 'Delivery and Payment', 'Confirmation']
 
 const Cart = () => {
   const location = useLocation()
-  const logged = useSelector((state: RootState) => state.data.logged)
-  const cartProducts = useSelector(
-    (state: RootState) => state.util.cartProducts
-  )
+  const userSession = useSelector((state: RootState) => state.user.userSession)
+  const userData = useSelector((state: RootState) => state.user.userData)
 
-  const user = useUser({ signedout: logged })
   const [totalPrice, setTotalPrice] = React.useState(0)
 
   React.useEffect(() => {
-    if (cartProducts) {
-      const total = cartProducts.reduce(
+    if (userData?.user_cart) {
+      const total = userData.user_cart.reduce(
         (acc, item) => acc + item.price * item.quantity,
         0
       )
       setTotalPrice(total)
     }
-  }, [cartProducts])
+  }, [userData?.user_cart])
 
   return (
     <main className="cart">
@@ -54,7 +49,9 @@ const Cart = () => {
         })}
       </span>
 
-      {cartProducts && cartProducts.length && logged && user !== null ? (
+      {userData?.user_cart &&
+      userData.user_cart.length &&
+      userSession !== null ? (
         <div className="cart__wrapper">
           <div className="cart__wrapper__verify-steps">
             <div>
@@ -88,11 +85,11 @@ const Cart = () => {
               </div>
 
               <ScrollArea className="cart__wrapper__products__info__scroll">
-                {cartProducts.map((item) => (
+                {userData?.user_cart.map((item) => (
                   <CartProductComponent
                     key={item.id}
                     item={item}
-                    user_id={user[0]?.id as UUID}
+                    user_id={userSession.id as UUID}
                   />
                 ))}
               </ScrollArea>
@@ -137,11 +134,9 @@ const Cart = () => {
 
 export default Cart
 
-const CartProductComponent = ({ item, user_id }: CartProductProps) => {
+export const CartProductComponent = ({ item, user_id }: CartProductProps) => {
   const [quantity, setQuantity] = useState(item.quantity)
-  const favouriteProducts = useSelector(
-    (state: RootState) => state.util.favouriteProducts
-  )
+  const userData = useSelector((state: RootState) => state.user.userData)
   const dispatch = useDispatch()
   const favoriteProduct = {
     id: item.id,
@@ -149,6 +144,7 @@ const CartProductComponent = ({ item, user_id }: CartProductProps) => {
     title: item.name,
     product_type: item.full_type_data
   }
+
   return (
     <li>
       <div>
@@ -176,7 +172,7 @@ const CartProductComponent = ({ item, user_id }: CartProductProps) => {
             onClick={() => {
               PushProductFavorite({
                 favourite_product: favoriteProduct,
-                favourite_products: favouriteProducts,
+                favourite_products: userData!.favourite_products,
                 dispatch: dispatch
               })
             }}>

@@ -1,10 +1,9 @@
-import { CartProduct } from '@/components/Pages/Cart/Cart.types'
-import { FavouritesProduct } from '@/components/Pages/WishList/WishList.types'
+import { review } from '..'
 
 export interface InitStateTypes {
   mobileMenuActive: boolean
   inputsValid: Record<string, boolean>
   emailisnotvalid: boolean
-  cartProducts: CartProduct[]
-  favouriteProducts: FavouritesProduct[]
+
+  userReveiws: review[]
 }

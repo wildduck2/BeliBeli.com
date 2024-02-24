@@ -1,5 +1,3 @@
-import { CartProduct } from '@/components/Pages/Cart/Cart.types'
-import { FavouritesProduct } from '@/components/Pages/WishList/WishList.types'
 import { UserData } from '@/hooks'
 import { UUID } from 'crypto'
 
@@ -81,7 +79,7 @@ export interface BannersType {
   button: string[]
 }
 
-export interface initialStateTypes {
+export interface DataSliceTypes {
   satatus: 'loading' | 'succeeded' | 'failed'
   error: string | null
 
@@ -89,15 +87,4 @@ export interface initialStateTypes {
   categoriesData: otherImgsTypes[] | null
   products: Product[] | null
   userData: UserData | null
-  logged: boolean
-}
-
-export interface User {
-  id: UUID
-  full_name: string
-  avatar_url: string
-  billing_address: undefined
-  payment_method: undefined
-  user_cart: CartProduct[]
-  favourite_products: FavouritesProduct[]
 }
