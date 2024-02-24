@@ -3,9 +3,9 @@ import React from 'react'
 import Link from '../../UI/Link'
 import { supabase } from '../../../supabase/supabase'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '@/context/store'
-import { signout } from '@/context/Data'
-import { useUser } from '@/hooks'
+import useUser from '@/hooks/useSession/useSession'
+import { RootState } from '@/context'
+import { signout } from '@/context/Data/Data'
 
 const HeaderBanner = () => {
   const logged = useSelector((state: RootState) => state.data.logged)
@@ -27,8 +27,7 @@ const HeaderBanner = () => {
             onClick={() => {
               supabase.auth.signOut()
               dispatch(signout())
-            }}
-          >
+            }}>
             Logout
           </Link>
         </>

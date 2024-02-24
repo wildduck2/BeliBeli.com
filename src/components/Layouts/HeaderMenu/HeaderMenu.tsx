@@ -14,7 +14,7 @@ import {
 import { MutableRefObject, useRef, useState } from 'react'
 import { RootState } from '@/context/store'
 import { useDispatch, useSelector } from 'react-redux'
-import { showMobileMenu } from '@/context/Utils'
+import { showMobileMenu } from '@/context/utils/Utils'
 
 export const navigationLinksData = [
   WomenHeaderNavigationLink,
@@ -77,8 +77,7 @@ const HeaderMenu = () => {
 
   return (
     <div
-      className={`header-menu  ${selector.mobileMenuActive && 'header-menu__show--menu'}`}
-    >
+      className={`header-menu  ${selector.mobileMenuActive && 'header-menu__show--menu'}`}>
       <div className="header-menu__top">
         <Button className="show" onClick={activeHandler}>
           Shop
@@ -87,8 +86,7 @@ const HeaderMenu = () => {
       </div>
 
       <div
-        className={`header-menu__active-buffer ${currentactive && 'show--login'}`}
-      >
+        className={`header-menu__active-buffer ${currentactive && 'show--login'}`}>
         <Link href="/login" onClick={menuLinkClickHandler}>
           sign In
         </Link>
@@ -107,16 +105,14 @@ const HeaderMenu = () => {
                   <li
                     key={index1}
                     className="header-menu__menu-category"
-                    onClick={onclickHandler}
-                  >
+                    onClick={onclickHandler}>
                     {item}
 
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       width="26"
-                      height="26"
-                    >
+                      height="26">
                       <path d="M13.1714 12.0007L8.22168 7.05093L9.63589 5.63672L15.9999 12.0007L9.63589 18.3646L8.22168 16.9504L13.1714 12.0007Z"></path>
                     </svg>
                   </li>
@@ -124,14 +120,12 @@ const HeaderMenu = () => {
                   <ul key={index1} className="header-menu__category-list">
                     <div
                       className="header-menu__route"
-                      onClick={hideMenuTreeHandler}
-                    >
+                      onClick={hideMenuTreeHandler}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         width="26"
-                        height="26"
-                      >
+                        height="26">
                         <path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path>
                       </svg>
 
@@ -147,8 +141,7 @@ const HeaderMenu = () => {
                               <li className="header-menu__list" key={index3}>
                                 <Link
                                   href={item3}
-                                  onClick={menuLinkClickHandler}
-                                >
+                                  onClick={menuLinkClickHandler}>
                                   {item3}
                                 </Link>
                               </li>

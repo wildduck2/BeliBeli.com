@@ -1,15 +1,16 @@
 import { UUID } from 'crypto'
 
 export interface CartProduct {
-  id: number
+  id: UUID
+  user_id: string
   name: string
   price: number
   discount: number
   img: string
-  artNo: string
   color: string
   size: string
   quantity: number
+  art_no: string
 }
 
 export interface CartProductProps {

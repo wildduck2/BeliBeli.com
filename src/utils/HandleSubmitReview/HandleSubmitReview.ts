@@ -3,7 +3,7 @@ import { supabase } from '@/supabase/supabase'
 import { v4 as ID } from 'uuid'
 import { handleSubmitProps } from './HandleSubmitReview.types'
 import { PostgrestSingleResponse } from '@supabase/supabase-js'
-import { Product_review } from '@/context/Data.types'
+import { Product_review } from '@/context/Data/Data.types'
 
 export const handleSubmit = async ({
   fit,

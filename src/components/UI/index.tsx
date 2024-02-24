@@ -4,10 +4,10 @@ import Search from './Search'
 import ImgBanner from './ImgBanner'
 import ToastProvider from './ToastProvider'
 import HeaderNavigationLinks from './HeaderNavigationLinks'
-import Skeleton from './Skeleton'
 import SwiperSectionWrapper from './swiperSectionWrapper/SwiperSectionWrapper'
 import StyledByYouWrapper from './StylesByYouWrapper/StyledByYouWrapper'
 
+export * from './Skeleton'
 export * from './Sheet/Sheet'
 export {
   Link,
@@ -16,7 +16,6 @@ export {
   ImgBanner,
   ToastProvider,
   HeaderNavigationLinks,
-  Skeleton,
   SwiperSectionWrapper,
   StyledByYouWrapper
 }

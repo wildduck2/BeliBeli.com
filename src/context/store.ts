@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
-import dataReducer from './Data'
-import utilReducer from './Utils.tsx'
+import { dataReducer } from './Data'
+import { utilReducer } from './utils'
 export type RootState = ReturnType<typeof rootReducer>
 
 const rootReducer = combineReducers({

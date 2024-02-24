@@ -8,7 +8,7 @@ import {
   Link,
   Search
 } from '@/components/UI'
-import { showMobileMenu } from '@/context/Utils'
+import { showMobileMenu } from '@/context/utils/Utils'
 
 import { HiOutlineHeart } from 'react-icons/hi2'
 import { logo } from '../../../assets'

@@ -1,14 +1,15 @@
 import { FavouritesProduct } from '@/components/Pages/WishList/WishList.types'
-import { User } from '@/context/Data.types'
+import { User } from '@/context/Data/Data.types'
+import { addProductToFavorite } from '@/context/utils/Utils'
 import { supabase } from '@/supabase/supabase'
 import { PostgrestSingleResponse } from '@supabase/supabase-js'
 import { toast } from 'sonner'
+import { PushProductProps } from './PushProductFavorite.types'
 
-export interface PushProductProps {
-  favourite_products: FavouritesProduct[]
-}
 const PushProductFavorite = async ({
-  favourite_products
+  favourite_product,
+  favourite_products,
+  dispatch
 }: PushProductProps) => {
   const promise = new Promise((resolve, reject) => {
     const cb = async () => {
@@ -19,27 +20,40 @@ const PushProductFavorite = async ({
           reject(usererror)
           return
         } else {
-          const { data, error } = (await supabase
-            .from('users')
-            .update({
-              favourite_products: favourite_products
-            })
-            .eq('id', user.user.id)
-            .select()) as PostgrestSingleResponse<User[]>
-
-          if (error) {
-            reject(usererror)
-            throw new Error('Failed to add product to favorite')
-          } else {
-            console.log(favourite_products)
-            localStorage.setItem(
-              'cartProducts',
-              JSON.stringify(favourite_products)
+          if (
+            favourite_products.find(
+              (item) =>
+                item.product_type.art_no ===
+                favourite_product.product_type.art_no
             )
-            resolve(data![0].user_cart)
+          ) {
+            toast.error('Product already in favourites')
+            reject(false)
+          } else {
+            const finalFavouriteProducts: FavouritesProduct[] = [
+              ...favourite_products,
+              favourite_product
+            ]
+
+            const { data, error } = (await supabase
+              .from('users')
+              .update({
+                favourite_products: finalFavouriteProducts
+              })
+              .eq('id', user.user.id)
+              .select()) as PostgrestSingleResponse<User[]>
+
+            if (error) {
+              reject(usererror)
+              throw new Error('Failed to add product to favorite')
+            } else {
+              resolve(data![0].user_cart)
+              dispatch(addProductToFavorite({ product: favourite_product }))
+            }
           }
         }
       } catch (error) {
+        reject(error)
         throw new Error('something went wrong in adding product to favorite')
       }
     }

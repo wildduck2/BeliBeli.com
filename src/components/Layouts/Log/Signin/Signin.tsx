@@ -39,7 +39,6 @@ const Signin = () => {
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
 
-  console.log('notValid', notValid)
 
   useEffect(() => {
     setNotValid(

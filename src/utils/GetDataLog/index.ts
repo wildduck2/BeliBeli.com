@@ -1,2 +1,2 @@
-import GetDataLog from './GetDataLog'
-export default GetDataLog
+export * from './GetDataLog'
+export * from './GetDataLog.types'

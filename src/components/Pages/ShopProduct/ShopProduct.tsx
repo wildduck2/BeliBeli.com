@@ -21,7 +21,7 @@ import {
 } from '@/components/UI'
 import ShopProductProducts from './ShopProductProducts'
 
-const ShopProduct = () => {
+const ShopProduct = (): React.JSX.Element => {
   const id = useParams()
 
   const [ShopProductData, status] = useShopProductData({

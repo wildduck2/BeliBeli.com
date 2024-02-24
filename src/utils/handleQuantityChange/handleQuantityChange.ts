@@ -1,15 +1,5 @@
-import { CartProduct } from '@/components/Pages/Cart/Cart.types'
-import { updateCartProducts } from '@/context/Utils'
-import { UUID } from 'crypto'
-import { AnyAction, Dispatch } from 'redux'
-
-export interface handleQuantityChangeProps {
-  newQuantity: number
-  setQuantity: React.Dispatch<React.SetStateAction<number>>
-  dispatch: Dispatch<AnyAction>
-  item: CartProduct
-  user_id: UUID
-}
+import { updateCartProducts } from '@/context/utils/Utils'
+import { handleQuantityChangeProps } from './handleQuantityChange.types'
 
 export const handleQuantityChange = ({
   dispatch,

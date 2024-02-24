@@ -1,10 +1,5 @@
 import { toast } from 'sonner'
-
-interface SignupPopupProps {
-  url: string
-  provider: string
-  key: string
-}
+import { SignupPopupProps } from './signupPopup.types'
 
 const signupPopup = async ({
   url,

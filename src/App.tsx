@@ -28,7 +28,7 @@ import {
 } from './components/Layouts'
 import { HeaderNavigationLinks } from './components/UI'
 import { store } from './context/store'
-import { thunkFetchingFromSupabase } from './context/Data'
+import { thunkFetchingFromSupabase } from './context/Data/Data'
 import WishList from './components/Pages/WishList/WishList'
 import Cart from './components/Pages/Cart/Cart'
 import { useGetCartProducts } from './hooks'

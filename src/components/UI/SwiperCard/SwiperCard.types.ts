@@ -1,5 +1,5 @@
 import { FavouritesProduct } from '@/components/Pages/WishList/WishList.types'
-import { Product } from '@/context/Data.types'
+import { Product } from '@/context/Data/Data.types'
 
 export interface SwiperCardProps {
   item?: Product

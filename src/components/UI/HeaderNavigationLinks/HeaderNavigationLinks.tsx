@@ -3,7 +3,8 @@ import React from 'react'
 import {
   WoemnSideBarNavigation,
   categoryData,
-  navigationLinks
+  navigationLinks,
+  navigationLinksData
 } from '../../../constants'
 import { BannerDeals } from '@/components/Layouts'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -27,8 +28,7 @@ const HeaderNavigationLinks = () => {
             return (
               <NavigationMenuItem
                 key={index}
-                className="navigations__list__item"
-              >
+                className="navigations__list__item">
                 <NavigationMenuTrigger
                   className="navigations__list__item__link"
                   onClick={() => {
@@ -36,13 +36,12 @@ const HeaderNavigationLinks = () => {
                     route(`/${link}`, {
                       state: categoryData[index]
                     })
-                  }}
-                >
+                  }}>
                   <h5 key={link}>{link.split('/')[1]}</h5>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="navigations__list__item__content">
                   <NavigationHeaderLooping
-                    headerNavigationData={WoemnSideBarNavigation}
+                    headerNavigationData={navigationLinksData[index]}
                     satatus={'succeeded'}
                   />
                 </NavigationMenuContent>

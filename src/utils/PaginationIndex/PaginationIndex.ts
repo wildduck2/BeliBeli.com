@@ -1,9 +1,9 @@
-import React, { MutableRefObject } from 'react'
+import React from 'react'
 
 export interface PaginationIndexTypes {
   currentTarget: HTMLButtonElement
-  DOT_REF?: MutableRefObject<HTMLDivElement>
-  SWIPER_REF: MutableRefObject<HTMLUListElement>
+  DOT_REF?: React.MutableRefObject<HTMLDivElement>
+  SWIPER_REF: React.MutableRefObject<HTMLUListElement>
 }
 
 const PaginationIndex = ({

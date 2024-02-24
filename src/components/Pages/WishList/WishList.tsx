@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/context/store'
 import { AiOutlineShopping } from 'react-icons/ai'
 import { MdDeleteOutline } from 'react-icons/md'
-import { addProductToCart } from '@/context/Utils'
+import { addProductToCart } from '@/context/utils/Utils'
 import { RemoveProductFavorite } from '@/utils'
 
 const WishList = () => {
@@ -14,8 +14,6 @@ const WishList = () => {
   const dispatch = useDispatch()
   const currentSizeIndex = 0
 
-  console.log(favouriteProducts)
-
   return (
     <section className="wishlist">
       <h1>my favourites</h1>
@@ -24,7 +22,9 @@ const WishList = () => {
         <div className="wishlist__products">
           {favouriteProducts.map((product) => {
             return (
-              <div key={product.id} className="wishlist__products__product">
+              <div
+                key={product.id + Math.random()}
+                className="wishlist__products__product">
                 <SwiperCard favouriteItem={product} width={405} height={610} />
 
                 <div className="wishlist__products__product__buttons">
@@ -41,8 +41,8 @@ const WishList = () => {
                         discount: parseInt(
                           product.product_type.sizes[currentSizeIndex].discount!
                         ),
-                        img: product.product_type.low_imgs[0],
-                        artNo: product.product_type.art_no,
+                        img: product.product_type.low_imgs,
+                        art_no: product.product_type.art_no,
                         color: product.product_type.name,
                         size: product.product_type.sizes[currentSizeIndex].size,
                         quantity: 1

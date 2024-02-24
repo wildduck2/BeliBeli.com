@@ -1,3 +1,1 @@
-import { Skeleton } from './skeleton'
-
-export default Skeleton
+export * from './skeleton'

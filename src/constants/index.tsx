@@ -1458,3 +1458,15 @@ export const categoryDiscriptionData = {
   baby: MenDiscriptionData,
   sport: MenDiscriptionData
 }
+
+export const navigationLinksData = [
+  WoemnSideBarNavigation,
+  MenSideBarNavigation,
+  DividedSideBarNavigation,
+  kidsSideBarNavigation,
+  BeliBeliHomeSideBarNavigation,
+  BabySideBarNavigation,
+  SportsSideBarNavigation,
+  SaleSideBarNavigation,
+  SustainabilitySideBarNavigation
+]

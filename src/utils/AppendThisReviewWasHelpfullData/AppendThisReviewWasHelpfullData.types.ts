@@ -1,4 +1,4 @@
-import { Product, ReviewWasHelpfull } from '@/context/Data.types'
+import { Product, ReviewWasHelpfull } from '@/context/Data/Data.types'
 
 export interface appendThisReviewWasHelpfullDataProps {
   index: number

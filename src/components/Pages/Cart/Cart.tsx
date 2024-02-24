@@ -8,9 +8,10 @@ import { MdOutlineDeleteOutline } from 'react-icons/md'
 import { CartProductProps } from './Cart.types'
 import { RemoveProductCart, formatter, handleQuantityChange } from '@/utils'
 import { recover } from '@/assets'
-import { useUser } from '@/hooks'
+// import { useUser } from '@/hooks'
 import { UUID } from 'crypto'
-import { addProductToCart } from '@/context/Utils'
+import { addProductToCart } from '@/context/utils/Utils'
+import { useUser } from '@/hooks'
 
 const steps = ['Bag', 'Delivery and Payment', 'Confirmation']
 
@@ -154,12 +155,12 @@ const CartProductComponent = ({ item, user_id }: CartProductProps) => {
 
           <h5>Price: EGP {formatter.format(item.price)}</h5>
 
-          <span>Art. no: {item.artNo}</span>
+          <span>Art. no: {item.art_no}</span>
           <span>Color: {item.color}</span>
           <span>Size: {item.size}</span>
 
           <Button
-            variant={'link'}
+            variant={'outline'}
             onClick={() => {
               dispatch(addProductToCart(item))
             }}>

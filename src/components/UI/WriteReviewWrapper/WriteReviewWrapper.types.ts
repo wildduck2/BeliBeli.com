@@ -1,4 +1,4 @@
-import { Product, Product_review } from '@/context/Data.types'
+import { Product, Product_review } from '@/context/Data/Data.types'
 
 export interface WriteReviewWrapperProps {
   img: string

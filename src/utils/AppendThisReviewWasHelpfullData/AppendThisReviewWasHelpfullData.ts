@@ -1,5 +1,5 @@
 import { ReviewCardProps } from '@/components/Layouts/ReviewCard/ReviewCard.types'
-import { Product_review, review } from '@/context/Data.types'
+import { Product_review, review } from '@/context/Data/Data.types'
 import { supabase } from '@/supabase/supabase'
 import { PostgrestSingleResponse } from '@supabase/supabase-js'
 import { toast } from 'sonner'
@@ -41,7 +41,6 @@ export const appendThisReviewWasHelpfullData = async ({
 
         if (!updateError) {
           toast.success('Thank you for your feedback')
-          console.log('updatedReviews', updatedReviews)
 
           setReviewValue([{ user_id: user_id, value: value }, ...reviewValue])
           setReviewHelpfull(value)

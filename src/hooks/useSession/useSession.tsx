@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { supabase } from '../../supabase/supabase'
 import { AuthError, User } from '@supabase/supabase-js'
 import { useDispatch } from 'react-redux'
-import { getUserDispatch } from '@/context/Data'
+import { getUserDispatch } from '@/context/Data/Data'
 
 const useUser = ({ signedout }: { signedout: boolean }) => {
   const [session, setSession] = useState<User>()

@@ -7,7 +7,6 @@ import { RouteHandlerTypes, routeHandler } from '../../../../utils/Login/Login'
 import { AiOutlineUser } from 'react-icons/ai'
 import { FcGoogle } from 'react-icons/fc'
 import { BsDiscord } from 'react-icons/bs'
-import { useUser } from '@supabase/auth-helpers-react'
 import { useSigninwithProvider } from '@/hooks'
 import { useDispatch } from 'react-redux'
 
@@ -53,16 +52,14 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
       <Button
         className="social_button"
         variant={'outline'}
-        onClick={Google.authProvider}
-      >
+        onClick={Google.authProvider}>
         <FcGoogle size={25} />
         <span>{mainTittle} with Google</span>
       </Button>
       <Button
         className="social_button"
         variant={'outline'}
-        onClick={GitHub.authProvider}
-      >
+        onClick={GitHub.authProvider}>
         <BsDiscord size={25} />
         <span>{mainTittle} with Discord</span>
       </Button>
@@ -79,8 +76,7 @@ const SignWithSocial: React.FC<SignInWithSocialTyps> = ({
         onClick={() => {
           setNotValid(false)
           routeHandler({ signUp, router } as RouteHandlerTypes)
-        }}
-      >
+        }}>
         <AiOutlineUser size={25} />
         <span>{signUp ? 'Sign In' : 'Sign Up'} here </span>
       </Button>

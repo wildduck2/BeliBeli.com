@@ -4,7 +4,7 @@ import { Box, Rating } from '@mui/material'
 import { Star } from 'lucide-react'
 import { Button, Label } from '@/components/UI'
 import { useLocation } from 'react-router-dom'
-import { Product, ReviewWasHelpfull } from '@/context/Data.types'
+import { Product, ReviewWasHelpfull } from '@/context/Data/Data.types'
 import { appendThisReviewWasHelpfullData } from '@/utils'
 import { useUser } from '@/hooks'
 import { RootState } from '@/context/store'
@@ -109,8 +109,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ index, review }) => {
               disabled={
                 REVIEW_USER_IDS?.includes(user[0]?.id as UUID) ||
                 reviewHelpfull !== null
-              }
-            >
+              }>
               <span>Yes</span>
               <sub>({reviewtrue?.length})</sub>
             </Button>
@@ -137,8 +136,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ index, review }) => {
               disabled={
                 REVIEW_USER_IDS?.includes(user[0]?.id as UUID) ||
                 reviewHelpfull !== null
-              }
-            >
+              }>
               <span>No</span>
               <sub>({reviewfalse?.length})</sub>
             </Button>

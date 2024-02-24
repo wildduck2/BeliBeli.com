@@ -9,16 +9,17 @@ import {
   Skeleton
 } from '@/components/UI'
 import { AsyncImage as LazyImg } from '@/components/Layouts'
-import { Product } from '@/context/Data.types'
+import { Product } from '@/context/Data/Data.types'
 import { Heart } from 'lucide-react'
 import { AiOutlineShopping } from 'react-icons/ai'
 import { GoPackageDependents } from 'react-icons/go'
 import { fastshiping } from '@/assets'
 import useGetReviews from '@/hooks/useGetReviews/useGetReviews'
 import { useDispatch, useSelector } from 'react-redux'
-import { addProductToCart, addProductToFavorite } from '@/context/Utils'
+import { addProductToCart, addProductToFavorite } from '@/context/utils/Utils'
 import { RootState } from '@/context/store'
 import { useUser } from '@/hooks'
+import { PushProductCart, PushProductFavorite } from '@/utils'
 
 const height = 883.567
 
@@ -35,12 +36,18 @@ const ProductShow = () => {
   })
 
   const logged = useSelector((state: RootState) => state.data.logged)
+  const favouriteProducts = useSelector(
+    (state: RootState) => state.util.favouriteProducts
+  )
+  const cartProducts = useSelector(
+    (state: RootState) => state.util.cartProducts
+  )
   const dispatch = useDispatch()
 
   const user = useUser({ signedout: logged })
   const cartProduct = {
-    user_id: user[0]?.id,
     id: product.id,
+    user_id: user[0]?.id!,
     name: product.title,
     price: parseInt(
       product.product_type[currentTypeIndex].sizes[currentSizeIndex].price
@@ -49,14 +56,15 @@ const ProductShow = () => {
       product.product_type[currentTypeIndex].sizes[currentSizeIndex].discount!
     ),
     img: product.product_type[currentTypeIndex].low_imgs[0],
-    artNo: product.product_type[currentTypeIndex].art_no,
+    art_no: product.product_type[currentTypeIndex].art_no,
     color: product.product_type[currentTypeIndex].name,
     size: product.product_type[currentTypeIndex].sizes[currentSizeIndex].size,
     quantity: 1
   }
+
   const favoriteProduct = {
     id: product.id,
-    user_id: user[0]?.id,
+    user_id: user[0]?.id!,
     created_at: product.created_at,
     type: product.type,
     title: product.title,
@@ -282,7 +290,11 @@ const ProductShow = () => {
                   <Button
                     variant={'default'}
                     onClick={() => {
-                      dispatch(addProductToCart(cartProduct))
+                      PushProductCart({
+                        product: cartProduct,
+                        products: cartProducts,
+                        dispatch: dispatch
+                      })
                     }}>
                     <AiOutlineShopping size={25} />
                     <span>Add to Basket</span>
@@ -290,7 +302,11 @@ const ProductShow = () => {
                   <Button
                     variant={'outline'}
                     onClick={() => {
-                      dispatch(addProductToFavorite(favoriteProduct))
+                      PushProductFavorite({
+                        favourite_product: favoriteProduct,
+                        favourite_products: favouriteProducts,
+                        dispatch: dispatch
+                      })
                     }}>
                     <Heart size={25} />
                     <span>Add to Favourites</span>

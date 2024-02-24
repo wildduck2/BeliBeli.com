@@ -1,4 +1,4 @@
-import { Product_review } from '@/context/Data.types'
+import { Product_review } from '@/context/Data/Data.types'
 import { UUID } from 'crypto'
 
 export interface handleSubmitProps {

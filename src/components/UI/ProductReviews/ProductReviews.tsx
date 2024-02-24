@@ -7,7 +7,7 @@ import {
   MoreReviewsButtonProps,
   ProductReviewsProps
 } from './ProductReviews.types'
-import { Product_review } from '@/context/Data.types'
+import { Product_review } from '@/context/Data/Data.types'
 import { Icons } from '@/components/Layouts/Log/Icons'
 import { toast } from 'sonner'
 
@@ -100,8 +100,7 @@ function MoreReviewsButton({
         setTimeout(() => {
           setLoading(false)
         }, 500)
-      }}
-    >
+      }}>
       {loading ? <Icons.spinner className="animate-spin" /> : 'Submit'}
     </Button>
   )

@@ -1,7 +1,8 @@
 import { PostgrestSingleResponse } from '@supabase/supabase-js'
-import { User } from '@/context/Data.types'
+import { User } from '@/context/Data/Data.types'
 import { supabase } from '@/supabase/supabase'
 import { UpdateCartProductsProps } from './updateCartProductsFunc.types'
+import { toast } from 'sonner'
 
 const updateCartProductsFunc = async ({
   product,
@@ -35,6 +36,7 @@ const updateCartProductsFunc = async ({
       console.log(updatedData[0].user_cart)
     }
   } catch (error) {
+    toast.error('something went wrong in adding product to cart')
     throw new Error('something went wrong in adding product to cart')
   }
 }

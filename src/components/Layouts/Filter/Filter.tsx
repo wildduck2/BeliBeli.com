@@ -33,8 +33,7 @@ const Filter: React.FC<FilterProps> = ({ setFilterQuery }) => {
             type="button"
             variant={'outline'}
             onClick={filterButtonHandler}
-            className={cn(`rounded_button ${index === 0 && 'active_filter'}`)}
-          >
+            className={cn(`rounded_button ${index === 0 && 'active_filter'}`)}>
             {data}
           </Button>
         )

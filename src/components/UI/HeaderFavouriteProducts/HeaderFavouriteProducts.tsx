@@ -10,8 +10,6 @@ const HeaderFavouriteProducts = () => {
   )
   const route = useNavigate()
 
-  console.log(favouriteProducts)
-
   return (
     <div>
       <HiOutlineHeart size={27} onClick={() => route('/home/wishlist')} />

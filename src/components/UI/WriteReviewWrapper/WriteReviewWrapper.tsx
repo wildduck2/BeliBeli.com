@@ -33,7 +33,7 @@ import { RootState } from '@/context/store'
 import { handleSubmit } from '@/utils'
 import { Icons } from '@/components/Layouts/Log/Icons'
 import { useLocation } from 'react-router-dom'
-import { Product } from '@/context/Data.types'
+import { Product } from '@/context/Data/Data.types'
 import { toast } from 'sonner'
 
 const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
@@ -73,8 +73,7 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
       ) : (
         <Button
           variant={'default'}
-          onClick={() => toast.info('Please login to write a review')}
-        >
+          onClick={() => toast.info('Please login to write a review')}>
           Write a review
         </Button>
       )}
@@ -130,15 +129,13 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
                   <Button
                     type="button"
                     variant={`${productRecommended ? 'default' : 'outline'}`}
-                    onClick={() => setProductRecommended(!productRecommended)}
-                  >
+                    onClick={() => setProductRecommended(!productRecommended)}>
                     Yes
                   </Button>
                   <Button
                     type="button"
                     variant={`${!productRecommended ? 'default' : 'outline'}`}
-                    onClick={() => setProductRecommended(!productRecommended)}
-                  >
+                    onClick={() => setProductRecommended(!productRecommended)}>
                     No
                   </Button>
                 </div>
@@ -284,8 +281,7 @@ const WriteReviewWrapper: React.FC<WriteReviewWrapperProps> = ({
                 setAllReviews
               })
             }}
-            disabled={loading}
-          >
+            disabled={loading}>
             {loading ? <Icons.spinner className="animate-spin" /> : 'Submit'}
 
             <DialogClose asChild ref={dialogClose} aria-hidden hidden>

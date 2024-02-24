@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useGetReviewsProps } from './useGetReviews.types'
 import { supabase } from '@/supabase/supabase'
-import { Product_review } from '@/context/Data.types'
+import { Product_review } from '@/context/Data/Data.types'
 
 const useGetReviews = ({ reviews_id }: useGetReviewsProps) => {
   const [reviews, setReviews] = React.useState<Product_review | null>(null)

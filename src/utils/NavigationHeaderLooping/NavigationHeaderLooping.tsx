@@ -1,10 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-interface headerNavigationDataTypes {
-  headerNavigationData?: string[][][][]
-  satatus: 'loading' | 'succeeded' | 'failed'
-}
+import { headerNavigationDataTypes } from '../NavigationHandlerAvtive'
 
 const NavigationHeaderLooping = ({
   headerNavigationData

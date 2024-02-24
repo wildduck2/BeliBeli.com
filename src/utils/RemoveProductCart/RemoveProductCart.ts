@@ -1,5 +1,5 @@
-import { User } from '@/context/Data.types'
-import { removeProductCart } from '@/context/Utils'
+import { User } from '@/context/Data/Data.types'
+import { removeProductCart } from '@/context/utils/Utils'
 import { supabase } from '@/supabase/supabase'
 import { PostgrestSingleResponse } from '@supabase/supabase-js'
 import { toast } from 'sonner'

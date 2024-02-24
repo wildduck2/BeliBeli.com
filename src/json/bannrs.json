@@ -1,9 +1,0 @@
-{
-  "banners": [
-    { "img": "/src/assets/imgs/banner/banner.gif", "link": "/banner1" },
-    { "img": "/src/assets/imgs/banner/banner1.avif", "link": "/banner2" },
-    { "img": "/src/assets/imgs/banner/banner3.avif", "link": "/banner3" },
-    { "img": "/src/assets/imgs/banner/banner4.gif", "link": "/banner4" },
-    { "img": "/src/assets/imgs/banner/banner.png", "link": "/banner" }
-  ]
-}

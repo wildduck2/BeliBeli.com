@@ -28,8 +28,7 @@ const AccordionTrigger = React.forwardRef<
         'yflex yflex-1 yitems-center yjustify-between ypy-4 yfont-medium ytransition-all hover:yunderline [&[data-state=open]>svg]:yrotate-180',
         className
       )}
-      {...props}
-    >
+      {...props}>
       {children}
       <ChevronDown className="yh-4 yw-4 yshrink-0 ytransition-transform yduration-200" />
     </AccordionPrimitive.Trigger>
@@ -44,8 +43,7 @@ const AccordionContent = React.forwardRef<
   <AccordionPrimitive.Content
     ref={ref}
     className="yoverflow-hidden ytext-sm ytransition-all data-[state=closed]:yanimate-accordion-up data-[state=open]:yanimate-accordion-down"
-    {...props}
-  >
+    {...props}>
     <div className={cn('ypb-4 ypt-0', className)}>{children}</div>
   </AccordionPrimitive.Content>
 ))

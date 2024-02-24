@@ -1,5 +1,5 @@
+import { cn } from '@/utils'
 import React from 'react'
-import cn from '../../../utils/cn'
 
 interface SkeletonTypes extends React.HTMLAttributes<HTMLDivElement> {
   className?: string

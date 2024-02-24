@@ -1,21 +1,11 @@
-import { NavigateFunction } from 'react-router-dom'
 import { supabase } from '../../supabase/supabase'
 import { Dispatch } from 'react'
-
-export interface RouteHandlerTypes {
-  signUp: boolean
-  router: NavigateFunction
-}
-
-export interface loginWithEmailHandlerTypes {
-  email: string
-  password: string
-}
-
-export interface signupWithEmailHandlerTypes
-  extends loginWithEmailHandlerTypes {
-  fullName: string
-}
+import { toast } from 'sonner'
+import {
+  RouteHandlerTypes,
+  loginWithEmailHandlerTypes,
+  signupWithEmailHandlerTypes
+} from './index.types'
 
 export const loginWithGoogleHandler = async () => {
   await supabase.auth.signInWithOAuth({
@@ -46,7 +36,7 @@ export const loginWithEmailHandler = async ({
     email: email,
     password: password
   })
-  console.log('logged in')
+  toast.success('Logged in successfully')
 }
 
 export const routeHandler = ({ signUp, router }: RouteHandlerTypes) =>

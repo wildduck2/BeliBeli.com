@@ -1,7 +1,2 @@
-import {
-  handleMouseDown,
-  handleMouseDrag,
-  handleMouseUp
-} from './SwiperDragging'
-
-export { handleMouseDown, handleMouseDrag, handleMouseUp }
+export * from './SwiperDragging'
+export * from './SwiperDragging.types'

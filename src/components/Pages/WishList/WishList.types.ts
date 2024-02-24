@@ -1,4 +1,4 @@
-import { ProductVariation } from '@/context/Data.types'
+import { ProductVariation } from '@/context/Data/Data.types'
 import { UUID } from 'crypto'
 
 export interface FavouritesProduct {

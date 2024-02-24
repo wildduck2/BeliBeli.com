@@ -9,7 +9,7 @@ import { Navigation, Pagination } from 'swiper/modules'
 import { Skeleton, SwiperCard } from '@/components/UI'
 import { SwiperTypes } from './Swiper.types'
 import { useNavigate } from 'react-router-dom'
-import { Product } from '@/context/Data.types'
+import { Product } from '@/context/Data/Data.types'
 
 const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
   const selector = useSelector((state: RootState) => state.data)

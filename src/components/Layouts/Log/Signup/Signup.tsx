@@ -40,7 +40,6 @@ const Signup = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [notValid, setNotValid] = useState<boolean>(false)
 
-  console.log('notValid', notValid)
   const [emailValid, setEmailValid] = useState<boolean>(false)
   const [email, setEmail] = useState<string>('')
   const [passwordValid, setPasswordValid] = useState<boolean>(false)
@@ -186,8 +185,7 @@ const Signup = () => {
                     passwordRef,
                     passwordShow
                   })
-                }
-              >
+                }>
                 {passwordShow ? <RiEyeLine /> : <RiEyeOffLine />}
               </label>
 
@@ -199,8 +197,7 @@ const Signup = () => {
               Password is not valid.
             </p>
             <div
-              className={`password-rules ${passwordShowMenu ? 'active' : 'hide'} `}
-            >
+              className={`password-rules ${passwordShowMenu ? 'active' : 'hide'} `}>
               <ul>
                 {passwordrules.map((rule) => (
                   <li key={rule.id}>
@@ -254,8 +251,7 @@ const Signup = () => {
                     passwordRef: passwordcomfirmationRef,
                     passwordShow: passwordcomfirmationShow
                   })
-                }
-              >
+                }>
                 {passwordcomfirmationShow ? <RiEyeLine /> : <RiEyeOffLine />}
               </label>
               <div className="valid">
@@ -277,8 +273,7 @@ const Signup = () => {
                     checkBoxRef: checkBoxRef,
                     setNotchecked: setNotchecked
                   })
-                }
-              >
+                }>
                 <Input
                   className={`agree`}
                   ref={checkBoxRef}
@@ -308,8 +303,7 @@ const Signup = () => {
                 type="submit"
                 variant={'outline'}
                 onClick={signupProvider.authEmail}
-                disabled={isLoading || !notValid}
-              >
+                disabled={isLoading || !notValid}>
                 {isLoading && <Icons.spinner />}
                 Create Account
               </Button>

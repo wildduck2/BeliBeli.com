@@ -1,4 +1,4 @@
-import { Product } from '@/context/Data.types'
+import { Product } from '@/context/Data/Data.types'
 
 export interface SwiperTypes {
   DATA__NAME: Product[] | null

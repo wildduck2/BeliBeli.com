@@ -7,7 +7,7 @@ import {
   passwordhasspecialcharacter,
   passwordhasuppercase
 } from '../../constants'
-import { checkInputsValid } from '@/context/Utils'
+import { checkInputsValid } from '@/context/utils/Utils'
 
 export const validateInput = ({
   setvalid,

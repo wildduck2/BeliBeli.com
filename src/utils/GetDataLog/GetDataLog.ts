@@ -1,12 +1,8 @@
-import { nanoid } from '@reduxjs/toolkit'
 import React from 'react'
+import { nanoid } from '@reduxjs/toolkit'
+import { GetDataLogTyps } from './GetDataLog.types'
 
-interface GetDataLogTyps {
-  fullName?: string
-  email: string
-  password: string
-}
-
+// eslint-disable-next-line no-undef
 const GetDataLog = ({ fullName, email, password }: GetDataLogTyps) => {
   return console.log(
     ` 

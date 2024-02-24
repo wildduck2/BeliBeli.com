@@ -1,5 +1,5 @@
-import { User } from '@/context/Data.types'
-import { getCartProducts, getFavoriteProducts } from '@/context/Utils'
+import { User } from '@/context/Data/Data.types'
+import { getCartProducts, getFavoriteProducts } from '@/context/utils/Utils'
 import { RootState } from '@/context/store'
 import { supabase } from '@/supabase/supabase'
 import {
