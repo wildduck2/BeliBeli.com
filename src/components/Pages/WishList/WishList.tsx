@@ -1,15 +1,17 @@
 import React from 'react'
-import { Button, SwiperCard } from '@/components/UI'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '@/context/store'
+import { Button, SwiperCard } from '@/components/UI'
+import { RootState } from '@/context'
+import { PushProductCart, RemoveProductFavorite } from '@/utils'
 import { AiOutlineShopping } from 'react-icons/ai'
 import { MdDeleteOutline } from 'react-icons/md'
-import { addProductToCart } from '@/context/utils/Utils'
-import { RemoveProductFavorite } from '@/utils'
 
 const WishList = () => {
   const favouriteProducts = useSelector(
     (state: RootState) => state.util.favouriteProducts
+  )
+  const cartProducts = useSelector(
+    (state: RootState) => state.util.cartProducts
   )
   const dispatch = useDispatch()
   const currentSizeIndex = 0
@@ -41,14 +43,18 @@ const WishList = () => {
                         discount: parseInt(
                           product.product_type.sizes[currentSizeIndex].discount!
                         ),
-                        img: product.product_type.low_imgs,
+                        img: product.product_type.top_imgs,
                         art_no: product.product_type.art_no,
                         color: product.product_type.name,
                         size: product.product_type.sizes[currentSizeIndex].size,
                         quantity: 1
                       }
 
-                      dispatch(addProductToCart(cartProduct))
+                      PushProductCart({
+                        product: cartProduct,
+                        products: cartProducts,
+                        dispatch: dispatch
+                      })
                     }}>
                     <AiOutlineShopping size={25} />
                     <span>Add to Basket</span>

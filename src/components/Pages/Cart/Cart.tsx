@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { RootState } from '@/context/store'
+import { RootState } from '@/context'
 import { useDispatch, useSelector } from 'react-redux'
 import { AsyncImage } from 'loadable-image'
 import { Button, DeliverToWrapper, Input, ScrollArea } from '@/components/UI'
 import { MdOutlineDeleteOutline } from 'react-icons/md'
 import { CartProductProps } from './Cart.types'
-import { RemoveProductCart, formatter, handleQuantityChange } from '@/utils'
+import {
+  PushProductFavorite,
+  RemoveProductCart,
+  formatter,
+  handleQuantityChange
+} from '@/utils'
 import { recover } from '@/assets'
-// import { useUser } from '@/hooks'
 import { UUID } from 'crypto'
 import { addProductToCart } from '@/context/utils/Utils'
 import { useUser } from '@/hooks'
@@ -135,8 +139,16 @@ export default Cart
 
 const CartProductComponent = ({ item, user_id }: CartProductProps) => {
   const [quantity, setQuantity] = useState(item.quantity)
+  const favouriteProducts = useSelector(
+    (state: RootState) => state.util.favouriteProducts
+  )
   const dispatch = useDispatch()
-
+  const favoriteProduct = {
+    id: item.id,
+    user_id,
+    title: item.name,
+    product_type: item.full_type_data
+  }
   return (
     <li>
       <div>
@@ -146,7 +158,7 @@ const CartProductComponent = ({ item, user_id }: CartProductProps) => {
             height: 230,
             objectFit: 'contain'
           }}
-          src={item.img}
+          src={item.img[0]}
           alt={item.name}
         />
 
@@ -160,9 +172,13 @@ const CartProductComponent = ({ item, user_id }: CartProductProps) => {
           <span>Size: {item.size}</span>
 
           <Button
-            variant={'outline'}
+            variant={'link'}
             onClick={() => {
-              dispatch(addProductToCart(item))
+              PushProductFavorite({
+                favourite_product: favoriteProduct,
+                favourite_products: favouriteProducts,
+                dispatch: dispatch
+              })
             }}>
             Move to Favourite
           </Button>

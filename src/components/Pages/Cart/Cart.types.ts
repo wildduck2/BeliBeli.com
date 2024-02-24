@@ -1,3 +1,4 @@
+import { ProductImage, ProductVariation } from '@/context'
 import { UUID } from 'crypto'
 
 export interface CartProduct {
@@ -6,11 +7,12 @@ export interface CartProduct {
   name: string
   price: number
   discount: number
-  img: string
+  img: ProductImage
   color: string
   size: string
   quantity: number
   art_no: string
+  full_type_data: ProductVariation
 }
 
 export interface CartProductProps {
