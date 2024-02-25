@@ -79,12 +79,18 @@ export interface BannersType {
   button: string[]
 }
 
+export interface styled_by_you {
+  id: number
+  created_at: Date
+  name: string
+  img: string
+}
+
 export interface DataSliceTypes {
   satatus: 'loading' | 'succeeded' | 'failed'
   error: string | null
-
   bannersData: BannersType[] | null
   categoriesData: otherImgsTypes[] | null
   products: Product[] | null
-  userData: UserData | null
+  styled_by_you: styled_by_you[] | null
 }

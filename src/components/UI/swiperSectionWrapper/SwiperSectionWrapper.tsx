@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 const SwiperSectionWrapper = () => {
   const [FILTER__QUERY, SET__FILTER__QUERY] = useState('Women')
   const products = useSelector((state: RootState) => state.data.products)
+  console.log(products)
 
   return (
     <div>

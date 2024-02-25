@@ -3,6 +3,7 @@ import CardInfo from '@/components/Layouts/Swiper/CardInfo'
 import { SwiperCardProps } from './SwiperCard.types'
 import { cardImgHoverHandler, cardImgLeaveHandler } from '@/utils'
 import { AsyncImage } from 'loadable-image'
+import { useNavigate } from 'react-router-dom'
 
 const SwiperCard: React.FC<SwiperCardProps> = ({
   item,
@@ -10,8 +11,16 @@ const SwiperCard: React.FC<SwiperCardProps> = ({
   width = 245,
   height = 350
 }) => {
+  const route = useNavigate()
   return (
-    <div className="swiper__card">
+    <div
+      className="swiper__card"
+      onClick={() => {
+        window.scrollTo(0, 0)
+        route(`/product-show/${item?.title}`, {
+          state: item
+        })
+      }}>
       <div
         className="img__wrapper"
         onMouseLeave={cardImgLeaveHandler}

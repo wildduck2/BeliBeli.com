@@ -29,21 +29,11 @@ export const utilSlice = createSlice({
       if (action.payload) {
         state.emailisnotvalid = action.payload
       }
-    },
-
-    getUserReviews: (state, action) => {
-      if (action.payload) {
-        state.userReveiws = action.payload
-      }
     }
   }
 })
 
 export default utilSlice.reducer
 
-export const {
-  showMobileMenu,
-  checkInputsValid,
-  emailisnotvalid,
-  getUserReviews
-} = utilSlice.actions
+export const { showMobileMenu, checkInputsValid, emailisnotvalid } =
+  utilSlice.actions

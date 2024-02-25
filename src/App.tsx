@@ -16,8 +16,10 @@ import {
   ProductShow,
   Profile,
   Reviews,
-  ShopProduct
-} from './components/Pages'
+  WishList,
+  ShopProduct,
+  Cart
+} from '@/components/Pages'
 import {
   Footer,
   Header,
@@ -25,13 +27,11 @@ import {
   HeaderMenu,
   Signin,
   Signup
-} from './components/Layouts'
-import { HeaderNavigationLinks } from './components/UI'
-import { store } from './context/store'
+} from '@/components/Layouts'
+import { HeaderNavigationLinks } from '@/components/UI'
+import { store } from '@/context'
+import { useGetCartProducts } from '@/hooks'
 import { thunkFetchingFromSupabase } from './context/Data/Data'
-import WishList from './components/Pages/WishList/WishList'
-import Cart from './components/Pages/Cart/Cart'
-import { useGetCartProducts } from './hooks'
 
 function App(): React.JSX.Element {
   useGetCartProducts()

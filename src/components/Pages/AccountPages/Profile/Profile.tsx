@@ -40,7 +40,7 @@ const Profile = () => {
             <span>You have no recent orders to display.</span>
           ) : (
             userData?.user_cart.map((item: CartProduct) => (
-              <OrderCard key={item.id} item={item} />
+              <OrderCard key={item.id + Math.random()} item={item} />
             ))
           )}
         </ul>
@@ -60,8 +60,8 @@ const Profile = () => {
             <h2>Need help with your order?</h2>
           </div>
           <div>
-            {needHelpNavigation.map((item, index) => (
-              <Link key={index} href="/">
+            {needHelpNavigation.map((item) => (
+              <Link key={item} href="/">
                 {item}
               </Link>
             ))}

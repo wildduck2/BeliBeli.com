@@ -4,8 +4,8 @@
 
 */
 
-@use "../../utils" as u;
-@use "../../base" as *;
+@use '../../utils' as u;
+@use '../../base' as *;
 
 /*
 
@@ -59,7 +59,7 @@
                 transition: 0.05s ease-out;
 
                 &:hover {
-                  color: hsla(var(--c-red-700),1);
+                  color: hsla(var(--c-red-700), 1);
                   text-decoration: underline;
                 }
               }
@@ -110,7 +110,7 @@
       }
 
       &__products {
-        @include u.flex(flex, flex-start, space-between);
+        @include u.flex(flex, flex-start, flex-start);
         flex-wrap: wrap;
         gap: 2rem;
         margin-bottom: 4rem;

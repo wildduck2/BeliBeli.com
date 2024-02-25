@@ -1,4 +1,3 @@
-import { getCartProducts, getFavoriteProducts } from '@/context/utils/Utils'
 import { RootState } from '@/context/store'
 import { supabase } from '@/supabase/supabase'
 import {
@@ -30,12 +29,10 @@ const useGetCartProducts = () => {
 
           const { data: UserData, error } = (await supabase
             .from('users')
-            .select('user_cart, favourite_products')
+            .select('user_cart, favourite_products, product_reviews')
             .eq('id', user.user?.id)) as PostgrestSingleResponse<User[]>
 
           if (UserData) {
-            // dispatch(getCartProducts(data[0].user_cart))
-            // dispatch(getFavoriteProducts(data[0].favourite_products))
             dispatch(getUserSession(user.user))
             dispatch(getUserData(UserData[0]))
           } else {

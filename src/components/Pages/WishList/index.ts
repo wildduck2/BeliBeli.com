@@ -1,2 +1,2 @@
-export * from './WishList'
+export { default as WishList } from './WishList'
 export * from './WishList.types'

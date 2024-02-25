@@ -5,7 +5,9 @@ import { Link } from '../../UI'
 import { RootState } from '../../../context/store'
 
 const StyledByYouWrapper = () => {
-  const products = useSelector((state: RootState) => state.data.products)
+  const styled_by_you = useSelector(
+    (state: RootState) => state.data.styled_by_you
+  )
 
   return (
     <>
@@ -22,7 +24,7 @@ const StyledByYouWrapper = () => {
       </div>
 
       <div className="styledByYou__section__content">
-        <SwiperSmall FILTER__QUERY="styledbyyou" DATA__NAME={products} />
+        <SwiperSmall DATA__NAME={styled_by_you} />
       </div>
     </>
   )

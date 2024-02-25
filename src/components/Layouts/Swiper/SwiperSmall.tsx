@@ -5,12 +5,13 @@ import { Navigation } from 'swiper/modules'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { Skeleton } from '@/components/UI'
+import { Button, Skeleton } from '@/components/UI'
 import { RootState } from '@/context/store'
 import { useSelector } from 'react-redux'
-import { SwiperTypes } from './Swiper.types'
+import { SmallSwiperTypes } from './Swiper.types'
+import { AsyncImage } from 'loadable-image'
 
-const SwiperSmall = ({ DATA__NAME }: SwiperTypes) => {
+const SwiperSmall = ({ DATA__NAME }: SmallSwiperTypes) => {
   const selector = useSelector((state: RootState) => state.data)
 
   return (
@@ -24,36 +25,27 @@ const SwiperSmall = ({ DATA__NAME }: SwiperTypes) => {
       navigation={true}
       modules={[Navigation]}
       className="styledByYou__section__content__swiper"
-      loop={true}
-    >
+      loop={true}>
       {selector.satatus === 'succeeded' ? (
         DATA__NAME?.map((item, index) => {
           return (
-            item.type === 'styledbyyou' &&
-            item.product_type.map((data) => {
-              return (
-                <SwiperSlide
-                  className="styledByYou__section__content__swiper__slide"
-                  key={index}
-                >
-                  <div className="img__wrapper">
-                    <img src={data.top_imgs['1']} alt="" />
-                    {/* <LazyLoadImage
-                  width={252}
-                  height={252}
+            <SwiperSlide
+              className="styledByYou__section__content__swiper__slide"
+              key={index}>
+              <div className="img__wrapper">
+                <AsyncImage
                   draggable={false}
-                  src={data.top_imgs["1"]}
-                  placeholderSrc={data.low_imgs["1"]}
+                  src={item.img}
+                  style={{ width: 252, height: 252 }}
                   loading="lazy"
-                  effect="opacity"
                   alt="item "
-                /> */}
-                  </div>
-                  {/*card information */}
-                  {/* <CardInfo title={item.title} /> */}
-                </SwiperSlide>
-              )
-            })
+                />
+              </div>
+              {/*card information */}
+              <div className="card__info">
+                <Button variant={'link'}>@{item.name}</Button>
+              </div>
+            </SwiperSlide>
           )
         })
       ) : (
@@ -62,8 +54,7 @@ const SwiperSmall = ({ DATA__NAME }: SwiperTypes) => {
             return (
               <SwiperSlide
                 key={index}
-                className="swiper__card skeleton__swiper"
-              >
+                className="swiper__card skeleton__swiper">
                 <Skeleton />
                 <Skeleton />
                 <Skeleton />

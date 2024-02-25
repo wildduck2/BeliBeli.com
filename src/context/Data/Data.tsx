@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { supabase } from '../../supabase/supabase'
 import { PostgrestSingleResponse } from '@supabase/supabase-js'
 import {
   BannersType,
   DataSliceTypes,
   Product,
-  otherImgsTypes
+  otherImgsTypes,
+  styled_by_you
 } from './Data.types'
-import { toast } from 'sonner'
+import { supabase } from '@/supabase'
 
 const initialState: DataSliceTypes = {
   satatus: 'loading',
@@ -15,7 +15,7 @@ const initialState: DataSliceTypes = {
   bannersData: null,
   categoriesData: null,
   products: null,
-  userData: null
+  styled_by_you: null
 }
 
 export const thunkFetchingFromSupabase = createAsyncThunk(
@@ -46,11 +46,27 @@ export const thunkFetchingFromSupabase = createAsyncThunk(
         .from('products')
         .select('*')
 
+      // getting styled_by_you
+      const { data: styled_by_you, error: styled_by_you_error } =
+        (await supabase
+          .from('styled_by_you')
+          .select('*')) as PostgrestSingleResponse<styled_by_you[]>
+
       // checking if any error log that
-      if (!bannerError || !categoryError || !productsError) {
-        return { banners, categories, products }
+      if (
+        !bannerError ||
+        !categoryError ||
+        !productsError ||
+        !styled_by_you_error
+      ) {
+        return { banners, categories, products, styled_by_you }
       } else {
-        console.log(bannerError, categoryError, productsError)
+        console.log(
+          bannerError,
+          categoryError,
+          productsError,
+          styled_by_you_error
+        )
       }
     } catch (error: string | unknown) {
       throw new Error(error as string)
@@ -78,8 +94,10 @@ export const dataSlice = createSlice({
 
         //  Getting the priducts from the data
         state.products = action.payload?.products as Product[] | null
-      })
 
+        // getting the styled_by_you
+        state.styled_by_you = action.payload?.styled_by_you as styled_by_you[]
+      })
       .addCase(thunkFetchingFromSupabase.rejected, (state, action) => {
         state.satatus = 'failed'
         state.error = action.error.message as string
