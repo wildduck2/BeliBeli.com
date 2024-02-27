@@ -16,39 +16,36 @@ const RemoveProductCart = async ({
         if (usererror) {
           reject(usererror)
           return
-        } else {
-          const { data: currentCart, error: currentCartError } = (await supabase
-            .from('users')
-            .select('user_cart')
-            .eq('id', user.user.id)) as PostgrestSingleResponse<User[]>
-
-          if (currentCartError) {
-            reject(usererror)
-            return
-          } else {
-            const finalCart = [...(currentCart![0].user_cart || [])]
-            finalCart.splice(
-              finalCart.findIndex((item) => item.id === product.id),
-              1
-            )
-
-            const { data, error } = (await supabase
-              .from('users')
-              .update({
-                user_cart: finalCart
-              })
-              .eq('id', user.user.id)
-              .select()) as PostgrestSingleResponse<User[]>
-
-            if (error) {
-              reject(usererror)
-              throw new Error('something went wrong')
-            } else {
-              dispatch(removeProductCart({ product }))
-              resolve(data![0].user_cart)
-            }
-          }
         }
+        const { data: currentCart, error: currentCartError } = (await supabase
+          .from('users')
+          .select('user_cart')
+          .eq('id', user.user.id)) as PostgrestSingleResponse<User[]>
+
+        if (currentCartError) {
+          reject(usererror)
+          return
+        }
+        const finalCart = [...(currentCart![0].user_cart || [])]
+        finalCart.splice(
+          finalCart.findIndex((item) => item.id === product.id),
+          1
+        )
+
+        const { data, error } = (await supabase
+          .from('users')
+          .update({
+            user_cart: finalCart
+          })
+          .eq('id', user.user.id)
+          .select()) as PostgrestSingleResponse<User[]>
+
+        if (error) {
+          reject(usererror)
+          throw new Error('something went wrong')
+        }
+        dispatch(removeProductCart({ product }))
+        resolve(data![0].user_cart)
       } catch (error) {
         throw new Error('something went wrong')
       }

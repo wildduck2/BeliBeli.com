@@ -103,11 +103,11 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ index, review }) => {
                     : ''
               }`}
               disabled={
-                REVIEW_USER_IDS?.includes(userSession!.id) ||
+                REVIEW_USER_IDS?.includes(userSession?.id!) ||
                 reviewHelpfull !== null
               }>
               <span>Yes</span>
-              <sub>({reviewtrue?.length})</sub>
+              <sub>({reviewtrue?.length || 0})</sub>
             </Button>
             <Button
               variant={'secondary'}
@@ -130,11 +130,11 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ index, review }) => {
                     : ''
               }`}
               disabled={
-                REVIEW_USER_IDS?.includes(userSession!.id as UUID) ||
+                REVIEW_USER_IDS?.includes(userSession?.id as UUID) ||
                 reviewHelpfull !== null
               }>
               <span>No</span>
-              <sub>({reviewfalse?.length})</sub>
+              <sub>({reviewfalse?.length || 0})</sub>
             </Button>
             <Button variant={'secondary'}>Report</Button>
           </div>

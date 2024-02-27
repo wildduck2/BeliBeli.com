@@ -115,12 +115,16 @@
         gap: 2rem;
         margin-bottom: 4rem;
         min-height: 800px;
+        position: relative;
 
         .swiper__card {
+          display: block;
+          position: relative;
           width: 269.4px;
           height: 480px;
 
           .img__wrapper {
+            position: relative;
             max-width: 270px;
           }
         }

@@ -8,52 +8,48 @@ const RemoveProductFavorite = async ({
   product,
   dispatch
 }: RemoveProductFavoriteProps) => {
-  const promise = new Promise((resolve, reject) => {
+  const promise: Promise<boolean> = new Promise((resolve, reject) => {
     const cb = async () => {
       try {
         const { data: user, error: usererror } = await supabase.auth.getUser()
 
         if (usererror) {
-          reject(usererror)
+          reject(false)
           return
-        } else {
-          const { data: currentCart, error: currentCartError } = (await supabase
-            .from('users')
-            .select('favourite_products')
-            .eq('id', user.user.id)) as PostgrestSingleResponse<User[]>
-
-          if (currentCartError) {
-            reject(usererror)
-            return
-          } else {
-            const finalCart = [...(currentCart![0].favourite_products || [])]
-            finalCart.splice(
-              finalCart.findIndex(
-                (item) =>
-                  item.product_type.art_no === product.product_type.art_no
-              ),
-              1
-            )
-
-            const { data, error } = (await supabase
-              .from('users')
-              .update({
-                favourite_products: finalCart
-              })
-              .eq('id', user.user.id)
-              .select()) as PostgrestSingleResponse<User[]>
-
-            if (error) {
-              reject(usererror)
-              throw new Error('something went wrong')
-            } else {
-              dispatch(removeProductFavorite({ product }))
-              resolve(data![0].favourite_products)
-            }
-          }
         }
+        const { data: currentCart, error: currentCartError } = (await supabase
+          .from('users')
+          .select('favourite_products')
+          .eq('id', user.user.id)) as PostgrestSingleResponse<User[]>
+
+        if (currentCartError) {
+          reject(false)
+          return
+        }
+        const finalCart = [...(currentCart![0].favourite_products || [])]
+        finalCart.splice(
+          finalCart.findIndex(
+            (item) => item.product_type.art_no === product.product_type.art_no
+          ),
+          1
+        )
+
+        const { data, error } = (await supabase
+          .from('users')
+          .update({
+            favourite_products: finalCart
+          })
+          .eq('id', user.user.id)
+          .select()) as PostgrestSingleResponse<User[]>
+
+        if (error) {
+          reject(false)
+          throw new Error('something went wrong')
+        }
+        dispatch(removeProductFavorite({ product }))
+        resolve(true)
       } catch (error) {
-        reject(error)
+        reject(false)
         throw new Error('something went wrong')
       }
     }
@@ -66,6 +62,8 @@ const RemoveProductFavorite = async ({
     loading: 'Removing product from favourites...',
     error: 'Something went wrong!'
   })
+
+  return promise
 }
 
 export { RemoveProductFavorite }

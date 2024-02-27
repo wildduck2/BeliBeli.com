@@ -32,8 +32,6 @@ const updateCartProductsFunc = async ({
 
     if (updateError) {
       throw new Error('deez nuts')
-    } else {
-      console.log(updatedData[0].user_cart)
     }
   } catch (error) {
     toast.error('something went wrong in adding product to cart')

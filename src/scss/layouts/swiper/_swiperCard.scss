@@ -1,0 +1,195 @@
+/*
+
+    This code is writen by Ahmed Ayob
+
+*/
+
+@use '../../utils' as u;
+@use '../../base' as *;
+
+/*
+
+    Swiper Card
+
+*/
+
+.swiper-slide {
+  width: fit-content !important;
+}
+
+.swiper__card {
+  position: relative;
+  width: 245px;
+  max-width: 269px;
+  height: 455px;
+  text-transform: capitalize;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: 0.4s;
+  scroll-snap-align: start;
+  z-index: 30;
+  transform: translateZ(0);
+
+  &--active {
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0;
+    scale: 0;
+  }
+
+  * {
+    user-select: none;
+  }
+
+  &.skeleton__swiper {
+    display: grid;
+    gap: 0.5rem;
+
+    & > div {
+      width: 100%;
+      height: 10px;
+
+      &:nth-child(1) {
+        height: 350px;
+      }
+    }
+  }
+
+  .img__wrapper {
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    overflow-x: scroll;
+    grid-auto-columns: 100%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-align: center;
+    overflow: scroll;
+    max-width: 255px;
+    margin-bottom: 0.4rem;
+    scrollbar-width: none;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    & > div:not(.img__wrapper__overlay) {
+      scroll-snap-type: mandatory;
+      scroll-snap-align: center;
+    }
+
+    .img__wrapper__overlay {
+      @include u.flex(flex, center, center);
+      position: sticky;
+      gap: 0.5rem;
+      top: 100%;
+      width: 100%;
+      background-color: #ffffff96;
+      opacity: 0;
+      z-index: 10000;
+      height: 0;
+      right: 0;
+      transition: all 0.07s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+      & > div {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        border: 1px solid var(--c-black-700);
+
+        &.active {
+          background-color: hsla(var(--c-red-700), 1);
+          border-color: transparent;
+        }
+      }
+    }
+
+    img {
+      height: 100%;
+      height: 350px;
+      user-select: none;
+      transition: 0.3s ease;
+    }
+
+    & > .heart {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 41;
+      transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      &:hover {
+        // stroke: hsla(var(--c-red-700), 1);
+      }
+
+      svg {
+        pointer-events: none;
+      }
+
+      &.active svg {
+        fill: hsla(var(--c-red-700), 1);
+        stroke: hsla(var(--c-red-700), 1);
+      }
+    }
+  }
+
+  .card__slider-info {
+    font-size: var(--f-sm);
+    font-weight: 500;
+    padding-inline: 0.5rem;
+    color: #222222;
+
+    h3 {
+      font-weight: 500;
+      // padding-block: 0.1rem;
+      transition: 0.3s ease;
+
+      &:hover {
+        text-decoration: line-through;
+      }
+    }
+
+    .costs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .discount {
+        font-size: var(--f-sm);
+
+        &.show__discount {
+          span {
+            text-decoration: line-through;
+          }
+        }
+      }
+
+      .price {
+        font-size: var(--f-sm);
+        color: #e50010;
+        padding-block: 0.1rem;
+      }
+    }
+
+    .save {
+      font-size: calc(var(--f-sm) - 0.1rem);
+      color: #e50010;
+    }
+
+    .recomended {
+      color: #007b5f;
+      opacity: 0;
+      pointer-events: none;
+
+      &.show {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  }
+
+  &:hover .img__wrapper__overlay {
+    height: 50px;
+    opacity: 1;
+  }
+}
