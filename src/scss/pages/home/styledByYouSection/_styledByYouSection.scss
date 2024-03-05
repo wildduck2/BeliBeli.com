@@ -20,13 +20,14 @@
   @include u.flex(flex, flex-start, space-between);
   gap: 1rem;
   margin-block: 1rem 3rem;
+  @include u.flex(grid);
 
   .swiper-button-prev,
   .swiper-button-next {
     top: var(--swiper-navigation-top-offset, 50%);
   }
 
-  & > &__header {
+  &__header {
     @include u.flex(grid, center, space-between);
     max-width: 300px;
     height: 100%;
@@ -42,43 +43,57 @@
     }
   }
 
-  & > &__content {
+  &__content {
     max-width: 797px;
 
-    .swiper-slide {
-      position: relative;
-      width: 252px !important;
-      height: 252px !important;
-      cursor: pointer;
+    &__swiper {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 100%;
 
-      .img__wrapper img {
+      @include u.breakpoint(medium) {
+        grid-auto-columns: calc(100% / 2);
+      }
+      @include u.breakpoint(large) {
+        grid-auto-columns: calc(100% / 3);
+      }
+      margin: 0;
+
+      &__slide {
+        position: relative;
         width: 252px !important;
         height: 252px !important;
-        object-fit: cover;
-        object-position: top;
-      }
+        cursor: pointer;
 
-      & > .card__info {
-        @include u.flex(grid, cneter, center);
-        place-content: center;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        opacity: 0;
-        transition: opacity 0.3s ease-out;
-
-        button {
-          font-size: var(--f-lg);
-          color: var(--c-white);
+        .img__wrapper img {
+          width: 252px !important;
+          height: 252px !important;
+          object-fit: cover;
+          object-position: top;
         }
-      }
 
-      &:hover > .card__info {
-        opacity: 1;
+        & > .card__info {
+          @include u.flex(grid, cneter, center);
+          place-content: center;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          opacity: 0;
+          transition: opacity 0.3s ease-out;
+
+          button {
+            font-size: var(--f-lg);
+            color: var(--c-white);
+          }
+        }
+
+        &:hover > .card__info {
+          opacity: 1;
+        }
       }
     }
   }

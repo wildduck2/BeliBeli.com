@@ -10,7 +10,7 @@ import {
 import { footerData } from '../../../constants'
 import { logo } from '../../../assets'
 
-const Footer = () => {
+const Footer = (): React.JSX.Element => {
   return (
     <footer>
       <div className="footer__container">

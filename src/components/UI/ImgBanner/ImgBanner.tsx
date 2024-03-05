@@ -17,7 +17,7 @@ const ImgBanner: React.FC<ImgBannerProps> = ({ dataIndex, satatus }) => {
           {satatus === 'succeeded' && status === 'succeeded' ? (
             <>
               <AsyncImage
-                media="(min-width: 500px)"
+                media="(min-width: 600px)"
                 src={bannerData![dataIndex!].mobile_top_img}
                 srcSet={bannerData![dataIndex!].top_img}
                 width={275}
@@ -38,8 +38,7 @@ const ImgBanner: React.FC<ImgBannerProps> = ({ dataIndex, satatus }) => {
                       <Link
                         className="img-banner__button"
                         key={index}
-                        href={btn}
-                      >
+                        href={btn}>
                         {btn}
                       </Link>
                     )

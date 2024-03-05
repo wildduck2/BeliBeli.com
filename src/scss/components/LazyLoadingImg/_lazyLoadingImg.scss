@@ -4,8 +4,8 @@
 
 */
 
-@use "../../utils" as u;
-@use "../../base" as *;
+@use '../../utils' as u;
+@use '../../base' as *;
 
 /*
 
@@ -18,7 +18,7 @@
   z-index: 0;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
     background-color: var(--c-skeleton);
@@ -28,11 +28,7 @@
 
   .lazyLoadingImg {
     &__img {
-      width: clamp(
-        17.6625rem,
-        8.931707317073172rem + 49.89024390243902vw,
-        68.8rem
-      );
+      width: clamp(17.6625rem, 8.9317073171rem + 98.89vw, 68.8rem);
       height: clamp(
         24rem,
         20.286585365853657rem + 21.21951219512195vw,
@@ -40,6 +36,8 @@
       );
       opacity: 0;
       transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      object-fit: cover;
+      object-position: top;
     }
   }
 

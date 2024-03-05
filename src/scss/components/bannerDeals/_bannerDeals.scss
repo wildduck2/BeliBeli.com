@@ -4,8 +4,8 @@
 
 */
 
-@use "../../utils" as u;
-@use "../../base" as *;
+@use '../../utils' as u;
+@use '../../base' as *;
 
 /*
 
@@ -14,34 +14,26 @@
 */
 
 .banner-deals {
-    margin-top: 1.8rem;
+  @include u.section;
+  @include u.flex(grid, center, center);
+  text-align: center;
+  height: 68px;
+  overflow: hidden;
 
-    @include u.breakpoint("medium") {
-        width: 600px;
+  @include u.breakpoint('medium') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include u.breakpoint('large') {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  &__link {
+    font-size: var(--f-md);
+    padding-bottom: 1rem;
+
+    @include u.breakpoint('xlarge') {
+      font-size: initial;
     }
-
-    @include u.breakpoint("large") {
-        width: 960px;
-    }
-
-    & .swiper-slide {
-        @include u.flex(flex, center, center);
-        text-align: center;
-
-        @include u.breakpoint("large") {
-            width: fit-content !important;
-        }
-    }
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
-
-    &__link {
-        font-size: var(--f-body);
-
-        @include u.breakpoint("large") {
-            font-size: initial;
-        }
-    }
+  }
 }

@@ -10,6 +10,8 @@ const HeaderBanner = (): React.JSX.Element => {
   const userSession = useSelector((state: RootState) => state.user.userSession)
   const dispatch = useDispatch()
 
+  console.log('thi is use session', userSession)
+
   return (
     <div className="banner">
       {userLogged ? (

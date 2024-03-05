@@ -28,6 +28,8 @@
 
       & > div.filter {
         @include u.flex(flex, center);
+        flex-wrap: wrap;
+        margin-block: 1.5rem 1rem;
         gap: 1.2rem;
 
         .active_filter {
@@ -38,7 +40,6 @@
         }
 
         .rounded_button {
-          margin-block: 1.5rem 1rem;
           padding: 0.7rem 1.3rem;
           font-size: 0.75rem;
           border: 1px solid #56595c;
@@ -54,5 +55,25 @@
 
   &__swiper {
     height: 480px;
+    height: 414px;
+    // gap: 1rem;
+    // margin: 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+
+    @include u.breakpoint(small) {
+      grid-auto-columns: calc(100% / 2);
+    }
+    @include u.breakpoint(medium) {
+      grid-auto-columns: calc(100% / 3);
+    }
+    @include u.breakpoint(large) {
+      grid-auto-columns: calc(100% / 4);
+    }
+
+    & > .swiper-slide {
+      place-self: center;
+    }
   }
 }

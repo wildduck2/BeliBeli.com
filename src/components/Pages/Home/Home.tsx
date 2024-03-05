@@ -12,9 +12,7 @@ const Home = () => {
   return (
     <>
       <main>
-        {/* Hero Section */}
         <section className="hero__section">
-          {/* RedBanner Section */}
           <ColorfulBanner
             title={RedBannerHome.title}
             description={RedBannerHome.description}
@@ -26,7 +24,6 @@ const Home = () => {
 
           <ImgBanner dataIndex={6} satatus={satatus} />
 
-          {/* BlackBanner Section */}
           <ColorfulBanner
             title={BlackBannerHome.title}
             description={BlackBannerHome.description}
@@ -39,7 +36,6 @@ const Home = () => {
           <CategoryBanner dataIndex={0} satatus={satatus} />
         </section>
 
-        {/* Hero Section */}
         <section className="trending__section">
           <SwiperSectionWrapper />
         </section>

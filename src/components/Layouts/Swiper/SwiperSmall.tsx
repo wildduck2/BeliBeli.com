@@ -5,7 +5,15 @@ import { Navigation } from 'swiper/modules'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { Button, Skeleton } from '@/components/UI'
+import {
+  Button,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  Skeleton
+} from '@/components/UI'
 import { RootState } from '@/context/store'
 import { useSelector } from 'react-redux'
 import { SmallSwiperTypes } from './Swiper.types'
@@ -15,57 +23,51 @@ const SwiperSmall = ({ DATA__NAME }: SmallSwiperTypes) => {
   const selector = useSelector((state: RootState) => state.data)
 
   return (
-    <SW
-      spaceBetween={20}
-      slidesPerView={3}
-      // slidesPerGroup={4}
-      cssMode={true}
-      draggable={true}
-      pagination={true}
-      navigation={true}
-      modules={[Navigation]}
-      className="styledByYou__section__content__swiper"
-      loop={true}>
-      {selector.satatus === 'succeeded' ? (
-        DATA__NAME?.map((item, index) => {
-          return (
-            <SwiperSlide
-              className="styledByYou__section__content__swiper__slide"
-              key={index}>
-              <div className="img__wrapper">
-                <AsyncImage
-                  draggable={false}
-                  src={item.img}
-                  style={{ width: 252, height: 252 }}
-                  loading="lazy"
-                  alt="item "
-                />
-              </div>
-              {/*card information */}
-              <div className="card__info">
-                <Button variant={'link'}>@{item.name}</Button>
-              </div>
-            </SwiperSlide>
-          )
-        })
-      ) : (
-        <>
-          {Array.from({ length: 4 }).map((_, index) => {
+    <Carousel>
+      <CarouselContent className="styledByYou__section__content__swiper">
+        {selector.satatus === 'succeeded' ? (
+          DATA__NAME?.map((item, index) => {
             return (
-              <SwiperSlide
-                key={index}
-                className="swiper__card skeleton__swiper">
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-              </SwiperSlide>
+              <CarouselItem
+                className="styledByYou__section__content__swiper__slide"
+                key={index}>
+                <div className="img__wrapper">
+                  <AsyncImage
+                    draggable={false}
+                    src={item.img}
+                    style={{ width: 252, height: 252 }}
+                    loading="lazy"
+                    alt="item "
+                  />
+                </div>
+                {/*card information */}
+                <div className="card__info">
+                  <Button variant={'link'}>@{item.name}</Button>
+                </div>
+              </CarouselItem>
             )
-          })}
-        </>
-      )}
-    </SW>
+          })
+        ) : (
+          <>
+            {Array.from({ length: 4 }).map((_, index) => {
+              return (
+                <CarouselItem
+                  key={index}
+                  className="swiper__card skeleton__swiper">
+                  <Skeleton />
+                  <Skeleton />
+                  <Skeleton />
+                  <Skeleton />
+                  <Skeleton />
+                </CarouselItem>
+              )
+            })}
+          </>
+        )}
+      </CarouselContent>
+      <CarouselPrevious variant={'ghost'} />
+      <CarouselNext variant={'ghost'} />
+    </Carousel>
   )
 }
 
