@@ -1,10 +1,12 @@
 import React from 'react'
 
-import { Swiper as SW, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
-
 import 'swiper/css'
 import 'swiper/css/pagination'
+
+import { RootState } from '@/context/store'
+import { useSelector } from 'react-redux'
+import { SmallSwiperTypes } from './Swiper.types'
+import { AsyncImage } from 'loadable-image'
 import {
   Button,
   Carousel,
@@ -14,10 +16,6 @@ import {
   CarouselPrevious,
   Skeleton
 } from '@/components/UI'
-import { RootState } from '@/context/store'
-import { useSelector } from 'react-redux'
-import { SmallSwiperTypes } from './Swiper.types'
-import { AsyncImage } from 'loadable-image'
 
 const SwiperSmall = ({ DATA__NAME }: SmallSwiperTypes) => {
   const selector = useSelector((state: RootState) => state.data)

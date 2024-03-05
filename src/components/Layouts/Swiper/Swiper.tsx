@@ -1,6 +1,4 @@
 import React from 'react'
-import { Swiper as SW, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination } from 'swiper/modules'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -15,7 +13,6 @@ import {
   Skeleton,
   SwiperCard
 } from '@/components/UI'
-import { useNavigate } from 'react-router-dom'
 import { SwiperTypes } from './Swiper.types'
 import { Product } from '@/context/Data/Data.types'
 
