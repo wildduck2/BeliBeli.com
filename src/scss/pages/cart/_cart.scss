@@ -4,8 +4,8 @@
 
 */
 
-@use "../../utils" as u;
-@use "../../base" as *;
+@use '../../utils' as u;
+@use '../../base' as *;
 
 /*
 
@@ -81,10 +81,14 @@
     }
 
     &__products {
-      @include u.flex(flex, flex-start, space-between);
+      @include u.flex(grid, center);
       @include u.container;
-      gap: 13rem;
+      gap: clamp(6rem, 4.310344827586206rem + 9.655172413793103vw, 13rem);
       width: 100%;
+
+      @include u.breakpoint('large') {
+        @include u.flex(flex, flex-start, space-between);
+      }
 
       &__info {
         @include u.flex(grid, center);
@@ -133,17 +137,28 @@
           overflow-y: scroll;
 
           li {
-            @include u.flex(flex, flex-start, space-between);
+            @include u.flex(grid, flex-start, space-between);
+            gap: 1rem;
             padding-block: 1rem;
             padding-right: 1rem;
             border-bottom: 1px solid var(--c-gray-200);
 
-            & > div:first-child {
+            @include u.breakpoint('large') {
               @include u.flex(flex, flex-start, space-between);
+              gap: 00em;
+            }
+
+            & > div:first-child {
+              @include u.flex(grid, flex-start, space-between);
               gap: 1rem;
+
+              @include u.breakpoint('medium') {
+                @include u.flex(flex, flex-start, space-between);
+              }
 
               & > div {
                 @include u.flex(grid, center);
+
                 h4 {
                   font-size: calc(var(--f-nor) + 0.1rem);
                   margin-bottom: 0.5rem;
@@ -167,8 +182,14 @@
             }
 
             & > div:last-child {
-              @include u.flex(grid, center, space-between);
-              gap: 6rem;
+              @include u.flex(flex, center, space-between);
+
+              @include u.breakpoint('medium') {
+                gap: 6rem;
+              }
+              @include u.breakpoint('large') {
+                @include u.flex(grid, center, space-between);
+              }
 
               button {
                 width: fit-content;
@@ -202,13 +223,13 @@
           @include u.flex(flex, center);
           margin-bottom: 2rem;
 
-          input[type="number"]::-webkit-outer-spin-button,
-          input[type="number"]::-webkit-inner-spin-button {
+          input[type='number']::-webkit-outer-spin-button,
+          input[type='number']::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
           }
 
-          input[type="number"] {
+          input[type='number'] {
             border: 1px solid var(--c-gray-200);
             -moz-appearance: textfield;
             border-radius: 3px 0 0 3px;
