@@ -35,54 +35,6 @@ const Swiper = ({ DATA__NAME, FILTER__QUERY }: SwiperTypes) => {
                       height={350}
                     />
                   </CarouselItem>
-                  <CarouselItem key={index}>
-                    <SwiperCard
-                      item={item}
-                      key={index}
-                      width={245}
-                      height={350}
-                    />
-                  </CarouselItem>
-                  <CarouselItem key={index}>
-                    <SwiperCard
-                      item={item}
-                      key={index}
-                      width={245}
-                      height={350}
-                    />
-                  </CarouselItem>
-                  <CarouselItem key={index}>
-                    <SwiperCard
-                      item={item}
-                      key={index}
-                      width={245}
-                      height={350}
-                    />
-                  </CarouselItem>
-                  <CarouselItem key={index}>
-                    <SwiperCard
-                      item={item}
-                      key={index}
-                      width={245}
-                      height={350}
-                    />
-                  </CarouselItem>
-                  <CarouselItem key={index}>
-                    <SwiperCard
-                      item={item}
-                      key={index}
-                      width={245}
-                      height={350}
-                    />
-                  </CarouselItem>
-                  <CarouselItem key={index}>
-                    <SwiperCard
-                      item={item}
-                      key={index}
-                      width={245}
-                      height={350}
-                    />
-                  </CarouselItem>
                 </>
               )
             )

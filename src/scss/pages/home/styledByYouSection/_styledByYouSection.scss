@@ -17,14 +17,12 @@
   --swiper-navigation-size: 18px;
   @include u.section;
   max-width: 1300px;
-  @include u.flex(flex, flex-start, space-between);
   gap: 1rem;
   margin-block: 1rem 3rem;
   @include u.flex(grid);
 
-  .swiper-button-prev,
-  .swiper-button-next {
-    top: var(--swiper-navigation-top-offset, 50%);
+  @include u.breakpoint(medium) {
+    @include u.flex(flex, flex-start, space-between);
   }
 
   &__header {
@@ -45,17 +43,23 @@
 
   &__content {
     max-width: 797px;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 3rem;
 
     &__swiper {
       display: grid;
       grid-auto-flow: column;
       grid-auto-columns: 100%;
+      width: 252px;
 
-      @include u.breakpoint(medium) {
-        grid-auto-columns: calc(100% / 2);
-      }
       @include u.breakpoint(large) {
+        grid-auto-columns: calc(100% / 2);
+        width: 525px;
+      }
+      @include u.breakpoint(xlarge) {
         grid-auto-columns: calc(100% / 3);
+        width: 770px;
       }
       margin: 0;
 

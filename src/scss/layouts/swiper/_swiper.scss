@@ -53,23 +53,49 @@
     }
   }
 
+  .yrelative {
+    margin: auto;
+    width: fit-content;
+
+    & > div {
+      width: 270px;
+      @include u.breakpoint(small) {
+      }
+      @include u.breakpoint(medium) {
+        width: 514px;
+      }
+      @include u.breakpoint(large) {
+        width: 810px;
+      }
+      @include u.breakpoint(xlarge) {
+        width: 1080px;
+      }
+    }
+  }
+
   &__swiper {
-    height: 480px;
-    height: 414px;
-    // gap: 1rem;
-    // margin: 0;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 100%;
+    margin: 0 auto;
+    height: 414px;
 
-    @include u.breakpoint(small) {
-      grid-auto-columns: calc(100% / 2);
+    @include u.breakpoint-down(xsmall) {
+      // width: 270px;
     }
     @include u.breakpoint(medium) {
-      grid-auto-columns: calc(100% / 3);
+      grid-auto-columns: calc(100% / 2);
     }
     @include u.breakpoint(large) {
+      grid-auto-columns: calc(100% / 3);
+    }
+    @include u.breakpoint(xlarge) {
       grid-auto-columns: calc(100% / 4);
+    }
+
+    & > div {
+      place-self: center;
+      width: fit-content;
     }
 
     & > .swiper-slide {
