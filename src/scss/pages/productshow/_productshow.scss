@@ -29,19 +29,24 @@
     margin-bottom: 4rem;
 
     &__main {
-      @include u.flex(flex, flex-start);
+      @include u.flex(grid);
       gap: 2rem;
       flex: 2 2 1;
 
-      &__imgs {
-        @include u.flex(grid, flex-start);
-        grid-template-columns: repeat(2, 4fr);
-        gap: 2rem;
+      @include u.breakpoint(medium) {
+        @include u.flex(flex, flex-start);
+      }
 
+      &__imgs {
+        gap: 2rem;
         flex: 2;
 
+        @include u.breakpoint(xlarge) {
+          @include u.flex(grid, flex-start);
+        }
+
         .lazyLoadingImg__img {
-          width: 589px;
+          height: auto !important;
         }
 
         &__info {
@@ -76,6 +81,11 @@
         @include u.flex(grid, flex-start);
         gap: 0.7rem;
         flex: 1;
+        order: -1;
+
+        @include u.breakpoint(medium) {
+          order: 1;
+        }
 
         & > h1 {
           font-size: calc(var(--f-lg) + 0.1rem);
@@ -112,7 +122,6 @@
           border: 1px solid hsla(var(--c-blue-600), 1);
           max-width: fit-content;
           padding: 0.4rem 1rem;
-          // background-color: hsla(210, 73.2%, 62%, 0.07);
           background-color: hsla(var(--c-blue-600), 0.07);
 
           svg {
@@ -219,9 +228,14 @@
         }
 
         &__buttons {
-          @include u.flex(flex, center);
-          gap: 2rem;
+          @include u.flex(grid);
+          gap: 1.3rem;
           margin-bottom: 0.7rem;
+
+          @include u.breakpoint(small) {
+            @include u.flex(flex, center);
+            gap: 2rem;
+          }
 
           svg {
             stroke-width: 1.5px;
@@ -234,8 +248,11 @@
             & > button {
               @include u.flex(flex, center, center);
               gap: 0.5rem;
-              width: 250px;
               border-radius: 3px;
+
+              @include u.breakpoint(small) {
+                width: 250px;
+              }
 
               &:last-child {
                 border: 1px solid var(--c-black-300);
@@ -246,8 +263,13 @@
           & > button {
             @include u.flex(flex, center, center);
             gap: 0.5rem;
-            width: 150px;
             border-radius: 3px;
+            border: 1px solid var(--c-black-300);
+
+            @include u.breakpoint(small) {
+              border-color: transparent;
+              width: 150px;
+            }
           }
         }
 
@@ -379,9 +401,13 @@
         }
 
         & > div {
+          @include u.flex(grid, center, space-between);
           width: 100%;
-          @include u.flex(flex, center, space-between);
           gap: 1rem;
+
+          @include u.breakpoint(medium) {
+            @include u.flex(flex, center, space-between);
+          }
 
           & > .rate {
             @include u.flex(grid, center);

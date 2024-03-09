@@ -21,10 +21,15 @@
   }
 
   & > li {
-    @include u.flex(flex, flex-start, space-between);
+    @include u.flex(grid, flex-start, space-between);
+    gap: 2rem;
     border-bottom: 1px solid var(--c-black-300);
     padding-bottom: 3rem;
     margin-bottom: 3rem;
+
+    @include u.breakpoint(medium) {
+      @include u.flex(flex, flex-start, space-between);
+    }
 
     & > div:first-child {
       width: 50%;
@@ -93,8 +98,12 @@
       }
 
       & > div:nth-child(3) {
-        @include u.flex(flex, center);
+        @include u.flex(grid, center);
         gap: 2.5rem;
+
+        @include u.breakpoint(medium) {
+          @include u.flex(flex, center);
+        }
 
         & > div {
           @include u.flex(flex, center);
