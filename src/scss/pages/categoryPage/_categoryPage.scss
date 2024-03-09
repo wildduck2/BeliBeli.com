@@ -4,8 +4,8 @@
 
 */
 
-@use "../../utils" as u;
-@use "../../base" as *;
+@use '../../utils' as u;
+@use '../../base' as *;
 
 /*
 
@@ -22,18 +22,9 @@
     font-size: var(--f-nor);
   }
 
-
-  .img-banner {
-    height: clamp(24rem, 18.52rem + 27.399999999999995vw, 51.4rem);
-  
-    .lazyLoaingImg-wrapper .lazyLoadingImg__img {
-      width: clamp(17.6625rem, 3.795rem + 69.3375vw, 87rem);
-      height: clamp(24rem, 18.52rem + 27.399999999999995vw, 51.4rem);
-    }
-  
-    .img-banner__skeleton {
-      height: clamp(24rem, 18.52rem + 27.399999999999995vw, 51.4rem);
-    }
+  &__wrapper {
+    margin-block: auto;
+    @include u.flex(flex, flex-start);
+    gap: clamp(15rem, -12.899999999999999rem + 31vw, 24.3rem);
   }
-  
 }

@@ -4,117 +4,49 @@
 
 */
 
-@use "../../../utils" as u;
-@use "../../../base" as *;
+@use '../../../utils' as u;
+@use '../../../base' as *;
 
 /*
 
     Category Page Side Bar Navigation
 
 */
-.category-page {
-  &__wrapper {
-    margin-block: auto;
-    @include u.flex(flex, flex-start);
-    gap: 20rem;
 
-    &__sidebar {
-      margin-top: 2rem;
-      @include u.flex(grid, center);
-      gap: 2.25rem;
-      width: 204px;
+.category-page__wrapper__sidebar {
+  margin-top: 2rem;
+  display: none;
+  gap: 2.25rem;
+  width: 204px;
 
+  @include u.breakpoint(xlarge) {
+    @include u.flex(grid, center);
+  }
+
+  & > ul {
+    @include u.flex(grid, center);
+    gap: 1.2rem;
+    width: 100%;
+
+    & > li {
       & > ul {
-        @include u.flex(flex, flex-start, flex-start);
-        @include u.flex(grid, center);
-        gap: 1.2rem;
-        width: 100%;
-
         & > li {
-          & > ul {
-            & > li {
-              & > h4 {
-                font-size: var(--f-nor);
-                font-weight: 600;
-                margin-top: 1.2rem;
-              }
-
-              & > a {
-                font-size: var(--f-md);
-                font-weight: 500;
-                color: var(--c-black-700);
-                transition: 0.05s ease-out;
-
-                &:hover {
-                  color: hsla(var(--c-red-700), 1);
-                  text-decoration: underline;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    &__content {
-      @include u.container;
-      @include u.flex(grid, center);
-      padding-top: 1rem;
-      margin: initial;
-      width: clamp(17.6625rem, 5.195rem + 62.3375vw, 80rem);
-
-      & > h1 {
-        @include u.flex(flex, center);
-        place-content: center;
-
-        padding-bottom: 1rem;
-        border-bottom: 1px solid var(--c-gray-200);
-        font-size: var(--f-2xl);
-        font-weight: 500;
-        text-transform: uppercase;
-      }
-
-      &__hero {
-        padding-block: 0;
-
-        & > .img-banner {
-          margin-top: 1rem;
-        }
-
-        & > div {
-          max-width: 1237px !important;
-        }
-
-        .lazyLoadingImg {
-          &__img {
-            width: clamp(17.6625rem, 3.795rem + 69.3375vw, 87rem);
-            height: clamp(
-              24rem,
-              20.286585365853657rem + 21.21951219512195vw,
-              45.75rem
-            );
-            height: auto;
-          }
-        }
-      }
-
-      &__disc {
-        @include u.flex(grid, center);
-        gap: 1rem;
-        margin-block: 3rem 5rem;
-
-        & > div {
-          @include u.flex(grid, center);
-          gap: 0.3rem;
-
           & > h4 {
-            font-size: var(--f-lg);
+            font-size: var(--f-nor);
             font-weight: 600;
+            margin-top: 1.2rem;
           }
 
-          & > p {
-            font-size: var(--f-nor);
-            margin-bottom: 0.3rem;
+          & > a {
+            font-size: var(--f-md);
+            font-weight: 500;
+            color: var(--c-black-700);
+            transition: 0.05s ease-out;
+
+            &:hover {
+              color: hsla(var(--c-red-700), 1);
+              text-decoration: underline;
+            }
           }
         }
       }

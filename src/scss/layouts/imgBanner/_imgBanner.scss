@@ -15,8 +15,11 @@
 
 .img-banner {
   position: relative;
-  height: clamp(24rem, 20.286585365853657rem + 21.21951219512195vw, 45.75rem);
   overflow: hidden;
+
+  @include u.breakpoint('xlarge') {
+    height: 44.3rem;
+  }
 
   &__layout {
     position: absolute;

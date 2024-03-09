@@ -16,6 +16,7 @@
   position: relative;
   display: inline-flex;
   z-index: 0;
+  width: 100%;
 
   &::after {
     content: '';
@@ -27,13 +28,13 @@
   }
 
   .lazyLoadingImg {
+    width: 100%;
+
+    picture {
+      width: 100%;
+    }
     &__img {
-      width: clamp(17.6625rem, 8.9317073171rem + 98.89vw, 68.8rem);
-      height: clamp(
-        24rem,
-        20.286585365853657rem + 21.21951219512195vw,
-        45.75rem
-      );
+      width: 100%;
       opacity: 0;
       transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
       object-fit: cover;

@@ -58,6 +58,14 @@ const CategoryPage = () => {
                 satatus={status}
               />
             </section>
+            <div className="category-page__wrapper__sidebar mobile__sidebar">
+              {
+                <NavigationHeaderLooping
+                  headerNavigationData={state?.navigationLink}
+                  satatus={status}
+                />
+              }
+            </div>
             <section className="category-page__wrapper__content__disc">
               {status === 'succeeded' ? (
                 Object.entries(
