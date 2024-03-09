@@ -17,9 +17,13 @@
   &__products {
     @include u.flex(grid, center, flex-start);
     margin-top: 0 !important;
-    grid-template-columns: repeat(4, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 3.5rem;
     margin-bottom: 3rem;
+
+    @include u.breakpoint(xlarge) {
+      grid-template-columns: repeat(4, minmax(300px, 1fr));
+    }
 
     &__product {
       @include u.flex(grid, center);

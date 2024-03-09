@@ -4,6 +4,7 @@
 
 */
 @use './functions' as f;
+@use './breakpoints' as u;
 
 /*
 
@@ -40,9 +41,21 @@
 @mixin orderCard {
   & > ul {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 3.5rem;
     margin-bottom: 5rem;
+
+    @include u.breakpoint(medium) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include u.breakpoint(large) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include u.breakpoint(xlarge) {
+      grid-template-columns: repeat(4, 1fr);
+    }
 
     & > span {
       font-size: calc(var(--f-sm) + 0.1rem);
@@ -51,6 +64,8 @@
 
     & > li {
       position: relative;
+      width: fit-content;
+      margin: 0 auto;
 
       & > h4:not(:last-child) {
         margin-top: 0.6rem;

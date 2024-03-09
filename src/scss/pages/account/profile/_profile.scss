@@ -15,9 +15,14 @@
 
 .account__profile {
   &__recent {
-    @include u.flex(flex, center, space-between);
+    @include u.flex(grid);
+    gap: 0.4rem;
     border-bottom: 1px solid var(--c-gray-200);
     padding-bottom: 1rem;
+
+    @include u.breakpoint('small') {
+      @include u.flex(flex, center, space-between);
+    }
 
     h2 {
       font-size: calc(var(--f-xl) + 0.2rem);
@@ -51,7 +56,7 @@
     @include u.flex(grid, center);
     gap: 1rem;
     padding: 2rem;
-    background-color: var(--c-blue-600);
+    background-color: hsla(var(--c-blue-600), 1);
 
     * {
       color: var(--c-white) !important;
@@ -59,6 +64,7 @@
 
     & > div {
       @include u.flex(flex);
+      flex-wrap: wrap;
       gap: 0.5rem;
 
       & > a {
@@ -68,7 +74,11 @@
 
     & > div:last-child {
       margin-left: 2rem;
-      gap: 4rem;
+      gap: 1.3rem;
+
+      @include u.breakpoint('medium') {
+        gap: 4rem;
+      }
     }
   }
 

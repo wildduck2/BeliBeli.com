@@ -41,7 +41,15 @@
   &__products {
     margin-top: 0 !important;
     justify-content: flex-start;
-    grid-template-columns: repeat(4, minmax(445px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(445px, 1fr));
+    margin-inline: auto;
+
+    @include u.breakpoint(large) {
+      margin-inline: initial;
+    }
+    @include u.breakpoint(xlarge) {
+      grid-template-columns: repeat(4, minmax(445px, 1fr));
+    }
 
     &__product {
       @include u.flex(grid, center);

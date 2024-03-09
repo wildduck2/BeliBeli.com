@@ -4,8 +4,8 @@
 
 */
 
-@use "../../utils" as u;
-@use "../../base" as *;
+@use '../../utils' as u;
+@use '../../base' as *;
 
 /*
 
@@ -14,10 +14,14 @@
 */
 
 .account {
-  @include u.flex(flex, flex-start);
+  @include u.flex(grid);
   @include u.container;
-  gap: 18rem;
+  gap: clamp(4rem, -24.330708661417322rem + 35.275590551181104vw, 18rem);
   margin-block: 7rem;
+
+  @include u.breakpoint(xlarge) {
+    @include u.flex(flex, flex-start);
+  }
 
   & > div {
     @include u.flex(grid, center);
@@ -26,12 +30,16 @@
 
     h1 {
       @include u.flex(flex);
-      font-size: calc(var(--f-2xl) + 0.1rem);
       font-weight: 600;
       border-bottom: 1px solid var(--c-gray-200);
+      font-size: calc(var(--f-2xl) - 0.1rem);
       padding-bottom: 1rem;
       margin-bottom: 2rem;
       text-transform: uppercase;
+
+      @include u.breakpoint('large') {
+        font-size: calc(var(--f-2xl) + 0.1rem);
+      }
     }
   }
 
@@ -46,7 +54,7 @@
 
       &.active {
         font-weight: 600;
-        color: hsla(var(--c-red-700),1);
+        color: hsla(var(--c-red-700), 1);
       }
     }
   }

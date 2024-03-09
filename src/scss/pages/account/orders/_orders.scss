@@ -19,9 +19,13 @@
   gap: 2rem;
 
   & > div {
-    @include u.flex(flex, center, space-between);
+    @include u.flex(grid, center, space-between);
     border-bottom: 1px solid var(--c-gray-200);
     padding-bottom: 1rem;
+
+    @include u.breakpoint('medium') {
+      @include u.flex(flex, center, space-between);
+    }
 
     h1 {
       border: 0;
@@ -29,12 +33,20 @@
     }
 
     & > div {
-      @include u.flex(flex, center, space-between);
+      @include u.flex(grid, center, space-between);
       gap: 2rem;
 
-      & > div {
+      @include u.breakpoint('medium') {
         @include u.flex(flex, center, space-between);
+      }
+
+      & > div {
+        @include u.flex(grid, center, space-between);
         gap: 1rem;
+
+        @include u.breakpoint('small') {
+          @include u.flex(flex, center, space-between);
+        }
 
         label {
           white-space: nowrap;
